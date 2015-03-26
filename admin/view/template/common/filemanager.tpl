@@ -63,9 +63,42 @@ $('a.thumbnail').on('click', function(e) {
 		img.src = $(this).attr('href');
 	
 		range = sel.getRangeAt(0); 
-		range.insertNode(img); 
+		range.insertNode(img);
 	}
 	<?php } ?>
+
+	// update json image
+	var row = $('#<?php echo $thumb; ?>').closest('tr'),
+		cell = row.find('.pan-image'),
+		color = row.find('.color-round').data('color'),
+		hidQuantity = $('#input-quantity-detail'),
+		quantityDetail = hidQuantity.val();
+
+	if (hidQuantity.length > 0) {
+		var imageList = new Array();
+		cell.find('input[type="hidden"]').each(function() {
+			var hidInput = $(this);
+			if (hidInput.val() != '') {
+				var img = {
+					name: hidInput.val(),
+					url: hidInput.val(),
+					order: hidInput.data('order')
+				};
+				imageList.push(img);
+			}
+		});
+		var productList = JSON.parse(quantityDetail.replace(/_nn_/g, '"'));
+		for (var i=0; i<productList.length; i++) {
+			if (productList[i].color == color) {
+				productList[i].images = imageList;
+			}
+		}
+
+		var json = JSON.stringify(productList);
+		json = json.replace(/"/g, '_nn_');
+		hidQuantity.val(json);
+	}
+
 
 	$('#modal-image').modal('hide');
 });

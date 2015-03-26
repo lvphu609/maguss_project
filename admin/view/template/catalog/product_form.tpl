@@ -94,14 +94,7 @@
                 <?php } ?>
               </div>
             </div>
-            <div class="tab-pane" id="tab-data">
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-image"><?php echo $entry_image; ?></label>
-                <div class="col-sm-10">
-                  <a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
-                  <input type="hidden" name="image" value="<?php echo $image; ?>" id="input-image" />
-                </div>
-              </div>            
+            <div class="tab-pane" id="tab-data">          
               <div class="form-group required">
                 <label class="col-sm-2 control-label" for="input-model"><?php echo $entry_model; ?></label>
                 <div class="col-sm-10">
@@ -176,9 +169,15 @@
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-quantity"><?php echo $entry_quantity; ?></label>
-                <div class="col-sm-10">
-                  <input type="text" name="quantity" value="<?php echo $quantity; ?>" placeholder="<?php echo $entry_quantity; ?>" id="input-quantity" class="form-control" />
+                <div class="col-sm-3">                  
+                  <div class="input-group">
+                    <input type="text" name="quantity" value="<?php echo $quantity; ?>" placeholder="<?php echo $entry_quantity; ?>" id="input-quantity" class="form-control" readonly />
+                    <span class="input-group-btn">
+                    <button id="btn-change-quantity" class="btn btn-default" type="button" data-toggle="modal" data-target="#dialog-quantity"><span class="glyphicon glyphicon-pencil"></span></button>
+                    </span>
+                  </div>
                 </div>
+                <input type="hidden" name="quantity_detail" value="<?php echo str_replace('"', '_nn_', $quantity_detail); ?>" id="input-quantity-detail" />
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-minimum"><span data-toggle="tooltip" title="<?php echo $help_minimum; ?>"><?php echo $entry_minimum; ?></span></label>
@@ -813,31 +812,51 @@
             </div>
             <div class="tab-pane" id="tab-image">
               <div class="table-responsive">
-                <table id="images" class="table table-striped table-bordered table-hover">
+                <table class="table table-striped table-bordered table-hover">
                   <thead>
                     <tr>
-                      <td class="text-left"><?php echo $entry_image; ?></td>
-                      <td class="text-right"><?php echo $entry_sort_order; ?></td>
-                      <td></td>
+                      <td class="w50 text-center">#</td>
+                      <td class="w50">Color</td>
+                      <td class="text-center">Image</td>
+                      <td class="w50"></td>
                     </tr>
                   </thead>
-                  <tbody>
-                    <?php $image_row = 0; ?>
-                    <?php foreach ($product_images as $product_image) { ?>
-                    <tr id="image-row<?php echo $image_row; ?>">
-                      <td class="text-left"><a href="" id="thumb-image<?php echo $image_row; ?>" data-toggle="image" class="img-thumbnail"><img src="<?php echo $product_image['thumb']; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a><input type="hidden" name="product_image[<?php echo $image_row; ?>][image]" value="<?php echo $product_image['image']; ?>" id="input-image<?php echo $image_row; ?>" /></td>
-                      <td class="text-right"><input type="text" name="product_image[<?php echo $image_row; ?>][sort_order]" value="<?php echo $product_image['sort_order']; ?>" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>
-                      <td class="text-left"><button type="button" onclick="$('#image-row<?php echo $image_row; ?>').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
-                    </tr>
-                    <?php $image_row++; ?>
-                    <?php } ?>
+                  <?php
+                    $colorList = json_decode($quantity_detail, true);
+                    $image_row = 0;
+                  ?>
+                  <tbody id="pan-image-of-color">
+                    <?php if (count($colorList) > 0) : ?>
+                      <?php $colorUsed = array(); ?>
+                      <?php foreach ($colorList as $key => $row) : ?>
+                        <?php if (!in_array($row['color'], $colorUsed)) : ?>
+                          <?php array_push($colorUsed, $row['color']); ?>
+                          <tr>
+                            <td class="text-center"><?php echo ($key + 1); ?></td>
+                            <td>
+                              <div class="color-round" data-color="<?php echo $row['color']; ?>" style="width: 45px; height: 45px; margin: auto; background-color: <?php echo $row['color']; ?>; <?php echo ($row['color']=='#ffffff' ? 'border: 1px solid #cccccc;' : ''); ?>"></div>
+                            </td>
+                            <td class="pan-image">
+                              <?php if (count($row['images']) > 0) : ?>
+                                <?php foreach ($row['images'] as $image) : ?>
+                                  <div class="image-box">
+                                    <a href="" id="thumb-image<?php echo $image_row; ?>" data-toggle="image" class="img-thumbnail">
+                                      <img src="<?php echo $image['url']; ?>" alt="" title="" data-placeholder="<?php echo $image['url']; ?>">
+                                    </a>
+                                    <input type="hidden" value="<?php echo $image['name']; ?>" id="input-image<?php echo $image_row; ?>" data-order="<?php echo $image['order']; ?>">
+                                  </div>
+                                  <?php $image_row++; ?>
+                                <?php endforeach; ?>
+                              <?php endif; ?>
+                            </td>
+                            <td>
+                              <button type="button" onclick="addImage(this);" class="btn btn-primary" data-toggle="tooltip" title data-original-title="Add image"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                            </td>
+                          </tr>
+                        <?php endif; ?>
+                      <?php endforeach; ?>
+                    <?php endif; ?>               
                   </tbody>
-                  <tfoot>
-                    <tr>
-                      <td colspan="2"></td>
-                      <td class="text-left"><button type="button" onclick="addImage();" data-toggle="tooltip" title="<?php echo $button_image_add; ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
-                    </tr>
-                  </tfoot>
                 </table>
               </div>
             </div>
@@ -1339,16 +1358,15 @@ function addSpecial() {
 }
 //--></script> 
   <script type="text/javascript"><!--
-var image_row = <?php echo $image_row; ?>;
+var image_row = $(document).find('.image-box').length;
 
-function addImage() {
-	html  = '<tr id="image-row' + image_row + '">';
-	html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="<?php echo $placeholder; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /><input type="hidden" name="product_image[' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';
-	html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>';
-	html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + image_row  + '\').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
-	html += '</tr>';
-	
-	$('#images tbody').append(html);
+function addImage(el) {
+  var order = $(el).closest('tr').find('.image-box').length + 1;
+	html  = '<div class="image-box">';
+	html += '<a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="<?php echo $placeholder; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /><input type="hidden" value="" id="input-image' + image_row + '" data-order="' + order + '" />'
+  html += '</div>';	
+  
+	$(el).closest('tr').find('.pan-image').append(html);
 	
 	image_row++;
 }
@@ -1402,3 +1420,63 @@ $('#language a:first').tab('show');
 $('#option a:first').tab('show');
 //--></script></div>
 <?php echo $footer; ?> 
+
+<!-- hidden value -->
+<input type="hidden" id="quantity_incorrect" value="<?php echo $quantity_incorrect; ?>">
+<input type="hidden" id="product_duplicate" value="<?php echo $product_duplicate; ?>">
+<input type="hidden" id="error_text" value="<?php echo $error_text; ?>">
+<input type="hidden" id="warning_text" value="<?php echo $warning_text; ?>">
+
+<div class="hide">
+  <div class="input-group input-group-sm w150 edit" id="hidListSize">
+    <div class="input-group-btn">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        <span class="select-label"><?php echo $list_size[0]; ?></span> &nbsp;<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu mw80" role="menu">
+        <?php foreach ($list_size as $key => $size) : ?>
+          <li <?php echo(($key == 0) ? 'class="active"' : ''); ?>><a href="#" class="select-item"><?php echo $size; ?></a></li>  
+        <?php endforeach; ?>
+      </ul>
+    </div>
+    <input type="text" class="form-control size-label" placeholder="Label" value="">
+  </div>
+</div>
+
+<!-- dialog change quantity -->
+<div class="modal fade" id="dialog-quantity" tabindex="-1" role="dialog" aria-labelledby="dialog-quantity-label" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="dialog-quantity-label">Change quantity of product</h4>
+      </div>
+      <div class="modal-body pan-modify-quantity">
+        <div class="pan-modify-quantity-control">
+          <button type="button" class="btn-add-color btn btn-sm btn-primary">Add color &nbsp;<span class="glyphicon glyphicon-plus-sign"></span></button>
+        </div>
+
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Color <span class="badge" id="total-color"></span></th>
+              <th>Size</th>
+              <th>Quantity <span class="badge" id="total-quantity"></span></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="pan-color-row"></tbody>
+        </table>
+        <div class="alert alert-warning alert-dismissible hide" role="alert" id="quantity-msg">
+          <button type="button" class="close"><span>&times;</span></button>
+          <strong class="msg-type">Warning!</strong> <span class="msg-content">Better check yourself, you're not looking too good.</span>
+        </div>         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btn-save-change-quantity">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

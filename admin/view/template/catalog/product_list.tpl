@@ -130,13 +130,49 @@
                     <?php } else { ?>
                     <?php echo $product['price']; ?>
                     <?php } ?></td>
-                  <td class="text-right"><?php if ($product['quantity'] <= 0) { ?>
-                    <span class="label label-warning"><?php echo $product['quantity']; ?></span>
-                    <?php } elseif ($product['quantity'] <= 5) { ?>
-                    <span class="label label-danger"><?php echo $product['quantity']; ?></span>
-                    <?php } else { ?>
-                    <span class="label label-success"><?php echo $product['quantity']; ?></span>
-                    <?php } ?></td>
+                  <td class="text-right">
+                    <?php                      
+                      if ($product['quantity'] <= 0) {
+                        $quantityColor = 'btn-warning';
+                      } elseif ($product['quantity'] <= 5) {
+                        $quantityColor = 'btn-danger';
+                      } else {
+                        $quantityColor = 'btn-success';
+                      }
+                      $quantityDetail = json_decode(str_replace('_nn_', '"', $product['quantity_detail']), true);
+                      $numColor = 0;
+                      $colorExist = array();
+                      if (count($quantityDetail) > 0) {
+                        foreach ($quantityDetail as $key => $row) {
+                          if (!in_array($row['color'], $colorExist)) {
+                            array_push($colorExist, $row['color']);
+                            $numColor++;
+                          }
+                        }
+                      }                                        
+                    ?>
+                    <div class="btn-group">
+                      <button type="button" class="btn <?php echo $quantityColor; ?> btn-xs dropdown-toggle btn-view-quantity-detail" data-toggle="dropdown" aria-expanded="false"><?php echo $product['quantity']; ?> <span class="caret"></span></button>
+                      <ul class="dropdown-menu pan-list-quatity-detail" role="menu">
+                        <li>
+                          <table class="table table-striped table-hover">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Color <span class="badge" id="total-color"><?php echo $numColor; ?></span></th>
+                                <th>Size</th>
+                                <th>Quantity <span class="badge" id="total-quantity"><?php echo $product['quantity']; ?></span></th>
+                              </tr>
+                            </thead>
+                            <tbody class="product-quantity-list">
+                              
+                            </tbody>
+                          </table>
+                        </li>
+                      </ul>
+                    </div>
+                    <input type="hidden" value="<?php echo str_replace('"', '_nn_', $product['quantity_detail']); ?>" class="input-quantity-detail" />         
+                  </td>
                   <td class="text-left"><?php echo $product['status']; ?></td>
                   <td class="text-right"><a href="<?php echo $product['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>
