@@ -835,3 +835,25 @@ h2.price {
 	z-index: 999999;
   	background: #ffffff
 }
+
+.collection-center-text {
+    border: 2px solid #333333;
+    width: 180%;
+    margin-top: 200px;
+    margin-left: -40%;
+    z-index: 99;
+    position: relative;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 30px;
+    color: #63c6c1;
+}
+.collection-bottom-title {
+    color: #63c6c1;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 90px;
+    margin-bottom: 25px;
+}
