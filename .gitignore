@@ -1,3 +1,5 @@
 /system/cache/*
 /image/cache/*
 /.idea/*
+/config.php
+/admin/config.php
