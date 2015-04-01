@@ -24,4 +24,4 @@ define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'maguss');
-define('DB_PREFIX', 'm_');
+define('DB_PREFIX', 'inno_');

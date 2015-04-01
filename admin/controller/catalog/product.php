@@ -344,8 +344,9 @@ class ControllerCatalogProduct extends Controller {
 		$results = $this->model_catalog_product->getProducts($filter_data);
 
 		foreach ($results as $result) {
-			if (is_file(DIR_IMAGE . $result['image'])) {
-				$image = $this->model_tool_image->resize($result['image'], 40, 40);
+			$tmpQuantityDetail = json_decode($result['quantity_detail'], true);
+			if (count($tmpQuantityDetail) > 0 && !empty($tmpQuantityDetail[0]) && !empty($tmpQuantityDetail[0]['images']) && !empty($tmpQuantityDetail[0]['images'][0]) && !empty($tmpQuantityDetail[0]['images'][0]['name']) && is_file(DIR_IMAGE . $tmpQuantityDetail[0]['images'][0]['name'])) {
+				$image = $this->model_tool_image->resize($tmpQuantityDetail[0]['images'][0]['name'], 40, 40);
 			} else {
 				$image = $this->model_tool_image->resize('no_image.png', 40, 40);
 			}
@@ -370,6 +371,7 @@ class ControllerCatalogProduct extends Controller {
 				'price'      => $result['price'],
 				'special'    => $special,
 				'quantity'   => $result['quantity'],
+				'quantity_detail'   => $result['quantity_detail'],
 				'status'     => ($result['status']) ? $this->language->get('text_enabled') : $this->language->get('text_disabled'),
 				'edit'       => $this->url->link('catalog/product/edit', 'token=' . $this->session->data['token'] . '&product_id=' . $result['product_id'] . $url, 'SSL')
 			);
@@ -632,6 +634,11 @@ class ControllerCatalogProduct extends Controller {
 		$data['tab_reward'] = $this->language->get('tab_reward');
 		$data['tab_design'] = $this->language->get('tab_design');
 		$data['tab_openbay'] = $this->language->get('tab_openbay');
+		$data['quantity_incorrect'] = $this->language->get('quantity_incorrect');
+		$data['product_duplicate'] = $this->language->get('product_duplicate');
+		$data['error_text'] = $this->language->get('error_text');
+		$data['warning_text'] = $this->language->get('warning_text');
+
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -893,13 +900,39 @@ class ControllerCatalogProduct extends Controller {
 			$data['date_available'] = date('Y-m-d');
 		}
 
+		// get quantity
 		if (isset($this->request->post['quantity'])) {
 			$data['quantity'] = $this->request->post['quantity'];
 		} elseif (!empty($product_info)) {
 			$data['quantity'] = $product_info['quantity'];
 		} else {
-			$data['quantity'] = 1;
+			$data['quantity'] = 0;
 		}
+		// get quantity detail
+		if (isset($this->request->post['quantity_detail'])) {			
+			$quantityDetail = str_replace('_nn_', '"', $this->request->post['quantity_detail']);
+		} elseif (!empty($product_info)) {
+			$quantityDetail = $product_info['quantity_detail'];
+		} else {
+			$quantityDetail = '[]';
+		}
+		$quantityDetail = json_decode($quantityDetail, true);
+		if (count($quantityDetail) > 0) {
+			foreach ($quantityDetail as $key => $value) {
+				if (count($value['images']) > 0) {
+					foreach ($value['images'] as $imgKey => $image) {
+						$quantityDetail[$key]['images'][$imgKey]['url'] = $this->model_tool_image->resize($image['name'], 100, 100);
+					}
+				}
+			}
+			$quantityDetail = json_encode($quantityDetail);
+		} else {
+			$quantityDetail = '';
+		}
+		
+		$data['quantity_detail'] = $quantityDetail;
+		// get list size
+		$data['list_size'] = $this->model_catalog_product->getProductSize();		
 
 		if (isset($this->request->post['minimum'])) {
 			$data['minimum'] = $this->request->post['minimum'];

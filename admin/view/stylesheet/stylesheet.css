@@ -608,3 +608,67 @@ input[type="checkbox"]:checked::after, .checkbox input[type="checkbox"]:checked:
 .jqvmap-label {
 	z-index: 999;
 }
+
+/* my custom style sheet */
+.admin-logo {
+	height: 25px;
+}
+.pan-modify-quantity {
+	min-height: 350px;
+}
+.pan-modify-quantity .pan-modify-quantity-control {
+	text-align: right;
+}
+.pan-modify-quantity .pan-modify-quantity-status {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+}
+#pan-color-row .dropdown-toggle {
+	width: 55px;
+	text-align: right;
+}
+.pan-list-quatity-detail {
+	min-width: 280px;
+	max-height: 350px;
+	overflow: auto;
+	right: 0px;
+	left: auto;
+}
+.pan-list-quatity-detail table {
+	margin-bottom: 0px;
+}
+.image-box {
+	float: left;
+}
+.color-round, .evo-colorind {
+	border-radius: 100px;
+}
+.row-control button {
+	margin-right: 3px;
+}
+.word-break {
+	word-break: break-all;
+}
+.hide {
+	display: none;
+}
+.mw80 {
+	min-width: 80px;
+}
+.w50 {
+	width: 50px !important;
+}
+.w110 {
+	width: 110px;
+}
+.w150 {
+	width: 150px;
+}
+.mw130 {
+	max-width: 130px;
+}
+.mw180 {
+	max-width: 180px;
+}

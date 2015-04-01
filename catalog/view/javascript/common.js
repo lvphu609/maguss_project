@@ -453,3 +453,34 @@ $(document).delegate('.agree', 'click', function(e) {
 		});
 	}
 })(window.jQuery);
+
+
+$(document).ready(function(){
+	Maguss.run();
+});
+
+var Maguss = {
+	stickyMenuTop: function(){
+		$(window).load(function(){
+      		$(".mn-bottom").sticky({ topSpacing: 0 });
+      		$("#custom-search-input").sticky({ topSpacing: 0 });      		
+    	});
+	},
+	hoverMenuTopItem: function(){
+		/*$(document).on('hover','.mn-top-item',function(){
+			alert('ok');
+		});*/
+		/*$(".mn-top-item").hover(
+		  function () {
+		     $(this).find('.dropdown-menu').slideDown('medium');
+		  }, 
+		  function () {
+		      $(this).find('.dropdown-menu').slideUp('medium');
+		  }
+		);*/
+	},
+	run: function(){
+		this.stickyMenuTop();	
+		this.hoverMenuTopItem();
+	}
+}
