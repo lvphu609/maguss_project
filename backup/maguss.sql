@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : demo
-Source Server Version : 50169
-Source Host           : 192.168.1.17:3306
+Source Server         : Localhost
+Source Server Version : 50621
+Source Host           : localhost:3306
 Source Database       : maguss
 
 Target Server Type    : MYSQL
-Target Server Version : 50169
+Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-03-27 01:19:19
+Date: 2015-04-02 16:57:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -877,9 +877,9 @@ CREATE TABLE `inno_currency` (
 -- ----------------------------
 -- Records of inno_currency
 -- ----------------------------
-INSERT INTO `inno_currency` VALUES ('1', 'Pound Sterling', 'GBP', '£', '', '2', '0.66990000', '1', '2015-03-24 00:21:24');
-INSERT INTO `inno_currency` VALUES ('2', 'US Dollar', 'USD', '$', '', '2', '1.00000000', '1', '2015-03-24 00:21:24');
-INSERT INTO `inno_currency` VALUES ('3', 'Euro', 'EUR', '', '€', '2', '0.91589999', '1', '2015-03-24 00:21:24');
+INSERT INTO `inno_currency` VALUES ('1', 'Pound Sterling', 'GBP', '£', '', '2', '0.67269999', '1', '2015-04-01 06:18:10');
+INSERT INTO `inno_currency` VALUES ('2', 'US Dollar', 'USD', '$', '', '2', '1.00000000', '1', '2015-04-02 04:35:07');
+INSERT INTO `inno_currency` VALUES ('3', 'Euro', 'EUR', '', '€', '2', '0.92699999', '1', '2015-04-01 06:18:10');
 
 -- ----------------------------
 -- Table structure for `inno_custom_field`
@@ -1267,7 +1267,7 @@ CREATE TABLE `inno_extension` (
   `type` varchar(32) NOT NULL,
   `code` varchar(32) NOT NULL,
   PRIMARY KEY (`extension_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=430 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=432 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of inno_extension
@@ -1291,6 +1291,8 @@ INSERT INTO `inno_extension` VALUES ('407', 'payment', 'free_checkout');
 INSERT INTO `inno_extension` VALUES ('427', 'module', 'featured');
 INSERT INTO `inno_extension` VALUES ('419', 'module', 'slideshow');
 INSERT INTO `inno_extension` VALUES ('429', 'shipping', 'maguss');
+INSERT INTO `inno_extension` VALUES ('430', 'module', 'collection');
+INSERT INTO `inno_extension` VALUES ('431', 'module', 'fashion');
 
 -- ----------------------------
 -- Table structure for `inno_filter`
@@ -1507,7 +1509,7 @@ CREATE TABLE `inno_layout_module` (
   `position` varchar(14) NOT NULL,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`layout_module_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of inno_layout_module
@@ -1517,11 +1519,12 @@ INSERT INTO `inno_layout_module` VALUES ('3', '4', '0', 'content_top', '1');
 INSERT INTO `inno_layout_module` VALUES ('20', '5', '0', 'column_left', '2');
 INSERT INTO `inno_layout_module` VALUES ('69', '10', 'affiliate', 'column_right', '1');
 INSERT INTO `inno_layout_module` VALUES ('68', '6', 'account', 'column_right', '1');
-INSERT INTO `inno_layout_module` VALUES ('67', '1', 'carousel.29', 'content_top', '3');
-INSERT INTO `inno_layout_module` VALUES ('66', '1', 'slideshow.27', 'content_top', '1');
-INSERT INTO `inno_layout_module` VALUES ('65', '1', 'featured.28', 'content_top', '2');
+INSERT INTO `inno_layout_module` VALUES ('86', '1', 'fashion.32', 'content_top', '4');
+INSERT INTO `inno_layout_module` VALUES ('85', '1', 'collection.31', 'content_top', '3');
 INSERT INTO `inno_layout_module` VALUES ('72', '3', 'category', 'column_left', '1');
 INSERT INTO `inno_layout_module` VALUES ('73', '3', 'banner.30', 'column_left', '2');
+INSERT INTO `inno_layout_module` VALUES ('84', '1', 'featured.28', 'content_top', '2');
+INSERT INTO `inno_layout_module` VALUES ('83', '1', 'slideshow.27', 'content_top', '1');
 
 -- ----------------------------
 -- Table structure for `inno_layout_route`
@@ -1533,7 +1536,7 @@ CREATE TABLE `inno_layout_route` (
   `store_id` int(11) NOT NULL,
   `route` varchar(255) NOT NULL,
   PRIMARY KEY (`layout_route_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of inno_layout_route
@@ -1541,7 +1544,7 @@ CREATE TABLE `inno_layout_route` (
 INSERT INTO `inno_layout_route` VALUES ('38', '6', '0', 'account/%');
 INSERT INTO `inno_layout_route` VALUES ('17', '10', '0', 'affiliate/%');
 INSERT INTO `inno_layout_route` VALUES ('44', '3', '0', 'product/category');
-INSERT INTO `inno_layout_route` VALUES ('42', '1', '0', 'common/home');
+INSERT INTO `inno_layout_route` VALUES ('56', '1', '0', 'common/home');
 INSERT INTO `inno_layout_route` VALUES ('20', '2', '0', 'product/product');
 INSERT INTO `inno_layout_route` VALUES ('24', '11', '0', 'information/information');
 INSERT INTO `inno_layout_route` VALUES ('23', '7', '0', 'checkout/%');
@@ -1701,7 +1704,7 @@ CREATE TABLE `inno_module` (
   `code` varchar(32) NOT NULL,
   `setting` text NOT NULL,
   PRIMARY KEY (`module_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of inno_module
@@ -1710,6 +1713,8 @@ INSERT INTO `inno_module` VALUES ('30', 'Category', 'banner', 'a:5:{s:4:\"name\"
 INSERT INTO `inno_module` VALUES ('29', 'Home Page', 'carousel', 'a:5:{s:4:\"name\";s:20:\"Carousel - Home Page\";s:9:\"banner_id\";s:1:\"8\";s:5:\"width\";s:3:\"130\";s:6:\"height\";s:3:\"100\";s:6:\"status\";s:1:\"1\";}');
 INSERT INTO `inno_module` VALUES ('28', 'Home Page', 'featured', 'a:6:{s:4:\"name\";s:20:\"Featured - Home Page\";s:7:\"product\";a:4:{i:0;s:2:\"43\";i:1;s:2:\"40\";i:2;s:2:\"42\";i:3;s:2:\"30\";}s:5:\"limit\";s:1:\"4\";s:5:\"width\";s:3:\"200\";s:6:\"height\";s:3:\"200\";s:6:\"status\";s:1:\"1\";}');
 INSERT INTO `inno_module` VALUES ('27', 'Home Page', 'slideshow', 'a:5:{s:4:\"name\";s:21:\"Slideshow - Home Page\";s:9:\"banner_id\";s:1:\"7\";s:5:\"width\";s:4:\"1140\";s:6:\"height\";s:3:\"380\";s:6:\"status\";s:1:\"1\";}');
+INSERT INTO `inno_module` VALUES ('31', 'Home page Collection', 'collection', 'a:9:{s:4:\"name\";s:20:\"Home page Collection\";s:10:\"left_image\";s:22:\"catalog/test/pan-1.png\";s:9:\"left_text\";s:1247:\"                                                                                                                                                &lt;div style=&quot;text-align: right; &quot;&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;Discover them now.&lt;/span&gt; The spring, we are going for&lt;/div&gt;&lt;div style=&quot;text-align: right; &quot;&gt;suede, tassels and ethnic deisgns. &lt;span style=&quot;font-weight: bold;&quot;&gt;Discover&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: right; &quot;&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;them now.&lt;/span&gt; The spring, we are going for suede,&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: right; &quot;&gt;tassels and ethnic deisgns.&amp;nbsp;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: right; &quot;&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;Discover them now.&lt;/span&gt; The spring, we are going for suede,&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: right; &quot;&gt;tassels and ethnic deisgns.&lt;/div&gt;                                                                                                                                                                                                    \";s:11:\"center_text\";s:768:\"                                                                                                                                                &lt;div style=&quot;text-align: left;&quot;&gt;&lt;div style=&quot;text-align: center; &quot;&gt;BỘ SƯU TẬP&lt;/div&gt;&lt;div style=&quot;text-align: center; &quot;&gt;MÙA HÈ&lt;/div&gt;&lt;div style=&quot;text-align: center; &quot;&gt;____________&lt;/div&gt;&lt;div style=&quot;text-align: center; &quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center; &quot;&gt;2015&lt;br&gt;&lt;/div&gt;&lt;/div&gt;                                                                                                                                                                                                    \";s:11:\"right_image\";s:22:\"catalog/test/pan-1.png\";s:10:\"right_text\";s:1279:\"                                                                                                                                                &lt;div style=&quot;text-align: right; &quot;&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;Discover them now.&lt;/span&gt;&amp;nbsp;The spring, we are going for&lt;/div&gt;&lt;div style=&quot;text-align: right;&quot;&gt;suede, tassels and ethnic deisgns.&amp;nbsp;&lt;span style=&quot;font-weight: bold;&quot;&gt;Discover&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;them now.&lt;/span&gt;&amp;nbsp;The spring, we are going for suede,&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: right;&quot;&gt;tassels and ethnic deisgns.&amp;nbsp;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;Discover them now.&lt;/span&gt;&amp;nbsp;The spring, we are going for suede,&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: right; &quot;&gt;tassels and ethnic deisgns.&lt;/div&gt;                                                                                                                                                                                                    \";s:11:\"bottom_text\";s:20:\"Accessorize Yourself\";s:12:\"bottom_image\";s:22:\"catalog/test/pan-2.png\";s:6:\"status\";s:1:\"1\";}');
+INSERT INTO `inno_module` VALUES ('32', 'Home page Fashion', 'fashion', 'a:11:{s:4:\"name\";s:17:\"Home page Fashion\";s:5:\"title\";s:68:\"We present the accessorize that will  turn an outfit INTO the outfit\";s:10:\"left_image\";s:22:\"catalog/test/pan-4.png\";s:9:\"left_text\";s:6:\"Blouse\";s:9:\"top_image\";s:22:\"catalog/test/pan-3.png\";s:8:\"top_text\";s:6:\"Jacket\";s:11:\"right_image\";s:22:\"catalog/test/pan-4.png\";s:10:\"right_text\";s:5:\"Jeans\";s:12:\"bottom_image\";s:22:\"catalog/test/pan-5.png\";s:11:\"bottom_text\";s:5:\"Dress\";s:6:\"status\";s:1:\"1\";}');
 
 -- ----------------------------
 -- Table structure for `inno_option`
@@ -2794,7 +2799,7 @@ CREATE TABLE `inno_setting` (
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1393 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1723 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of inno_setting
@@ -2825,121 +2830,121 @@ INSERT INTO `inno_setting` VALUES ('54', '0', 'reward', 'reward_status', '1', '0
 INSERT INTO `inno_setting` VALUES ('146', '0', 'category', 'category_status', '1', '0');
 INSERT INTO `inno_setting` VALUES ('158', '0', 'account', 'account_status', '1', '0');
 INSERT INTO `inno_setting` VALUES ('159', '0', 'affiliate', 'affiliate_status', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1376', '0', 'config', 'config_maintenance', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1377', '0', 'config', 'config_password', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1378', '0', 'config', 'config_encryption', '24a562d8392a1093113d3a6d791fb0cd', '0');
+INSERT INTO `inno_setting` VALUES ('1722', '0', 'config', 'config_google_analytics', '', '0');
+INSERT INTO `inno_setting` VALUES ('1721', '0', 'config', 'config_error_filename', 'error.log', '0');
+INSERT INTO `inno_setting` VALUES ('1720', '0', 'config', 'config_error_log', '1', '0');
 INSERT INTO `inno_setting` VALUES ('94', '0', 'voucher', 'voucher_sort_order', '8', '0');
 INSERT INTO `inno_setting` VALUES ('95', '0', 'voucher', 'voucher_status', '1', '0');
 INSERT INTO `inno_setting` VALUES ('103', '0', 'free_checkout', 'free_checkout_status', '1', '0');
 INSERT INTO `inno_setting` VALUES ('104', '0', 'free_checkout', 'free_checkout_order_status_id', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1372', '0', 'config', 'config_seo_url', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1373', '0', 'config', 'config_file_max_size', '300000', '0');
-INSERT INTO `inno_setting` VALUES ('1374', '0', 'config', 'config_file_ext_allowed', 'txt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc\r\nrtf\r\nxls\r\nppt\r\nodt\r\nods', '0');
-INSERT INTO `inno_setting` VALUES ('1375', '0', 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/vnd.microsoft.icon\r\nimage/tiff\r\nimage/svg+xml\r\napplication/zip\r\napplication/x-rar-compressed\r\napplication/x-msdownload\r\napplication/vnd.ms-cab-compressed\r\naudio/mpeg\r\nvideo/quicktime\r\napplication/pdf\r\nimage/vnd.adobe.photoshop\r\napplication/postscript\r\napplication/msword\r\napplication/rtf\r\napplication/vnd.ms-excel\r\napplication/vnd.ms-powerpoint\r\napplication/vnd.oasis.opendocument.text\r\napplication/vnd.oasis.opendocument.spreadsheet', '0');
-INSERT INTO `inno_setting` VALUES ('1379', '0', 'config', 'config_compression', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1380', '0', 'config', 'config_error_display', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1381', '0', 'config', 'config_error_log', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1365', '0', 'config', 'config_fraud_detection', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1366', '0', 'config', 'config_fraud_key', '', '0');
-INSERT INTO `inno_setting` VALUES ('1367', '0', 'config', 'config_fraud_score', '', '0');
-INSERT INTO `inno_setting` VALUES ('1368', '0', 'config', 'config_fraud_status_id', '7', '0');
-INSERT INTO `inno_setting` VALUES ('1369', '0', 'config', 'config_secure', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1370', '0', 'config', 'config_shared', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1371', '0', 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai\'hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', '0');
-INSERT INTO `inno_setting` VALUES ('1364', '0', 'config', 'config_mail_alert', '', '0');
-INSERT INTO `inno_setting` VALUES ('1360', '0', 'config', 'config_ftp_password', '', '0');
-INSERT INTO `inno_setting` VALUES ('1361', '0', 'config', 'config_ftp_root', '', '0');
-INSERT INTO `inno_setting` VALUES ('1362', '0', 'config', 'config_ftp_status', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1363', '0', 'config', 'config_mail', 'a:7:{s:8:\"protocol\";s:4:\"mail\";s:9:\"parameter\";s:0:\"\";s:13:\"smtp_hostname\";s:0:\"\";s:13:\"smtp_username\";s:0:\"\";s:13:\"smtp_password\";s:0:\"\";s:9:\"smtp_port\";s:0:\"\";s:12:\"smtp_timeout\";s:0:\"\";}', '1');
-INSERT INTO `inno_setting` VALUES ('1359', '0', 'config', 'config_ftp_username', '', '0');
-INSERT INTO `inno_setting` VALUES ('1358', '0', 'config', 'config_ftp_port', '21', '0');
-INSERT INTO `inno_setting` VALUES ('1357', '0', 'config', 'config_ftp_hostname', 'localhost', '0');
-INSERT INTO `inno_setting` VALUES ('1356', '0', 'config', 'config_image_location_height', '50', '0');
-INSERT INTO `inno_setting` VALUES ('1355', '0', 'config', 'config_image_location_width', '268', '0');
-INSERT INTO `inno_setting` VALUES ('1354', '0', 'config', 'config_image_cart_height', '47', '0');
-INSERT INTO `inno_setting` VALUES ('1353', '0', 'config', 'config_image_cart_width', '47', '0');
-INSERT INTO `inno_setting` VALUES ('1351', '0', 'config', 'config_image_wishlist_width', '47', '0');
-INSERT INTO `inno_setting` VALUES ('1352', '0', 'config', 'config_image_wishlist_height', '47', '0');
-INSERT INTO `inno_setting` VALUES ('1349', '0', 'config', 'config_image_compare_width', '90', '0');
-INSERT INTO `inno_setting` VALUES ('1350', '0', 'config', 'config_image_compare_height', '90', '0');
-INSERT INTO `inno_setting` VALUES ('1347', '0', 'config', 'config_image_related_width', '500', '0');
-INSERT INTO `inno_setting` VALUES ('1348', '0', 'config', 'config_image_related_height', '500', '0');
-INSERT INTO `inno_setting` VALUES ('1345', '0', 'config', 'config_image_additional_width', '500', '0');
-INSERT INTO `inno_setting` VALUES ('1346', '0', 'config', 'config_image_additional_height', '500', '0');
-INSERT INTO `inno_setting` VALUES ('1344', '0', 'config', 'config_image_product_height', '500', '0');
-INSERT INTO `inno_setting` VALUES ('1343', '0', 'config', 'config_image_product_width', '500', '0');
-INSERT INTO `inno_setting` VALUES ('1342', '0', 'config', 'config_image_popup_height', '500', '0');
-INSERT INTO `inno_setting` VALUES ('1340', '0', 'config', 'config_image_thumb_height', '400', '0');
-INSERT INTO `inno_setting` VALUES ('1341', '0', 'config', 'config_image_popup_width', '500', '0');
-INSERT INTO `inno_setting` VALUES ('1339', '0', 'config', 'config_image_thumb_width', '200', '0');
-INSERT INTO `inno_setting` VALUES ('1338', '0', 'config', 'config_image_category_height', '500', '0');
-INSERT INTO `inno_setting` VALUES ('1337', '0', 'config', 'config_image_category_width', '500', '0');
-INSERT INTO `inno_setting` VALUES ('1336', '0', 'config', 'config_icon', 'catalog/maguss-logo.gif', '0');
-INSERT INTO `inno_setting` VALUES ('1335', '0', 'config', 'config_logo', 'catalog/maguss-logo.gif', '0');
-INSERT INTO `inno_setting` VALUES ('1334', '0', 'config', 'config_return_status_id', '2', '0');
-INSERT INTO `inno_setting` VALUES ('1333', '0', 'config', 'config_return_id', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1332', '0', 'config', 'config_affiliate_mail', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1330', '0', 'config', 'config_affiliate_commission', '5', '0');
-INSERT INTO `inno_setting` VALUES ('1331', '0', 'config', 'config_affiliate_id', '4', '0');
-INSERT INTO `inno_setting` VALUES ('1329', '0', 'config', 'config_affiliate_auto', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1328', '0', 'config', 'config_affiliate_approval', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1327', '0', 'config', 'config_stock_checkout', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1326', '0', 'config', 'config_stock_warning', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1325', '0', 'config', 'config_stock_display', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1324', '0', 'config', 'config_order_mail', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1323', '0', 'config', 'config_complete_status', 'a:1:{i:0;s:1:\"5\";}', '1');
-INSERT INTO `inno_setting` VALUES ('1322', '0', 'config', 'config_processing_status', 'a:1:{i:0;s:1:\"2\";}', '1');
-INSERT INTO `inno_setting` VALUES ('1321', '0', 'config', 'config_order_status_id', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1319', '0', 'config', 'config_checkout_guest', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1320', '0', 'config', 'config_checkout_id', '5', '0');
-INSERT INTO `inno_setting` VALUES ('1318', '0', 'config', 'config_cart_weight', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1317', '0', 'config', 'config_api_id', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1315', '0', 'config', 'config_account_mail', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1316', '0', 'config', 'config_invoice_prefix', 'INV-2013-00', '0');
-INSERT INTO `inno_setting` VALUES ('1314', '0', 'config', 'config_account_id', '3', '0');
-INSERT INTO `inno_setting` VALUES ('1313', '0', 'config', 'config_login_attempts', '5', '0');
-INSERT INTO `inno_setting` VALUES ('1312', '0', 'config', 'config_customer_price', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1311', '0', 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:\"1\";}', '1');
-INSERT INTO `inno_setting` VALUES ('1310', '0', 'config', 'config_customer_group_id', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1302', '0', 'config', 'config_review_guest', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1303', '0', 'config', 'config_review_mail', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1304', '0', 'config', 'config_voucher_min', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1305', '0', 'config', 'config_voucher_max', '1000', '0');
-INSERT INTO `inno_setting` VALUES ('1306', '0', 'config', 'config_tax', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1307', '0', 'config', 'config_tax_default', 'shipping', '0');
-INSERT INTO `inno_setting` VALUES ('1308', '0', 'config', 'config_tax_customer', 'shipping', '0');
-INSERT INTO `inno_setting` VALUES ('1309', '0', 'config', 'config_customer_online', '0', '0');
-INSERT INTO `inno_setting` VALUES ('1299', '0', 'config', 'config_product_description_length', '100', '0');
-INSERT INTO `inno_setting` VALUES ('1301', '0', 'config', 'config_review_status', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1300', '0', 'config', 'config_limit_admin', '20', '0');
-INSERT INTO `inno_setting` VALUES ('1298', '0', 'config', 'config_product_limit', '15', '0');
-INSERT INTO `inno_setting` VALUES ('1297', '0', 'config', 'config_product_count', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1296', '0', 'config', 'config_weight_class_id', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1295', '0', 'config', 'config_length_class_id', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1294', '0', 'config', 'config_currency_auto', '1', '0');
-INSERT INTO `inno_setting` VALUES ('1293', '0', 'config', 'config_currency', 'USD', '0');
-INSERT INTO `inno_setting` VALUES ('1292', '0', 'config', 'config_admin_language', 'en', '0');
-INSERT INTO `inno_setting` VALUES ('1291', '0', 'config', 'config_language', 'en', '0');
-INSERT INTO `inno_setting` VALUES ('1290', '0', 'config', 'config_zone_id', '3563', '0');
-INSERT INTO `inno_setting` VALUES ('1289', '0', 'config', 'config_country_id', '222', '0');
-INSERT INTO `inno_setting` VALUES ('1288', '0', 'config', 'config_layout_id', '4', '0');
-INSERT INTO `inno_setting` VALUES ('1287', '0', 'config', 'config_template', 'default', '0');
-INSERT INTO `inno_setting` VALUES ('1286', '0', 'config', 'config_meta_keyword', '', '0');
-INSERT INTO `inno_setting` VALUES ('1285', '0', 'config', 'config_meta_description', 'Maguss', '0');
-INSERT INTO `inno_setting` VALUES ('1284', '0', 'config', 'config_meta_title', 'Maguss', '0');
-INSERT INTO `inno_setting` VALUES ('1280', '0', 'config', 'config_fax', '', '0');
-INSERT INTO `inno_setting` VALUES ('1281', '0', 'config', 'config_image', '', '0');
-INSERT INTO `inno_setting` VALUES ('1282', '0', 'config', 'config_open', '', '0');
-INSERT INTO `inno_setting` VALUES ('1283', '0', 'config', 'config_comment', '', '0');
-INSERT INTO `inno_setting` VALUES ('1279', '0', 'config', 'config_telephone', '123456789', '0');
-INSERT INTO `inno_setting` VALUES ('1278', '0', 'config', 'config_email', 'admin@gmail.com', '0');
-INSERT INTO `inno_setting` VALUES ('1277', '0', 'config', 'config_geocode', '', '0');
-INSERT INTO `inno_setting` VALUES ('1276', '0', 'config', 'config_address', 'Address 1', '0');
-INSERT INTO `inno_setting` VALUES ('1275', '0', 'config', 'config_owner', 'Maguss', '0');
-INSERT INTO `inno_setting` VALUES ('1274', '0', 'config', 'config_name', 'Maguss', '0');
-INSERT INTO `inno_setting` VALUES ('1382', '0', 'config', 'config_error_filename', 'error.log', '0');
-INSERT INTO `inno_setting` VALUES ('1383', '0', 'config', 'config_google_analytics', '', '0');
+INSERT INTO `inno_setting` VALUES ('1719', '0', 'config', 'config_error_display', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1711', '0', 'config', 'config_seo_url', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1712', '0', 'config', 'config_file_max_size', '300000', '0');
+INSERT INTO `inno_setting` VALUES ('1713', '0', 'config', 'config_file_ext_allowed', 'txt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc\r\nrtf\r\nxls\r\nppt\r\nodt\r\nods', '0');
+INSERT INTO `inno_setting` VALUES ('1714', '0', 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/vnd.microsoft.icon\r\nimage/tiff\r\nimage/svg+xml\r\napplication/zip\r\napplication/x-rar-compressed\r\napplication/x-msdownload\r\napplication/vnd.ms-cab-compressed\r\naudio/mpeg\r\nvideo/quicktime\r\napplication/pdf\r\nimage/vnd.adobe.photoshop\r\napplication/postscript\r\napplication/msword\r\napplication/rtf\r\napplication/vnd.ms-excel\r\napplication/vnd.ms-powerpoint\r\napplication/vnd.oasis.opendocument.text\r\napplication/vnd.oasis.opendocument.spreadsheet', '0');
+INSERT INTO `inno_setting` VALUES ('1715', '0', 'config', 'config_maintenance', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1716', '0', 'config', 'config_password', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1717', '0', 'config', 'config_encryption', '24a562d8392a1093113d3a6d791fb0cd', '0');
+INSERT INTO `inno_setting` VALUES ('1718', '0', 'config', 'config_compression', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1710', '0', 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai\'hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', '0');
+INSERT INTO `inno_setting` VALUES ('1709', '0', 'config', 'config_shared', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1708', '0', 'config', 'config_secure', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1707', '0', 'config', 'config_fraud_status_id', '7', '0');
+INSERT INTO `inno_setting` VALUES ('1706', '0', 'config', 'config_fraud_score', '', '0');
+INSERT INTO `inno_setting` VALUES ('1705', '0', 'config', 'config_fraud_key', '', '0');
+INSERT INTO `inno_setting` VALUES ('1703', '0', 'config', 'config_mail_alert', '', '0');
+INSERT INTO `inno_setting` VALUES ('1704', '0', 'config', 'config_fraud_detection', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1702', '0', 'config', 'config_mail', 'a:7:{s:8:\"protocol\";s:4:\"mail\";s:9:\"parameter\";s:0:\"\";s:13:\"smtp_hostname\";s:0:\"\";s:13:\"smtp_username\";s:0:\"\";s:13:\"smtp_password\";s:0:\"\";s:9:\"smtp_port\";s:0:\"\";s:12:\"smtp_timeout\";s:0:\"\";}', '1');
+INSERT INTO `inno_setting` VALUES ('1701', '0', 'config', 'config_ftp_status', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1700', '0', 'config', 'config_ftp_root', '', '0');
+INSERT INTO `inno_setting` VALUES ('1698', '0', 'config', 'config_ftp_username', '', '0');
+INSERT INTO `inno_setting` VALUES ('1699', '0', 'config', 'config_ftp_password', '', '0');
+INSERT INTO `inno_setting` VALUES ('1697', '0', 'config', 'config_ftp_port', '21', '0');
+INSERT INTO `inno_setting` VALUES ('1696', '0', 'config', 'config_ftp_hostname', 'localhost', '0');
+INSERT INTO `inno_setting` VALUES ('1695', '0', 'config', 'config_image_location_height', '50', '0');
+INSERT INTO `inno_setting` VALUES ('1694', '0', 'config', 'config_image_location_width', '268', '0');
+INSERT INTO `inno_setting` VALUES ('1693', '0', 'config', 'config_image_cart_height', '47', '0');
+INSERT INTO `inno_setting` VALUES ('1692', '0', 'config', 'config_image_cart_width', '47', '0');
+INSERT INTO `inno_setting` VALUES ('1689', '0', 'config', 'config_image_compare_height', '90', '0');
+INSERT INTO `inno_setting` VALUES ('1690', '0', 'config', 'config_image_wishlist_width', '47', '0');
+INSERT INTO `inno_setting` VALUES ('1691', '0', 'config', 'config_image_wishlist_height', '47', '0');
+INSERT INTO `inno_setting` VALUES ('1688', '0', 'config', 'config_image_compare_width', '90', '0');
+INSERT INTO `inno_setting` VALUES ('1687', '0', 'config', 'config_image_related_height', '500', '0');
+INSERT INTO `inno_setting` VALUES ('1686', '0', 'config', 'config_image_related_width', '500', '0');
+INSERT INTO `inno_setting` VALUES ('1685', '0', 'config', 'config_image_additional_height', '500', '0');
+INSERT INTO `inno_setting` VALUES ('1684', '0', 'config', 'config_image_additional_width', '500', '0');
+INSERT INTO `inno_setting` VALUES ('1683', '0', 'config', 'config_image_product_height', '500', '0');
+INSERT INTO `inno_setting` VALUES ('1682', '0', 'config', 'config_image_product_width', '500', '0');
+INSERT INTO `inno_setting` VALUES ('1679', '0', 'config', 'config_image_thumb_height', '400', '0');
+INSERT INTO `inno_setting` VALUES ('1680', '0', 'config', 'config_image_popup_width', '500', '0');
+INSERT INTO `inno_setting` VALUES ('1681', '0', 'config', 'config_image_popup_height', '500', '0');
+INSERT INTO `inno_setting` VALUES ('1678', '0', 'config', 'config_image_thumb_width', '200', '0');
+INSERT INTO `inno_setting` VALUES ('1675', '0', 'config', 'config_icon', 'catalog/cart.png', '0');
+INSERT INTO `inno_setting` VALUES ('1676', '0', 'config', 'config_image_category_width', '500', '0');
+INSERT INTO `inno_setting` VALUES ('1677', '0', 'config', 'config_image_category_height', '500', '0');
+INSERT INTO `inno_setting` VALUES ('1674', '0', 'config', 'config_logo', 'catalog/logo.png', '0');
+INSERT INTO `inno_setting` VALUES ('1673', '0', 'config', 'config_return_status_id', '2', '0');
+INSERT INTO `inno_setting` VALUES ('1672', '0', 'config', 'config_return_id', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1671', '0', 'config', 'config_affiliate_mail', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1670', '0', 'config', 'config_affiliate_id', '4', '0');
+INSERT INTO `inno_setting` VALUES ('1669', '0', 'config', 'config_affiliate_commission', '5', '0');
+INSERT INTO `inno_setting` VALUES ('1668', '0', 'config', 'config_affiliate_auto', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1667', '0', 'config', 'config_affiliate_approval', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1665', '0', 'config', 'config_stock_warning', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1666', '0', 'config', 'config_stock_checkout', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1664', '0', 'config', 'config_stock_display', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1663', '0', 'config', 'config_order_mail', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1662', '0', 'config', 'config_complete_status', 'a:1:{i:0;s:1:\"5\";}', '1');
+INSERT INTO `inno_setting` VALUES ('1661', '0', 'config', 'config_processing_status', 'a:1:{i:0;s:1:\"2\";}', '1');
+INSERT INTO `inno_setting` VALUES ('1659', '0', 'config', 'config_checkout_id', '5', '0');
+INSERT INTO `inno_setting` VALUES ('1660', '0', 'config', 'config_order_status_id', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1658', '0', 'config', 'config_checkout_guest', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1657', '0', 'config', 'config_cart_weight', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1656', '0', 'config', 'config_api_id', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1654', '0', 'config', 'config_account_mail', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1655', '0', 'config', 'config_invoice_prefix', 'INV-2013-00', '0');
+INSERT INTO `inno_setting` VALUES ('1653', '0', 'config', 'config_account_id', '3', '0');
+INSERT INTO `inno_setting` VALUES ('1652', '0', 'config', 'config_login_attempts', '5', '0');
+INSERT INTO `inno_setting` VALUES ('1651', '0', 'config', 'config_customer_price', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1650', '0', 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:\"1\";}', '1');
+INSERT INTO `inno_setting` VALUES ('1639', '0', 'config', 'config_limit_admin', '20', '0');
 INSERT INTO `inno_setting` VALUES ('1390', '0', 'maguss', 'maguss_status', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1649', '0', 'config', 'config_customer_group_id', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1648', '0', 'config', 'config_customer_online', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1647', '0', 'config', 'config_tax_customer', 'shipping', '0');
+INSERT INTO `inno_setting` VALUES ('1643', '0', 'config', 'config_voucher_min', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1644', '0', 'config', 'config_voucher_max', '1000', '0');
+INSERT INTO `inno_setting` VALUES ('1645', '0', 'config', 'config_tax', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1646', '0', 'config', 'config_tax_default', 'shipping', '0');
+INSERT INTO `inno_setting` VALUES ('1642', '0', 'config', 'config_review_mail', '0', '0');
+INSERT INTO `inno_setting` VALUES ('1641', '0', 'config', 'config_review_guest', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1640', '0', 'config', 'config_review_status', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1636', '0', 'config', 'config_product_count', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1637', '0', 'config', 'config_product_limit', '15', '0');
+INSERT INTO `inno_setting` VALUES ('1638', '0', 'config', 'config_product_description_length', '100', '0');
+INSERT INTO `inno_setting` VALUES ('1635', '0', 'config', 'config_weight_class_id', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1634', '0', 'config', 'config_length_class_id', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1633', '0', 'config', 'config_currency_auto', '1', '0');
+INSERT INTO `inno_setting` VALUES ('1632', '0', 'config', 'config_currency', 'USD', '0');
+INSERT INTO `inno_setting` VALUES ('1631', '0', 'config', 'config_admin_language', 'en', '0');
+INSERT INTO `inno_setting` VALUES ('1630', '0', 'config', 'config_language', 'en', '0');
+INSERT INTO `inno_setting` VALUES ('1629', '0', 'config', 'config_zone_id', '3563', '0');
+INSERT INTO `inno_setting` VALUES ('1628', '0', 'config', 'config_country_id', '222', '0');
+INSERT INTO `inno_setting` VALUES ('1627', '0', 'config', 'config_layout_id', '4', '0');
+INSERT INTO `inno_setting` VALUES ('1626', '0', 'config', 'config_template', 'default', '0');
+INSERT INTO `inno_setting` VALUES ('1625', '0', 'config', 'config_meta_keyword', '', '0');
+INSERT INTO `inno_setting` VALUES ('1624', '0', 'config', 'config_meta_description', 'Maguss', '0');
+INSERT INTO `inno_setting` VALUES ('1623', '0', 'config', 'config_meta_title', 'Maguss', '0');
+INSERT INTO `inno_setting` VALUES ('1621', '0', 'config', 'config_open', '', '0');
+INSERT INTO `inno_setting` VALUES ('1622', '0', 'config', 'config_comment', '', '0');
+INSERT INTO `inno_setting` VALUES ('1620', '0', 'config', 'config_image', 'catalog/logo.png', '0');
+INSERT INTO `inno_setting` VALUES ('1619', '0', 'config', 'config_fax', '', '0');
+INSERT INTO `inno_setting` VALUES ('1618', '0', 'config', 'config_telephone', '123456789', '0');
+INSERT INTO `inno_setting` VALUES ('1617', '0', 'config', 'config_email', 'admin@gmail.com', '0');
+INSERT INTO `inno_setting` VALUES ('1616', '0', 'config', 'config_geocode', '', '0');
+INSERT INTO `inno_setting` VALUES ('1615', '0', 'config', 'config_address', 'Address 1', '0');
+INSERT INTO `inno_setting` VALUES ('1614', '0', 'config', 'config_owner', 'Maguss', '0');
+INSERT INTO `inno_setting` VALUES ('1613', '0', 'config', 'config_name', 'Maguss', '0');
 
 -- ----------------------------
 -- Table structure for `inno_stock_status`
@@ -3121,7 +3126,7 @@ CREATE TABLE `inno_user` (
 -- ----------------------------
 -- Records of inno_user
 -- ----------------------------
-INSERT INTO `inno_user` VALUES ('1', '1', 'admin', '2c9152dae4bc6bbea319a416d3ddcaf17593093c', '310f19e1f', 'John', 'Doe', 'admin@gmail.com', '', '', '116.118.119.200', '1', '2015-02-03 19:40:04');
+INSERT INTO `inno_user` VALUES ('1', '1', 'admin', '2c9152dae4bc6bbea319a416d3ddcaf17593093c', '310f19e1f', 'John', 'Doe', 'admin@gmail.com', '', '', '127.0.0.1', '1', '2015-02-03 19:40:04');
 
 -- ----------------------------
 -- Table structure for `inno_user_group`
@@ -3137,7 +3142,7 @@ CREATE TABLE `inno_user_group` (
 -- ----------------------------
 -- Records of inno_user_group
 -- ----------------------------
-INSERT INTO `inno_user_group` VALUES ('1', 'Administrator', 'a:2:{s:6:\"access\";a:183:{i:0;s:17:\"catalog/attribute\";i:1;s:23:\"catalog/attribute_group\";i:2;s:16:\"catalog/category\";i:3;s:16:\"catalog/download\";i:4;s:14:\"catalog/filter\";i:5;s:19:\"catalog/information\";i:6;s:20:\"catalog/manufacturer\";i:7;s:14:\"catalog/option\";i:8;s:15:\"catalog/product\";i:9;s:17:\"catalog/recurring\";i:10;s:14:\"catalog/review\";i:11;s:18:\"common/column_left\";i:12;s:18:\"common/filemanager\";i:13;s:11:\"common/menu\";i:14;s:14:\"common/profile\";i:15;s:12:\"common/stats\";i:16;s:18:\"dashboard/activity\";i:17;s:15:\"dashboard/chart\";i:18;s:18:\"dashboard/customer\";i:19;s:13:\"dashboard/map\";i:20;s:16:\"dashboard/online\";i:21;s:15:\"dashboard/order\";i:22;s:16:\"dashboard/recent\";i:23;s:14:\"dashboard/sale\";i:24;s:13:\"design/banner\";i:25;s:13:\"design/layout\";i:26;s:14:\"extension/feed\";i:27;s:19:\"extension/installer\";i:28;s:22:\"extension/modification\";i:29;s:16:\"extension/module\";i:30;s:17:\"extension/openbay\";i:31;s:17:\"extension/payment\";i:32;s:18:\"extension/shipping\";i:33;s:15:\"extension/total\";i:34;s:16:\"feed/google_base\";i:35;s:19:\"feed/google_sitemap\";i:36;s:15:\"feed/openbaypro\";i:37;s:20:\"localisation/country\";i:38;s:21:\"localisation/currency\";i:39;s:21:\"localisation/geo_zone\";i:40;s:21:\"localisation/language\";i:41;s:25:\"localisation/length_class\";i:42;s:21:\"localisation/location\";i:43;s:25:\"localisation/order_status\";i:44;s:26:\"localisation/return_action\";i:45;s:26:\"localisation/return_reason\";i:46;s:26:\"localisation/return_status\";i:47;s:25:\"localisation/stock_status\";i:48;s:22:\"localisation/tax_class\";i:49;s:21:\"localisation/tax_rate\";i:50;s:25:\"localisation/weight_class\";i:51;s:17:\"localisation/zone\";i:52;s:19:\"marketing/affiliate\";i:53;s:17:\"marketing/contact\";i:54;s:16:\"marketing/coupon\";i:55;s:19:\"marketing/marketing\";i:56;s:14:\"module/account\";i:57;s:16:\"module/affiliate\";i:58;s:20:\"module/amazon_button\";i:59;s:13:\"module/banner\";i:60;s:17:\"module/bestseller\";i:61;s:15:\"module/carousel\";i:62;s:15:\"module/category\";i:63;s:11:\"module/ebay\";i:64;s:15:\"module/featured\";i:65;s:13:\"module/filter\";i:66;s:22:\"module/google_hangouts\";i:67;s:11:\"module/html\";i:68;s:18:\"module/information\";i:69;s:13:\"module/latest\";i:70;s:16:\"module/pp_button\";i:71;s:15:\"module/pp_login\";i:72;s:16:\"module/slideshow\";i:73;s:14:\"module/special\";i:74;s:12:\"module/store\";i:75;s:14:\"openbay/amazon\";i:76;s:22:\"openbay/amazon_listing\";i:77;s:22:\"openbay/amazon_product\";i:78;s:16:\"openbay/amazonus\";i:79;s:24:\"openbay/amazonus_listing\";i:80;s:24:\"openbay/amazonus_product\";i:81;s:12:\"openbay/ebay\";i:82;s:20:\"openbay/ebay_profile\";i:83;s:21:\"openbay/ebay_template\";i:84;s:12:\"openbay/etsy\";i:85;s:20:\"openbay/etsy_product\";i:86;s:21:\"openbay/etsy_shipping\";i:87;s:17:\"openbay/etsy_shop\";i:88;s:23:\"payment/amazon_checkout\";i:89;s:24:\"payment/authorizenet_aim\";i:90;s:24:\"payment/authorizenet_sim\";i:91;s:21:\"payment/bank_transfer\";i:92;s:22:\"payment/bluepay_hosted\";i:93;s:24:\"payment/bluepay_redirect\";i:94;s:14:\"payment/cheque\";i:95;s:11:\"payment/cod\";i:96;s:17:\"payment/firstdata\";i:97;s:24:\"payment/firstdata_remote\";i:98;s:21:\"payment/free_checkout\";i:99;s:22:\"payment/klarna_account\";i:100;s:22:\"payment/klarna_invoice\";i:101;s:14:\"payment/liqpay\";i:102;s:14:\"payment/nochex\";i:103;s:15:\"payment/paymate\";i:104;s:16:\"payment/paypoint\";i:105;s:13:\"payment/payza\";i:106;s:26:\"payment/perpetual_payments\";i:107;s:18:\"payment/pp_express\";i:108;s:18:\"payment/pp_payflow\";i:109;s:25:\"payment/pp_payflow_iframe\";i:110;s:14:\"payment/pp_pro\";i:111;s:21:\"payment/pp_pro_iframe\";i:112;s:19:\"payment/pp_standard\";i:113;s:14:\"payment/realex\";i:114;s:21:\"payment/realex_remote\";i:115;s:22:\"payment/sagepay_direct\";i:116;s:22:\"payment/sagepay_server\";i:117;s:18:\"payment/sagepay_us\";i:118;s:24:\"payment/securetrading_pp\";i:119;s:24:\"payment/securetrading_ws\";i:120;s:14:\"payment/skrill\";i:121;s:19:\"payment/twocheckout\";i:122;s:28:\"payment/web_payment_software\";i:123;s:16:\"payment/worldpay\";i:124;s:16:\"report/affiliate\";i:125;s:25:\"report/affiliate_activity\";i:126;s:22:\"report/affiliate_login\";i:127;s:24:\"report/customer_activity\";i:128;s:22:\"report/customer_credit\";i:129;s:21:\"report/customer_login\";i:130;s:22:\"report/customer_online\";i:131;s:21:\"report/customer_order\";i:132;s:22:\"report/customer_reward\";i:133;s:16:\"report/marketing\";i:134;s:24:\"report/product_purchased\";i:135;s:21:\"report/product_viewed\";i:136;s:18:\"report/sale_coupon\";i:137;s:17:\"report/sale_order\";i:138;s:18:\"report/sale_return\";i:139;s:20:\"report/sale_shipping\";i:140;s:15:\"report/sale_tax\";i:141;s:17:\"sale/custom_field\";i:142;s:13:\"sale/customer\";i:143;s:20:\"sale/customer_ban_ip\";i:144;s:19:\"sale/customer_group\";i:145;s:10:\"sale/order\";i:146;s:14:\"sale/recurring\";i:147;s:11:\"sale/return\";i:148;s:12:\"sale/voucher\";i:149;s:18:\"sale/voucher_theme\";i:150;s:15:\"setting/setting\";i:151;s:13:\"setting/store\";i:152;s:16:\"shipping/auspost\";i:153;s:17:\"shipping/citylink\";i:154;s:14:\"shipping/fedex\";i:155;s:13:\"shipping/flat\";i:156;s:13:\"shipping/free\";i:157;s:13:\"shipping/item\";i:158;s:23:\"shipping/parcelforce_48\";i:159;s:15:\"shipping/pickup\";i:160;s:19:\"shipping/royal_mail\";i:161;s:12:\"shipping/ups\";i:162;s:13:\"shipping/usps\";i:163;s:15:\"shipping/weight\";i:164;s:11:\"tool/backup\";i:165;s:14:\"tool/error_log\";i:166;s:11:\"tool/upload\";i:167;s:12:\"total/coupon\";i:168;s:12:\"total/credit\";i:169;s:14:\"total/handling\";i:170;s:16:\"total/klarna_fee\";i:171;s:19:\"total/low_order_fee\";i:172;s:12:\"total/reward\";i:173;s:14:\"total/shipping\";i:174;s:15:\"total/sub_total\";i:175;s:9:\"total/tax\";i:176;s:11:\"total/total\";i:177;s:13:\"total/voucher\";i:178;s:8:\"user/api\";i:179;s:9:\"user/user\";i:180;s:20:\"user/user_permission\";i:181;s:16:\"feed/google_base\";i:182;s:15:\"shipping/maguss\";}s:6:\"modify\";a:183:{i:0;s:17:\"catalog/attribute\";i:1;s:23:\"catalog/attribute_group\";i:2;s:16:\"catalog/category\";i:3;s:16:\"catalog/download\";i:4;s:14:\"catalog/filter\";i:5;s:19:\"catalog/information\";i:6;s:20:\"catalog/manufacturer\";i:7;s:14:\"catalog/option\";i:8;s:15:\"catalog/product\";i:9;s:17:\"catalog/recurring\";i:10;s:14:\"catalog/review\";i:11;s:18:\"common/column_left\";i:12;s:18:\"common/filemanager\";i:13;s:11:\"common/menu\";i:14;s:14:\"common/profile\";i:15;s:12:\"common/stats\";i:16;s:18:\"dashboard/activity\";i:17;s:15:\"dashboard/chart\";i:18;s:18:\"dashboard/customer\";i:19;s:13:\"dashboard/map\";i:20;s:16:\"dashboard/online\";i:21;s:15:\"dashboard/order\";i:22;s:16:\"dashboard/recent\";i:23;s:14:\"dashboard/sale\";i:24;s:13:\"design/banner\";i:25;s:13:\"design/layout\";i:26;s:14:\"extension/feed\";i:27;s:19:\"extension/installer\";i:28;s:22:\"extension/modification\";i:29;s:16:\"extension/module\";i:30;s:17:\"extension/openbay\";i:31;s:17:\"extension/payment\";i:32;s:18:\"extension/shipping\";i:33;s:15:\"extension/total\";i:34;s:16:\"feed/google_base\";i:35;s:19:\"feed/google_sitemap\";i:36;s:15:\"feed/openbaypro\";i:37;s:20:\"localisation/country\";i:38;s:21:\"localisation/currency\";i:39;s:21:\"localisation/geo_zone\";i:40;s:21:\"localisation/language\";i:41;s:25:\"localisation/length_class\";i:42;s:21:\"localisation/location\";i:43;s:25:\"localisation/order_status\";i:44;s:26:\"localisation/return_action\";i:45;s:26:\"localisation/return_reason\";i:46;s:26:\"localisation/return_status\";i:47;s:25:\"localisation/stock_status\";i:48;s:22:\"localisation/tax_class\";i:49;s:21:\"localisation/tax_rate\";i:50;s:25:\"localisation/weight_class\";i:51;s:17:\"localisation/zone\";i:52;s:19:\"marketing/affiliate\";i:53;s:17:\"marketing/contact\";i:54;s:16:\"marketing/coupon\";i:55;s:19:\"marketing/marketing\";i:56;s:14:\"module/account\";i:57;s:16:\"module/affiliate\";i:58;s:20:\"module/amazon_button\";i:59;s:13:\"module/banner\";i:60;s:17:\"module/bestseller\";i:61;s:15:\"module/carousel\";i:62;s:15:\"module/category\";i:63;s:11:\"module/ebay\";i:64;s:15:\"module/featured\";i:65;s:13:\"module/filter\";i:66;s:22:\"module/google_hangouts\";i:67;s:11:\"module/html\";i:68;s:18:\"module/information\";i:69;s:13:\"module/latest\";i:70;s:16:\"module/pp_button\";i:71;s:15:\"module/pp_login\";i:72;s:16:\"module/slideshow\";i:73;s:14:\"module/special\";i:74;s:12:\"module/store\";i:75;s:14:\"openbay/amazon\";i:76;s:22:\"openbay/amazon_listing\";i:77;s:22:\"openbay/amazon_product\";i:78;s:16:\"openbay/amazonus\";i:79;s:24:\"openbay/amazonus_listing\";i:80;s:24:\"openbay/amazonus_product\";i:81;s:12:\"openbay/ebay\";i:82;s:20:\"openbay/ebay_profile\";i:83;s:21:\"openbay/ebay_template\";i:84;s:12:\"openbay/etsy\";i:85;s:20:\"openbay/etsy_product\";i:86;s:21:\"openbay/etsy_shipping\";i:87;s:17:\"openbay/etsy_shop\";i:88;s:23:\"payment/amazon_checkout\";i:89;s:24:\"payment/authorizenet_aim\";i:90;s:24:\"payment/authorizenet_sim\";i:91;s:21:\"payment/bank_transfer\";i:92;s:22:\"payment/bluepay_hosted\";i:93;s:24:\"payment/bluepay_redirect\";i:94;s:14:\"payment/cheque\";i:95;s:11:\"payment/cod\";i:96;s:17:\"payment/firstdata\";i:97;s:24:\"payment/firstdata_remote\";i:98;s:21:\"payment/free_checkout\";i:99;s:22:\"payment/klarna_account\";i:100;s:22:\"payment/klarna_invoice\";i:101;s:14:\"payment/liqpay\";i:102;s:14:\"payment/nochex\";i:103;s:15:\"payment/paymate\";i:104;s:16:\"payment/paypoint\";i:105;s:13:\"payment/payza\";i:106;s:26:\"payment/perpetual_payments\";i:107;s:18:\"payment/pp_express\";i:108;s:18:\"payment/pp_payflow\";i:109;s:25:\"payment/pp_payflow_iframe\";i:110;s:14:\"payment/pp_pro\";i:111;s:21:\"payment/pp_pro_iframe\";i:112;s:19:\"payment/pp_standard\";i:113;s:14:\"payment/realex\";i:114;s:21:\"payment/realex_remote\";i:115;s:22:\"payment/sagepay_direct\";i:116;s:22:\"payment/sagepay_server\";i:117;s:18:\"payment/sagepay_us\";i:118;s:24:\"payment/securetrading_pp\";i:119;s:24:\"payment/securetrading_ws\";i:120;s:14:\"payment/skrill\";i:121;s:19:\"payment/twocheckout\";i:122;s:28:\"payment/web_payment_software\";i:123;s:16:\"payment/worldpay\";i:124;s:16:\"report/affiliate\";i:125;s:25:\"report/affiliate_activity\";i:126;s:22:\"report/affiliate_login\";i:127;s:24:\"report/customer_activity\";i:128;s:22:\"report/customer_credit\";i:129;s:21:\"report/customer_login\";i:130;s:22:\"report/customer_online\";i:131;s:21:\"report/customer_order\";i:132;s:22:\"report/customer_reward\";i:133;s:16:\"report/marketing\";i:134;s:24:\"report/product_purchased\";i:135;s:21:\"report/product_viewed\";i:136;s:18:\"report/sale_coupon\";i:137;s:17:\"report/sale_order\";i:138;s:18:\"report/sale_return\";i:139;s:20:\"report/sale_shipping\";i:140;s:15:\"report/sale_tax\";i:141;s:17:\"sale/custom_field\";i:142;s:13:\"sale/customer\";i:143;s:20:\"sale/customer_ban_ip\";i:144;s:19:\"sale/customer_group\";i:145;s:10:\"sale/order\";i:146;s:14:\"sale/recurring\";i:147;s:11:\"sale/return\";i:148;s:12:\"sale/voucher\";i:149;s:18:\"sale/voucher_theme\";i:150;s:15:\"setting/setting\";i:151;s:13:\"setting/store\";i:152;s:16:\"shipping/auspost\";i:153;s:17:\"shipping/citylink\";i:154;s:14:\"shipping/fedex\";i:155;s:13:\"shipping/flat\";i:156;s:13:\"shipping/free\";i:157;s:13:\"shipping/item\";i:158;s:23:\"shipping/parcelforce_48\";i:159;s:15:\"shipping/pickup\";i:160;s:19:\"shipping/royal_mail\";i:161;s:12:\"shipping/ups\";i:162;s:13:\"shipping/usps\";i:163;s:15:\"shipping/weight\";i:164;s:11:\"tool/backup\";i:165;s:14:\"tool/error_log\";i:166;s:11:\"tool/upload\";i:167;s:12:\"total/coupon\";i:168;s:12:\"total/credit\";i:169;s:14:\"total/handling\";i:170;s:16:\"total/klarna_fee\";i:171;s:19:\"total/low_order_fee\";i:172;s:12:\"total/reward\";i:173;s:14:\"total/shipping\";i:174;s:15:\"total/sub_total\";i:175;s:9:\"total/tax\";i:176;s:11:\"total/total\";i:177;s:13:\"total/voucher\";i:178;s:8:\"user/api\";i:179;s:9:\"user/user\";i:180;s:20:\"user/user_permission\";i:181;s:16:\"feed/google_base\";i:182;s:15:\"shipping/maguss\";}}');
+INSERT INTO `inno_user_group` VALUES ('1', 'Administrator', 'a:2:{s:6:\"access\";a:185:{i:0;s:17:\"catalog/attribute\";i:1;s:23:\"catalog/attribute_group\";i:2;s:16:\"catalog/category\";i:3;s:16:\"catalog/download\";i:4;s:14:\"catalog/filter\";i:5;s:19:\"catalog/information\";i:6;s:20:\"catalog/manufacturer\";i:7;s:14:\"catalog/option\";i:8;s:15:\"catalog/product\";i:9;s:17:\"catalog/recurring\";i:10;s:14:\"catalog/review\";i:11;s:18:\"common/column_left\";i:12;s:18:\"common/filemanager\";i:13;s:11:\"common/menu\";i:14;s:14:\"common/profile\";i:15;s:12:\"common/stats\";i:16;s:18:\"dashboard/activity\";i:17;s:15:\"dashboard/chart\";i:18;s:18:\"dashboard/customer\";i:19;s:13:\"dashboard/map\";i:20;s:16:\"dashboard/online\";i:21;s:15:\"dashboard/order\";i:22;s:16:\"dashboard/recent\";i:23;s:14:\"dashboard/sale\";i:24;s:13:\"design/banner\";i:25;s:13:\"design/layout\";i:26;s:14:\"extension/feed\";i:27;s:19:\"extension/installer\";i:28;s:22:\"extension/modification\";i:29;s:16:\"extension/module\";i:30;s:17:\"extension/openbay\";i:31;s:17:\"extension/payment\";i:32;s:18:\"extension/shipping\";i:33;s:15:\"extension/total\";i:34;s:16:\"feed/google_base\";i:35;s:19:\"feed/google_sitemap\";i:36;s:15:\"feed/openbaypro\";i:37;s:20:\"localisation/country\";i:38;s:21:\"localisation/currency\";i:39;s:21:\"localisation/geo_zone\";i:40;s:21:\"localisation/language\";i:41;s:25:\"localisation/length_class\";i:42;s:21:\"localisation/location\";i:43;s:25:\"localisation/order_status\";i:44;s:26:\"localisation/return_action\";i:45;s:26:\"localisation/return_reason\";i:46;s:26:\"localisation/return_status\";i:47;s:25:\"localisation/stock_status\";i:48;s:22:\"localisation/tax_class\";i:49;s:21:\"localisation/tax_rate\";i:50;s:25:\"localisation/weight_class\";i:51;s:17:\"localisation/zone\";i:52;s:19:\"marketing/affiliate\";i:53;s:17:\"marketing/contact\";i:54;s:16:\"marketing/coupon\";i:55;s:19:\"marketing/marketing\";i:56;s:14:\"module/account\";i:57;s:16:\"module/affiliate\";i:58;s:20:\"module/amazon_button\";i:59;s:13:\"module/banner\";i:60;s:17:\"module/bestseller\";i:61;s:15:\"module/carousel\";i:62;s:15:\"module/category\";i:63;s:11:\"module/ebay\";i:64;s:15:\"module/featured\";i:65;s:13:\"module/filter\";i:66;s:22:\"module/google_hangouts\";i:67;s:11:\"module/html\";i:68;s:18:\"module/information\";i:69;s:13:\"module/latest\";i:70;s:16:\"module/pp_button\";i:71;s:15:\"module/pp_login\";i:72;s:16:\"module/slideshow\";i:73;s:14:\"module/special\";i:74;s:12:\"module/store\";i:75;s:14:\"openbay/amazon\";i:76;s:22:\"openbay/amazon_listing\";i:77;s:22:\"openbay/amazon_product\";i:78;s:16:\"openbay/amazonus\";i:79;s:24:\"openbay/amazonus_listing\";i:80;s:24:\"openbay/amazonus_product\";i:81;s:12:\"openbay/ebay\";i:82;s:20:\"openbay/ebay_profile\";i:83;s:21:\"openbay/ebay_template\";i:84;s:12:\"openbay/etsy\";i:85;s:20:\"openbay/etsy_product\";i:86;s:21:\"openbay/etsy_shipping\";i:87;s:17:\"openbay/etsy_shop\";i:88;s:23:\"payment/amazon_checkout\";i:89;s:24:\"payment/authorizenet_aim\";i:90;s:24:\"payment/authorizenet_sim\";i:91;s:21:\"payment/bank_transfer\";i:92;s:22:\"payment/bluepay_hosted\";i:93;s:24:\"payment/bluepay_redirect\";i:94;s:14:\"payment/cheque\";i:95;s:11:\"payment/cod\";i:96;s:17:\"payment/firstdata\";i:97;s:24:\"payment/firstdata_remote\";i:98;s:21:\"payment/free_checkout\";i:99;s:22:\"payment/klarna_account\";i:100;s:22:\"payment/klarna_invoice\";i:101;s:14:\"payment/liqpay\";i:102;s:14:\"payment/nochex\";i:103;s:15:\"payment/paymate\";i:104;s:16:\"payment/paypoint\";i:105;s:13:\"payment/payza\";i:106;s:26:\"payment/perpetual_payments\";i:107;s:18:\"payment/pp_express\";i:108;s:18:\"payment/pp_payflow\";i:109;s:25:\"payment/pp_payflow_iframe\";i:110;s:14:\"payment/pp_pro\";i:111;s:21:\"payment/pp_pro_iframe\";i:112;s:19:\"payment/pp_standard\";i:113;s:14:\"payment/realex\";i:114;s:21:\"payment/realex_remote\";i:115;s:22:\"payment/sagepay_direct\";i:116;s:22:\"payment/sagepay_server\";i:117;s:18:\"payment/sagepay_us\";i:118;s:24:\"payment/securetrading_pp\";i:119;s:24:\"payment/securetrading_ws\";i:120;s:14:\"payment/skrill\";i:121;s:19:\"payment/twocheckout\";i:122;s:28:\"payment/web_payment_software\";i:123;s:16:\"payment/worldpay\";i:124;s:16:\"report/affiliate\";i:125;s:25:\"report/affiliate_activity\";i:126;s:22:\"report/affiliate_login\";i:127;s:24:\"report/customer_activity\";i:128;s:22:\"report/customer_credit\";i:129;s:21:\"report/customer_login\";i:130;s:22:\"report/customer_online\";i:131;s:21:\"report/customer_order\";i:132;s:22:\"report/customer_reward\";i:133;s:16:\"report/marketing\";i:134;s:24:\"report/product_purchased\";i:135;s:21:\"report/product_viewed\";i:136;s:18:\"report/sale_coupon\";i:137;s:17:\"report/sale_order\";i:138;s:18:\"report/sale_return\";i:139;s:20:\"report/sale_shipping\";i:140;s:15:\"report/sale_tax\";i:141;s:17:\"sale/custom_field\";i:142;s:13:\"sale/customer\";i:143;s:20:\"sale/customer_ban_ip\";i:144;s:19:\"sale/customer_group\";i:145;s:10:\"sale/order\";i:146;s:14:\"sale/recurring\";i:147;s:11:\"sale/return\";i:148;s:12:\"sale/voucher\";i:149;s:18:\"sale/voucher_theme\";i:150;s:15:\"setting/setting\";i:151;s:13:\"setting/store\";i:152;s:16:\"shipping/auspost\";i:153;s:17:\"shipping/citylink\";i:154;s:14:\"shipping/fedex\";i:155;s:13:\"shipping/flat\";i:156;s:13:\"shipping/free\";i:157;s:13:\"shipping/item\";i:158;s:23:\"shipping/parcelforce_48\";i:159;s:15:\"shipping/pickup\";i:160;s:19:\"shipping/royal_mail\";i:161;s:12:\"shipping/ups\";i:162;s:13:\"shipping/usps\";i:163;s:15:\"shipping/weight\";i:164;s:11:\"tool/backup\";i:165;s:14:\"tool/error_log\";i:166;s:11:\"tool/upload\";i:167;s:12:\"total/coupon\";i:168;s:12:\"total/credit\";i:169;s:14:\"total/handling\";i:170;s:16:\"total/klarna_fee\";i:171;s:19:\"total/low_order_fee\";i:172;s:12:\"total/reward\";i:173;s:14:\"total/shipping\";i:174;s:15:\"total/sub_total\";i:175;s:9:\"total/tax\";i:176;s:11:\"total/total\";i:177;s:13:\"total/voucher\";i:178;s:8:\"user/api\";i:179;s:9:\"user/user\";i:180;s:20:\"user/user_permission\";i:181;s:16:\"feed/google_base\";i:182;s:15:\"shipping/maguss\";i:183;s:17:\"module/collection\";i:184;s:14:\"module/fashion\";}s:6:\"modify\";a:185:{i:0;s:17:\"catalog/attribute\";i:1;s:23:\"catalog/attribute_group\";i:2;s:16:\"catalog/category\";i:3;s:16:\"catalog/download\";i:4;s:14:\"catalog/filter\";i:5;s:19:\"catalog/information\";i:6;s:20:\"catalog/manufacturer\";i:7;s:14:\"catalog/option\";i:8;s:15:\"catalog/product\";i:9;s:17:\"catalog/recurring\";i:10;s:14:\"catalog/review\";i:11;s:18:\"common/column_left\";i:12;s:18:\"common/filemanager\";i:13;s:11:\"common/menu\";i:14;s:14:\"common/profile\";i:15;s:12:\"common/stats\";i:16;s:18:\"dashboard/activity\";i:17;s:15:\"dashboard/chart\";i:18;s:18:\"dashboard/customer\";i:19;s:13:\"dashboard/map\";i:20;s:16:\"dashboard/online\";i:21;s:15:\"dashboard/order\";i:22;s:16:\"dashboard/recent\";i:23;s:14:\"dashboard/sale\";i:24;s:13:\"design/banner\";i:25;s:13:\"design/layout\";i:26;s:14:\"extension/feed\";i:27;s:19:\"extension/installer\";i:28;s:22:\"extension/modification\";i:29;s:16:\"extension/module\";i:30;s:17:\"extension/openbay\";i:31;s:17:\"extension/payment\";i:32;s:18:\"extension/shipping\";i:33;s:15:\"extension/total\";i:34;s:16:\"feed/google_base\";i:35;s:19:\"feed/google_sitemap\";i:36;s:15:\"feed/openbaypro\";i:37;s:20:\"localisation/country\";i:38;s:21:\"localisation/currency\";i:39;s:21:\"localisation/geo_zone\";i:40;s:21:\"localisation/language\";i:41;s:25:\"localisation/length_class\";i:42;s:21:\"localisation/location\";i:43;s:25:\"localisation/order_status\";i:44;s:26:\"localisation/return_action\";i:45;s:26:\"localisation/return_reason\";i:46;s:26:\"localisation/return_status\";i:47;s:25:\"localisation/stock_status\";i:48;s:22:\"localisation/tax_class\";i:49;s:21:\"localisation/tax_rate\";i:50;s:25:\"localisation/weight_class\";i:51;s:17:\"localisation/zone\";i:52;s:19:\"marketing/affiliate\";i:53;s:17:\"marketing/contact\";i:54;s:16:\"marketing/coupon\";i:55;s:19:\"marketing/marketing\";i:56;s:14:\"module/account\";i:57;s:16:\"module/affiliate\";i:58;s:20:\"module/amazon_button\";i:59;s:13:\"module/banner\";i:60;s:17:\"module/bestseller\";i:61;s:15:\"module/carousel\";i:62;s:15:\"module/category\";i:63;s:11:\"module/ebay\";i:64;s:15:\"module/featured\";i:65;s:13:\"module/filter\";i:66;s:22:\"module/google_hangouts\";i:67;s:11:\"module/html\";i:68;s:18:\"module/information\";i:69;s:13:\"module/latest\";i:70;s:16:\"module/pp_button\";i:71;s:15:\"module/pp_login\";i:72;s:16:\"module/slideshow\";i:73;s:14:\"module/special\";i:74;s:12:\"module/store\";i:75;s:14:\"openbay/amazon\";i:76;s:22:\"openbay/amazon_listing\";i:77;s:22:\"openbay/amazon_product\";i:78;s:16:\"openbay/amazonus\";i:79;s:24:\"openbay/amazonus_listing\";i:80;s:24:\"openbay/amazonus_product\";i:81;s:12:\"openbay/ebay\";i:82;s:20:\"openbay/ebay_profile\";i:83;s:21:\"openbay/ebay_template\";i:84;s:12:\"openbay/etsy\";i:85;s:20:\"openbay/etsy_product\";i:86;s:21:\"openbay/etsy_shipping\";i:87;s:17:\"openbay/etsy_shop\";i:88;s:23:\"payment/amazon_checkout\";i:89;s:24:\"payment/authorizenet_aim\";i:90;s:24:\"payment/authorizenet_sim\";i:91;s:21:\"payment/bank_transfer\";i:92;s:22:\"payment/bluepay_hosted\";i:93;s:24:\"payment/bluepay_redirect\";i:94;s:14:\"payment/cheque\";i:95;s:11:\"payment/cod\";i:96;s:17:\"payment/firstdata\";i:97;s:24:\"payment/firstdata_remote\";i:98;s:21:\"payment/free_checkout\";i:99;s:22:\"payment/klarna_account\";i:100;s:22:\"payment/klarna_invoice\";i:101;s:14:\"payment/liqpay\";i:102;s:14:\"payment/nochex\";i:103;s:15:\"payment/paymate\";i:104;s:16:\"payment/paypoint\";i:105;s:13:\"payment/payza\";i:106;s:26:\"payment/perpetual_payments\";i:107;s:18:\"payment/pp_express\";i:108;s:18:\"payment/pp_payflow\";i:109;s:25:\"payment/pp_payflow_iframe\";i:110;s:14:\"payment/pp_pro\";i:111;s:21:\"payment/pp_pro_iframe\";i:112;s:19:\"payment/pp_standard\";i:113;s:14:\"payment/realex\";i:114;s:21:\"payment/realex_remote\";i:115;s:22:\"payment/sagepay_direct\";i:116;s:22:\"payment/sagepay_server\";i:117;s:18:\"payment/sagepay_us\";i:118;s:24:\"payment/securetrading_pp\";i:119;s:24:\"payment/securetrading_ws\";i:120;s:14:\"payment/skrill\";i:121;s:19:\"payment/twocheckout\";i:122;s:28:\"payment/web_payment_software\";i:123;s:16:\"payment/worldpay\";i:124;s:16:\"report/affiliate\";i:125;s:25:\"report/affiliate_activity\";i:126;s:22:\"report/affiliate_login\";i:127;s:24:\"report/customer_activity\";i:128;s:22:\"report/customer_credit\";i:129;s:21:\"report/customer_login\";i:130;s:22:\"report/customer_online\";i:131;s:21:\"report/customer_order\";i:132;s:22:\"report/customer_reward\";i:133;s:16:\"report/marketing\";i:134;s:24:\"report/product_purchased\";i:135;s:21:\"report/product_viewed\";i:136;s:18:\"report/sale_coupon\";i:137;s:17:\"report/sale_order\";i:138;s:18:\"report/sale_return\";i:139;s:20:\"report/sale_shipping\";i:140;s:15:\"report/sale_tax\";i:141;s:17:\"sale/custom_field\";i:142;s:13:\"sale/customer\";i:143;s:20:\"sale/customer_ban_ip\";i:144;s:19:\"sale/customer_group\";i:145;s:10:\"sale/order\";i:146;s:14:\"sale/recurring\";i:147;s:11:\"sale/return\";i:148;s:12:\"sale/voucher\";i:149;s:18:\"sale/voucher_theme\";i:150;s:15:\"setting/setting\";i:151;s:13:\"setting/store\";i:152;s:16:\"shipping/auspost\";i:153;s:17:\"shipping/citylink\";i:154;s:14:\"shipping/fedex\";i:155;s:13:\"shipping/flat\";i:156;s:13:\"shipping/free\";i:157;s:13:\"shipping/item\";i:158;s:23:\"shipping/parcelforce_48\";i:159;s:15:\"shipping/pickup\";i:160;s:19:\"shipping/royal_mail\";i:161;s:12:\"shipping/ups\";i:162;s:13:\"shipping/usps\";i:163;s:15:\"shipping/weight\";i:164;s:11:\"tool/backup\";i:165;s:14:\"tool/error_log\";i:166;s:11:\"tool/upload\";i:167;s:12:\"total/coupon\";i:168;s:12:\"total/credit\";i:169;s:14:\"total/handling\";i:170;s:16:\"total/klarna_fee\";i:171;s:19:\"total/low_order_fee\";i:172;s:12:\"total/reward\";i:173;s:14:\"total/shipping\";i:174;s:15:\"total/sub_total\";i:175;s:9:\"total/tax\";i:176;s:11:\"total/total\";i:177;s:13:\"total/voucher\";i:178;s:8:\"user/api\";i:179;s:9:\"user/user\";i:180;s:20:\"user/user_permission\";i:181;s:16:\"feed/google_base\";i:182;s:15:\"shipping/maguss\";i:183;s:17:\"module/collection\";i:184;s:14:\"module/fashion\";}}');
 INSERT INTO `inno_user_group` VALUES ('10', 'Demonstration', '');
 
 -- ----------------------------
