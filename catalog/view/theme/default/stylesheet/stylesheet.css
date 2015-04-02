@@ -836,7 +836,8 @@ h2.price {
   	background: #ffffff
 }
 
-.collection-center-text {
+/* collection */
+.pan-collection .center-text {
     border: 2px solid #333333;
     width: 180%;
     margin-top: 200px;
@@ -850,13 +851,16 @@ h2.price {
     line-height: 30px;
     color: #63c6c1;
 }
-.collection-bottom-title {
+.pan-collection .bottom-text {
     color: #63c6c1;
     font-size: 25px;
     font-weight: bold;
     margin-top: 90px;
     margin-bottom: 25px;
 }
+/* end collection */
+
+/* fashion */
 .pan-fashion {
     color: #63c6c1;
 }
@@ -900,3 +904,57 @@ h2.price {
     width: 100%;
     margin-top: -150px;
 }
+/* end fashion */
+
+/* screen with <= 768px */
+@media (max-width: 768px) {
+    /* collection */
+    .pan-collection .center-text {
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .pan-collection .left-text {
+        margin-top: 15px;
+    }
+    .pan-collection .right-image {
+        margin-top: 15px;
+    }
+    .pan-collection .bottom-text {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    /* end collection */
+
+    /* fashion */
+    .pan-fashion {
+        margin-top: 0px;
+    }
+    .pan-fashion .left-image {
+        margin-top: 10px;
+    }
+    .pan-fashion .left-text {
+        margin-top: 15px;
+    }
+    .pan-fashion .top-image {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pan-fashion .top-text {
+        margin-top: 15px;
+    }
+    .pan-fashion .right-image {
+        margin-top: 25px;
+    }
+    .pan-fashion .bottom-image {
+        width: 100%;
+        margin-top: 15px;
+    }
+    /* end fashion */
+}
+/* end screen with 768px */
