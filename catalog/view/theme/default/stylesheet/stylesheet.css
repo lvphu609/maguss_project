@@ -310,16 +310,16 @@ div.required .control-label:before {
 footer {
 	margin-top: 30px;
 	padding-top: 30px;
-	background-color: #303030;
-	border-top: 1px solid #ddd;
-	color: #e2e2e2;
+	background-color: #f1f1f2;
+	border-top: 1px solid #63c6c1;
+	color: #63c6c1;
 }
 footer hr {
 	border-top: none;
-	border-bottom: 1px solid #666;
+	border-bottom: 1px solid #63c6c1;
 }
 footer a {
-	color: #ccc;
+	color: #63c6c1;
 }
 footer a:hover {
 	color: #fff;
@@ -328,7 +328,7 @@ footer h5 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: bold;
-	color: #fff;
+	color: #63c6c1;
 }
 /* alert */
 .alert {
@@ -856,4 +856,47 @@ h2.price {
     font-weight: bold;
     margin-top: 90px;
     margin-bottom: 25px;
+}
+.pan-fashion {
+    color: #63c6c1;
+}
+.pan-fashion .left-image {
+    margin-top: 100px;
+    width: 100%;
+}
+.pan-fashion .left-text {
+    margin-top: 400px;
+    border-bottom: 1px solid #63c6c1;
+    padding-bottom: 15px;
+    width: 130px;
+    color: #63c6c1;
+}
+.pan-fashion .bottom-text {
+    padding-top: 0px;
+    margin-top: 0px;
+    color: #63c6c1;
+}
+.pan-fashion .top-image {
+    width: 120%;
+    margin-left: -20%;
+}
+.pan-fashion .top-text {
+    margin-top: 230px;
+    border-bottom: 1px solid #63c6c1;
+    padding-bottom: 15px;
+    width: 130px;
+    color: #63c6c1;
+}
+.pan-fashion .right-text {
+    padding-top: 0px;
+    margin-top: 0px;
+    color: #63c6c1;
+}
+.pan-fashion .bottom-image {
+    width: 80%;
+    margin-top: 20px;
+}
+.pan-fashion .right-image {
+    width: 100%;
+    margin-top: -150px;
 }
