@@ -79,6 +79,20 @@ class ControllerShippingMaguss extends Controller {
 
 		$data['maguss_zone'] = $this->model_setting_setting->getSetting('maguss');
 
+        // load location
+        $this->load->model('localisation/zone');
+        $allProvince = $this->model_localisation_zone->getZonesByCountryId(230);
+        $provinces = array();
+        foreach ($allProvince as $province) {
+            $tmp = array(
+                'id' => $province['zone_id'],
+                'text' => $province['name']
+            );
+            array_push($provinces, $tmp);
+        }
+        $data['provinces'] = $provinces;
+
+
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
