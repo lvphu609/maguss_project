@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-04-02 16:57:04
+Date: 2015-04-03 10:33:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -877,9 +877,9 @@ CREATE TABLE `inno_currency` (
 -- ----------------------------
 -- Records of inno_currency
 -- ----------------------------
-INSERT INTO `inno_currency` VALUES ('1', 'Pound Sterling', 'GBP', '£', '', '2', '0.67269999', '1', '2015-04-01 06:18:10');
-INSERT INTO `inno_currency` VALUES ('2', 'US Dollar', 'USD', '$', '', '2', '1.00000000', '1', '2015-04-02 04:35:07');
-INSERT INTO `inno_currency` VALUES ('3', 'Euro', 'EUR', '', '€', '2', '0.92699999', '1', '2015-04-01 06:18:10');
+INSERT INTO `inno_currency` VALUES ('1', 'Pound Sterling', 'GBP', '£', '', '2', '0.67439997', '1', '2015-04-03 04:23:42');
+INSERT INTO `inno_currency` VALUES ('2', 'US Dollar', 'USD', '$', '', '2', '1.00000000', '1', '2015-04-03 04:23:42');
+INSERT INTO `inno_currency` VALUES ('3', 'Euro', 'EUR', '', '€', '2', '0.91990000', '1', '2015-04-03 04:23:42');
 
 -- ----------------------------
 -- Table structure for `inno_custom_field`
