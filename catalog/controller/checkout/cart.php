@@ -220,12 +220,17 @@ class ControllerCheckoutCart extends Controller {
 			$data['totals'] = array();
 
 			foreach ($total_data as $total) {
-				$data['totals'][] = array(
+				$data['totals'][$total['code']] = array(
 					'title' => $total['title'],
 					'text'  => $this->currency->format($total['value'])
 				);
 			}
 
+            // Shipping Methods
+            $this->load->model('shipping/maguss');
+            $quote = $this->model_shipping_maguss->getQuote(array());
+
+			$data['method_data'] = $quote['quote']['maguss'];
 			$data['continue'] = $this->url->link('common/home');
 
 			$data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');

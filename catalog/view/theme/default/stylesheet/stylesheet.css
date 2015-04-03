@@ -908,6 +908,10 @@ h2.price {
 }
 /* end fashion */
 
+.w160 {
+    width: 160px !important;
+}
+
 /* screen with <= 768px */
 @media (max-width: 768px) {
     /* collection */
