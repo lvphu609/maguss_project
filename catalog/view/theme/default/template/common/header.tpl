@@ -31,6 +31,7 @@
     <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css"/>
     <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
+    <link href="catalog/view/theme/default/stylesheet/jquery-ui.min.css" rel="stylesheet">
     <?php foreach ($styles as $style) { ?>
         <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>"
               media="<?php echo $style['media']; ?>"/>
@@ -40,6 +41,7 @@
         <script src="<?php echo $script; ?>" type="text/javascript"></script>
     <?php } ?>
     <script src="catalog/view/javascript/jquery.sticky.js" type="text/javascript"></script>
+    <script src="catalog/view/javascript/jquery-ui.min.js" type="text/javascript"></script>
     <?php echo $google_analytics; ?>
 </head>
 <body class="<?php echo $class; ?>">
@@ -90,26 +92,35 @@
                 <?php if ($categories) { ?>
                     <?php foreach ($categories as $category) { ?>
                         <?php if ($category['children']) { ?>
-                            <span class="dropdown mn-top-item"><a href="<?php echo $category['href']; ?>"
-                                                                  class="dropdown-toggle"
-                                                                  data-toggle="dropdown"><?php echo $category['name']; ?></a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-inner">
-                            <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-                                <ul class="list-unstyled">
-                                    <?php foreach ($children as $child) { ?>
-                                        <span><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></span>
-                                    <?php } ?>
-                                </ul>
+                            <span class="mn-top-item">
+                                <a href="<?php echo $category['href']; ?>" data-toggle="dropdown"><?php echo $category['name']; ?></a>
+                                <div class="sub-menu-content hidden">
+                                    <div class="ui-tooltip-menu-top">
+                                        <div class="box-sub-menu">
+                                            <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                                                    <?php foreach ($children as $child) { ?>
+                                                        <ul class="list-unstyled">
+                                                            <li class="title">
+                                                                <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                            </li>
+                                                            <li>example</li>
+                                                            <li>example</li>
+                                                            <li>example</li>
+                                                            <li>example</li>
+                                                        </ul>
+                                                    <?php } ?>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                    <!-- <a href="<?php echo $category['href']; ?>"
+                                       class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a> -->
+                                </div>
+                            </span>
+                            <?php } else { ?>
+                            <span class="mn-top-item">
+                                <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+                            </span>
                             <?php } ?>
-                        </div>
-                        <a href="<?php echo $category['href']; ?>"
-                           class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a></div>
-                  </span>
-                        <?php } else { ?>
-                            <span class="mn-top-item"><a
-                                    href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></span>
-                        <?php } ?>
                     <?php } ?>
                 <?php } ?>
             </div>

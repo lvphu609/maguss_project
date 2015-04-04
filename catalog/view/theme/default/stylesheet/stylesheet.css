@@ -827,13 +827,14 @@ h2.price {
 }
 
 .box-menu-top{
-	border-bottom: 2px solid #63C6C1;
+	/*border-bottom: 2px solid #63C6C1;*/
 }
 
 .mn-bottom{
 	height: 50px;
 	z-index: 999999;
-  	background: #ffffff
+  	background: #ffffff;
+  	border-bottom: 2px solid #63C6C1;
 }
 
 /* collection */
@@ -960,3 +961,74 @@ h2.price {
     /* end fashion */
 }
 /* end screen with 768px */
+
+/*overide tooltip jquery*/
+.ui-tooltip.ui-tooltip-content-menu-top{
+	background: #FFFFFF !important;
+	min-height: 300px;
+	border:none;
+	z-index: 9999999999;
+	width: 100% !important; 
+	left: 0px !important;
+	margin-top: -11px;
+	border: none !important;
+	padding: 0px !important;
+	position: absolute;
+	z-index: 9999;
+	max-width: none !important;
+	-webkit-box-shadow: 0 0 5px #aaa;
+	box-shadow: 0 0 5px #aaa;
+}
+.ui-tooltip-menu-top{
+	background: #FFFFFF;
+	min-height: 300px;
+	z-index: 9999999999;
+	margin-top: -11px;
+	padding: 0px !important;
+	left: 0px !important;
+	width: 100% !important; 
+}
+.ui-tooltip-content-menu-top .ui-tooltip-content{
+	background: #FFFFFF;
+	min-height: 300px;
+	z-index: 9999999999;
+	margin-top: -11px;
+	width: 100% !important; 
+	left: 0px !important;
+	padding: 0px !important;
+}
+
+.box-sub-menu{
+	padding: 20px;
+	width: 100%;
+	height: auto;
+}
+
+.box-sub-menu ul.list-unstyled{
+	float: left;
+	border-left: 1px solid #ddd;
+}
+.box-sub-menu ul.list-unstyled li{
+	padding-left: 10px;
+	padding-bottom: 5px;
+}
+
+
+.box-sub-menu ul.list-unstyled li.title{
+	  font-family:  Myriad Pro;
+	  font-size: 11px;
+	  line-height: 21px;
+	  letter-spacing: 1px;
+	  text-transform: uppercase;
+	  margin-right: 100px;
+}
+
+
+.box-sub-menu ul.list-unstyled li.title a{
+	 color: #000;
+  	text-decoration: none;
+}
+  
+.mn-top-item .active{
+	text-decoration: underline;
+}

@@ -467,17 +467,51 @@ var Maguss = {
     	});
 	},
 	hoverMenuTopItem: function(){
-		/*$(document).on('hover','.mn-top-item',function(){
-			alert('ok');
-		});*/
-		/*$(".mn-top-item").hover(
-		  function () {
-		     $(this).find('.dropdown-menu').slideDown('medium');
-		  }, 
-		  function () {
-		      $(this).find('.dropdown-menu').slideUp('medium');
-		  }
-		);*/
+		var that = this;
+		$('.mn-top-logo').tooltip({
+		    items: '.mn-top-logo .mn-top-item',
+		    content: function()
+		    {
+		        var $this = $(this);
+		        var content = $this.find('.sub-menu-content').html();
+		        return content;
+		    },
+		    tooltipClass:"ui-tooltip-content-menu-top",
+		    show: null, // show immediately
+    		extraClass:"i1",
+		    open: function(event, ui)
+		    {
+		    	var that = this;
+		        if (typeof(event.originalEvent) === 'undefined')
+		        {
+		            return false;
+		        }
+		        
+		        var $id = $(ui.tooltip).attr('id');
+		        $('#' + $id).css({
+		        	"with" : "1000px"
+		        });
+		        // close any lingering tooltips
+		        $('div.ui-tooltip').not('#' + $id).remove();
+		        
+		        // ajax function to pull in data and add it to the tooltip goes here
+		    },
+		    close: function(event, ui)
+		    {
+		        ui.tooltip.hover(function()
+		        {
+		            $(this).stop(true).fadeTo(1, 1); 
+		        },
+		        function()
+		        {
+		            $(this).fadeOut('1', function()
+		            {
+		                $(this).remove();
+		            });
+		        });
+		    }
+		});
+
 	},
 	run: function(){
 		this.stickyMenuTop();	
