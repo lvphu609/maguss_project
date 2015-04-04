@@ -970,32 +970,37 @@ h2.price {
 	z-index: 9999999999;
 	width: 100% !important; 
 	left: 0px !important;
-	margin-top: -11px;
+	margin-top: -15px;
 	border: none !important;
 	padding: 0px !important;
 	position: absolute;
 	z-index: 9999;
 	max-width: none !important;
 	-webkit-box-shadow: 0 0 5px #aaa;
-	box-shadow: 0 0 5px #aaa;
+	box-shadow: none !important;
+	border-bottom: 1px solid #999;
+	opacity: 0.9;
+
 }
 .ui-tooltip-menu-top{
-	background: #FFFFFF;
+	/*background: #FFFFFF;*/
 	min-height: 300px;
 	z-index: 9999999999;
-	margin-top: -11px;
+	margin-top: -15px;
 	padding: 0px !important;
 	left: 0px !important;
 	width: 100% !important; 
 }
 .ui-tooltip-content-menu-top .ui-tooltip-content{
-	background: #FFFFFF;
+	/*background: #FFFFFF;*/
 	min-height: 300px;
 	z-index: 9999999999;
-	margin-top: -11px;
+	margin-top: -15px;
 	width: 100% !important; 
 	left: 0px !important;
 	padding: 0px !important;
+	opacity: 0.9;
+	border-bottom: 1px solid #63C6C1;
 }
 
 .box-sub-menu{
@@ -1006,7 +1011,7 @@ h2.price {
 
 .box-sub-menu ul.list-unstyled{
 	float: left;
-	border-left: 1px solid #ddd;
+	border-left: 1px solid #63C6C1;
 }
 .box-sub-menu ul.list-unstyled li{
 	padding-left: 10px;
@@ -1023,12 +1028,34 @@ h2.price {
 	  margin-right: 100px;
 }
 
+.box-sub-menu ul.list-unstyled li a{
+	 color: #63C6C1;
+	 font-size: 11px;
+  	text-decoration: none;
+}
 
 .box-sub-menu ul.list-unstyled li.title a{
-	 color: #000;
+	color: #63C6C1;
+	font-size: 12px;
   	text-decoration: none;
+}
+
+.box-sub-menu ul.list-unstyled li a:hover, .box-sub-menu ul.list-unstyled li.title a:hover{
+  	text-decoration: underline;
 }
   
 .mn-top-item .active{
+	text-decoration: underline;
+}
+
+.menu-see-all{
+	padding: 10px;
+}
+
+.menu-see-all a{
+	color: #63C6C1 !important;
+}
+
+.menu-see-all a:hover{
 	text-decoration: underline;
 }

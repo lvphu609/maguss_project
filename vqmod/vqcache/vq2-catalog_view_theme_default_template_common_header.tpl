@@ -140,5 +140,49 @@
     </div>
 </header>
 
+				<style>
+				/**nthLevelMenu starts*/
+				.nthLevelMenu{	background-clip: padding-box; background-color: #3f3f68;	border: 1px solid rgba(0, 0, 0, 0.15);	border-radius: 4px; -webkit-border-radius: 4px;	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);	display: none;	left: 100%;	min-width: 160px; min-height:160px;	padding: 5px 0 0;	position: absolute;	top: -6px;	z-index: 1001; }
+
+				#menu .dropdown a:first-child.hidea{display:none;}
+				#menu .dropdown a.see-all { border-top: none; }
+				@media (min-width: 768px) {
+					#menu .dropdown:hover > .dropdown-menu1 {
+						display: block;
+					}
+				}
+				/**nthLevelMenu ends*/
+				
+				</style>
+				<?php function nthLevelMenu($category,$text_all){ ob_start(); ?>
+				<ul class="list-unstyled">
+				<?php if (!empty($category['children'])) { ?>
+				<li class="title"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a></li>
+					
+							<?php 
+							foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+								<?php foreach ($children as $child) { ?>
+								<?php if(!empty($child['children'])) { ?>
+								<?php echo nthLevelMenu($child,$text_all); ?>
+								<?php } else { ?>
+								
+				<?php if(isset($child['children'])) { ?>
+				<?php echo nthLevelMenu($child,$text_all); ?>
+				<?php } else { ?>
+				<li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+				<?php } ?>
+			
+								<?php } ?>
+								<?php } ?>
+							<?php } ?>
+							
+						<!-- <a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['seeallname']; ?></a>-->
+				<?php } else { ?>
+				<li class="title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+				<?php } ?>	
+			</ul>
+			<?php $menu = ob_get_contents(); ob_end_clean();	return $menu; } ?>
+			
+
 
 

@@ -494,6 +494,7 @@ var Maguss = {
 		        // close any lingering tooltips
 		        $('div.ui-tooltip').not('#' + $id).remove();
 		        
+		        ui.tooltip.animate({ top: ui.tooltip.position().top - 14 }, "fast" );
 		        // ajax function to pull in data and add it to the tooltip goes here
 		    },
 		    close: function(event, ui)
