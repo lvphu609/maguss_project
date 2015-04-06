@@ -1,4 +1,4 @@
-<div class="container pan-fashion">
+<div class="pan-fashion">
     <div class="row">
         <div class="col-md-3">
             <img src="<?php echo $left_image; ?>" class="left-image">

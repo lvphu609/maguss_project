@@ -1078,7 +1078,7 @@ h2.price {
 
 .menu-category-left a.list-group-item{
 	border: none;
-	font-family: Myriad Pro;
+	/*font-family: Myriad Pro;*/
 }
 
 .menu-category-left a.list-group-item:hover{
@@ -1088,14 +1088,16 @@ h2.price {
 .menu-category-left a.list-group-item.active{
 	background: none;
 	color: #63C6C1;
-	font-weight: bold;
+	font-family: Myriad Pro;
+	/*font-weight: bold;*/
 }
 .menu-category-left a.list-group-item.active:hover{
 	background: none;
 }
 
 .menu-category-left a.list-group-item.parent{
-	font-weight: bold;
+	/*font-weight: bold;*/
+	font-family: Myriad Pro;
 }
 
 footer{
@@ -1134,4 +1136,19 @@ ul.link-to-social li.item-social img{
 
 .ft-span-lable{
 	font-weight: bold;
+}
+
+.text-header{
+	margin-top: 10px;
+}
+.text-header span{
+	/*margin-top: 10px;*/
+	color: #63C6C1;
+	font-weight: bold;
+	font-family: Myriad Pro !important;
+	font-size: 15px;
+}
+
+.product-layout.product-grid.product-item{
+	padding: 0px 5px 0px 0px;
 }
