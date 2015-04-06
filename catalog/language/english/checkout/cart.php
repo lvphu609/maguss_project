@@ -1,6 +1,7 @@
 <?php
 // Heading
-$_['heading_title']            = 'Shopping Cart';
+$_['heading_title']            = 'THÔNG TIN ĐƠN HÀNG';
+$_['heading_sub_title']            = 'Cập nhật đơn hàng và chi tiết tất cả các sản phẩm';
 
 // Text
 $_['text_success']             = 'Success: You have added <a href="%s">%s</a> to your <a href="%s">shopping cart</a>!';

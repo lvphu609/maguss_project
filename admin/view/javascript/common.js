@@ -686,12 +686,19 @@ var Store = {
 			var tableZone = $('#pan-table-zone'),
 				newZone = $('<tr>'),
 				zoneOrder = $('<td class="text-center">' + (tableZone.find('tr').length + 1) + '</td>'),
+                province = $('<td class="form-group"><select name="maguss_zone[province][]" class="form-control cbo-provinces" style="width: 200px;"></select></td>'),
 				zoneName = $('<td class="form-group"><input type="text" name="maguss_zone[name][]" class="form-control zone-name" placeholder="Zone name..."></td>'),
 				zoneCost = $('<td class="form-group"><input type="text" name="maguss_zone[cost][]"  class="form-control zone-cost" placeholder="Cost" value="0"></td>'),
 				zoneControl = $('<td class="text-center"><button type="button" class="btn btn-danger btn-sm btn-delete-zone"><span class="glyphicon glyphicon-trash"></span></button></td>');
 
-			newZone.append(zoneOrder, zoneName, zoneCost, zoneControl);
+            /*province.select2({
+                data: provinces
+            });*/
+			newZone.append(zoneOrder, province, zoneName, zoneCost, zoneControl);
 			tableZone.append(newZone);
+            newZone.find('.cbo-provinces').select2({
+                data: provinces
+            });
 		});
 		// control for button delete zone
 		$('#pan-table-zone').on('click', '.btn-delete-zone', function() {
