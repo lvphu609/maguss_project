@@ -244,6 +244,21 @@ class ControllerProductSearch extends Controller {
 					$rating = false;
 				}
 
+				//get quantity detail
+				$quantity_detail = !empty($result['quantity_detail']) ? $result['quantity_detail'] : '[]' ;
+				$quantityDetail = json_decode($quantity_detail, true);
+				if (count($quantityDetail) > 0) {
+					foreach ($quantityDetail as $key => $value) {
+						if (count($value['images']) > 0) {
+							foreach ($value['images'] as $imgKey => $img) {
+								$quantityDetail[$key]['images'][$imgKey]['url'] = $this->model_tool_image->resize($img['name'], 300, 400);
+							}
+						}
+					}
+					$quantityDetail = $quantityDetail;
+				} else {
+					$quantityDetail = array();
+				}
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
@@ -253,7 +268,8 @@ class ControllerProductSearch extends Controller {
 					'special'     => $special,
 					'tax'         => $tax,
 					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
+					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url),
+					'quantity_detail' => $quantityDetail
 				);
 			}
 
