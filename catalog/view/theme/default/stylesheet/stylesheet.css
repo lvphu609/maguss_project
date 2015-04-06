@@ -311,7 +311,7 @@ footer {
 	margin-top: 30px;
 	padding-top: 30px;
 	background-color: #f1f1f2;
-	border-top: 1px solid #63c6c1;
+	/*border-top: 1px solid #63c6c1;*/
 	color: #63c6c1;
 }
 footer hr {
@@ -1095,5 +1095,43 @@ h2.price {
 }
 
 .menu-category-left a.list-group-item.parent{
+	font-weight: bold;
+}
+
+footer{
+	padding-bottom: 30px;
+}
+
+footer h5{
+	/*font-family: Myriad Pro;*/
+}
+footer .footer-block{
+	border-right: 1px solid #63C6C1;
+	height: 100%;
+}
+
+footer .footer-block.footer-block-item {
+	min-height: 120px;
+}
+
+ul.link-to-social li{
+	float: left;
+}
+
+ul.link-to-social li.item-social{
+	width: 50px;
+	height: 50px;
+	margin-right: 4px;
+	background-color: #FFFFFF;
+}
+
+ul.link-to-social li.item-social img{
+	width: 50px;
+	height: 50px;
+	border:none;
+	border-radius: 2px;
+}
+
+.ft-span-lable{
 	font-weight: bold;
 }

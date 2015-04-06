@@ -1,3 +1,5 @@
+
+<?php /*
 <footer>
   <div class="container">
     <div class="row">
@@ -40,6 +42,57 @@
     </div>
     <hr>
     <p><?php echo $powered; ?></p> 
+  </div>
+</footer>
+
+*/ ?>
+
+<footer>
+  <div>
+    <div class="row">
+      <?php if ($informations) { ?>
+      <div class="footer-block footer-block-item col-sm-4">
+        <div class="col-md-offset-2">
+          <ul class="list-unstyled">
+            <?php foreach ($informations as $information) { ?>
+            <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
+            <?php } ?>
+            <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
+          </ul>
+        </div>
+      </div>
+      <?php } ?>
+      <div class="footer-block footer-block-item col-sm-4">
+         <div class="col-md-offset-1">
+            <ul class="list-unstyled">
+              <li><span class="ft-span-lable"><h>Hot line: </span>093 266 7429</li>
+              <li><span class="ft-span-lable">Show room: </span>9 Hoa Cúc, P.7, Q. Phú Nhuận, Tp. Hồ Chí Minh
+Thời gian làm việc: 9:00 - 21:30 (thứ 2 - thứ 7)
+9:00 - 19:30 (Chủ nhật)</li>
+            </ul>
+          </div>
+      </div>
+      <div class="footer-block-item col-sm-4">
+        <div class="col-md-offset-4">
+          <h5>Liên kết với chúng tôi</h5>
+            <ul class="list-unstyled link-to-social">
+              <li class="item-social">
+                <a href="#">
+                  <img src="image/catalog/icon/social-face.png">
+                </a>
+              </li>
+              <li class="item-social">
+                <a href="#">
+                  <img src="image/catalog/icon/social-twitter.png"></li>
+                </a>
+              <li class="item-social">
+                <a href="#">
+                  <img src="image/catalog/icon/social-pinterest.png"></li>
+                </a>
+            </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
 
