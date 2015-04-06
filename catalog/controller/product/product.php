@@ -279,7 +279,24 @@ class ControllerProductProduct extends Controller {
 			}
 
 			$this->load->model('tool/image');
-
+			//product detail
+			$qty_detail = !empty($product_info['quantity_detail']) ? $product_info['quantity_detail'] : '[]' ;
+			$qtyDetail = json_decode($qty_detail, true);
+			if (count($qtyDetail) > 0) {
+				foreach ($qtyDetail as $key => $value) {
+					if (count($value['images']) > 0) {
+						foreach ($value['images'] as $imgKey => $img) {
+							$qtyDetail[$key]['images'][$imgKey]['url'] = $this->model_tool_image->resize($img['name'], 768, 1024);
+						}
+					}
+				}
+				$qtyDetail = $qtyDetail;
+			} else {
+				$qtyDetail = array();
+			}
+			$data['group_product_color'] = $qtyDetail;
+			$data['list_product_size'] = $this->model_catalog_product->getProductSize();
+			//end product detail
 			if ($product_info['image']) {
 				$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
 			} else {
@@ -427,6 +444,21 @@ class ControllerProductProduct extends Controller {
 					$rating = false;
 				}
 
+				//get quantity detail
+				$quantity_detail = !empty($result['quantity_detail']) ? $result['quantity_detail'] : '[]' ;
+				$quantityDetail = json_decode($quantity_detail, true);
+				if (count($quantityDetail) > 0) {
+					foreach ($quantityDetail as $key => $value) {
+						if (count($value['images']) > 0) {
+							foreach ($value['images'] as $imgKey => $img) {
+								$quantityDetail[$key]['images'][$imgKey]['url'] = $this->model_tool_image->resize($img['name'], 300, 400);
+							}
+						}
+					}
+					$quantityDetail = $quantityDetail;
+				} else {
+					$quantityDetail = array();
+				}
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
@@ -436,7 +468,8 @@ class ControllerProductProduct extends Controller {
 					'special'     => $special,
 					'tax'         => $tax,
 					'rating'      => $rating,
-					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id']),
+					'quantity_detail' => $quantityDetail
 				);
 			}
 

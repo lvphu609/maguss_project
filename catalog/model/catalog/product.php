@@ -1,5 +1,8 @@
 <?php
 class ModelCatalogProduct extends Model {
+	public function getProductSize() {
+		return array('XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL');
+	}
 	public function updateViewed($product_id) {
 		$this->db->query("UPDATE " . DB_PREFIX . "product SET viewed = (viewed + 1) WHERE product_id = '" . (int)$product_id . "'");
 	}
@@ -49,7 +52,8 @@ class ModelCatalogProduct extends Model {
 				'status'           => $query->row['status'],
 				'date_added'       => $query->row['date_added'],
 				'date_modified'    => $query->row['date_modified'],
-				'viewed'           => $query->row['viewed']
+				'viewed'           => $query->row['viewed'],
+				'quantity_detail'  => $query->row['quantity_detail']
 			);
 		} else {
 			return false;
