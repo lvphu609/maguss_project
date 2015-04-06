@@ -1,5 +1,45 @@
 <?php
 class ControllerCommonHeader extends Controller {
+	private function nthLevelMenu($categories) {
+		// get last category id
+		$category_id = end($categories);
+		
+		$children = $this->model_catalog_category->getCategories($category_id['category_id']);
+		$nthlevelmenus=array();
+		$i=0;
+		foreach ($children as $child) {
+			$filter_data = array(
+				'filter_category_id'  => $child['category_id'],
+				'filter_sub_category' => true
+			);
+			
+			$path = '';
+			foreach($category_id['parents'] as $parents){
+				$path .= $parents.'_';
+			}
+			$path .= $category_id['category_id'];
+			$path .= '_'.$child['category_id'];
+			
+			$nthlevelmenus[$i] = array(
+				'category_id' => $child['category_id'],
+				'column'   => $child['column'] ? $child['column'] : 1,
+				'name'  => $child['name'],// . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+				'href'  => $this->url->link('product/category', 'path=' . $path)
+			);
+			$subchildren = $this->model_catalog_category->getCategories($child['category_id']);
+			if($subchildren){
+				$nthlevelmenus[$i] = array_merge($nthlevelmenus[$i] ,array('children' => (array)$this->nthLevelMenu(
+					array($child['category_id'] => array( 
+						'category_id' =>$child['category_id'] ,
+						'parents' => array_merge($category_id['parents'] ,array($category_id['category_id']))
+					))
+				)));
+			}
+			$i++;				
+		}
+		return $nthlevelmenus;
+	}
+			
 	public function index() {
 		$data['title'] = $this->document->getTitle();
 
@@ -95,16 +135,42 @@ class ControllerCommonHeader extends Controller {
 
 				$children = $this->model_catalog_category->getCategories($category['category_id']);
 
+
+			$i=-1;
+			
 				foreach ($children as $child) {
+
+				$i++;
+			
 					$filter_data = array(
 						'filter_category_id'  => $child['category_id'],
 						'filter_sub_category' => true
 					);
 
-					$children_data[] = array(
-						'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+					
+				$children_data[$i] = array(
+			
+
+				'category_id' => $child['category_id'],
+				'column'   => $child['column'] ? $child['column'] : 1,
+				'seeallname' =>  $child['name'],
+			
+						'name'  => $child['name'],// . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
 						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
 					);
+
+				$subchildren = $this->model_catalog_category->getCategories($child['category_id']);
+				if($subchildren) {
+					$children_data[$i] = array_merge($children_data[$i],array(
+						'children' => (array)$this->nthLevelMenu(
+						array($child['category_id'] => array( 
+							'category_id' =>$child['category_id'] ,
+							'parents' => array($category['category_id'])
+							))
+						)
+					));
+				}
+			
 				}
 
 				// Level 1

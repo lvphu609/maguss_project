@@ -140,5 +140,35 @@
     </div>
 </header>
 
+<?php function nthLevelMenu($category,$text_all){ ob_start(); ?>
+<ul class="list-unstyled">
+    <?php if (!empty($category['children'])) { ?>
+    <li class="title"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a></li>
+        
+                <?php 
+                foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                    <?php foreach ($children as $child) { ?>
+                    <?php if(!empty($child['children'])) { ?>
+                    <?php echo nthLevelMenu($child,$text_all); ?>
+                    <?php } else { ?>
+                    
+    <?php if(isset($child['children'])) { ?>
+    <?php echo nthLevelMenu($child,$text_all); ?>
+    <?php } else { ?>
+    <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+    <?php } ?>
+
+                    <?php } ?>
+                    <?php } ?>
+                <?php } ?>
+                
+            <!-- <a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['seeallname']; ?></a>-->
+    <?php } else { ?>
+    <li class="title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+    <?php } ?>  
+</ul>
+<?php $menu = ob_get_contents(); ob_end_clean();    return $menu; } ?>
+            
+
 
 

@@ -1063,3 +1063,37 @@ h2.price {
 .menu-see-all a:hover{
 	text-decoration: underline;
 }
+
+/**nthLevelMenu starts*/
+.nthLevelMenu{  background-clip: padding-box; background-color: #3f3f68;    border: 1px solid rgba(0, 0, 0, 0.15);  border-radius: 4px; -webkit-border-radius: 4px; -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);   display: none;  left: 100%; min-width: 160px; min-height:160px; padding: 5px 0 0;   position: absolute; top: -6px;  z-index: 1001; }
+
+#menu .dropdown a:first-child.hidea{display:none;}
+#menu .dropdown a.see-all { border-top: none; }
+@media (min-width: 768px) {
+    #menu .dropdown:hover > .dropdown-menu1 {
+        display: block;
+    }
+}
+/**nthLevelMenu ends*/
+
+.menu-category-left a.list-group-item{
+	border: none;
+	font-family: Myriad Pro;
+}
+
+.menu-category-left a.list-group-item:hover{
+	background: none;
+	color: #63C6C1;
+}
+.menu-category-left a.list-group-item.active{
+	background: none;
+	color: #63C6C1;
+	font-weight: bold;
+}
+.menu-category-left a.list-group-item.active:hover{
+	background: none;
+}
+
+.menu-category-left a.list-group-item.parent{
+	font-weight: bold;
+}
