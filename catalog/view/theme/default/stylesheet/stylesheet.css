@@ -1282,3 +1282,44 @@ ul.link-to-social li.item-social img{
 .search-result .product-thumb .image {
 	height: auto;
 }
+
+.lable-related{
+	width: 150px;
+	height: 30px;
+	text-align: center;
+	background-color: #63C6C1;
+	color: #FFFFFF;
+	margin: 5px 0px 5px 5px; 
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.box-related-product .product-item{
+	min-width: 250px;
+	max-width: 300px;
+	float: left;
+	padding: 0px;
+}
+
+.box-related-product .product-thumb .image {
+	height: auto;
+}
+
+.box-related-product .product-item-current .product-thumb .image {
+	height: 420px;
+}
+.box-related-product .product-item-current .product-thumb .image img {
+	height: 420px;
+	min-width: auto;
+}
+.lable-viewed{
+	width: 150px;
+	height: 30px;
+	text-align: center;
+	background-color: #63C6C1;
+	color: #FFFFFF;
+	margin: 5px 0px 5px 5px; 
+	font-weight: bold;
+	line-height: 30px;
+}
+
