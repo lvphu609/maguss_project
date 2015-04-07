@@ -1,9 +1,9 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost/maguss_project/');
+define('HTTP_SERVER', 'http://192.168.1.164/maguss_project/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost/maguss_project/');
+define('HTTPS_SERVER', 'http://192.168.1.164/maguss_project/');
 
 // DIR
 define('DIR_APPLICATION', 'C:\wamp\www\maguss_project/catalog/');

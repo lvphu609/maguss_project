@@ -1,6 +1,6 @@
 <?php echo $header; ?>
 <?php $productCurrent = array(); ?>
-<div class="container col-sm-12 col-sm-12 col-sm-12 col-sm-12">
+<!-- <div class="container col-sm-12 col-sm-12 col-sm-12 col-sm-12"> -->
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -453,7 +453,21 @@
 	              <?php endif;  ?>
 	            </div>
 
-	            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product_thumb; ?>" alt="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
+	            <div class="image">
+                <a href="<?php echo $product['href']; ?>">
+                  <?php if ($product['special']) { ?>
+                    <div class="box-label-status">
+                      <div class="label-status sale-off">SALE OFF</div>                
+                    </div>
+                  <?php } else if ($product['is_new'] == 1) { ?>
+                        <div class="box-label-status">
+                          <div class="label-status new">NEW</div>
+                        </div>
+                  <?php } ?>
+                  <img src="<?php echo $product_thumb; ?>" alt="<?php echo $product['name']; ?>" class="img-responsive" />
+                </a>
+                <div class="clear"></div>
+              </div>
 	            <div>
 	              <div class="line-item text-center"><hr></div>
 	              <div class="caption text-center">
@@ -492,7 +506,7 @@
 	      </div>
       <?php } ?>
 	    <?php echo $content_bottom; ?>
-</div>
+<!-- </div> -->
 
 <!-- end content -->
 
