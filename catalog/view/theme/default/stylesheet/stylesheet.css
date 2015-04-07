@@ -1323,3 +1323,17 @@ ul.link-to-social li.item-social img{
 	line-height: 30px;
 }
 
+.box-product-viewed{
+	text-align: center;
+	box-shadow: none !important;
+	/*height: 250px;*/
+}
+.box-product-viewed .item{
+	min-width: 250px;
+  	max-width: 300px;
+	overflow: hidden;
+}
+.box-product-viewed .item img{
+	/*width: 175px !important;*/
+	/*height: 250px !important;*/
+}
