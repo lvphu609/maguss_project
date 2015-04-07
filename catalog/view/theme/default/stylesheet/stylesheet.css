@@ -772,7 +772,7 @@ h2.price {
     margin:0;
     margin-top: 10px;
     padding: 0;
-    z-index: 9999999999;
+    z-index: 99;
 }
 
 #custom-search-input .search-query {
@@ -1503,3 +1503,59 @@ ul.link-to-social li.item-social img{
 	background: rgb(219, 3, 3);
 	padding-left: 25%;
 }
+
+/*product detail*/
+.box-image-product-large .box-item-image{
+  padding: 0px;
+  margin: 0px;
+  overflow-y: auto;
+  max-height: 500px;
+}
+.box-image-product-large .box-item-image a, 
+.box-image-product-large .box-item-image a img:active,
+.box-image-product-large .img-first a,
+.box-image-product-large .img-first a img:active{
+ border: none;
+}
+
+.box-image-product-large .box-item-image .img-additional{
+	/*width: 50px;*/
+	width: 90px;
+}
+
+.box-image-product-large .box-item-image .img-additional .img-lg-item{
+	margin-bottom: 0px !important;
+}
+
+
+.box-image-product-large .img-first{
+	/*min-width: 50px;*/
+	min-width: 320px;
+	max-height: 500px;
+	overflow: hidden;
+
+}
+
+
+/*tab */
+.tab-product-info{
+	margin: 30px 0px 30px 0px; 
+}
+
+
+.tab-product-info ul{
+	border-bottom: 2px solid #63C6C1;
+}
+.tab-product-info ul li{
+	font-weight: bold;
+}
+.tab-product-info ul li.active a{
+	background-color: #63c6c1;
+	color: #FFFFFF;
+}
+.tab-product-info ul li a:hover{
+	background-color: #63c6c1 !important;
+	color: #FFFFFF !important;
+}
+
+

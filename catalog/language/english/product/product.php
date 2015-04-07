@@ -41,9 +41,9 @@ $_['entry_bad']                = 'Bad';
 $_['entry_captcha']            = 'Enter the code in the box below';
 
 // Tabs
-$_['tab_description']          = 'Description';
+$_['tab_description']          = 'Mô tả sản phẩm';
 $_['tab_attribute']            = 'Specification';
-$_['tab_review']               = 'Reviews (%s)';
+$_['tab_review']               = 'Bình luận';
 
 // Error
 $_['error_name']               = 'Warning: Review Name must be between 3 and 25 characters!';
