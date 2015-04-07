@@ -29,20 +29,16 @@
             <?php $class = 'col-sm-12'; ?>
         <?php } ?>
         <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-            <h1><?php echo $heading_title; ?>
-                <?php if ($weight) { ?>
-                    &nbsp;(<?php echo $weight; ?>)
-                <?php } ?>
-            </h1>
+            <h2 style="color: #63c6c1;"><?php echo $heading_title; ?></h2>
+            <h4 style="color: #63c6c1;">Cập nhật đơn hàng và chi tiết tất cả các sản phẩm</h4>
 
             <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered tbl-shopping-cart">
                         <thead>
                         <tr>
-                            <td class="text-left"><?php echo $column_name; ?></td>
-                            <td class="text-left"><?php echo $column_model; ?></td>
-                            <td class="text-left"><?php echo $column_quantity; ?></td>
+                            <td class="text-center"><?php echo $column_name; ?></td>
+                            <td class="text-center"><?php echo $column_quantity; ?></td>
                             <td class="text-right"><?php echo $column_price; ?></td>
                             <td class="text-right"><?php echo $column_total; ?></td>
                         </tr>
@@ -72,15 +68,14 @@
                                         <small><?php echo $product['recurring']; ?></small>
                                     <?php } ?>
                                 </td>
-                                <td class="text-left"><?php echo $product['model']; ?></td>
                                 <td class="text-left" style="width: 200px;">
-                                    <div class="input-group">
-                                        <input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" class="form-control" readonly/>
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" class="form-control txt-product-quantity" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" readonly/>
                                         <div class="input-group-btn">
-                                            <button type="button" class="btn btn-default">
+                                            <button type="button" class="btn btn-primary" id="btn-quantity-plus">
                                                 <i class="fa fa-caret-up"></i>
                                             </button>
-                                            <button type="button" class="btn btn-default">
+                                            <button type="button" class="btn btn-primary" id="btn-quantity-minus">
                                                 <i class="fa fa-caret-down"></i>
                                             </button>
                                             <button type="button" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger" onclick="cart.remove('<?php echo $product['key']; ?>');">
@@ -117,14 +112,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-6">
-                        <table class="table table-bordered" style="margin-left: 15px;">
+                        <table class="table table-bordered tbl-cart-total" style="margin-left: 15px;">
                             <tr>
-                                <td class="w160">THÀNH TIỀN</td>
-                                <td><?php echo $totals['sub_total']['text']; ?></td>
+                                <td class="w160 hl">THÀNH TIỀN</td>
+                                <td class="txt-bold"><?php echo $totals['sub_total']['text']; ?></td>
                             </tr>
                             <tr>
-                                <td class="w160">Mã giảm giá</td>
-                                <td>
+                                <td class="w160 hl">Mã giảm giá</td>
+                                <td class="txt-bold">
                                     <?php if ($coupon): ?>
                                         <?php echo $coupon; ?>
                                     <?php endif; ?>
@@ -134,8 +129,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="w160">Phiếu quà tặng</td>
-                                <td>
+                                <td class="w160 hl">Phiếu quà tặng</td>
+                                <td class="txt-bold">
                                     <?php if ($voucher): ?>
                                         <?php echo $voucher; ?>
                                     <?php endif; ?>
@@ -145,81 +140,103 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="w160">Khu vực giao hàng</td>
-                                <td class="form-inline">
-                                    <select class="form-control" id="cbo-provinces" style="width: 49%;">
+                                <td class="w160 hl">Khu vực giao hàng</td>
+                                <td class="form-inline txt-bold">
+                                    <?php
+                                    $shipping_province = '';
+                                    $shipping_location = '';
+                                    $shipping_text = '';
+                                    ?>
+                                    <select class="form-control" name="shipping_province" id="cbo-provinces" style="width: 49%;">
                                         <option value="0">Tỉnh/Thành Phố</option>
                                         <?php if (!empty($method_data['locations']) && !empty($method_data['locations']['province_name'])) : ?>
                                             <?php foreach ($method_data['locations']['province_name'] as $province) : ?>
-                                                <option value="<?php echo $province['id']; ?>"><?php echo $province['text']; ?></option>
+                                                <?php
+                                                    if (!empty($shipping_method) && $shipping_method['province'] == $province['id']) {
+                                                        $shipping_province = 'selected';
+                                                    } else {
+                                                        $shipping_province = '';
+                                                    }
+                                                ?>
+                                                <option value="<?php echo $province['id']; ?>" <?php echo $shipping_province; ?>>
+                                                    <?php echo $province['text']; ?>
+                                                </option>
                                             <?php endforeach; ?>
                                         <?php endif; ?>
                                     </select>
-                                    <select class="form-control" id="cbo-province-location" disabled style="width: 49%;">
-                                        <option>Quận/Huyện</option>
+                                        <?php
+                                        $provinces = array();
+                                        if (!empty($method_data['locations']) && !empty($method_data['locations']['province_name'])) {
+                                            foreach ($method_data['locations']['province_name'] as $province) {
+                                                $provinceLocation = array();
+                                                foreach ($method_data['locations']['province'] as $key => $provinceId) {
+                                                    if ($provinceId == $province['id']) {
+                                                        $tmp = array(
+                                                            'id' => $method_data['locations']['cost'][$key],
+                                                            'text' => $method_data['locations']['name'][$key],
+                                                            'cost' => $method_data['locations']['cost_format'][$key]
+                                                        );
+                                                        array_push($provinceLocation, $tmp);
+                                                    }
+                                                }
+                                                $provinces[$province['id']] = $provinceLocation;
+                                            }
+                                        }
+                                        ?>
+                                        <?php if (count($provinces) > 0 && !empty($shipping_method) && !empty($provinces[$shipping_method['province']])) : ?>
+                                            <select class="form-control" id="cbo-province-location" style="width: 49%;">
+                                            <?php foreach ($provinces[$shipping_method['province']] as $location) : ?>
+                                                <option value="<?php echo $location['id']; ?>" data-cost="<?php echo $location['cost']; ?>" <?php echo ($location['text'] == $shipping_method['location'] ? 'selected' : ''); ?>>
+                                                    <?php echo $location['text']; ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        <?php else : ?>
+                                            <select class="form-control" id="cbo-province-location" disabled style="width: 49%;">
+                                                <option>Quận/Huyện</option>
+                                        <?php endif; ?>
                                     </select>
+                                    <input type="hidden" name="shipping_cost" id="shipping_cost">
+                                    <input type="hidden" name="shipping_text" id="shipping_text">
+                                    <input type="hidden" name="shipping_location" id="shipping_location">
                                 </td>
                             </tr>
                             <tr>
-                                <td class="w160">Phí giao hàng</td>
-                                <td id="lbl-shipping-cost"></td>
+                                <td class="w160 hl">Phí giao hàng</td>
+                                <td id="lbl-shipping-cost" class="txt-bold">
+                                    <?php
+                                    if (!empty($shipping_method['text'])) {
+                                        echo $shipping_method['text'];
+                                    }
+                                    ?>
+                                </td>
                             </tr>
                         </table>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-6">
-                        <table class="table table-bordered" style="margin-left: 15px;">
+                        <table class="table table-bordered tbl-cart-total" style="margin-left: 15px;">
                             <tr>
-                                <td class="w160">TỔNG CỘNG</td>
-                                <td><?php echo $totals['total']['text']; ?></td>
+                                <td class="w160 hl">TỔNG CỘNG</td>
+                                <td class="txt-bold"><?php echo $totals['total']['text']; ?></td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </form>
 
-            <div class="row">
-                <div class="col-sm-4 col-sm-offset-8">
-                    <table class="table table-bordered">
-                        <?php foreach ($totals as $total) { ?>
-                            <tr>
-                                <td class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
-                                <td class="text-right"><?php echo $total['text']; ?></td>
-                            </tr>
-                        <?php } ?>
-                    </table>
-                </div>
-            </div>
+
             <div class="buttons">
-                <div class="pull-left"><a href="<?php echo $continue; ?>"
-                                          class="btn btn-default"><?php echo $button_shopping; ?></a></div>
-                <div class="pull-right"><a href="<?php echo $checkout; ?>"
-                                           class="btn btn-primary"><?php echo $button_checkout; ?></a></div>
+                <div class="pull-right">
+                    <a href="<?php echo $continue; ?>" class="btn-continue-shopping">Tiếp tục mua hàng</a>
+                    <a href="<?php echo $checkout; ?>" class="btn btn-primary btn-checkout">Thanh Toán</a>
+                </div>
             </div>
             <?php echo $content_bottom; ?></div>
         <?php echo $column_right; ?></div>
 </div>
 <?php echo $footer; ?>
-<?php
-$provinces = array();
-if (!empty($method_data['locations']) && !empty($method_data['locations']['province_name'])) {
-    foreach ($method_data['locations']['province_name'] as $province) {
-        $provinceLocation = array();
-        foreach ($method_data['locations']['province'] as $key => $provinceId) {
-            if ($provinceId == $province['id']) {
-                $tmp = array(
-                    'id' => $method_data['locations']['cost'][$key],
-                    'text' => $method_data['locations']['name'][$key],
-                    'cost' => $method_data['locations']['cost_format'][$key]
-                );
-                array_push($provinceLocation, $tmp);
-            }
-        }
-        $provinces[$province['id']] = $provinceLocation;
-    }
-}
-?>
+
 <script type="text/javascript">
     var provinces = <?php echo json_encode($provinces); ?>;
     $(function(){
@@ -227,12 +244,15 @@ if (!empty($method_data['locations']) && !empty($method_data['locations']['provi
             lblShippingCost = $('#lbl-shipping-cost');
         $('#cbo-provinces').change(function() {
             var provinceId = $(this).val();
+            $(this).prop('disabled', true);
 
+            cboProvinceLocation.removeClass('loading');
             if (provinceId != 0) {
                 cboProvinceLocation.html('');
                 cboProvinceLocation.prop('disabled', false);
                 var currProvince = provinces[provinceId];
-                lblShippingCost.html(currProvince[0].cost);
+                //lblShippingCost.html(currProvince[0].cost);
+
                 for (var i = 0; i < currProvince.length; i++) {
                     var currProvinceLocation = currProvince[i],
                         option = $('<option value="' + currProvinceLocation.id + '" data-cost="' + currProvinceLocation.cost + '">' + currProvinceLocation.text + '</option>');
@@ -243,10 +263,65 @@ if (!empty($method_data['locations']) && !empty($method_data['locations']['provi
                 cboProvinceLocation.html('<option>Quận/Huyện</option>');
                 cboProvinceLocation.prop('disabled', true);
             }
+            cboProvinceLocation.trigger('change');
         });
 
         cboProvinceLocation.change(function() {
-            lblShippingCost.html($(this).find('option:selected').data('cost'));
+            var costFormatted = $(this).find('option:selected').data('cost');
+            $('#shipping_location').val($('#cbo-province-location option:selected').text());
+            $('#shipping_cost').val(cboProvinceLocation.val());
+            $('#shipping_text').val(costFormatted);
+
+            $.ajax({
+                url: 'index.php?route=checkout/shipping_method/change',
+                type: 'post',
+                data: $('#shipping_cost, #shipping_text, #shipping_location, #cbo-provinces'),
+                dataType: 'json',
+                beforeSend: function() {
+                    cboProvinceLocation.addClass('loading');
+                    cboProvinceLocation.prop('disabled', true);
+                },
+                complete: function() {
+                    /*cboProvinceLocation.removeClass('loading');
+                    cboProvinceLocation.prop('disabled', false);*/
+                },
+                success: function(json) {
+                    $('.alert, .text-danger').remove();
+
+                    if (json['redirect']) {
+                        location = json['redirect'];
+                    } else if (json['error']) {
+                        if (json['error']['warning']) {
+                            $('#collapse-shipping-method .panel-body').prepend('<div class="alert alert-warning">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                        }
+                    } else {
+                        lblShippingCost.html(costFormatted);
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                }
+            });
+        });
+
+        $('#btn-quantity-plus').click(function() {
+            var btn= $(this),
+                txtQuantity = btn.closest('td').find('.txt-product-quantity'),
+                quantity = txtQuantity.val();
+
+            btn.closest('td').find('button').prop('disabled', true);
+            txtQuantity.val(parseInt(quantity) + 1);
+            btn.closest('form').submit();
+        });
+
+        $('#btn-quantity-minus').click(function() {
+            var btn= $(this),
+                txtQuantity = btn.closest('td').find('.txt-product-quantity'),
+                quantity = txtQuantity.val();
+
+            btn.closest('td').find('button').prop('disabled', true);
+            txtQuantity.val(parseInt(quantity) - 1);
+            btn.closest('form').submit();
         });
     });
 </script>

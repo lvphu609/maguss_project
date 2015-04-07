@@ -789,7 +789,7 @@ h2.price {
     text-shadow: none;
 }
 #custom-search-input button:focus, #custom-search-input button:focus, #custom-search-input button:active{
-    border: none !imporactive
+    border: none !important;
 }
 
 /* do not group these rules */
@@ -1096,4 +1096,44 @@ h2.price {
 
 .menu-category-left a.list-group-item.parent{
 	font-weight: bold;
+}
+
+.loading {
+    background-image: url("loading.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 23px;
+}
+.tbl-shopping-cart thead {
+    background-color: #63c6c1;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+}
+.tbl-shopping-cart tbody, .tbl-shopping-cart tbody tr td a {
+    background-color: #dff1ef;
+    color: #63c6c1;
+}
+.tbl-cart-total .hl {
+    background-color: #63c6c1;
+    color: #ffffff;
+    text-align: right;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.tbl-cart-total .txt-bold {
+    color: #35a9b4;
+    background-color: #b3e0dd;
+    font-weight: bold;
+    text-align: center;
+}
+.btn-continue-shopping {
+    font-size: 20px;
+    font-weight: bold;
+    color: #63c6c1;
+    margin-right: 15px;
+    line-height: 36px;
+}
+.btn-checkout {
+    text-transform: uppercase;
 }

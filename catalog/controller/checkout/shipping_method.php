@@ -134,4 +134,42 @@ class ControllerCheckoutShippingMethod extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+
+    public function change() {
+        $this->load->language('checkout/checkout');
+
+        $json = array();
+
+        // Validate if shipping is required. If not the customer should not have reached this page.
+        if (!$this->cart->hasShipping()) {
+            $json['redirect'] = $this->url->link('checkout/checkout', '', 'SSL');
+        }
+
+        // Validate cart has products and has stock.
+        if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
+            $json['redirect'] = $this->url->link('checkout/cart');
+        }
+
+        if (!$json) {
+            // Shipping Methods
+            $this->load->model('shipping/maguss');
+            $quote = $this->model_shipping_maguss->getQuote(array());
+            $maguss = $quote['quote']['maguss'];
+            $maguss['cost'] = $this->request->post['shipping_cost'];
+            $maguss['text'] = $this->request->post['shipping_text'];
+            $maguss['province'] = $this->request->post['shipping_province'];
+            $maguss['location'] = $this->request->post['shipping_location'];
+            if (empty($maguss['text'])) {
+                unset($this->session->data['shipping_method']);
+            } else {
+                $this->session->data['shipping_method'] = $maguss;
+            }
+
+            $json['redirect'] = $this->url->link('checkout/cart');
+            //$this->session->data['shipping_method'] = $this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
+        }
+
+        $this->response->addHeader('Content-Type: application/json');
+        $this->response->setOutput(json_encode($json));
+    }
 }

@@ -231,6 +231,12 @@ class ControllerCheckoutCart extends Controller {
             $quote = $this->model_shipping_maguss->getQuote(array());
 
 			$data['method_data'] = $quote['quote']['maguss'];
+            if (isset($this->session->data['shipping_method'])) {
+                $data['shipping_method'] = $this->session->data['shipping_method'];
+            } else {
+                $data['shipping_method'] = array();
+            }
+
 			$data['continue'] = $this->url->link('common/home');
 
 			$data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
