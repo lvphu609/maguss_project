@@ -54,7 +54,7 @@ class ControllerModuleFashion extends Controller {
             $data['right_image'] = $this->model_tool_image->resize('placeholder.png', 175, 250);
         }
         if (isset($setting['right_text'])) {
-            $data['right_text'] = $setting['left_text'];
+            $data['right_text'] = $setting['right_text'];
         } else {
             $data['right_text'] = '';
         }

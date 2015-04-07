@@ -1,4 +1,9 @@
 <div class="pan-fashion">
+    <div class="row text-center">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h1 class="title"><?php echo $title; ?></h1>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-3">
             <img src="<?php echo $left_image; ?>" class="left-image">
