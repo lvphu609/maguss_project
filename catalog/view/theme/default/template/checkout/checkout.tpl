@@ -145,10 +145,10 @@ $(document).delegate('#button-account', 'click', function() {
         url: 'index.php?route=checkout/' + $('input[name=\'account\']:checked').val(),
         dataType: 'html',
         beforeSend: function() {
-        	$('#button-account').button('loading');
+        	//$('#button-account').button('loading');
 		},      
         complete: function() {
-			$('#button-account').button('reset');
+			//$('#button-account').button('reset');
         },          
         success: function(html) {
             $('.alert, .text-danger').remove();
@@ -177,10 +177,10 @@ $(document).delegate('#button-login', 'click', function() {
         data: $('#collapse-checkout-option :input'),
         dataType: 'json',
         beforeSend: function() {
-        	$('#button-login').button('loading');
+        	//$('#button-login').button('loading');
 		},  
         complete: function() {
-            $('#button-login').button('reset');
+            //$('#button-login').button('reset');
         },              
         success: function(json) {
             $('.alert, .text-danger').remove();
@@ -210,10 +210,10 @@ $(document).delegate('#button-register', 'click', function() {
         data: $('#collapse-payment-address input[type=\'text\'], #collapse-payment-address input[type=\'date\'], #collapse-payment-address input[type=\'datetime-local\'], #collapse-payment-address input[type=\'time\'], #collapse-payment-address input[type=\'password\'], #collapse-payment-address input[type=\'hidden\'], #collapse-payment-address input[type=\'checkbox\']:checked, #collapse-payment-address input[type=\'radio\']:checked, #collapse-payment-address textarea, #collapse-payment-address select'),
         dataType: 'json',
         beforeSend: function() {
-			$('#button-register').button('loading');
+			//$('#button-register').button('loading');
 		},  
         complete: function() {
-            $('#button-register').button('reset');
+            //$('#button-register').button('reset');
         },          
         success: function(json) {
             $('.alert, .text-danger').remove();
@@ -342,10 +342,10 @@ $(document).delegate('#button-payment-address', 'click', function() {
         data: $('#collapse-payment-address input[type=\'text\'], #collapse-payment-address input[type=\'date\'], #collapse-payment-address input[type=\'datetime-local\'], #collapse-payment-address input[type=\'time\'], #collapse-payment-address input[type=\'password\'], #collapse-payment-address input[type=\'checkbox\']:checked, #collapse-payment-address input[type=\'radio\']:checked, #collapse-payment-address input[type=\'hidden\'], #collapse-payment-address textarea, #collapse-payment-address select'),
         dataType: 'json',
         beforeSend: function() {
-        	$('#button-payment-address').button('loading');
+        	//$('#button-payment-address').button('loading');
 		},  
         complete: function() {
-			$('#button-payment-address').button('reset');
+			//$('#button-payment-address').button('reset');
         },          
         success: function(json) {
             $('.alert, .text-danger').remove();
@@ -434,10 +434,10 @@ $(document).delegate('#button-shipping-address', 'click', function() {
         data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
         dataType: 'json',
         beforeSend: function() {
-			$('#button-shipping-address').button('loading');
+			//$('#button-shipping-address').button('loading');
 	    },  
         complete: function() {
-			$('#button-shipping-address').button('reset');
+			//$('#button-shipping-address').button('reset');
         },          
         success: function(json) {
             $('.alert, .text-danger').remove();
@@ -517,10 +517,10 @@ $(document).delegate('#button-guest', 'click', function() {
         data: $('#collapse-payment-address input[type=\'text\'], #collapse-payment-address input[type=\'date\'], #collapse-payment-address input[type=\'datetime-local\'], #collapse-payment-address input[type=\'time\'], #collapse-payment-address input[type=\'checkbox\']:checked, #collapse-payment-address input[type=\'radio\']:checked, #collapse-payment-address input[type=\'hidden\'], #collapse-payment-address textarea, #collapse-payment-address select'),
         dataType: 'json',
         beforeSend: function() {
-       		$('#button-guest').button('loading');
+       		//$('#button-guest').button('loading');
 	    },  
         complete: function() {
-			$('#button-guest').button('reset');
+			//$('#button-guest').button('reset');
         },          
         success: function(json) {
             $('.alert, .text-danger').remove();
@@ -634,10 +634,10 @@ $(document).delegate('#button-guest-shipping', 'click', function() {
         data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
         dataType: 'json',
         beforeSend: function() {
-        	$('#button-guest-shipping').button('loading');
+        	//$('#button-guest-shipping').button('loading');
 		},  
         complete: function() {
-			$('#button-guest-shipping').button('reset');
+			//$('#button-guest-shipping').button('reset');
         },          
         success: function(json) {
             $('.alert, .text-danger').remove();
@@ -694,10 +694,10 @@ $(document).delegate('#button-shipping-method', 'click', function() {
         data: $('#collapse-shipping-method input[type=\'radio\']:checked, #collapse-shipping-method textarea'),
         dataType: 'json',
         beforeSend: function() {
-        	$('#button-shipping-method').button('loading');
+        	//$('#button-shipping-method').button('loading');
 		},  
         complete: function() {
-			$('#button-shipping-method').button('reset');
+			//$('#button-shipping-method').button('reset');
         },          
         success: function(json) {
             $('.alert, .text-danger').remove();
@@ -740,10 +740,10 @@ $(document).delegate('#button-payment-method', 'click', function() {
         data: $('#collapse-payment-method input[type=\'radio\']:checked, #collapse-payment-method input[type=\'checkbox\']:checked, #collapse-payment-method textarea'),
         dataType: 'json',
         beforeSend: function() {
-         	$('#button-payment-method').button('loading');
+         	//$('#button-payment-method').button('loading');
 		},  
         complete: function() {
-            $('#button-payment-method').button('reset');
+            //$('#button-payment-method').button('reset');
         },          
         success: function(json) {
             $('.alert, .text-danger').remove();
