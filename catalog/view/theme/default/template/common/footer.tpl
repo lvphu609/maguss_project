@@ -46,7 +46,7 @@
 </footer>
 
 */ ?>
-
+<div class="clear"></div>
 <footer>
   <div>
     <div class="row">
