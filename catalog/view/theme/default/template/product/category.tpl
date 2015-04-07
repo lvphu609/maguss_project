@@ -15,9 +15,9 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h2><?php echo $heading_title; ?></h2>
+      <div class="text-header"><span><?php echo $heading_title; ?></span></div>
       <?php if ($thumb || $description) { ?>
-      <div class="row">
+      <?php /*<div class="row">
         <?php if ($thumb) { ?>
         <div class="col-sm-2"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" class="img-thumbnail" /></div>
         <?php } ?>
@@ -25,9 +25,10 @@
         <div class="col-sm-10"><?php echo $description; ?></div>
         <?php } ?>
       </div>
-      <hr>
+      <hr> */ ?>
       <?php } ?>
-      <?php if ($categories) { ?>
+
+      <?php /* if ($categories) { ?>
       <h3><?php echo $text_refine; ?></h3>
       <?php if (count($categories) <= 5) { ?>
       <div class="row">
@@ -52,9 +53,10 @@
         <?php } ?>
       </div>
       <?php } ?>
-      <?php } ?>
+      <?php } */ ?>
+
       <?php if ($products) { ?>
-      <p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>
+      <?php /* <p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>
       <div class="row">
         <div class="col-md-4">
           <div class="btn-group hidden-xs">
@@ -91,15 +93,41 @@
           </select>
         </div>
       </div>
-      <br />
+      <br /> */ ?>
       <div class="row">
         <?php foreach ($products as $product) { ?>
-        <div class="product-layout product-list col-xs-12">
-          <div class="product-thumb">
-            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
+        <div class="product-layout product-grid product-item col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="product-thumb product-id-<?php echo $product['product_id']; ?>">
+            <div class="popper-color-content hide">
+              <?php  $product_thumb = ""; ?>
+              <?php  if(count($product['quantity_detail'])>0) : ?>
+                <?php $colorUsed = array(); ?>
+                <?php foreach ($product['quantity_detail'] as $key => $groupColor) : ?>
+                  <?php if (!in_array($groupColor['color'], $colorUsed)) : ?>
+                    <?php array_push($colorUsed, $groupColor['color']); ?>
+                    <?php if(count($groupColor['images']) > 0) : ?>
+                        <?php foreach ($groupColor['images'] as $key1 => $img) : ?>
+                          <?php
+                            if($key == 0 && $key1 == 0){
+                              $product_thumb = $img['url'];
+                            }
+                          ?>
+                          <?php  if($key1 == 0) : ?>
+                              <div  class="color-item <?php echo ($key == 0 ? 'active' : ''); ?>" style="background-color:<?php echo $groupColor['color']; ?>" data-color="<?php echo $groupColor['color']; ?>" data-url="<?php echo $img['url']; ?>" data-root="product-id-<?php echo $product['product_id']; ?>"> </div>
+                          <?php  endif; ?>                                   
+                          
+                        <?php endforeach; ?>
+                    <?php endif; ?>              
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              <?php endif;  ?>
+            </div>
+
+            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product_thumb; ?>" alt="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
             <div>
-              <div class="caption">
-                <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+              <div class="line-item text-center"><hr></div>
+              <div class="caption text-center">
+                <span class="title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></span>
                 <p><?php echo $product['description']; ?></p>
                 <?php if ($product['rating']) { ?>
                 <div class="rating">
@@ -117,36 +145,36 @@
                   <?php if (!$product['special']) { ?>
                   <?php echo $product['price']; ?>
                   <?php } else { ?>
-                  <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
+                  <span class="price-old"><?php echo $product['price']; ?></span> </br>
+                  <span class="price-new"><?php echo $product['special']; ?></span>
                   <?php } ?>
-                  <?php if ($product['tax']) { ?>
+                  <?php /* if ($product['tax']) { ?>
                   <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-                  <?php } ?>
+                  <?php } */ ?>
                 </p>
                 <?php } ?>
               </div>
-              <div class="button-group">
-                <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
-                <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-                <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
+              <div class="button-group-item text-center">
+                 <a href="javascript:;" class="btn btn-product-item" onclick="cart.add('<?php echo $product['product_id']; ?>');"><span class=""><?php echo $button_cart; ?></span></a>
+                <a href="javascript:;" class="btn btn-product-item popper_color product-id-<?php echo $product['product_id']; ?>" type="button" data-toggle="popover" ><span class="">XEM MÀU</span></a>
               </div>
             </div>
           </div>
         </div>
         <?php } ?>
       </div>
-      <div class="row">
+      <?php /*<div class="row">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
         <div class="col-sm-6 text-right"><?php echo $results; ?></div>
-      </div>
-      <?php } ?>
+      </div> */ ?>
+      <?php } /* ?>
       <?php if (!$categories && !$products) { ?>
-      <p><?php echo $text_empty; ?></p>
+      <p><?php //echo $text_empty; ?></p>
       <div class="buttons">
         <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
       </div>
-      <?php } ?>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+      <?php } */ ?>
+      <?php // echo $content_bottom; ?></div>
+    <?php //echo $column_right; ?></div>
 </div>
 <?php echo $footer; ?>

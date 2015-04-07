@@ -1,4 +1,4 @@
-<div class="container pan-collection" style="margin-bottom: 25px;">
+<div class="pan-collection" style="margin-bottom: 25px;">
     <div class="row">
         <div class="col-md-5">
             <img src="<?php echo $left_image; ?>" style="width: 100%" class="left-image">
