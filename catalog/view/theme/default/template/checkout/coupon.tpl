@@ -1,23 +1,30 @@
 <div class="input-group input-group-sm">
-    <input type="text" name="coupon" value="<?php echo $coupon; ?>" placeholder="<?php echo $entry_coupon; ?>" id="input-coupon" class="form-control" />
+    <input type="text" name="coupon" value="<?php echo $coupon; ?>" placeholder="Nhập mã giảm giá" id="input-coupon" class="form-control" />
     <div class="input-group-btn">
-        <button type="button" value="<?php echo $button_coupon; ?>" id="button-coupon" data-loading-text="<?php echo $text_loading; ?>" data-toggle="tooltip" title="Sử dụng mã giảm giá" class="btn btn-primary">
+        <button type="button" value="<?php echo $button_coupon; ?>" id="button-coupon" class="btn btn-primary">
             <i class="fa fa-check"></i>
         </button>
     </div>
 </div>
 <script type="text/javascript"><!--
     $('#button-coupon').on('click', function() {
+        var btn = $(this);
+        if ($.trim(btn.closest('.input-group').find('#input-coupon').val()) == '') {
+            alert('Vui lòng nhập mã giảm giá!');
+            return false;
+        }
         $.ajax({
             url: 'index.php?route=checkout/coupon/coupon',
             type: 'post',
             data: 'coupon=' + encodeURIComponent($('input[name=\'coupon\']').val()),
             dataType: 'json',
             beforeSend: function() {
-                $('#button-coupon').button('loading');
+                btn.prop('disabled', true);
+                btn.closest('.input-group').find('#input-coupon').prop('disabled', true).addClass('loading');
             },
             complete: function() {
-                $('#button-coupon').button('reset');
+                btn.prop('disabled', false);
+                btn.closest('.input-group').find('#input-coupon').prop('disabled', false).removeClass('loading');
             },
             success: function(json) {
                 $('.alert').remove();

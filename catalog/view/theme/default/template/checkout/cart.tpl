@@ -78,7 +78,7 @@
                                             <button type="button" class="btn btn-primary" id="btn-quantity-minus">
                                                 <i class="fa fa-caret-down"></i>
                                             </button>
-                                            <button type="button" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger" onclick="cart.remove('<?php echo $product['key']; ?>');">
+                                            <button type="button" class="btn btn-danger" onclick="cart.remove('<?php echo $product['key']; ?>');">
                                                 <i class="fa fa-times-circle"></i>
                                             </button>
                                         </div>
@@ -229,7 +229,7 @@
             <div class="buttons">
                 <div class="pull-right">
                     <a href="<?php echo $continue; ?>" class="btn-continue-shopping">Tiếp tục mua hàng</a>
-                    <a href="<?php echo $checkout; ?>" class="btn btn-primary btn-checkout">Thanh Toán</a>
+                    <a href="<?php echo $checkout; ?>" id="btn-shopping-cart-checkout" class="btn btn-primary btn-checkout">Thanh Toán</a>
                 </div>
             </div>
             <?php echo $content_bottom; ?></div>
@@ -240,9 +240,10 @@
 <script type="text/javascript">
     var provinces = <?php echo json_encode($provinces); ?>;
     $(function(){
-        var cboProvinceLocation = $('#cbo-province-location'),
+        var cboProvince = $('#cbo-provinces'),
+            cboProvinceLocation = $('#cbo-province-location'),
             lblShippingCost = $('#lbl-shipping-cost');
-        $('#cbo-provinces').change(function() {
+        cboProvince.change(function() {
             var provinceId = $(this).val();
             $(this).prop('disabled', true);
 
@@ -322,6 +323,14 @@
             btn.closest('td').find('button').prop('disabled', true);
             txtQuantity.val(parseInt(quantity) - 1);
             btn.closest('form').submit();
+        });
+
+        $('#btn-shopping-cart-checkout').click(function(e) {
+            if (cboProvince.val() == 0){
+                e.preventDefault();
+                alert("Vui lòng chọn khu vực giao hàng!");
+                return false;
+            }
         });
     });
 </script>

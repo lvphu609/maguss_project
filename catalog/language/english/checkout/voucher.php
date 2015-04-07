@@ -3,11 +3,11 @@
 $_['heading_title'] = 'Use Gift Voucher';
 
 // Text
-$_['text_success']  = 'Success: Your gift voucher discount has been applied!';
+$_['text_success']  = 'Thông báo: Bạn đã sử dụng Phiếu quà tặng thành công!';
 
 // Entry
-$_['entry_voucher'] = 'Enter your gift voucher code here';
+$_['entry_voucher'] = 'Nhập phiếu quà tặng';
 
 // Error
-$_['error_voucher'] = 'Warning: Gift Voucher is either invalid or the balance has been used up!';
+$_['error_voucher'] = 'Cảnh báo: Phiếu quả tặng không đúng hoặc đã được sử dụng!';
 $_['error_empty']   = 'Warning: Please enter a voucher code!';
