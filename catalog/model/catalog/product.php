@@ -53,7 +53,8 @@ class ModelCatalogProduct extends Model {
 				'date_added'       => $query->row['date_added'],
 				'date_modified'    => $query->row['date_modified'],
 				'viewed'           => $query->row['viewed'],
-				'quantity_detail'  => $query->row['quantity_detail']
+				'quantity_detail'  => $query->row['quantity_detail'],
+				'is_new'		   => $query->row['is_new']
 			);
 		} else {
 			return false;
