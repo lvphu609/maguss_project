@@ -1323,3 +1323,17 @@ ul.link-to-social li.item-social img{
 	line-height: 30px;
 }
 
+.pan-checkout .tbl-title {
+    color: #ffffff;
+    text-transform: uppercase;
+    background-color: #63c6c1;
+    font-weight: bold;
+}
+.pan-checkout .tbl-title > div {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.pan-checkout .tbl-content {
+    background-color: #dff1ef;
+    color: #63c6c1;
+}

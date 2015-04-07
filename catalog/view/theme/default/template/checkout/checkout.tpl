@@ -18,8 +18,19 @@
             <?php } else { ?>
                 <?php $class = 'col-sm-12'; ?>
             <?php } ?>
-            <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+            <div id="content" class="<?php echo $class; ?> pan-checkout"><?php echo $content_top; ?>
                 <h1><?php echo $heading_title; ?></h1>
+
+                <div class="row text-center tbl-title">
+                    <div class="col-md-4">Tóm tắt đơn hàng</div>
+                    <div class="col-md-4">Địa chỉ giao hàng</div>
+                    <div class="col-md-4">Hình thức thanh toán</div>
+                </div>
+                <div class="row text-center tbl-content">
+                    <div class="col-md-4">Tóm tắt đơn hàng</div>
+                    <div class="col-md-4">Địa chỉ giao hàng</div>
+                    <div class="col-md-4">Hình thức thanh toán</div>
+                </div>
 
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
