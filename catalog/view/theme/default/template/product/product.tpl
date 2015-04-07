@@ -491,11 +491,6 @@
 	        <?php } ?>
 	      </div>
       <?php } ?>
-
-      	<!-- <div class="lable-viewed"><span>SẢN PHẨM ĐÃ XEM</span></div>
-	    <div class="row box-product-viewed">
-
-	    </div> -->
 	    <?php echo $content_bottom; ?>
 </div>
 
