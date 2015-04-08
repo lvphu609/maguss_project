@@ -1,7 +1,7 @@
 <div class="input-group input-group-sm">
     <input type="text" name="voucher" value="<?php echo $voucher; ?>" placeholder="<?php echo $entry_voucher; ?>" id="input-voucher" class="form-control" />
     <div class="input-group-btn">
-        <button type="submit" value="<?php echo $button_voucher; ?>" id="button-voucher" class="btn btn-primary">
+        <button type="submit" value="<?php echo $button_voucher; ?>" id="button-voucher" class="btn btn-maguss">
             <i class="fa fa-check"></i>
         </button>
     </div>

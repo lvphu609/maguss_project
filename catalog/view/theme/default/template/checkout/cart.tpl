@@ -37,17 +37,20 @@
                     <table class="table table-bordered tbl-shopping-cart">
                         <thead>
                         <tr>
-                            <td class="text-center"><?php echo $column_name; ?></td>
-                            <td class="text-center"><?php echo $column_quantity; ?></td>
-                            <td class="text-right"><?php echo $column_price; ?></td>
-                            <td class="text-right"><?php echo $column_total; ?></td>
+                            <td class="text-center"><strong><?php echo $column_name; ?></strong></td>
+                            <td class="text-center"><strong><?php echo $column_quantity; ?></strong></td>
+                            <td class="text-center"><strong><?php echo $column_price; ?></strong></td>
+                            <td class="text-center"><strong><?php echo $column_total; ?></strong></td>
                         </tr>
                         </thead>
                         <tbody>
                         <?php foreach ($products as $product) { ?>
                             <tr>
-                                <td class="text-left">
-                                    <a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+                                <td class="text-left text-middle">
+                                    <a href="<?php echo $product['href']; ?>">
+                                        <?php echo $product['name']; ?> - Size: <?php echo $product['size_label']; ?> -  Color:
+                                    </a>
+                                    <span class="color-preview" style="background-color: <?php echo $product['color']; ?>;"></span>
                                     <?php if (!$product['stock']) { ?>
                                         <span class="text-danger">***</span>
                                     <?php } ?>
@@ -68,24 +71,24 @@
                                         <small><?php echo $product['recurring']; ?></small>
                                     <?php } ?>
                                 </td>
-                                <td class="text-left" style="width: 200px;">
+                                <td class="text-left text-middle" style="width: 200px;">
                                     <div class="input-group input-group-sm">
                                         <input type="text" class="form-control txt-product-quantity" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" readonly/>
                                         <div class="input-group-btn">
-                                            <button type="button" class="btn btn-primary" id="btn-quantity-plus">
+                                            <button type="button" class="btn btn-maguss btn-quantity-plus">
                                                 <i class="fa fa-caret-up"></i>
                                             </button>
-                                            <button type="button" class="btn btn-primary" id="btn-quantity-minus">
+                                            <button type="button" class="btn btn-maguss btn-quantity-minus">
                                                 <i class="fa fa-caret-down"></i>
                                             </button>
-                                            <button type="button" class="btn btn-danger" onclick="cart.remove('<?php echo $product['key']; ?>');">
+                                            <button type="button" class="btn btn-maguss" onclick="cart.remove('<?php echo $product['key']; ?>');">
                                                 <i class="fa fa-times-circle"></i>
                                             </button>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-right"><?php echo $product['price']; ?></td>
-                                <td class="text-right"><?php echo $product['total']; ?></td>
+                                <td class="text-right text-middle"><?php echo $product['price']; ?></td>
+                                <td class="text-right text-middle"><?php echo $product['total']; ?></td>
                             </tr>
                         <?php } ?>
                         <?php foreach ($vouchers as $vouchers) { ?>
@@ -305,7 +308,7 @@
             });
         });
 
-        $('#btn-quantity-plus').click(function() {
+        $('.btn-quantity-plus').click(function() {
             var btn= $(this),
                 txtQuantity = btn.closest('td').find('.txt-product-quantity'),
                 quantity = txtQuantity.val();
@@ -315,7 +318,7 @@
             btn.closest('form').submit();
         });
 
-        $('#btn-quantity-minus').click(function() {
+        $('.btn-quantity-minus').click(function() {
             var btn= $(this),
                 txtQuantity = btn.closest('td').find('.txt-product-quantity'),
                 quantity = txtQuantity.val();
