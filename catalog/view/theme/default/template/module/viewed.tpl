@@ -96,7 +96,7 @@
     </div>
     <script type="text/javascript"><!--
     $('#carousel_viewed').owlCarousel({
-      items: 6,
+      items: 5,
       autoPlay: 3000,
       navigation: true,
       navigationText: ['<i class="fa fa-angle-left fa-2x"></i>', '<i class="fa fa-angle-right fa-2x"></i>'],

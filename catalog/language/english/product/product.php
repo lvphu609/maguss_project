@@ -2,8 +2,8 @@
 // Text
 $_['text_search']              = 'Search';
 $_['text_brand']               = 'Brand';
-$_['text_manufacturer']        = 'Brand:';
-$_['text_model']               = 'Product Code:';
+$_['text_manufacturer']        = 'Nhãn hiệu: ';
+$_['text_model']               = ' (product code)';
 $_['text_reward']              = 'Reward Points:';
 $_['text_points']              = 'Price in reward points:';
 $_['text_stock']               = 'Availability:';
@@ -41,9 +41,9 @@ $_['entry_bad']                = 'Bad';
 $_['entry_captcha']            = 'Enter the code in the box below';
 
 // Tabs
-$_['tab_description']          = 'Description';
+$_['tab_description']          = 'Mô tả sản phẩm';
 $_['tab_attribute']            = 'Specification';
-$_['tab_review']               = 'Reviews (%s)';
+$_['tab_review']               = 'Bình luận';
 
 // Error
 $_['error_name']               = 'Warning: Review Name must be between 3 and 25 characters!';

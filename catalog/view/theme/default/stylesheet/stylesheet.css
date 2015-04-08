@@ -308,7 +308,7 @@ div.required .control-label:before {
 }
 /* footer */
 footer {
-	margin-top: -20px;
+	/*margin-top: -20px;*/
 	padding-top: 30px;
 	background-color: #f1f1f2;
 	/*border-top: 1px solid #63c6c1;*/
@@ -757,6 +757,7 @@ h2.price {
 	font-family: Myriad Pro;
 	font-size: 14px;
 	color: #63C6C1 !important;
+	text-transform: uppercase;
 }
 .mn-top-logo .mn-top-item a:hover{
 	/*font-weight: bold;*/
@@ -772,7 +773,7 @@ h2.price {
     margin:0;
     margin-top: 10px;
     padding: 0;
-    z-index: 9999999999;
+    z-index: 99;
 }
 
 #custom-search-input .search-query {
@@ -1502,7 +1503,86 @@ ul.link-to-social li.item-social img{
 .box-related-product .product-layout.product-grid.product-item .image .box-label-status .label-status.sale-off{
 	background: rgb(219, 3, 3);
 	padding-left: 25%;
-}.pan-checkout .tbl-title {
+}
+
+/*product detail*/
+.box-image-product-large .box-item-image{
+  padding: 0px;
+  margin: 0px;
+  overflow-y: auto;
+  max-height: 500px;
+}
+.box-image-product-large .box-item-image a, 
+.box-image-product-large .box-item-image a img:active,
+.box-image-product-large .img-first a,
+.box-image-product-large .img-first a img:active{
+ border: none;
+}
+
+.box-image-product-large .box-item-image .img-additional{
+	/*width: 50px;*/
+	width: 90px;
+}
+
+.box-image-product-large .box-item-image .img-additional .img-lg-item{
+	margin-bottom: 0px !important;
+}
+
+
+.box-image-product-large .img-first{
+	/*min-width: 50px;*/
+	min-width: 320px;
+	max-height: 500px;
+	overflow: hidden;
+
+}
+
+.box-image-product-large .img-first img{
+	height: 500px;
+	width: auto;
+}
+
+/*tab */
+.tab-product-info{
+	margin: 30px 0px 30px 0px; 
+}
+
+
+.tab-product-info ul{
+	border-bottom: 2px solid #63C6C1;
+}
+.tab-product-info ul li{
+	font-weight: bold;
+}
+.tab-product-info ul li.active a{
+	background-color: #63c6c1;
+	color: #FFFFFF;
+}
+.tab-product-info ul li a:hover{
+	background-color: #63c6c1 !important;
+	color: #FFFFFF !important;
+}
+
+.box-inf-product-detail .pro-title{
+	color: #63C6C1;
+	font-weight: bold;
+	font-family: Myriad Pro !important;
+	font-size: 20px;
+}
+
+.pro-box-image, .box-inf-product-detail{
+	margin-top: 15px;
+}
+
+.box-info-product-detail{
+	color: #63C6C1;
+}
+
+.box-info-product-detail .pro-block{
+	border-bottom: 1px solid #63C6C1;
+	margin-bottom: 20px;
+}
+.pan-checkout .tbl-title {
     color: #ffffff;
     text-transform: uppercase;
     background-color: #63c6c1;
