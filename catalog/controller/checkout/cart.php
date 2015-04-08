@@ -344,7 +344,11 @@ class ControllerCheckoutCart extends Controller {
 			}
 
 			if (!$json) {
-				$this->cart->add($this->request->post['product_id'], $this->request->post['quantity'], $option, $recurring_id);
+                $size_color = array(
+                    'size' => $this->request->post['size'],
+                    'color' => $this->request->post['color']
+                );
+				$this->cart->add($this->request->post['product_id'], $this->request->post['quantity'], $option, $recurring_id, $size_color);
 
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
 
