@@ -140,7 +140,7 @@ var cart = {
 		$.ajax({
 			url: 'index.php?route=checkout/cart/add',
 			type: 'post',
-			data: 'product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
+			data: 'product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1) + '&size=' + $('#hid-product-size').val() + '&color=' + $('#hid-product-color').val(),
 			dataType: 'json',
 			beforeSend: function() {
 				$('#cart > button').button('loading');
@@ -628,6 +628,8 @@ var Maguss = {
 			$(this).closest('.group-color-product').find('.color-item-product-detail-lg').removeClass('active');
 			$(this).addClass('active');
 
+            $('#hid-product-color').val(currColor);
+
 			var quantityDetail = $('#hid-quantity-detail').text(),
 				productDetailSize = $('.product-detail-size'),
 				panSizeSelect = productDetailSize.find('.pan-select-size'),
@@ -643,6 +645,7 @@ var Maguss = {
 						if (panSizeSelect.text() != '' && quantityDetail[i].size.label == panSizeSelect.text()) {
 							keepCurrSize = true;
 							itemActive = 'class="active"';
+                            $('#hid-product-size').val(quantityDetail[i].size.label);
 						}
 						var li = $('<li ' + itemActive + '><a href="#" class="size-item">' + quantityDetail[i].size.label + '</a></li>');
 						sizeList.append(li);
@@ -650,6 +653,7 @@ var Maguss = {
 				}
 				if (!keepCurrSize) {
 					panSizeSelect.text('');
+                    $('#hid-product-size').val('');
 				}
 			}
 
@@ -698,6 +702,7 @@ var Maguss = {
 			panSizeSelect.find('li').removeClass('active');
 			a.closest('li').addClass('active');
 			sizeSelected.text(size);
+            $('#hid-product-size').val(size);
 		});
 		
 	},

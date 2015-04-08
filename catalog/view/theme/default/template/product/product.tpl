@@ -368,17 +368,21 @@
                       }
                     }
                     ksort($productSize);
+                    $firstSize = reset($productSize);
                   ?>
                   <div class="input-group-btn product-detail-size">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Size <span class="pan-select-size"></span> <span class="caret"></span></button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Size <span class="pan-select-size"><?php echo $firstSize['label']; ?></span> <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                       <?php foreach ($productSize as $key => $row) : ?>
-                        <li><a href="#" class="size-item"><?php echo $row['label']; ?></a></li>
+                        <li <?php echo ($row['size'] == $firstSize['size'] ? 'class="active"' : ''); ?>><a href="#" class="size-item"><?php echo $row['label']; ?></a></li>
                       <?php endforeach; ?>
                     </ul>
                   </div>
+
                 <?php endif; ?>
-              </div>              
+              </div>
+                <input type="hidden" name="size" id="hid-product-size" value="<?php echo $firstSize['size'] ?>">
+                <input type="hidden" name="color" id="hid-product-color" value="<?php echo $firstColor; ?>">
               <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
               <div id="hid-quantity-detail" class="hide"><?php echo json_encode($group_product_color); ?></div>
 
@@ -538,10 +542,10 @@ $('#button-cart').on('click', function() {
 		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
 		dataType: 'json',
 		beforeSend: function() {
-			$('#button-cart').button('loading');
+			//$('#button-cart').button('loading');
 		},
 		complete: function() {
-			$('#button-cart').button('reset');
+			//$('#button-cart').button('reset');
 		},
 		success: function(json) {
 			$('.alert, .text-danger').remove();
