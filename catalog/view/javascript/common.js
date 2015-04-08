@@ -647,7 +647,7 @@ var Maguss = {
 							itemActive = 'class="active"';
                             $('#hid-product-size').val(quantityDetail[i].size.label);
 						}
-						var li = $('<li ' + itemActive + '><a href="#" class="size-item">' + quantityDetail[i].size.label + '</a></li>');
+						var li = $('<li ' + itemActive + '><a href="#" class="size-item" data-size="' + quantityDetail[i].size.size + '">' + quantityDetail[i].size.label + '</a></li>');
 						sizeList.append(li);
 					}
 				}
@@ -702,7 +702,7 @@ var Maguss = {
 			panSizeSelect.find('li').removeClass('active');
 			a.closest('li').addClass('active');
 			sizeSelected.text(size);
-            $('#hid-product-size').val(size);
+            $('#hid-product-size').val(a.data('size'));
 		});
 		
 	},
