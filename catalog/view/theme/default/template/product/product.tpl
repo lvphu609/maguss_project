@@ -310,7 +310,7 @@
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Size <span class="pan-select-size"><?php echo $firstSize['label']; ?></span> <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                       <?php foreach ($productSize as $key => $row) : ?>
-                        <li <?php echo ($row['size'] == $firstSize['size'] ? 'class="active"' : ''); ?>><a href="#" class="size-item"><?php echo $row['label']; ?></a></li>
+                        <li <?php echo ($row['size'] == $firstSize['size'] ? 'class="active"' : ''); ?>><a href="#" class="size-item" data-size="<?php echo $row['size']; ?>"><?php echo $row['label']; ?></a></li>
                       <?php endforeach; ?>
                     </ul>
                   </div>
