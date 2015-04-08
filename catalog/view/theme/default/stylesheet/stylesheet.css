@@ -308,7 +308,7 @@ div.required .control-label:before {
 }
 /* footer */
 footer {
-	margin-top: -20px;
+	/*margin-top: -20px;*/
 	padding-top: 30px;
 	background-color: #f1f1f2;
 	/*border-top: 1px solid #63c6c1;*/
@@ -757,6 +757,7 @@ h2.price {
 	font-family: Myriad Pro;
 	font-size: 14px;
 	color: #63C6C1 !important;
+	text-transform: uppercase;
 }
 .mn-top-logo .mn-top-item a:hover{
 	/*font-weight: bold;*/
@@ -1536,6 +1537,10 @@ ul.link-to-social li.item-social img{
 
 }
 
+.box-image-product-large .img-first img{
+	height: 500px;
+	width: auto;
+}
 
 /*tab */
 .tab-product-info{
@@ -1558,4 +1563,22 @@ ul.link-to-social li.item-social img{
 	color: #FFFFFF !important;
 }
 
+.box-inf-product-detail .pro-title{
+	color: #63C6C1;
+	font-weight: bold;
+	font-family: Myriad Pro !important;
+	font-size: 20px;
+}
 
+.pro-box-image, .box-inf-product-detail{
+	margin-top: 15px;
+}
+
+.box-info-product-detail{
+	color: #63C6C1;
+}
+
+.box-info-product-detail .pro-block{
+	border-bottom: 1px solid #63C6C1;
+	margin-bottom: 20px;
+}

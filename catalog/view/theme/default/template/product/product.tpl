@@ -18,7 +18,7 @@
         <?php } else { ?>
         <?php $class = 'col-sm-6'; ?>
         <?php } ?>
-        <div class="<?php echo $class; ?>">
+        <div class="pro-box-image <?php echo $class; ?>">
             <!-- box large -->
             <div class="box-image-product-large col-xs-12 col-sm-12 col-lg-12" id="box-product-image-lg">
                 <?php if(count($group_product_color)>0 && !empty($group_product_color[0]) ) : ?>
@@ -57,31 +57,54 @@
           <?php } else { ?>
           <?php $class = 'col-sm-6'; ?>
           <?php } ?>
-          <div class="<?php echo $class; ?>">
-            <h1><?php echo $heading_title; ?></h1>
-            <ul class="list-unstyled">
+          <div class="box-info-product-detail <?php echo $class; ?>">
+            <div class="pro-block pro-info">
+              
+            </div>
+            <div class="pro-block pro-option">
+              
+            </div>
+            <div class="pro-block pro-desc">
+              
+            </div>
+            <div class="pro-button-shiping">
+              
+            </div>
+
+            <span class="pro-title"><?php echo $heading_title; ?></span>
+            <ul class="list-unstyled ">              
+              <li>
+                <?php echo $model; echo $text_model; ?>
+              </li>
               <?php if ($manufacturer) { ?>
-              <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
+                <li><?php echo $text_manufacturer; ?> 
+                    <!-- <a href="<?php // echo $manufacturers; ?>"> -->
+                      <?php echo $manufacturer; ?>
+                    <!-- </a> -->
+                </li>
               <?php } ?>
-              <li><?php echo $text_model; ?> <?php echo $model; ?></li>
-              <?php if ($reward) { ?>
-              <li><?php echo $text_reward; ?> <?php echo $reward; ?></li>
-              <?php } ?>
-              <li><?php echo $text_stock; ?> <?php echo $stock; ?></li>
+              <?php /* if ($reward) { ?>
+                <li>
+                  <?php echo $text_reward; ?> <?php echo $reward; ?>
+                </li>
+              <?php } */ ?>
+              <!-- <li>
+                <?php // echo $text_stock; ?> <?php echo $stock; ?>
+              </li> -->
             </ul>
             <?php if ($price) { ?>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled price">
               <?php if (!$special) { ?>
               <li>
-                <h2><?php echo $price; ?></h2>
+                <?php echo $price; ?>
               </li>
               <?php } else { ?>
-              <li><span style="text-decoration: line-through;"><?php echo $price; ?></span></li>
+              <li class="price_old"><?php echo $price; ?></li>
               <li>
-                <h2><?php echo $special; ?></h2>
+                <?php echo $special; ?>
               </li>
               <?php } ?>
-              <?php if ($tax) { ?>
+              <?php /* if ($tax) { ?>
               <li><?php echo $text_tax; ?> <?php echo $tax; ?></li>
               <?php } ?>
               <?php if ($points) { ?>
@@ -94,7 +117,7 @@
               <?php foreach ($discounts as $discount) { ?>
               <li><?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?></li>
               <?php } ?>
-              <?php } ?>
+              <?php } */ ?>
             </ul>
             <?php } ?>
             <div id="product">

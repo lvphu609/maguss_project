@@ -2,8 +2,8 @@
 // Text
 $_['text_search']              = 'Search';
 $_['text_brand']               = 'Brand';
-$_['text_manufacturer']        = 'Brand:';
-$_['text_model']               = 'Product Code:';
+$_['text_manufacturer']        = 'Nhãn hiệu: ';
+$_['text_model']               = ' (product code)';
 $_['text_reward']              = 'Reward Points:';
 $_['text_points']              = 'Price in reward points:';
 $_['text_stock']               = 'Availability:';
