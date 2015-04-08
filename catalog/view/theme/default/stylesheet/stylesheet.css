@@ -308,7 +308,7 @@ div.required .control-label:before {
 }
 /* footer */
 footer {
-	margin-top: 30px;
+	margin-top: -20px;
 	padding-top: 30px;
 	background-color: #f1f1f2;
 	/*border-top: 1px solid #63c6c1;*/
@@ -322,7 +322,7 @@ footer a {
 	color: #63c6c1;
 }
 footer a:hover {
-	color: #fff;
+	color: #000;
 }
 footer h5 {
 	font-family: 'Open Sans', sans-serif;
@@ -1010,6 +1010,7 @@ h2.price {
 	box-shadow: none !important;
 	border-bottom: 1px solid #999;
 	opacity: 0.9;
+	/*transition: opacity .25s ease,visibility .25s ease;*/
 
 }
 .ui-tooltip-menu-top{
@@ -1021,6 +1022,8 @@ h2.price {
 	left: 0px !important;
 	width: 100% !important; 
 }
+
+
 .ui-tooltip-content-menu-top .ui-tooltip-content{
 	/*background: #FFFFFF;*/
 	min-height: 300px;
@@ -1033,6 +1036,10 @@ h2.price {
 	border-bottom: 1px solid #63C6C1;
 }
 
+.ui-tooltip.ui-tooltip-content-menu-top:hover{
+	opacity: 0.9 !important;
+	background-color: none !important;
+}
 .box-sub-menu{
 	padding: 20px;
 	width: 100%;
@@ -1041,7 +1048,7 @@ h2.price {
 
 .box-sub-menu ul.list-unstyled{
 	float: left;
-	border-left: 1px solid #63C6C1;
+	/*border-left: 1px solid #63C6C1;*/
 }
 .box-sub-menu ul.list-unstyled li{
 	padding-left: 10px;
@@ -1275,7 +1282,8 @@ ul.link-to-social li.item-social img{
 }
 
 .search-result .product-item{
-	width: 250px;
+	min-width: 250px;
+  	max-width: 300px;
 	float: left;
 }
 
@@ -1289,7 +1297,7 @@ ul.link-to-social li.item-social img{
 	text-align: center;
 	background-color: #63C6C1;
 	color: #FFFFFF;
-	margin: 5px 0px 5px 5px; 
+	margin: 5px 0px 5px 10px; 
 	font-weight: bold;
 	line-height: 30px;
 }
@@ -1318,12 +1326,183 @@ ul.link-to-social li.item-social img{
 	text-align: center;
 	background-color: #63C6C1;
 	color: #FFFFFF;
-	margin: 5px 0px 5px 5px; 
+	margin: 5px 0px 5px 10px; 
 	font-weight: bold;
 	line-height: 30px;
 }
 
-.pan-checkout .tbl-title {
+.box-product-viewed{
+	text-align: center;
+	box-shadow: none !important;
+	/*height: 250px;*/
+}
+.box-product-viewed .item{
+	min-width: 250px;
+  	max-width: 300px;
+	overflow: hidden;
+}
+.box-product-viewed .item img{
+	/*width: 175px !important;*/
+	/*height: 250px !important;*/
+}
+
+/*.product-layout.product-grid.product-item .image .label-status{
+	  width: 200px;
+	  height: 100px;
+	  position: absolute;	  
+	  overflow: hidden;
+	  padding: 0px;
+	  margin: 0px;
+	  margin-top: 11px;
+	  z-index: 9;
+	 	float: left;
+
+	  background: yellow;
+}*/
+
+
+.product-layout.product-grid.product-item .image{
+	  overflow: hidden;
+}
+
+.product-layout.product-grid.product-item .image .box-label-status{
+	position: absolute;	
+	width: 70%;
+	height: 150px;
+	overflow: hidden;
+	z-index: 99;
+	margin-top: 4%;
+}
+.product-layout.product-grid.product-item .image .box-label-status .label-status{
+	width: 100%;
+	height: 30px;
+	/*position: absolute;	*/
+	/*margin-top: 10px;*/
+	z-index: 9999;
+	float: left;
+	font-weight: bold;
+	line-height: 30px;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: left;
+	/*padding-left: 25%;*/
+	/*text-align: center;*/
+	margin-left: -20%;
+	box-shadow: 0px 1px 1px 0px #000000;
+	-webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+}
+
+.product-layout.product-grid.product-item .image .box-label-status .label-status.new{
+	background: rgb(0, 137, 127);
+	padding-left: 30%;
+}
+
+.product-layout.product-grid.product-item .image .box-label-status .label-status.sale-off{
+	background: rgb(219, 3, 3);
+	padding-left: 25%;
+}
+
+/*search*/
+.search-result .product-layout.product-grid.product-item .image{
+	  overflow: hidden;
+}
+
+.search-result .product-layout.product-grid.product-item .image .box-label-status{
+	position: absolute;	
+	width: 35%;
+	height: 150px;
+	overflow: hidden;
+	z-index: 99;
+	margin-top: 0;
+	margin-left: 8px;
+}
+.search-result .product-layout.product-grid.product-item .image .box-label-status .label-status{
+	width: 100%;
+	height: 30px;
+	/*position: absolute;	*/
+	margin-top: -5%;
+	z-index: 9999;
+	float: left;
+	font-weight: bold;
+	line-height: 30px;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: left;
+	/*padding-left: 25%;*/
+	/*text-align: center;*/
+	/*margin-left: -20%;*/
+	box-shadow: 0px 1px 1px 0px #000000;
+	-webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+}
+
+.search-result .product-layout.product-grid.product-item .image .box-label-status .label-status.new{
+	background: rgb(0, 137, 127);
+	padding-left: 27%;
+}
+
+.search-result .product-layout.product-grid.product-item .image .box-label-status .label-status.sale-off{
+	background: rgb(219, 3, 3);
+	padding-left: 24%;
+}
+
+.search-empty{
+	margin-left: 15px;
+}
+
+/*box related*/
+.box-related-product .product-layout.product-grid.product-item .image{
+	  overflow: hidden;
+}
+
+.box-related-product .product-layout.product-grid.product-item .image .box-label-status{
+	position: absolute;	
+	width: 70%;
+	height: 150px;
+	overflow: hidden;
+	z-index: 99;
+	margin-top: 0px;
+	margin-left: 3%;
+}
+.box-related-product .product-layout.product-grid.product-item .image .box-label-status .label-status{
+	width: 100%;
+	height: 30px;
+	/*position: absolute;	*/
+	/*margin-top: 10px;*/
+	z-index: 9999;
+	float: left;
+	font-weight: bold;
+	line-height: 30px;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: left;
+	/*padding-left: 25%;*/
+	/*text-align: center;*/
+	margin-left: -20%;
+	box-shadow: 0px 1px 1px 0px #000000;
+	-webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+}
+
+.box-related-product .product-layout.product-grid.product-item .image .box-label-status .label-status.new{
+	background: rgb(0, 137, 127);
+	padding-left: 30%;
+}
+
+.box-related-product .product-layout.product-grid.product-item .image .box-label-status .label-status.sale-off{
+	background: rgb(219, 3, 3);
+	padding-left: 25%;
+}.pan-checkout .tbl-title {
     color: #ffffff;
     text-transform: uppercase;
     background-color: #63c6c1;
