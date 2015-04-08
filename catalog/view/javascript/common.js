@@ -631,26 +631,27 @@ var Maguss = {
             $('#hid-product-color').val(currColor);
 
 			var quantityDetail = $('#hid-quantity-detail').text(),
-				productDetailSize = $('.product-detail-size'),
+				productDetailSize = $('.pro-option-select-size'),
 				panSizeSelect = productDetailSize.find('.pan-select-size'),
-				sizeList = productDetailSize.find('ul'),
+				sizeList = productDetailSize,
 				keepCurrSize = false;
 
 			quantityDetail = JSON.parse(quantityDetail);
 			sizeList.html('');
 			if (quantityDetail.length > 0) {
+				var option = '<option>Size</option>';
 				for (var i = 0; i < quantityDetail.length; i++) {
 					if (quantityDetail[i].color == currColor) {
 						var itemActive = '';
 						if (panSizeSelect.text() != '' && quantityDetail[i].size.label == panSizeSelect.text()) {
 							keepCurrSize = true;
-							itemActive = 'class="active"';
+							itemActive = 'selected';
                             $('#hid-product-size').val(quantityDetail[i].size.label);
 						}
-						var li = $('<li ' + itemActive + '><a href="#" class="size-item" data-size="' + quantityDetail[i].size.size + '">' + quantityDetail[i].size.label + '</a></li>');
-						sizeList.append(li);
+						option +=  '<option ' + itemActive + ' value="'+quantityDetail[i].size.size+'" data-size="' + quantityDetail[i].size.size + '">'+quantityDetail[i].size.label+'</option>';
 					}
 				}
+				sizeList.append(option);
 				if (!keepCurrSize) {
 					panSizeSelect.text('');
                     $('#hid-product-size').val('');
