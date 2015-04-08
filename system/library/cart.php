@@ -265,7 +265,9 @@ class Cart {
 						'length_class_id' => $product_query->row['length_class_id'],
 						'recurring'       => $recurring,
                         'quantity_detail'  => $product_query->row['quantity_detail'],
-                        'is_new'           => $product_query->row['is_new']
+                        'is_new'           => $product_query->row['is_new'],
+                        'size'              => $product['size_color']['size'],
+                        'color'              => $product['size_color']['color']
 					);
 				} else {
 					$this->remove($key);

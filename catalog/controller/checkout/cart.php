@@ -151,6 +151,16 @@ class ControllerCheckoutCart extends Controller {
 					}
 				}
 
+                // get size label
+                $quantityDetail = json_decode($product['quantity_detail'], true);
+                $sizeLabel = '';
+                foreach ($quantityDetail as $sizeColor) {
+                    if ($sizeColor['color'] == $product['color'] && $sizeColor['size']['size'] == $product['size']) {
+                        $sizeLabel = $sizeColor['size']['label'];
+                        break;
+                    }
+                }
+
 				$data['products'][] = array(
 					'key'       => $product['key'],
 					'thumb'     => $image,
@@ -163,7 +173,10 @@ class ControllerCheckoutCart extends Controller {
 					'reward'    => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
 					'price'     => $price,
 					'total'     => $total,
-					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id']),
+                    'size'      => $product['size'],
+                    'size_label' => $sizeLabel,
+                    'color'     => $product['color']
 				);
 			}
 

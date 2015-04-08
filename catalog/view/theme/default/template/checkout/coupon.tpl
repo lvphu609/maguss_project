@@ -1,7 +1,7 @@
 <div class="input-group input-group-sm">
     <input type="text" name="coupon" value="<?php echo $coupon; ?>" placeholder="Nhập mã giảm giá" id="input-coupon" class="form-control" />
     <div class="input-group-btn">
-        <button type="button" value="<?php echo $button_coupon; ?>" id="button-coupon" class="btn btn-primary">
+        <button type="button" value="<?php echo $button_coupon; ?>" id="button-coupon" class="btn btn-maguss">
             <i class="fa fa-check"></i>
         </button>
     </div>
