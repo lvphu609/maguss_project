@@ -59,7 +59,7 @@
           <?php } ?>
           <div class="box-info-product-detail <?php echo $class; ?>">
             <div class="pro-block pro-info">
-              
+              <span class="pro-title"><?php echo $heading_title; ?></span>
             </div>
             <div class="pro-block pro-option">
               
@@ -71,7 +71,7 @@
               
             </div>
 
-            <span class="pro-title"><?php echo $heading_title; ?></span>
+            
             <ul class="list-unstyled ">              
               <li>
                 <?php echo $model; echo $text_model; ?>

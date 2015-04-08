@@ -1570,7 +1570,7 @@ ul.link-to-social li.item-social img{
 	font-size: 20px;
 }
 
-.pro-box-image, .box-inf-product-detail{
+.pro-box-image, .box-info-product-detail{
 	margin-top: 15px;
 }
 
@@ -1580,7 +1580,7 @@ ul.link-to-social li.item-social img{
 
 .box-info-product-detail .pro-block{
 	border-bottom: 1px solid #63C6C1;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 .pan-checkout .tbl-title {
     color: #ffffff;
@@ -1595,4 +1595,10 @@ ul.link-to-social li.item-social img{
 .pan-checkout .tbl-content {
     background-color: #dff1ef;
     color: #63c6c1;
+}
+
+.pro-block.pro-info .pro-title{
+	font-weight: bold;
+	font-size: 15px;
+	text-transform: uppercase;
 }
