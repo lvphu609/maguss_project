@@ -58,70 +58,108 @@
           <?php $class = 'col-sm-6'; ?>
           <?php } ?>
           <div class="box-info-product-detail <?php echo $class; ?>">
+            
             <div class="pro-block pro-info">
-              
-            </div>
-            <div class="pro-block pro-option">
-              
-            </div>
-            <div class="pro-block pro-desc">
-              
-            </div>
-            <div class="pro-button-shiping">
+              <span class="pro-info-title"><?php echo $heading_title; ?></span>
+              <div><span class="pro-info-model"><?php echo $model; ?></span></div>
+              <div class="pro-info-manufacturer">
+                <?php echo $text_manufacturer; ?> 
+                <?php echo $manufacturer; ?>
+              </div>
+              <?php if ($price) { ?>
+                  <?php if (!$special) { ?>
+                    <span class="pro-info-price"><?php echo $price; ?></span>
+                  <?php } else { ?>
+                    <div><span class="pro-info-price-old"><?php echo $price; ?></span></div>
+                    <div><span class="pro-info-price-new"><?php echo $special; ?></span></div>
+              <?php } } ?>
               
             </div>
 
-            <span class="pro-title"><?php echo $heading_title; ?></span>
-            <ul class="list-unstyled ">              
-              <li>
-                <?php echo $model; echo $text_model; ?>
-              </li>
-              <?php if ($manufacturer) { ?>
-                <li><?php echo $text_manufacturer; ?> 
-                    <!-- <a href="<?php // echo $manufacturers; ?>"> -->
-                      <?php echo $manufacturer; ?>
-                    <!-- </a> -->
-                </li>
-              <?php } ?>
-              <?php /* if ($reward) { ?>
-                <li>
-                  <?php echo $text_reward; ?> <?php echo $reward; ?>
-                </li>
-              <?php } */ ?>
-              <!-- <li>
-                <?php // echo $text_stock; ?> <?php echo $stock; ?>
-              </li> -->
-            </ul>
-            <?php if ($price) { ?>
-            <ul class="list-unstyled price">
-              <?php if (!$special) { ?>
-              <li>
-                <?php echo $price; ?>
-              </li>
-              <?php } else { ?>
-              <li class="price_old"><?php echo $price; ?></li>
-              <li>
-                <?php echo $special; ?>
-              </li>
-              <?php } ?>
-              <?php /* if ($tax) { ?>
-              <li><?php echo $text_tax; ?> <?php echo $tax; ?></li>
-              <?php } ?>
-              <?php if ($points) { ?>
-              <li><?php echo $text_points; ?> <?php echo $points; ?></li>
-              <?php } ?>
-              <?php if ($discounts) { ?>
-              <li>
-                <hr>
-              </li>
-              <?php foreach ($discounts as $discount) { ?>
-              <li><?php echo $discount['quantity']; ?><?php echo $text_discount; ?><?php echo $discount['price']; ?></li>
-              <?php } ?>
-              <?php } */ ?>
-            </ul>
-            <?php } ?>
+            <div class="pro-block pro-option">
+              <div id="hid-quantity-detail" class="hide"><?php echo json_encode($group_product_color); ?></div>
+              <div class="col-xs-12 col-sm-12 col-lg-12 group-color-product btn-group-color-lg">
+                <?php if(count($group_product_color)>0) : ?>
+                  <?php $colorUsed = array(); ?>
+                  <?php foreach ($group_product_color as $key => $groupColor) : ?>
+                    <?php if (!in_array($groupColor['color'], $colorUsed)) : ?>
+                      <?php array_push($colorUsed, $groupColor['color']); ?>
+                      <div  class="color-item-product-detail-lg <?php echo ($key == 0 ? 'active' : ''); ?>" style="background-color:<?php echo $groupColor['color']; ?>" data-color="<?php echo $groupColor['color']; ?>">
+                        <div class="group-color hide">
+                            <?php if(count($groupColor['images']) > 0) : ?>
+                                <?php $imgFirst = ""; ?>
+                                <div class="col-xs-12 col-sm-12 col-lg-2 box-item-image">
+                                  <?php foreach ($groupColor['images'] as $key => $img) : ?>
+                                    <?php  if ($key == 0){ $imgFirst = $img['url']; } ?>
+                                        <div class="img-additional" >
+                                          <a class="thumbnail img-lg-item" href="javascript:;" title="<?php echo $heading_title; ?>"><img class="mh500" src="<?php echo  $img['url']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a>
+                                        </div>                              
+                                  <?php endforeach; ?>
+                                </div>
+                                <div class="col-xs-10 col-sm-10 col-lg-10 img-first">
+                                    <div class="img-additional" >
+                                      <a class="thumbnail img-lg-append-a" href="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>"><img class="mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                      </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+              <?php endif; ?> 
+              </div>
+              <div class="clear"></div>
+              <div class="pro-optoin-select">
+                <?php if (count($group_product_color) > 0) : ?>
+                  <?php
+                    $firstColor = $group_product_color[0]['color'];
+                    $productSize = array();
+                    foreach ($group_product_color as $key => $value) {
+                      if ($value['color'] == $firstColor) {
+                        $productSize[(int)array_search($value['size']['size'], $list_product_size)] = $value['size'];  
+                      }
+                    }
+                    ksort($productSize);
+                    $firstSize = reset($productSize);
+                  ?>                  
+                  <select class="pro-optoin-select-size">
+                    <option>Size</option>
+                    <?php foreach ($productSize as $key => $row) : ?>
+                        <option <?php echo ($row['size'] == $firstSize['size'] ? 'selected' : ''); ?> data-size="<?php echo $row['size']; ?>">
+                          <?php echo $row['label']; ?>
+                        </option>
+                      <?php endforeach; ?>
+                  </select>
+                  <select class="pro-optoin-select-quantity">
+                    <option>Số lượng</option>
+                    <?php for($i=1 ; $i <=100; $i++) { ?>
+                      <?php if($minimum == $i) { ?>
+                        <option value="<?php echo $i; ?>" selected><?php echo $i; ?></option>
+                      <?php } else { ?>
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                      <?php } ?>
+                    <?php } ?>
+                  </select>
+                <?php endif; ?>
+                <?php // echo $text_stock;  echo $stock; ?>
+                <!-- <span>&nbsp; Vui lòng để lại email/điện thoạiđể liên lạc khi có hàng</span> -->
+              </div>
+            </div>
+
+            <div class="pro-block pro-desc">
+              <span class="pro-desc-title">MÔ TẢ SẢN PHẨM</span>
+              <div class="pro-desc-content">
+                <?php echo $meta_description; ?>
+              </div>
+            </div>
+
+            <div class="pro-button-shiping">
+              <!-- <a hreclass="btn"></a> -->
+            </div>
+
+          <?php /*   
             <div id="product">
-              <?php if ($options) { ?>
+             <?php if ($options) { ?>
               <hr>
               <h3><?php echo $text_option; ?></h3>
               <?php foreach ($options as $option) { ?>
@@ -258,37 +296,7 @@
                 <div class="help-block" id="recurring-description"></div>
               </div>
               <?php } ?>
-              <!-- phu le -->
-              <div class="col-xs-12 col-sm-12 col-lg-12 group-color-product btn-group-color-lg">
-                <?php if(count($group_product_color)>0) : ?>
-                  <?php $colorUsed = array(); ?>
-                  <?php foreach ($group_product_color as $key => $groupColor) : ?>
-                    <?php if (!in_array($groupColor['color'], $colorUsed)) : ?>
-                      <?php array_push($colorUsed, $groupColor['color']); ?>
-                      <div  class="color-item-product-detail-lg <?php echo ($key == 0 ? 'active' : ''); ?>" style="background-color:<?php echo $groupColor['color']; ?>" data-color="<?php echo $groupColor['color']; ?>">
-                        <div class="group-color hide">
-                            <?php if(count($groupColor['images']) > 0) : ?>
-                                <?php $imgFirst = ""; ?>
-                                <div class="col-xs-12 col-sm-12 col-lg-2 box-item-image">
-                                  <?php foreach ($groupColor['images'] as $key => $img) : ?>
-                                    <?php  if ($key == 0){ $imgFirst = $img['url']; } ?>
-                                        <div class="img-additional" >
-                                          <a class="thumbnail img-lg-item" href="javascript:;" title="<?php echo $heading_title; ?>"><img class="mh500" src="<?php echo  $img['url']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a>
-                                        </div>                              
-                                  <?php endforeach; ?>
-                                </div>
-                                <div class="col-xs-10 col-sm-10 col-lg-10 img-first">
-                                    <div class="img-additional" >
-                                      <a class="thumbnail img-lg-append-a" href="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>"><img class="mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                      </div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-              <?php endif; ?> 
-            </div>
+
             <!-- phucnguyen -->
             <div class="form-group">
               <label class="control-label" for="input-quantity"><?php echo $entry_qty; ?></label>
@@ -329,6 +337,9 @@
               <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
               <?php } ?>
             </div>
+
+            */ ?>
+
             <?php if ($review_status) { ?>
             <div class="rating">
               <p>

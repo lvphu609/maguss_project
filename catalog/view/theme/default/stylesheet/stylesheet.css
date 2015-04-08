@@ -1576,7 +1576,7 @@ ul.link-to-social li.item-social img{
 	font-size: 20px;
 }
 
-.pro-box-image, .box-inf-product-detail{
+.pro-box-image, .box-info-product-detail{
 	margin-top: 15px;
 }
 
@@ -1586,7 +1586,7 @@ ul.link-to-social li.item-social img{
 
 .box-info-product-detail .pro-block{
 	border-bottom: 1px solid #63C6C1;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 .pan-checkout .tbl-title {
     color: #ffffff;
@@ -1602,6 +1602,68 @@ ul.link-to-social li.item-social img{
     background-color: #dff1ef;
     color: #63c6c1;
 }
+
+.pro-block.pro-info .pro-info-title{
+	font-weight: bold;
+	font-size: 15px;
+	text-transform: uppercase;
+}
+
+.pro-block.pro-info .pro-info-model{
+	font-size: 10px;
+}
+
+.pro-block.pro-info .pro-info-manufacturer{
+	font-weight: bold;
+	font-size: 14px;
+	margin: 15px 0px 15px 0px;
+}
+
+.pro-block.pro-info .pro-info-price{
+	font-size: 15px;
+}
+
+.pro-block.pro-info .pro-info-price-old{
+	font-size: 10px;
+	text-decoration: line-through;
+}
+.pro-block.pro-info .pro-info-price-new{
+	font-size: 15px;
+}
+
+.pro-block.pro-option .group-color-product{
+	padding: 0px;
+}
+.pro-block.pro-option .pro-optoin-select{
+	margin: 10px 0px 10px 0px;
+}
+.pro-block.pro-option .pro-optoin-select .pro-optoin-select-size{
+	border: 1px solid #63c6c1;
+	height: 25px;
+	min-width: 50px;
+	color:  #109B94;
+	font-size: 12px;
+	background-color: #6FE5DF;
+}
+.pro-block.pro-option .pro-optoin-select .pro-optoin-select-quantity{
+	border: 1px solid #63c6c1;
+	height: 25px;
+	min-width: 80px;
+	color:  #109B94;
+	font-size: 12px;
+	background-color: #6FE5DF;
+}
+
+.pro-block.pro-desc .pro-desc-title{
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.pro-block.pro-desc .pro-desc-content{
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
 .color-preview {
     display: inline-block;
     width: 20px;
