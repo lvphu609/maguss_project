@@ -263,7 +263,9 @@ class Cart {
 						'width'           => $product_query->row['width'],
 						'height'          => $product_query->row['height'],
 						'length_class_id' => $product_query->row['length_class_id'],
-						'recurring'       => $recurring
+						'recurring'       => $recurring,
+                        'quantity_detail'  => $product_query->row['quantity_detail'],
+                        'is_new'           => $product_query->row['is_new']
 					);
 				} else {
 					$this->remove($key);
@@ -286,7 +288,7 @@ class Cart {
 		return $recurring_products;
 	}
 
-	public function add($product_id, $qty = 1, $option = array(), $recurring_id = 0) {
+	public function add($product_id, $qty = 1, $option = array(), $recurring_id = 0, $size_color = null) {
 		$this->data = array();
 
 		$product['product_id'] = (int)$product_id;
@@ -299,6 +301,10 @@ class Cart {
 			$product['recurring_id'] = (int)$recurring_id;
 		}
 
+        if (!empty($size_color)) {
+            $product['size_color'] = $size_color;
+        }
+
 		$key = base64_encode(serialize($product));
 
 		if ((int)$qty && ((int)$qty > 0)) {
@@ -309,6 +315,8 @@ class Cart {
 			}
 		}
 	}
+
+
 
 	public function update($key, $qty) {
 		$this->data = array();
