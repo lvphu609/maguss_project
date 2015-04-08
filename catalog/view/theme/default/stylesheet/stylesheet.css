@@ -1200,6 +1200,10 @@ ul.link-to-social li.item-social img{
     background-color: #b3e0dd;
     font-weight: bold;
     text-align: center;
+    font-size: 15px;
+}
+.tbl-cart-total .w160 {
+    font-size: 14px;
 }
 .btn-continue-shopping {
     font-size: 20px;
@@ -1210,6 +1214,8 @@ ul.link-to-social li.item-social img{
 }
 .btn-checkout {
     text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
 }
 .text-header{
 	margin-top: 10px;
@@ -1689,4 +1695,7 @@ ul.link-to-social li.item-social img{
 	background-color: #63c6c1 !important;
 	background: #63c6c1 !important;
 	border: none;
+}
+.h45 {
+    height: 45px !important;
 }

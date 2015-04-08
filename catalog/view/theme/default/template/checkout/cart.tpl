@@ -29,7 +29,7 @@
             <?php $class = 'col-sm-12'; ?>
         <?php } ?>
         <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-            <h2 style="color: #63c6c1;"><?php echo $heading_title; ?></h2>
+            <h3 style="color: #63c6c1;"><?php echo $heading_title; ?></h3>
             <h4 style="color: #63c6c1;">Cập nhật đơn hàng và chi tiết tất cả các sản phẩm</h4>
 
             <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
@@ -88,7 +88,7 @@
                                     </div>
                                 </td>
                                 <td class="text-right text-middle"><?php echo $product['price']; ?></td>
-                                <td class="text-right text-middle"><?php echo $product['total']; ?></td>
+                                <td class="text-right text-middle"><strong><?php echo $product['total']; ?></strong></td>
                             </tr>
                         <?php } ?>
                         <?php foreach ($vouchers as $vouchers) { ?>
@@ -117,12 +117,12 @@
                     <div class="col-md-6 col-md-offset-6">
                         <table class="table table-bordered tbl-cart-total" style="margin-left: 15px;">
                             <tr>
-                                <td class="w160 hl">THÀNH TIỀN</td>
-                                <td class="txt-bold"><?php echo $totals['sub_total']['text']; ?></td>
+                                <td class="w160 hl h45 text-middle">THÀNH TIỀN</td>
+                                <td class="txt-bold h45 text-middle"><?php echo $totals['sub_total']['text']; ?></td>
                             </tr>
                             <tr>
-                                <td class="w160 hl">Mã giảm giá</td>
-                                <td class="txt-bold">
+                                <td class="w160 hl h45 text-middle">Mã giảm giá</td>
+                                <td class="txt-bold h45 text-middle">
                                     <?php if ($coupon): ?>
                                         <?php echo $coupon; ?>
                                     <?php endif; ?>
@@ -132,8 +132,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="w160 hl">Phiếu quà tặng</td>
-                                <td class="txt-bold">
+                                <td class="w160 hl h45 text-middle">Phiếu quà tặng</td>
+                                <td class="txt-bold h45 text-middle">
                                     <?php if ($voucher): ?>
                                         <?php echo $voucher; ?>
                                     <?php endif; ?>
@@ -143,8 +143,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="w160 hl">Khu vực giao hàng</td>
-                                <td class="form-inline txt-bold">
+                                <td class="w160 hl h45 text-middle">Khu vực giao hàng</td>
+                                <td class="form-inline txt-bold h45 text-middle">
                                     <?php
                                     $shipping_province = '';
                                     $shipping_location = '';
@@ -204,8 +204,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="w160 hl">Phí giao hàng</td>
-                                <td id="lbl-shipping-cost" class="txt-bold">
+                                <td class="w160 hl h45 text-middle">Phí giao hàng</td>
+                                <td id="lbl-shipping-cost" class="txt-bold h45 text-middle">
                                     <?php
                                     if (!empty($shipping_method['text'])) {
                                         echo $shipping_method['text'];
@@ -220,8 +220,8 @@
                     <div class="col-md-6 col-md-offset-6">
                         <table class="table table-bordered tbl-cart-total" style="margin-left: 15px;">
                             <tr>
-                                <td class="w160 hl">TỔNG CỘNG</td>
-                                <td class="txt-bold"><?php echo $totals['total']['text']; ?></td>
+                                <td class="w160 hl h45 text-middle"><strong>TỔNG CỘNG</strong></td>
+                                <td class="txt-bold h45 text-middle" style="font-size: 17px;"><?php echo $totals['total']['text']; ?></td>
                             </tr>
                         </table>
                     </div>
@@ -232,7 +232,7 @@
             <div class="buttons">
                 <div class="pull-right">
                     <a href="<?php echo $continue; ?>" class="btn-continue-shopping">Tiếp tục mua hàng</a>
-                    <a href="<?php echo $checkout; ?>" id="btn-shopping-cart-checkout" class="btn btn-primary btn-checkout">Thanh Toán</a>
+                    <a href="<?php echo $checkout; ?>" id="btn-shopping-cart-checkout" class="btn btn-maguss btn-checkout">Thanh Toán</a>
                 </div>
             </div>
             <?php echo $content_bottom; ?></div>
