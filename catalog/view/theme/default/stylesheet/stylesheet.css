@@ -1682,6 +1682,20 @@ ul.link-to-social li.item-social img{
     background-color: #63c6c1;
     border-color: #cccccc;
 }
+
+.box-info-product-detail .pro-button-shipping {
+	margin-bottom: 30px;
+	margin-top: -20px;
+}
+.box-info-product-detail .pro-button-shipping .button-shipping {
+	max-width: 150px !important;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 15px;
+	background-color: #63c6c1 !important;
+	background: #63c6c1 !important;
+	border: none;
+}
 .h45 {
     height: 45px !important;
 }

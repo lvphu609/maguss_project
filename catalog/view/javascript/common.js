@@ -691,7 +691,7 @@ var Maguss = {
 				}
 			});
 		});
-		
+		/*
 		$(document).on('click', '.size-item', function(e) {
 			e.preventDefault();
 			var a = $(this),
@@ -703,7 +703,7 @@ var Maguss = {
 			a.closest('li').addClass('active');
 			sizeSelected.text(size);
             $('#hid-product-size').val(a.data('size'));
-		});
+		});*/
 		
 	},
 	imageExists: function(url, callback) {

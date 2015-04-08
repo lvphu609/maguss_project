@@ -122,15 +122,15 @@
                     ksort($productSize);
                     $firstSize = reset($productSize);
                   ?>                  
-                  <select class="pro-optoin-select-size">
+                  <select name="size" class="pro-optoin-select-size">
                     <option>Size</option>
                     <?php foreach ($productSize as $key => $row) : ?>
-                        <option <?php echo ($row['size'] == $firstSize['size'] ? 'selected' : ''); ?> data-size="<?php echo $row['size']; ?>">
+                        <option <?php echo ($row['size'] == $firstSize['size'] ? 'selected' : ''); ?> data-size="<?php echo $row['size']; ?>" value="<?php echo $row['size']; ?>">
                           <?php echo $row['label']; ?>
                         </option>
                       <?php endforeach; ?>
-                  </select>
-                  <select class="pro-optoin-select-quantity">
+                    </select>
+                    <select name="quantity" class="pro-optoin-select-quantity">
                     <option>Số lượng</option>
                     <?php for($i=1 ; $i <=100; $i++) { ?>
                       <?php if($minimum == $i) { ?>
@@ -143,6 +143,8 @@
                 <?php endif; ?>
                 <?php // echo $text_stock;  echo $stock; ?>
                 <!-- <span>&nbsp; Vui lòng để lại email/điện thoạiđể liên lạc khi có hàng</span> -->
+                <input type="hidden" name="color" id="hid-product-color" value="<?php echo $firstColor; ?>">
+                <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
               </div>
             </div>
 
@@ -153,8 +155,8 @@
               </div>
             </div>
 
-            <div class="pro-button-shiping">
-              <!-- <a hreclass="btn"></a> -->
+            <div class="pro-button-shipping">
+               <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block button-shipping"><?php echo $button_cart; ?></button>
             </div>
 
           <?php /*   
