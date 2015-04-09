@@ -81,7 +81,7 @@
                                             <button type="button" class="btn btn-maguss btn-quantity-minus">
                                                 <i class="fa fa-caret-down"></i>
                                             </button>
-                                            <button type="button" class="btn btn-maguss" onclick="cart.remove('<?php echo $product['key']; ?>');">
+                                            <button type="button" class="btn btn-maguss btn-delete-product" onclick="cart.remove('<?php echo $product['key']; ?>');">
                                                 <i class="fa fa-times-circle"></i>
                                             </button>
                                         </div>
@@ -314,6 +314,7 @@
                 quantity = txtQuantity.val();
 
             btn.closest('td').find('button').prop('disabled', true);
+            btn.addClass('loading');
             txtQuantity.val(parseInt(quantity) + 1);
             btn.closest('form').submit();
         });
@@ -324,6 +325,7 @@
                 quantity = txtQuantity.val();
 
             btn.closest('td').find('button').prop('disabled', true);
+            btn.addClass('loading');
             txtQuantity.val(parseInt(quantity) - 1);
             btn.closest('form').submit();
         });
@@ -335,5 +337,11 @@
                 return false;
             }
         });
+
+        $(document).on('click', '.btn-delete-product', function() {
+            var btn = $(this);
+            btn.closest('.input-group-btn').find('button').prop('disabled', true);
+            btn.addClass('loading');
+        })
     });
 </script>

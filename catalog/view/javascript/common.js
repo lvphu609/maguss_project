@@ -195,7 +195,9 @@ var cart = {
 			data: 'key=' + key,
 			dataType: 'json',
 			beforeSend: function() {
-				$('#cart > button').button('loading');
+                /*var panControl =$('#btn-control-' + key);
+				panControl.prop('disabled', true);
+				panControl.find('.btn-delete-product').addClass('loading');*/
 			},
 			success: function(json) {
 				$('#cart > button').button('reset');

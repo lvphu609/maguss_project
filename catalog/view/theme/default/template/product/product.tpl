@@ -599,7 +599,6 @@ $('#button-cart').on('click', function() {
             btn.removeClass('loading');
 		},
 		success: function(json) {
-            console.log(json);
 			$('.alert, .text-danger').remove();
 			$('.form-group').removeClass('has-error');
 
