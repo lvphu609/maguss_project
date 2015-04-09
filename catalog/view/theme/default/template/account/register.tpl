@@ -1,10 +1,10 @@
 <?php echo $header; ?>
 <div class="container">
-  <ul class="breadcrumb">
+  <?php /* <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
-  </ul>
+  </ul> */ ?>
   <?php if ($error_warning) { ?>
   <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
   <?php } ?>
@@ -17,7 +17,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
+      <div class="text-header-contact"><span><?php echo $heading_title; ?></span></div>
       <p><?php echo $text_account_already; ?></p>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset id="account">
@@ -490,17 +490,17 @@
               <?php if ($newsletter) { ?>
               <label class="radio-inline">
                 <input type="radio" name="newsletter" value="1" checked="checked" />
-                <?php echo $text_yes; ?></label>
+                Đồng ý theo dõi <?php  // echo $text_yes; ?></label>
               <label class="radio-inline">
                 <input type="radio" name="newsletter" value="0" />
-                <?php echo $text_no; ?></label>
+                Đồng ý theo dõi <?php // echo $text_no; ?></label>
               <?php } else { ?>
               <label class="radio-inline">
                 <input type="radio" name="newsletter" value="1" />
-                <?php echo $text_yes; ?></label>
+                Đồng ý theo dõi <?php // echo $text_yes; ?></label>
               <label class="radio-inline">
                 <input type="radio" name="newsletter" value="0" checked="checked" />
-                <?php echo $text_no; ?></label>
+                Không theo dõi <?php // echo $text_no; ?></label>
               <?php } ?>
             </div>
           </div>
@@ -514,7 +514,8 @@
             <input type="checkbox" name="agree" value="1" />
             <?php } ?>
             &nbsp;
-            <input type="submit" value="<?php echo $button_continue; ?>" class="btn btn-primary" />
+            <?php /* <input type="submit" value="<?php echo $button_continue; ?>" class="btn btn-primary" /> */ ?>
+             <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common"><span class="">HOÀN TẤT</span></a>
           </div>
         </div>
         <?php } else { ?>
@@ -693,4 +694,5 @@ $('select[name=\'country_id\']').on('change', function() {
 
 $('select[name=\'country_id\']').trigger('change');
 //--></script>
+<div class="margin-bottom-10"></div>
 <?php echo $footer; ?>

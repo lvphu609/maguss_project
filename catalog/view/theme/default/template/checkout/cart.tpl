@@ -1,10 +1,10 @@
 <?php echo $header; ?>
 <div class="container">
-    <ul class="breadcrumb">
+    <?php /*<ul class="breadcrumb">
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
             <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
         <?php } ?>
-    </ul>
+    </ul> */ ?>
     <?php if ($attention) { ?>
         <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $attention; ?>
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -238,6 +238,7 @@
             <?php echo $content_bottom; ?></div>
         <?php echo $column_right; ?></div>
 </div>
+<div class="margin-bottom-10"></div>
 <?php echo $footer; ?>
 
 <script type="text/javascript">

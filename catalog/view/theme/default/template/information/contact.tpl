@@ -147,11 +147,13 @@
         </fieldset>
         <div class="buttons">
           <div class="pull-right">
-            <a href="javascript:;" class="btn btn-primary" type="submit" value="<?php echo $button_submit; ?>" /> </a>
+            <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common"><span class="">GỬI</span></a>
           </div>
         </div>
       </form>
+
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+<div class="margin-bottom-10"></div>
 <?php echo $footer; ?>
