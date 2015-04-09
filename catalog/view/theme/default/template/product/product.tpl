@@ -41,9 +41,7 @@
                           </div>
                           <div class="col-xs-10 col-sm-10 col-lg-10 img-first">
                               <div class="img-additional" >
-                               <!--  <a class="zoom-demo thumbnail img-lg-append-a" href="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>"> -->
-                                <img class="demo mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
-                                <!-- </a> -->
+                                <img class="zoom-image-product mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
                               </div>
                           </div>
 
@@ -100,7 +98,7 @@
                                 </div>
                                 <div class="col-xs-10 col-sm-10 col-lg-10 img-first">
                                     <div class="img-additional" >
-                                      <a class="thumbnail img-lg-append-a" href="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>"><img class="mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a>
+                                      <img class="zoom-image-product mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -125,7 +123,7 @@
                     $firstSize = reset($productSize);
                   ?>                  
                   <select name="size" class="pro-option-select-size">
-                    <option>Size</option>
+                    <option value="">Size</option>
                     <?php foreach ($productSize as $key => $row) : ?>
                         <option value="<?php echo $row['size']; ?>">
                           <?php echo $row['label']; ?>
@@ -133,7 +131,7 @@
                       <?php endforeach; ?>
                     </select>
                     <select name="quantity" class="pro-option-select-quantity">
-                      <option>Số lượng</option>
+                      <option value="">Số lượng</option>
                     <?php for($i=1 ; $i <=100; $i++) { ?>
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php } ?>
@@ -589,6 +587,16 @@ $('#button-cart').on('click', function() {
 		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
 		dataType: 'json',
 		beforeSend: function() {
+      var size = $('.pro-option-select-size').val();
+      var quantity = $('.pro-option-select-quantity').val();
+      if(size == ""){
+        alert('Bạn chưa chọn size!');
+        return false;
+      }else 
+      if(quantity == ""){
+          alert('Bạn chưa chọn số lượng!');
+          return false;
+      }
 			btn.prop('disabled', true);
             btn.addClass('loading');
 		},

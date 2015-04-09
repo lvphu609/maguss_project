@@ -622,7 +622,7 @@ var Maguss = {
 			$('#box-product-image').html(groupColorImage);
 		});
 
-		$(document).on('click','.color-item-product-detail-lg',function(){
+		$(document).on('click','.color-item-product-detail-lg',function(){			
 			var groupColorImage = $(this).find('.group-color').html(),
 				currColor = $(this).data('color');
 
@@ -641,7 +641,7 @@ var Maguss = {
 			quantityDetail = JSON.parse(quantityDetail);
 			sizeList.html('');
 			if (quantityDetail.length > 0) {
-				var option = '<option>Size</option>';
+				var option = '<option value="">Size</option>';
 				for (var i = 0; i < quantityDetail.length; i++) {
 					if (quantityDetail[i].color == currColor) {
 						var itemActive = '';
@@ -662,7 +662,7 @@ var Maguss = {
 
 			// append new image
 			$('#box-product-image-lg').html(groupColorImage);
-			$('.img-first').magnificPopup({
+			/*$('.img-first').magnificPopup({
 		      type:'image',
 		      delegate: 'a',
 		      gallery: {
@@ -677,7 +677,8 @@ var Maguss = {
 		            });
 		         }
 		        }
-		    });
+		    });*/
+		    that.zoomImage();
 		});
 
 		$('.popper_color_detail').click(function() {
@@ -739,16 +740,22 @@ var Maguss = {
 			var url = $(this).find('img').attr('src');
 			$('#box-product-image-lg').find('.img-lg-append').attr('src',url);
 			$('#box-product-image-lg').find('.img-lg-append-a').attr('href',url);
-			$('.mfp-figure').zoom({
+			/*$('.mfp-figure').zoom({
 	 			touch: true,
               	on: 'mouseover'});
-			that.clickColor();
+			that.clickColor();*/
 		});	
-		$('.demo').imagezoomsl({
-			zoomrange: [3, 3]
+		/*zoomrange: [1, 12],
+		 zoomstart: 4,
+		 innerzoom: true,
+		 magnifierborder: "none"
+*/	},
+	zoomImage: function(){
+		$('.zoom-image-product').imagezoomsl({
+			zoomrange: [3, 3],
+			magnifierborder: '1px solid #63c6c1',
+			cursorshadeborder: '1px solid #63c6c1'
 		}); 
-
-
 	},
 	run: function(){
 		this.stickyMenuTop();	
@@ -756,5 +763,6 @@ var Maguss = {
 		this.clickColor();
 		this.closePoperEvent();
 		this.doEventProductDetail();
+		this.zoomImage();
 	}
 }
