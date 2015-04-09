@@ -189,7 +189,7 @@
                                         <?php if (count($provinces) > 0 && !empty($shipping_method) && !empty($provinces[$shipping_method['province']])) : ?>
                                             <select class="form-control" id="cbo-province-location" style="width: 49%;">
                                             <?php foreach ($provinces[$shipping_method['province']] as $location) : ?>
-                                                <option value="<?php echo $location['id']; ?>" data-cost="<?php echo $location['cost']; ?>" <?php echo ($location['text'] == $shipping_method['location'] ? 'selected' : ''); ?>>
+                                                <option value="<?php echo $location['id']; ?>" data-cost="<?php echo $location['cost']; ?>" <?php echo ($location['text'] == trim($shipping_method['location']) ? 'selected' : ''); ?>>
                                                     <?php echo $location['text']; ?>
                                                 </option>
                                             <?php endforeach; ?>
