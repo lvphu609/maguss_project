@@ -1741,3 +1741,70 @@ ul.link-to-social li.item-social img{
 	font-size: 15px;
 	text-transform: uppercase;
 }
+.pan-order-preview .text-right{
+    margin-bottom: 10px;
+}
+.pan-payment, .pan-order-preview a, .pan-address-shipping, .pan-address-shipping a {
+    color: #63c6c1;
+    font-size: 12px;
+}
+.pan-order-preview p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.pan-address-shipping {
+    position: relative;
+    height: 100%;
+}
+.pan-address-shipping #lik-change-address {
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+}
+label.required:after {
+    content: " *";
+    font-size: 10px;
+    color: #63c6c1;
+}
+.pan-checkout .checkout-title {
+    color: #63c6c1;
+}
+.pan-checkout-note label {
+    color: #63c6c1;
+}
+.pan-checkout-note textarea {
+    border-radius: 0px;
+    height: 100px;
+    border-color: #63c6c1;
+    background-color: #dff1ef;
+    resize: none;
+}
+.text-bold {
+    font-weight: bold;
+}
+.pan-checkout-price {
+    margin-top: 25px;
+    height: 100px;
+    border: 1px solid #63c6c1;
+    background-color: #dff1ef;
+    color: #63c6c1;
+    padding-top: 10px;
+}
+.pan-checkout-price .row {
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
+}
+.btn-finish-order {
+    margin-top: 50px;
+    font-weight: bold;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.pan-order-slogan {
+    color: #63c6c1;
+    font-size: 14px;
+    border-top: 1px solid #63c6c1;
+    padding: 5px 0px 0px 0px;
+}
