@@ -27,7 +27,9 @@
                     <div class="col-md-4">Hình thức thanh toán</div>
                 </div>
                 <div class="row text-center tbl-content">
-                    <div class="col-md-4">Tóm tắt đơn hàng</div>
+                    <div class="col-md-4">
+                        <?php echo $confirm_product; ?>
+                    </div>
                     <div class="col-md-4">Địa chỉ giao hàng</div>
                     <div class="col-md-4">Hình thức thanh toán</div>
                 </div>
