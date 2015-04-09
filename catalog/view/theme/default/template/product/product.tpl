@@ -400,7 +400,21 @@
               <?php } ?>
               <?php if ($review_status) { ?>
               <div class="tab-pane" id="tab-review">
-                <form class="form-horizontal">
+                <?php /*<div class="row">
+                  <div class="col-sm-12">
+                  <div class="fb-comments" data-href="<?php echo $url; ?>" data-colorscheme="<?php echo $color_scheme; ?>" data-numposts="<?php echo $num_posts; ?>" data-order-by="<?php echo $order_by; ?>" data-width="100%"></div>
+                  </div>
+                </div>
+
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo $app_id; ?>&version=v2.0";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script> */ ?>
+                <?php /*<form class="form-horizontal">
                   <div id="review"></div>
                   <h2><?php echo $text_write; ?></h2>
                   <?php if ($review_guest) { ?>
@@ -449,7 +463,7 @@
                   <?php } else { ?>
                   <?php echo $text_login; ?>
                   <?php } ?>
-                </form>
+                </form> */ ?>
               </div>
               <?php } ?>
             </div>
@@ -854,5 +868,4 @@ $(document).ready(function() {
         }
     });  
 });
-//--></script> 
-<?php echo $footer; ?>
+//--></script>
