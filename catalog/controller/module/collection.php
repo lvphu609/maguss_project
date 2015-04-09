@@ -50,7 +50,7 @@ class ControllerModuleCollection extends Controller {
         }
 
         if (isset($setting['right_text'])) {
-            $data['right_text'] = html_entity_decode($setting['left_text'], ENT_QUOTES, 'UTF-8');
+            $data['right_text'] = html_entity_decode($setting['right_text'], ENT_QUOTES, 'UTF-8');
         } else {
             $data['right_text'] = '';
         }

@@ -1,10 +1,10 @@
 <?php echo $header; ?>
 <div class="container">
-  <ul class="breadcrumb">
+  <?php /* <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
-  </ul>
+  </ul> */ ?>
   <?php if ($error_warning) { ?>
   <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
   <?php } ?>
@@ -17,11 +17,11 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
+      <div class="text-header-contact"><span><?php echo $heading_title; ?></span></div>
       <p><?php echo $text_email; ?></p>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset>
-          <legend><?php echo $text_your_email; ?></legend>
+          <!-- <legend><?php echo $text_your_email; ?></legend> -->
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
             <div class="col-sm-10">
@@ -30,9 +30,12 @@
           </div>
         </fieldset>
         <div class="buttons clearfix">
-          <div class="pull-left"><a href="<?php echo $back; ?>" class="btn btn-default"><?php echo $button_back; ?></a></div>
+          <div class="pull-left">
+            <a href="<?php echo $back; ?>" class="btn btn-maguss-common">TRANG TRƯỚC<?php // echo $button_back; ?></a>
+          </div>
           <div class="pull-right">
-            <input type="submit" value="<?php echo $button_continue; ?>" class="btn btn-primary" />
+            <!-- <input type="submit" value="<?php // echo $button_continue; ?>" class="btn btn-primary" /> -->
+            <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common"><span class="">Gửi</span></a>
           </div>
         </div>
       </form>
