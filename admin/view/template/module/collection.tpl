@@ -47,6 +47,17 @@
                                 <input type="hidden" name="left_image" value="<?php echo $left_image; ?>" id="input-left-image" />
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-left-image-link">Left Image Link</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="left_image_link" value="<?php echo $left_image_link; ?>" placeholder="Left image link" id="input-left-image-link" class="form-control" />
+                                <?php if ($error_left_image_link) { ?>
+                                    <div class="text-danger"><?php echo $error_left_image_link; ?></div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label class="col-sm-2 control-label required" for="input-left-text"><?php echo $entry_left_text; ?></label>
                             <div class="col-sm-10">
@@ -81,6 +92,17 @@
                                 <input type="hidden" name="right_image" value="<?php echo $right_image; ?>" id="input-right-image" />
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-right-image-link">Right Image Link</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="right_image_link" value="<?php echo $right_image_link; ?>" placeholder="Right image link" id="input-right-image-link" class="form-control" />
+                                <?php if ($error_right_image_link) { ?>
+                                    <div class="text-danger"><?php echo $error_right_image_link; ?></div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label class="col-sm-2 control-label required" for="input-right-text"><?php echo $entry_right_text; ?></label>
                             <div class="col-sm-10">
@@ -111,6 +133,16 @@
                                     <div class="text-danger"><?php echo $error_bottom_image; ?></div>
                                 <?php } ?>
                                 <input type="hidden" name="bottom_image" value="<?php echo $bottom_image; ?>" id="input-bottom-image" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-bottom-image-link">Bottom Image Link</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="bottom_image_link" value="<?php echo $bottom_image_link; ?>" placeholder="Bottom image link" id="input-bottom-image-link" class="form-control" />
+                                <?php if ($error_bottom_image_link) { ?>
+                                    <div class="text-danger"><?php echo $error_bottom_image_link; ?></div>
+                                <?php } ?>
                             </div>
                         </div>
 

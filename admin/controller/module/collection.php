@@ -59,6 +59,11 @@ class ControllerModuleCollection extends Controller {
         } else {
             $data['error_left_image'] = '';
         }
+        if (isset($this->error['left_image_link'])) {
+            $data['error_left_image_link'] = $this->error['left_image_link'];
+        } else {
+            $data['error_left_image_link'] = '';
+        }
         if (isset($this->error['left_text'])) {
             $data['error_left_text'] = $this->error['left_text'];
         } else {
@@ -74,6 +79,11 @@ class ControllerModuleCollection extends Controller {
         } else {
             $data['error_right_image'] = '';
         }
+        if (isset($this->error['right_image_link'])) {
+            $data['error_right_image_link'] = $this->error['right_image_link'];
+        } else {
+            $data['error_right_image_link'] = '';
+        }
         if (isset($this->error['right_text'])) {
             $data['error_right_text'] = $this->error['right_text'];
         } else {
@@ -83,6 +93,11 @@ class ControllerModuleCollection extends Controller {
             $data['error_bottom_image'] = $this->error['bottom_image'];
         } else {
             $data['error_bottom_image'] = '';
+        }
+        if (isset($this->error['bottom_image_link'])) {
+            $data['error_bottom_image_link'] = $this->error['bottom_image_link'];
+        } else {
+            $data['error_bottom_image_link'] = '';
         }
         if (isset($this->error['bottom_text'])) {
             $data['error_bottom_text'] = $this->error['bottom_text'];
@@ -147,6 +162,14 @@ class ControllerModuleCollection extends Controller {
             $data['left_image'] = '';
         }
 
+        if (isset($this->request->post['left_image_link'])) {
+            $data['left_image_link'] = $this->request->post['left_image_link'];
+        } elseif (!empty($module_info['left_image_link'])) {
+            $data['left_image_link'] = $module_info['left_image_link'];
+        } else {
+            $data['left_image_link'] = '';
+        }
+
         if (isset($this->request->post['left_image']) && is_file(DIR_IMAGE . $this->request->post['left_image'])) {
             $data['left_image_thumb'] = $this->model_tool_image->resize($this->request->post['left_image'], 100, 100);
         } elseif (!empty($module_info['left_image']) && is_file(DIR_IMAGE . $module_info['left_image'])) {
@@ -185,6 +208,14 @@ class ControllerModuleCollection extends Controller {
             $data['right_image'] = '';
         }
 
+        if (isset($this->request->post['right_image_link'])) {
+            $data['right_image_link'] = $this->request->post['right_image_link'];
+        } elseif (!empty($module_info['right_image_link'])) {
+            $data['right_image_link'] = $module_info['right_image_link'];
+        } else {
+            $data['right_image_link'] = '';
+        }
+
         if (isset($this->request->post['right_image']) && is_file(DIR_IMAGE . $this->request->post['right_image'])) {
             $data['right_image_thumb'] = $this->model_tool_image->resize($this->request->post['right_image'], 100, 100);
         } elseif (!empty($module_info['right_image']) && is_file(DIR_IMAGE . $module_info['right_image'])) {
@@ -211,6 +242,14 @@ class ControllerModuleCollection extends Controller {
             $data['bottom_image'] = $module_info['bottom_image'];
         } else {
             $data['bottom_image'] = '';
+        }
+
+        if (isset($this->request->post['bottom_image_link'])) {
+            $data['bottom_image_link'] = $this->request->post['bottom_image_link'];
+        } elseif (!empty($module_info['bottom_image_link'])) {
+            $data['bottom_image_link'] = $module_info['bottom_image_link'];
+        } else {
+            $data['bottom_image_link'] = '';
         }
 
         if (isset($this->request->post['bottom_image']) && is_file(DIR_IMAGE . $this->request->post['bottom_image'])) {
@@ -260,6 +299,10 @@ class ControllerModuleCollection extends Controller {
             $this->error['left_image'] = $this->language->get('error_left_image');
         }
 
+        if (!$this->request->post['left_image_link']) {
+            $this->error['left_image_link'] = $this->language->get('error_left_image_link');
+        }
+
         if (!$this->request->post['left_text']) {
             $this->error['left_text'] = $this->language->get('error_left_text');
         }
@@ -272,12 +315,20 @@ class ControllerModuleCollection extends Controller {
             $this->error['right_image'] = $this->language->get('error_right_image');
         }
 
+        if (!$this->request->post['right_image_link']) {
+            $this->error['right_image_link'] = $this->language->get('error_right_image_link');
+        }
+
         if (!$this->request->post['right_text']) {
             $this->error['right_text'] = $this->language->get('error_right_text');
         }
 
         if (!$this->request->post['bottom_image']) {
             $this->error['bottom_image'] = $this->language->get('error_bottom_image');
+        }
+
+        if (!$this->request->post['bottom_image_link']) {
+            $this->error['bottom_image_link'] = $this->language->get('error_bottom_image_link');
         }
 
         if (!$this->request->post['bottom_text']) {
