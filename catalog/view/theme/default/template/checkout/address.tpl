@@ -1,0 +1,2 @@
+<?php echo $addresses[$address_id]['firstname'].' '.$addresses[$address_id]['lastname']; ?>, <?php echo $addresses[$address_id]['address_1']; ?>, <?php echo $addresses[$address_id]['zone']; ?>, <?php echo $addresses[$address_id]['country']; ?>
+<input type="hidden" value="<?php echo $address_id; ?>" id="hid-address-id">

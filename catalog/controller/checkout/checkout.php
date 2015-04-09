@@ -78,6 +78,51 @@ class ControllerCheckoutCheckout extends Controller {
 			$data['account'] = '';
 		}
 
+        // Totals
+        $this->load->model('extension/extension');
+
+        $total_data = array();
+        $total = 0;
+        $taxes = $this->cart->getTaxes();
+
+        // Display prices
+        if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
+            $sort_order = array();
+
+            $results = $this->model_extension_extension->getExtensions('total');
+
+            foreach ($results as $key => $value) {
+                $sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
+            }
+
+            array_multisort($sort_order, SORT_ASC, $results);
+
+            foreach ($results as $result) {
+                if ($this->config->get($result['code'] . '_status')) {
+                    $this->load->model('total/' . $result['code']);
+
+                    $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+                }
+            }
+
+            $sort_order = array();
+
+            foreach ($total_data as $key => $value) {
+                $sort_order[$key] = $value['sort_order'];
+            }
+
+            array_multisort($sort_order, SORT_ASC, $total_data);
+        }
+
+        $data['totals'] = array();
+
+        foreach ($total_data as $total) {
+            $data['totals'][$total['code']] = array(
+                'title' => $total['title'],
+                'text'  => $this->currency->format($total['value'])
+            );
+        }
+
 		$data['shipping_required'] = $this->cart->hasShipping();
 
         $data['confirm_product'] = $this->load->controller('checkout/preview');
@@ -87,6 +132,14 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+
+        $data['register_url'] = $this->url->link('account/register');
+        $data['login_url'] = $this->url->link('account/login');
+        $data['checkout_success_url'] = $this->url->link('checkout/success');
+        $data['shopping_cart_url'] = $this->url->link('checkout/cart');
+        if ($this->customer->isLogged()) {
+            $data['address'] = $this->load->controller('checkout/address');
+        }
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
 			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/checkout/checkout.tpl', $data));
