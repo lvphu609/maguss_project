@@ -109,7 +109,7 @@
               <?php endif; ?> 
               </div>
               <div class="clear"></div>
-              <div class="pro-optoin-select">
+              <div class="pro-option-select">
                 <?php if (count($group_product_color) > 0) : ?>
                   <?php
                     $firstColor = $group_product_color[0]['color'];
@@ -122,15 +122,15 @@
                     ksort($productSize);
                     $firstSize = reset($productSize);
                   ?>                  
-                  <select class="pro-optoin-select-size">
+                  <select name="size" class="pro-option-select-size">
                     <option>Size</option>
                     <?php foreach ($productSize as $key => $row) : ?>
-                        <option <?php echo ($row['size'] == $firstSize['size'] ? 'selected' : ''); ?> data-size="<?php echo $row['size']; ?>">
+                        <option <?php echo ($row['size'] == $firstSize['size'] ? 'selected' : ''); ?> data-size="<?php echo $row['size']; ?>" value="<?php echo $row['size']; ?>">
                           <?php echo $row['label']; ?>
                         </option>
                       <?php endforeach; ?>
-                  </select>
-                  <select class="pro-optoin-select-quantity">
+                    </select>
+                    <select name="quantity" class="pro-option-select-quantity">
                     <option>Số lượng</option>
                     <?php for($i=1 ; $i <=100; $i++) { ?>
                       <?php if($minimum == $i) { ?>
@@ -143,6 +143,8 @@
                 <?php endif; ?>
                 <?php // echo $text_stock;  echo $stock; ?>
                 <!-- <span>&nbsp; Vui lòng để lại email/điện thoạiđể liên lạc khi có hàng</span> -->
+                <input type="hidden" name="color" id="hid-product-color" value="<?php echo $firstColor; ?>">
+                <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
               </div>
             </div>
 
@@ -153,9 +155,32 @@
               </div>
             </div>
 
-            <div class="pro-button-shiping">
-              <!-- <a hreclass="btn"></a> -->
+            <div class="pro-button-shipping">
+               <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block button-shipping"><?php echo $button_cart; ?></button>
             </div>
+
+            <?php if ($review_status) { ?>
+                <div class="rating pro-rating">
+                  <p>
+                    <?php for ($i = 1; $i <= 5; $i++) { ?>
+                    <?php if ($rating < $i) { ?>
+                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                    <?php } else { ?>
+                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                    <?php } ?>
+                    <?php } ?>
+                    <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p>
+                  <!-- AddThis Button BEGIN -->
+                    <div class="addthis_toolbox addthis_default_style">
+                        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> 
+                        <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> 
+                        <a class="addthis_counter addthis_pill_style"></a>
+                    </div>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script> 
+                  <!-- AddThis Button END --> 
+                </div>
+              <?php } ?>
+        </div>
 
           <?php /*   
             <div id="product">
@@ -340,26 +365,7 @@
 
             */ ?>
 
-            <?php if ($review_status) { ?>
-            <div class="rating">
-              <p>
-                <?php for ($i = 1; $i <= 5; $i++) { ?>
-                <?php if ($rating < $i) { ?>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <?php } else { ?>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                <?php } ?>
-                <?php } ?>
-                <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p>
-              <hr>
-              <!-- AddThis Button BEGIN -->
-              <div class="addthis_toolbox addthis_default_style"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
-              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script> 
-              <!-- AddThis Button END --> 
-            </div>
-            <?php } ?>
-          </div>
-        </div>
+            
 
         <div class="clear"></div>
         <!-- end info -->
