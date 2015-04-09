@@ -860,6 +860,14 @@ h2.price {
 }
 
 /* collection */
+.pan-collection .bottom-image {
+    width: 100%;
+    height: 393px;
+    overflow: hidden;
+}
+.pan-collection .bottom-image img {
+    width: 100%;
+}
 .pan-collection .center-text {
     border: 2px solid #333333;
     width: 180%;

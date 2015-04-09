@@ -15,6 +15,11 @@ class ControllerModuleCollection extends Controller {
         } else {
             $data['left_image'] = $this->model_tool_image->resize('placeholder.png', 345, 485);
         }
+        if (isset($setting['left_image_link'])) {
+            $data['left_image_link'] = $setting['left_image_link'];
+        } else {
+            $data['left_image_link'] = '';
+        }
 
         if (isset($setting['left_text'])) {
             $data['left_text'] = html_entity_decode($setting['left_text'], ENT_QUOTES, 'UTF-8');
@@ -38,6 +43,11 @@ class ControllerModuleCollection extends Controller {
         } else {
             $data['right_image'] = $this->model_tool_image->resize('placeholder.png', 345, 485);
         }
+        if (isset($setting['right_image_link'])) {
+            $data['right_image_link'] = $setting['right_image_link'];
+        } else {
+            $data['right_image_link'] = '';
+        }
 
         if (isset($setting['right_text'])) {
             $data['right_text'] = html_entity_decode($setting['left_text'], ENT_QUOTES, 'UTF-8');
@@ -54,6 +64,11 @@ class ControllerModuleCollection extends Controller {
             $data['bottom_image'] = $image;
         } else {
             $data['bottom_image'] = $this->model_tool_image->resize('placeholder.png', 345, 485);
+        }
+        if (isset($setting['bottom_image_link'])) {
+            $data['bottom_image_link'] = $setting['bottom_image_link'];
+        } else {
+            $data['bottom_image_link'] = '';
         }
 
         if (isset($setting['bottom_text'])) {
