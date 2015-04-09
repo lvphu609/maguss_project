@@ -41,7 +41,9 @@
                           </div>
                           <div class="col-xs-10 col-sm-10 col-lg-10 img-first">
                               <div class="img-additional" >
-                                <a class="thumbnail img-lg-append-a" href="javascript:; <?php // echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>"><img class="mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a>
+                               <!--  <a class="zoom-demo thumbnail img-lg-append-a" href="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>"> -->
+                                <img class="demo mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
+                                <!-- </a> -->
                               </div>
                           </div>
 
@@ -125,19 +127,15 @@
                   <select name="size" class="pro-option-select-size">
                     <option>Size</option>
                     <?php foreach ($productSize as $key => $row) : ?>
-                        <option <?php echo ($row['size'] == $firstSize['size'] ? 'selected' : ''); ?> data-size="<?php echo $row['size']; ?>" value="<?php echo $row['size']; ?>">
+                        <option value="<?php echo $row['size']; ?>">
                           <?php echo $row['label']; ?>
                         </option>
                       <?php endforeach; ?>
                     </select>
                     <select name="quantity" class="pro-option-select-quantity">
-                    <option>Số lượng</option>
+                      <option>Số lượng</option>
                     <?php for($i=1 ; $i <=100; $i++) { ?>
-                      <?php if($minimum == $i) { ?>
-                        <option value="<?php echo $i; ?>" selected><?php echo $i; ?></option>
-                      <?php } else { ?>
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                      <?php } ?>
                     <?php } ?>
                   </select>
                 <?php endif; ?>

@@ -733,10 +733,28 @@ var Maguss = {
 		});
 		//$('.popover.fade.top.in').hide();
 	},
+	doEventProductDetail: function(){
+		$(document).on('click','.img-lg-item',function(e){
+			e.preventDefault();
+			var url = $(this).find('img').attr('src');
+			$('#box-product-image-lg').find('.img-lg-append').attr('src',url);
+			$('#box-product-image-lg').find('.img-lg-append-a').attr('href',url);
+			$('.mfp-figure').zoom({
+	 			touch: true,
+              	on: 'mouseover'});
+			that.clickColor();
+		});	
+		$('.demo').imagezoomsl({
+			zoomrange: [3, 3]
+		}); 
+
+
+	},
 	run: function(){
 		this.stickyMenuTop();	
 		this.hoverMenuTopItem();
 		this.clickColor();
 		this.closePoperEvent();
+		this.doEventProductDetail();
 	}
 }
