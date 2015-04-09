@@ -152,12 +152,13 @@
               </a>
               <div class="clear"></div>
             </div>
-            <div>
-              <div class="line-item text-center"><hr></div>
+            <div class="line-item text-center"><hr></div>
               <div class="caption text-center">
-                <span class="title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></span>
-                <p><?php echo $product['description']; ?></p>
-                <?php if ($product['rating']) { ?>
+                <div class="top-desc">
+                  <span class="title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></span>
+                  <p><?php echo $product['meta_description']; ?></p>
+                </div>
+                <?php /* if ($product['rating']) { ?>
                 <div class="rating">
                   <?php for ($i = 1; $i <= 5; $i++) { ?>
                   <?php if ($product['rating'] < $i) { ?>
@@ -167,7 +168,7 @@
                   <?php } ?>
                   <?php } ?>
                 </div>
-                <?php } ?>
+                <?php } */ ?>
                 <?php if ($product['price']) { ?>
                 <p class="price">
                   <?php if (!$product['special']) { ?>
@@ -183,9 +184,8 @@
                 <?php } ?>
               </div>
               <div class="button-group-item text-center">
-                 <a href="javascript:;" class="btn btn-product-item" onclick="cart.add('<?php echo $product['product_id']; ?>');"><span class=""><?php echo $button_cart; ?></span></a>
-                <a href="javascript:;" class="btn btn-product-item popper_color product-id-<?php echo $product['product_id']; ?>" type="button" data-toggle="popover" ><span class="">XEM MÀU</span></a>
-              </div>
+                 <a href="<?php echo $product['href']; ?>" class="btn btn-product-item"><span class=""><?php echo $button_cart; ?></span></a>
+                <a href="javascript:;" class="btn btn-product-item popper_color product-id-<?php echo $product['product_id']; ?>" type="button" data-toggle="popover" ><span class="">XEM MÀU</span></a>            
             </div>
           </div>
         </div>

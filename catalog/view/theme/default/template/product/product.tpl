@@ -41,7 +41,7 @@
                           </div>
                           <div class="col-xs-10 col-sm-10 col-lg-10 img-first">
                               <div class="img-additional" >
-                                <a class="thumbnail img-lg-append-a" href="javascript:; <?php // echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>"><img class="mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a>
+                                <img class="zoom-image-product mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
                               </div>
                           </div>
 
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="col-xs-10 col-sm-10 col-lg-10 img-first">
                                     <div class="img-additional" >
-                                      <a class="thumbnail img-lg-append-a" href="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>"><img class="mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a>
+                                      <img class="zoom-image-product mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -123,21 +123,17 @@
                     $firstSize = reset($productSize);
                   ?>                  
                   <select name="size" class="pro-option-select-size">
-                    <option>Size</option>
+                    <option value="">Size</option>
                     <?php foreach ($productSize as $key => $row) : ?>
-                        <option <?php echo ($row['size'] == $firstSize['size'] ? 'selected' : ''); ?> data-size="<?php echo $row['size']; ?>" value="<?php echo $row['size']; ?>">
+                        <option value="<?php echo $row['size']; ?>">
                           <?php echo $row['label']; ?>
                         </option>
                       <?php endforeach; ?>
                     </select>
                     <select name="quantity" class="pro-option-select-quantity">
-                    <option>Số lượng</option>
+                      <option value="">Số lượng</option>
                     <?php for($i=1 ; $i <=100; $i++) { ?>
-                      <?php if($minimum == $i) { ?>
-                        <option value="<?php echo $i; ?>" selected><?php echo $i; ?></option>
-                      <?php } else { ?>
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                      <?php } ?>
                     <?php } ?>
                   </select>
                 <?php endif; ?>
@@ -404,7 +400,21 @@
               <?php } ?>
               <?php if ($review_status) { ?>
               <div class="tab-pane" id="tab-review">
-                <form class="form-horizontal">
+                <?php /*<div class="row">
+                  <div class="col-sm-12">
+                  <div class="fb-comments" data-href="<?php echo $url; ?>" data-colorscheme="<?php echo $color_scheme; ?>" data-numposts="<?php echo $num_posts; ?>" data-order-by="<?php echo $order_by; ?>" data-width="100%"></div>
+                  </div>
+                </div>
+
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo $app_id; ?>&version=v2.0";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script> */ ?>
+                <?php /*<form class="form-horizontal">
                   <div id="review"></div>
                   <h2><?php echo $text_write; ?></h2>
                   <?php if ($review_guest) { ?>
@@ -453,7 +463,7 @@
                   <?php } else { ?>
                   <?php echo $text_login; ?>
                   <?php } ?>
-                </form>
+                </form> */ ?>
               </div>
               <?php } ?>
             </div>
@@ -468,12 +478,16 @@
 	    	<div class="product-layout product-grid product-item product-item-current col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	          <div class="product-thumb">
 	            <div class="image"><a href="#"><img src="<?php echo $productCurrent['image_url']; ?>" alt="Quan Jean mua dong" class="img-responsive"></a></div>
-	            <div>
 	              <div class="line-item text-center"><hr></div>
-	              <div class="caption text-center">
-	                <span class="title"><a href="#"><?php echo $heading_title; ?></a></span>
+	              <div class="text-center">
+                    <div class="top-desc-pro-detail">
+	                   <span class="title"><a href="#"><?php echo $heading_title; ?></a></span>
+                    </div>
 	              </div>
-	             </div>
+                  <div class="button-group-item text-center">
+                    <a id="button-cart-second" href="javascript:;" class="btn btn-product-item button-shipping-second" type="button">
+                    <span class=""><?php echo $button_cart; ?></span></a>
+                  </div>
 	          </div>
 	        </div>
 
@@ -520,12 +534,13 @@
                 </a>
                 <div class="clear"></div>
               </div>
-	            <div>
 	              <div class="line-item text-center"><hr></div>
 	              <div class="caption text-center">
-	                <span class="title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></span>
-	                <p><?php echo $product['description']; ?></p>
-	                <?php if ($product['rating']) { ?>
+                    <div class="top-desc">
+    	                <span class="title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></span>
+    	                <p><?php echo $product['meta_description']; ?></p>
+                    </div>
+	                <?php /* if ($product['rating']) { ?>
 	                <div class="rating">
 	                  <?php for ($i = 1; $i <= 5; $i++) { ?>
 	                  <?php if ($product['rating'] < $i) { ?>
@@ -535,7 +550,7 @@
 	                  <?php } ?>
 	                  <?php } ?>
 	                </div>
-	                <?php } ?>
+	                <?php } */ ?>
 	                <?php if ($product['price']) { ?>
 	                <p class="price">
 	                  <?php if (!$product['special']) { ?>
@@ -548,10 +563,9 @@
 	                <?php } ?>
 	              </div>
 	              <div class="button-group-item text-center">
-	                 <a href="javascript:;" class="btn btn-product-item" onclick="cart.add('<?php echo $product['product_id']; ?>');"><span class=""><?php echo $button_cart; ?></span></a>
+	                 <a href="<?php echo $product['href']; ?>" class="btn btn-product-item"><span class=""><?php echo $button_cart; ?></span></a>
 	                <a href="javascript:;" class="btn btn-product-item popper_color product-id-<?php echo $product['product_id']; ?>" type="button" data-toggle="popover" ><span class="">XEM MÀU</span></a>
 	              </div>
-	            </div>
 	          </div>
 	        </div>
 	        <?php } ?>
@@ -591,6 +605,16 @@ $('#button-cart').on('click', function() {
 		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
 		dataType: 'json',
 		beforeSend: function() {
+      var size = $('.pro-option-select-size').val();
+      var quantity = $('.pro-option-select-quantity').val();
+      if(size == ""){
+        alert('Bạn chưa chọn size!');
+        return false;
+      }else 
+      if(quantity == ""){
+          alert('Bạn chưa chọn số lượng!');
+          return false;
+      }
 			btn.prop('disabled', true);
             btn.addClass('loading');
 		},
@@ -636,6 +660,71 @@ $('#button-cart').on('click', function() {
 		}
 	});
 });
+
+$('#button-cart-second').on('click', function() {
+    var btn = $(this);
+    $.ajax({
+        url: 'index.php?route=checkout/cart/add',
+        type: 'post',
+        data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+        dataType: 'json',
+        beforeSend: function() {
+      var size = $('.pro-option-select-size').val();
+      var quantity = $('.pro-option-select-quantity').val();
+      if(size == ""){
+        alert('Bạn chưa chọn size!');
+        return false;
+      }else 
+      if(quantity == ""){
+          alert('Bạn chưa chọn số lượng!');
+          return false;
+      }
+            btn.prop('disabled', true);
+            btn.addClass('loading');
+        },
+        complete: function() {
+            btn.prop('disabled', false);
+            btn.removeClass('loading');
+        },
+        success: function(json) {
+            $('.alert, .text-danger').remove();
+            $('.form-group').removeClass('has-error');
+
+            if (json['error']) {
+                if (json['error']['option']) {
+                    for (i in json['error']['option']) {
+                        var element = $('#input-option' + i.replace('_', '-'));
+                        
+                        if (element.parent().hasClass('input-group')) {
+                            element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+                        } else {
+                            element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+                        }
+                    }
+                }
+                
+                if (json['error']['recurring']) {
+                    $('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+                }
+                
+                // Highlight any found errors
+                $('.text-danger').parent().addClass('has-error');
+            }
+            
+            if (json['success']) {
+                /*$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                
+                $('#cart-total').html(json['total']);
+                
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+                
+                $('#cart > ul').load('index.php?route=common/cart/info ul li');*/
+                window.location = json['shopping_cart_url'];
+            }
+        }
+    });
+});
+
 //--></script> 
 <script type="text/javascript"><!--
 $('.date').datetimepicker({
@@ -779,5 +868,4 @@ $(document).ready(function() {
         }
     });  
 });
-//--></script> 
-<?php echo $footer; ?>
+//--></script>

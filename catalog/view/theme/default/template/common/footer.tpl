@@ -76,19 +76,24 @@ Thời gian làm việc: 9:00 - 21:30 (thứ 2 - thứ 7)
         <div class="col-md-offset-4">
           <h5>Liên kết với chúng tôi</h5>
             <ul class="list-unstyled link-to-social">
+
+              <li class="item-social"></li>
               <li class="item-social">
                 <a href="#">
                   <img src="image/catalog/icon/social-face.png">
                 </a>
               </li>
+              <li class="item-social"></li>
+              <!-- <li class="item-social">
+                <a href="#">
+                  <img src="image/catalog/icon/social-twitter.png">
+                </a>
+              </li>
               <li class="item-social">
                 <a href="#">
-                  <img src="image/catalog/icon/social-twitter.png"></li>
+                  <img src="image/catalog/icon/social-pinterest.png">
                 </a>
-              <li class="item-social">
-                <a href="#">
-                  <img src="image/catalog/icon/social-pinterest.png"></li>
-                </a>
+              </li> -->
             </ul>
         </div>
       </div>

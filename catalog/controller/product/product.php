@@ -271,6 +271,13 @@ class ControllerProductProduct extends Controller {
 			$data['points'] = $product_info['points'];
 			$data['meta_description'] = $product_info['meta_description'];
 
+			//data facebook comment
+			$data['app_id'] = "12";//$setting['app_id'];		
+			$data['url'] = $this->getCurrentURL();
+			$data['color_scheme'] = "#000000";//$setting['color_scheme'];
+			$data['num_posts'] = 10;//$setting['num_posts'];
+			$data['order_by'] = "";//$setting['order_by'];
+
 			if ($product_info['quantity'] <= 0) {
 				$data['stock'] = $product_info['stock_status'];
 			} elseif ($this->config->get('config_stock_display')) {
@@ -471,7 +478,8 @@ class ControllerProductProduct extends Controller {
 					'rating'      => $rating,
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id']),
 					'quantity_detail' => $quantityDetail,
-					'is_new' => $result['is_new']
+					'is_new' => $result['is_new'],
+					'meta_description' => utf8_substr(strip_tags(html_entity_decode($result['meta_description'], ENT_QUOTES, 'UTF-8')), 0, 40) . '...'
 				);
 			}
 
@@ -729,4 +737,36 @@ class ControllerProductProduct extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+
+
+	private function getCurrentURL() {
+		$url = '';
+		
+		if (isset($this->request->get['route'])) {
+			$route = $this->request->get['route'];
+		} else {
+			$route = 'common/home';
+		}
+		
+		if ($route == 'common/home') {
+			$url = $this->url->link('common/home');
+		} elseif ($route == 'product/product' && isset($this->request->get['product_id'])) {
+			$url = $this->url->link('product/product', 'product_id=' . $this->request->get['product_id']);
+		} elseif ($route == 'product/category' && isset($this->request->get['path'])) {
+			$url = $this->url->link('product/category', 'path=' . $this->request->get['path']);
+		} elseif ($route == 'information/information' && isset($this->request->get['information_id'])) {
+			$url = $this->url->link('information/information', 'information_id=' . $this->request->get['information_id']);
+		} else {
+			if ($this->request->server['HTTPS']) {
+				$url = $this->config->get('config_ssl');
+			} else {
+				$url = $this->config->get('config_url');
+			}
+			
+			$url .= $this->request->server["REQUEST_URI"];
+		}
+		
+		return $url;
+	}
+
 }
