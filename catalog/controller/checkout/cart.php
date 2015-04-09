@@ -412,6 +412,8 @@ class ControllerCheckoutCart extends Controller {
 			}
 		}
 
+        $json['shopping_cart_url'] = $this->url->link('checkout/cart');
+
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}

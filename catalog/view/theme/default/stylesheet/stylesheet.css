@@ -811,7 +811,7 @@ h2.price {
     text-shadow: none;
 }
 #custom-search-input button:focus, #custom-search-input button:focus, #custom-search-input button:active{
-    border: none !imporactive
+    border: none !important;
 }
 
 /* do not group these rules */
@@ -1172,12 +1172,6 @@ ul.link-to-social li.item-social img{
 	font-weight: bold;
 }
 
-.loading {
-    background-image: url("loading.gif");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto 23px;
-}
 .tbl-shopping-cart thead {
     background-color: #63c6c1;
     color: #ffffff;
@@ -1693,7 +1687,7 @@ ul.link-to-social li.item-social img{
 	font-weight: bold;
 	font-size: 15px;
 	background-color: #63c6c1 !important;
-	background: #63c6c1 !important;
+	background: #63c6c1;
 	border: none;
 }
 .h45 {
@@ -1702,4 +1696,10 @@ ul.link-to-social li.item-social img{
 
 .box-info-product-detail .pro-rating a{
 	color: #63c6c1;
+}
+.loading {
+    background-image: url("loading.gif") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: auto 23px !important;
 }
