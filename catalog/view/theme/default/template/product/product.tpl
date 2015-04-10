@@ -88,10 +88,13 @@
                       <div  class="color-item-product-detail-lg <?php echo ($key == 0 ? 'active' : ''); ?>" style="background-color:<?php echo $groupColor['color']; ?>" data-color="<?php echo $groupColor['color']; ?>">
                         <div class="group-color hide">
                             <?php if(count($groupColor['images']) > 0) : ?>
-                                <?php $imgFirst = ""; ?>
+                                <?php $imgFirst = ""; $imgFirstLag = ""?>
                                 <div class="col-xs-12 col-sm-12 col-lg-2 box-item-image">
                                   <?php foreach ($groupColor['images'] as $key => $img) : ?>
-                                    <?php  if ($key == 0){ $imgFirst = $img['url']; } ?>
+                                    <?php  if ($key == 0){ 
+                                        $imgFirst = $img['url']; } 
+                                        $imgFirstLag = $img['url_lag'];
+                                      ?>
                                         <div class="img-additional" >
                                           <a class="thumbnail img-lg-item" href="javascript:;" title="<?php echo $heading_title; ?>"><img class="mh500" src="<?php echo  $img['url']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" data-large="<?php echo  $img['url_lag']; ?>"></a>
                                         </div>                              
