@@ -1036,7 +1036,7 @@ h2.price {
 	/*background: #FFFFFF;*/
 	min-height: 300px;
 	z-index: 9999999999;
-	margin-top: -15px;
+	margin-top: 25px;
 	padding: 0px !important;
 	left: 0px !important;
 	width: 100% !important; 
@@ -1066,7 +1066,7 @@ h2.price {
 }
 
 .box-sub-menu ul.list-unstyled{
-	float: left;
+	/*float: left;*/
 	/*border-left: 1px solid #63C6C1;*/
 }
 .box-sub-menu ul.list-unstyled li{

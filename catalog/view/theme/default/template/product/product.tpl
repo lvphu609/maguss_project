@@ -582,7 +582,7 @@
 
 <!-- end content -->
 
-<script type="text/javascript"><!--
+<script type="text/javascript">
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 	$.ajax({
 		url: 'index.php?route=product/product/getRecurringDescription',
@@ -601,8 +601,8 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 		}
 	});
 });
-//--></script> 
-<script type="text/javascript"><!--
+</script>
+<script type="text/javascript">
 $('#button-cart').on('click', function() {
     var btn = $(this);
 	$.ajax({
@@ -736,8 +736,8 @@ $('#button-cart-second').on('click', function() {
     });
 });
 
-//--></script> 
-<script type="text/javascript"><!--
+</script>
+<script type="text/javascript">
 $('.date').datetimepicker({
 	pickTime: false
 });
@@ -798,8 +798,8 @@ $('button[id^=\'button-upload\']').on('click', function() {
 		}
 	}, 500);
 });
-//--></script> 
-<script type="text/javascript"><!--
+</script>
+<script type="text/javascript">
 $('#review').delegate('.pagination a', 'click', function(e) {
   e.preventDefault();
 
@@ -879,5 +879,5 @@ $(document).ready(function() {
         }
     });  
 });
-//--></script>
+</script>
 <?php echo $footer; ?>
