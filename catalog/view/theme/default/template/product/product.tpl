@@ -140,6 +140,7 @@
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php } ?>
                   </select>
+
                 <?php endif; ?>
                 <?php // echo $text_stock;  echo $stock; ?>
                 <!-- <span>&nbsp; Vui lòng để lại email/điện thoạiđể liên lạc khi có hàng</span> -->
@@ -646,6 +647,10 @@ $('#button-cart').on('click', function() {
 				if (json['error']['recurring']) {
 					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
 				}
+
+                if (json['error']['over_quantity']) {
+                    $('select[name=\'quantity\']').after('<br><br><div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + json['error']['over_quantity'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
 				
 				// Highlight any found errors
 				$('.text-danger').parent().addClass('has-error');

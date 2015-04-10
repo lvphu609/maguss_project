@@ -322,6 +322,14 @@ class ControllerCheckoutCart extends Controller {
 				$quantity = 1;
 			}
 
+            $quantityDetail = json_decode($product_info['quantity_detail'], true);
+            foreach ($quantityDetail as $product) {
+                if ($product['color'] == $this->request->post['color'] && $product['size']['size'] == $this->request->post['size'] && $quantity > (int)$product['quantity']) {
+                    $json['error']['over_quantity'] = 'Sản phẩm tạm thời hết hàng, vui lòng để lại email/điện thoại để liên lạc khi có hàng!';
+                    break;
+                }
+            }
+
 			if (isset($this->request->post['option'])) {
 				$option = array_filter($this->request->post['option']);
 			} else {
