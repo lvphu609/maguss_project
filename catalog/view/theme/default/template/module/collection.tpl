@@ -8,7 +8,7 @@
             <div class="center-text"><?php echo $center_text; ?></div>
         </div>
         <div class="col-md-5">
-            <div><?php echo $right_text; ?></div>
+            <div class="right-text"><?php echo $right_text; ?></div>
             <a href="<?php echo $right_image_link; ?>"><img src="<?php echo $right_image; ?>" class="right-image" style="width: 100%"></a>
         </div>
     </div>

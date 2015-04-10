@@ -26,6 +26,11 @@ class ControllerModuleFashion extends Controller {
         } else {
             $data['left_text'] = '';
         }
+        if (isset($setting['left_link'])) {
+            $data['left_link'] = $setting['left_link'];
+        } else {
+            $data['left_link'] = '';
+        }
 
         if (isset($setting['top_image'])) {
             if ($setting['top_image']) {
@@ -41,6 +46,11 @@ class ControllerModuleFashion extends Controller {
             $data['top_text'] = $setting['top_text'];
         } else {
             $data['top_text'] = '';
+        }
+        if (isset($setting['top_link'])) {
+            $data['top_link'] = $setting['top_link'];
+        } else {
+            $data['top_link'] = '';
         }
 
         if (isset($setting['right_image'])) {
@@ -58,6 +68,11 @@ class ControllerModuleFashion extends Controller {
         } else {
             $data['right_text'] = '';
         }
+        if (isset($setting['right_link'])) {
+            $data['right_link'] = $setting['right_link'];
+        } else {
+            $data['right_link'] = '';
+        }
 
         if (isset($setting['bottom_image'])) {
             if ($setting['bottom_image']) {
@@ -74,6 +89,11 @@ class ControllerModuleFashion extends Controller {
             $data['bottom_text'] = $setting['bottom_text'];
         } else {
             $data['bottom_text'] = '';
+        }
+        if (isset($setting['bottom_link'])) {
+            $data['bottom_link'] = $setting['bottom_link'];
+        } else {
+            $data['bottom_link'] = '';
         }
 
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/fashion.tpl')) {

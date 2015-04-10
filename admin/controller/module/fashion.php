@@ -31,12 +31,16 @@ class ControllerModuleFashion extends Controller {
         $data['entry_title'] = $this->language->get('entry_title');
         $data['entry_left_image'] = $this->language->get('entry_left_image');
         $data['entry_left_text'] = $this->language->get('entry_left_text');
+        $data['entry_left_link'] = $this->language->get('entry_left_link');
         $data['entry_top_image'] = $this->language->get('entry_top_image');
         $data['entry_top_text'] = $this->language->get('entry_top_text');
+        $data['entry_top_link'] = $this->language->get('entry_top_link');
         $data['entry_right_image'] = $this->language->get('entry_right_image');
         $data['entry_right_text'] = $this->language->get('entry_right_text');
+        $data['entry_right_link'] = $this->language->get('entry_right_link');
         $data['entry_bottom_image'] = $this->language->get('entry_bottom_image');
         $data['entry_bottom_text'] = $this->language->get('entry_bottom_text');
+        $data['entry_bottom_link'] = $this->language->get('entry_bottom_link');
 
         $data['entry_status'] = $this->language->get('entry_status');
         $data['help_product'] = $this->language->get('help_product');
@@ -71,6 +75,11 @@ class ControllerModuleFashion extends Controller {
         } else {
             $data['error_left_text'] = '';
         }
+        if (isset($this->error['left_link'])) {
+            $data['error_left_link'] = $this->error['left_link'];
+        } else {
+            $data['error_left_link'] = '';
+        }
         if (isset($this->error['top_image'])) {
             $data['error_top_image'] = $this->error['top_image'];
         } else {
@@ -80,6 +89,11 @@ class ControllerModuleFashion extends Controller {
             $data['error_top_text'] = $this->error['top_text'];
         } else {
             $data['error_top_text'] = '';
+        }
+        if (isset($this->error['top_link'])) {
+            $data['error_top_link'] = $this->error['top_link'];
+        } else {
+            $data['error_top_link'] = '';
         }
         if (isset($this->error['right_image'])) {
             $data['error_right_image'] = $this->error['right_image'];
@@ -91,6 +105,11 @@ class ControllerModuleFashion extends Controller {
         } else {
             $data['error_right_text'] = '';
         }
+        if (isset($this->error['right_link'])) {
+            $data['error_right_link'] = $this->error['right_link'];
+        } else {
+            $data['error_right_link'] = '';
+        }
         if (isset($this->error['bottom_image'])) {
             $data['error_bottom_image'] = $this->error['bottom_image'];
         } else {
@@ -100,6 +119,11 @@ class ControllerModuleFashion extends Controller {
             $data['error_bottom_text'] = $this->error['bottom_text'];
         } else {
             $data['error_bottom_text'] = '';
+        }
+        if (isset($this->error['bottom_link'])) {
+            $data['error_bottom_link'] = $this->error['bottom_link'];
+        } else {
+            $data['error_bottom_link'] = '';
         }
 
         $data['breadcrumbs'] = array();
@@ -182,6 +206,13 @@ class ControllerModuleFashion extends Controller {
         } else {
             $data['left_text'] = '';
         }
+        if (isset($this->request->post['left_link'])) {
+            $data['left_link'] = $this->request->post['left_link'];
+        } elseif (!empty($module_info['left_link'])) {
+            $data['left_link'] = $module_info['left_link'];
+        } else {
+            $data['left_link'] = '';
+        }
         // end left text
 
         // top image
@@ -209,6 +240,13 @@ class ControllerModuleFashion extends Controller {
             $data['top_text'] = $module_info['top_text'];
         } else {
             $data['top_text'] = '';
+        }
+        if (isset($this->request->post['top_link'])) {
+            $data['top_link'] = $this->request->post['top_link'];
+        } elseif (!empty($module_info['top_link'])) {
+            $data['top_link'] = $module_info['top_link'];
+        } else {
+            $data['top_link'] = '';
         }
         // end top text
 
@@ -238,6 +276,13 @@ class ControllerModuleFashion extends Controller {
         } else {
             $data['right_text'] = '';
         }
+        if (isset($this->request->post['right_link'])) {
+            $data['right_link'] = $this->request->post['right_link'];
+        } elseif (!empty($module_info['right_link'])) {
+            $data['right_link'] = $module_info['right_link'];
+        } else {
+            $data['right_link'] = '';
+        }
         // end right text
 
         // bottom image
@@ -265,6 +310,13 @@ class ControllerModuleFashion extends Controller {
             $data['bottom_text'] = $module_info['bottom_text'];
         } else {
             $data['bottom_text'] = '';
+        }
+        if (isset($this->request->post['bottom_link'])) {
+            $data['bottom_link'] = $this->request->post['bottom_link'];
+        } elseif (!empty($module_info['bottom_link'])) {
+            $data['bottom_link'] = $module_info['bottom_link'];
+        } else {
+            $data['bottom_link'] = '';
         }
         // end bottom text
 
@@ -299,6 +351,9 @@ class ControllerModuleFashion extends Controller {
         if (!$this->request->post['left_text']) {
             $this->error['left_text'] = $this->language->get('error_left_text');
         }
+        if (!$this->request->post['left_link']) {
+            $this->error['left_link'] = $this->language->get('error_left_link');
+        }
 
         if (!$this->request->post['top_image']) {
             $this->error['top_image'] = $this->language->get('error_top_image');
@@ -306,6 +361,9 @@ class ControllerModuleFashion extends Controller {
 
         if (!$this->request->post['top_text']) {
             $this->error['top_text'] = $this->language->get('error_top_text');
+        }
+        if (!$this->request->post['top_link']) {
+            $this->error['top_link'] = $this->language->get('error_top_link');
         }
 
         if (!$this->request->post['right_image']) {
@@ -315,6 +373,9 @@ class ControllerModuleFashion extends Controller {
         if (!$this->request->post['right_text']) {
             $this->error['right_text'] = $this->language->get('error_right_text');
         }
+        if (!$this->request->post['right_link']) {
+            $this->error['right_link'] = $this->language->get('error_right_link');
+        }
 
         if (!$this->request->post['bottom_image']) {
             $this->error['bottom_image'] = $this->language->get('error_bottom_image');
@@ -322,6 +383,9 @@ class ControllerModuleFashion extends Controller {
 
         if (!$this->request->post['bottom_text']) {
             $this->error['bottom_text'] = $this->language->get('error_bottom_text');
+        }
+        if (!$this->request->post['bottom_link']) {
+            $this->error['bottom_link'] = $this->language->get('error_bottom_link');
         }
 
         return !$this->error;
