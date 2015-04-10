@@ -860,6 +860,9 @@ h2.price {
 }
 
 /* collection */
+.pan-collection .left-text, .pan-collection .right-text {
+    font-size: 14px;
+}
 .pan-collection .bottom-image {
     width: 100%;
     height: 393px;
@@ -905,6 +908,9 @@ h2.price {
 .pan-fashion .left-image {
     margin-top: 100px;
     width: 100%;
+}
+.pan-fashion a {
+    color: #63c6c1;
 }
 .pan-fashion .left-text {
     margin-top: 400px;

@@ -6,26 +6,26 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <img src="<?php echo $left_image; ?>" class="left-image">
+            <a href="<?php echo $left_link; ?>"><img src="<?php echo $left_image; ?>" class="left-image"></a>
         </div>
         <div class="col-md-3">
-            <h3 class="left-text"><?php echo $left_text; ?></h3>
-            <h3 class="bottom-text"><?php echo $bottom_text; ?></h3>
+            <h3 class="left-text"><a href="<?php echo $left_link; ?>"><?php echo $left_text; ?></a></h3>
+            <h3 class="bottom-text"><a href="<?php echo $bottom_link; ?>"><?php echo $bottom_text; ?></a></h3>
         </div>
         <div class="col-md-3">
-            <img src="<?php echo $top_image; ?>" class="top-image">
+            <a href="<?php echo $top_link; ?>"><img src="<?php echo $top_image; ?>" class="top-image"></a>
         </div>
         <div class="col-md-3">
-            <h3 class="top-text"><?php echo $top_text; ?></h3>
-            <h3 class="right-text"><?php echo $right_text; ?></h3>
+            <h3 class="top-text"><a href="<?php echo $top_link; ?>"><?php echo $top_text; ?></a></h3>
+            <h3 class="right-text"><a href="<?php echo $right_link; ?>"><?php echo $right_text; ?></a></h3>
         </div>
     </div>
     <div class="row">
         <div class="col-md-9">
-            <img src="<?php echo $bottom_image; ?>" class="bottom-image">
+            <a href="<?php echo $bottom_link; ?>"><img src="<?php echo $bottom_image; ?>" class="bottom-image"></a>
         </div>
         <div class="col-md-3">
-            <img src="<?php echo $right_image; ?>" class="right-image">
+            <a href="<?php echo $right_link; ?>"><img src="<?php echo $right_image; ?>" class="right-image"></a>
         </div>
     </div>
 </div>
