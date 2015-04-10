@@ -1738,6 +1738,17 @@ ul.link-to-social li.item-social img{
   height: 80px;
   overflow: hidden;
 }
+
+.text-header-contact{
+	margin-top: 10px;
+}
+.text-header-contact span{
+	color: #63C6C1;
+	font-weight: bold;
+	font-family: Myriad Pro !important;
+	font-size: 15px;
+	text-transform: uppercase;
+}
 .pan-order-preview .text-right{
     margin-bottom: 10px;
 }
@@ -1804,4 +1815,32 @@ label.required:after {
     font-size: 14px;
     border-top: 1px solid #63c6c1;
     padding: 5px 0px 0px 0px;
+}
+
+.margin-bottom-10{
+	margin-bottom: 10px;
+}
+
+.btn-maguss-common{
+	min-width: 100px;
+	border: none;
+	border-radius: 0px;
+	background-color: #63C6C1;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.btn-maguss-common:hover{
+	color: #000000;
+}
+
+.text-header-common{
+	margin-top: 10px;
+}
+.text-header-common span{
+	color: #63C6C1;
+	font-weight: bold;
+	font-family: Myriad Pro !important;
+	font-size: 15px;
+	text-transform: uppercase;
 }
