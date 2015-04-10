@@ -43,6 +43,7 @@
                                 <?php } ?>
                             </div>
                         </div>
+                        <br>
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label required" for="input-left-image"><?php echo $entry_left_image; ?></label>
@@ -65,6 +66,16 @@
                                 <?php } ?>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-left-link"><?php echo $entry_left_link; ?></label>
+                            <div class="col-sm-10">
+                                <input type="text" name="left_link" class="form-control" id="input-left-link" value="<?php echo $left_link; ?>" placeholder="<?php echo $entry_left_link; ?>">
+                                <?php if ($error_left_link) { ?>
+                                    <div class="text-danger"><?php echo $error_left_link; ?></div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <br>
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label required" for="input-top-image"><?php echo $entry_top_image; ?></label>
@@ -87,6 +98,16 @@
                                 <?php } ?>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-top-link"><?php echo $entry_top_link; ?></label>
+                            <div class="col-sm-10">
+                                <input type="text" name="top_link" class="form-control" id="input-top-link" value="<?php echo $top_link; ?>" placeholder="<?php echo $entry_top_link; ?>">
+                                <?php if ($error_top_link) { ?>
+                                    <div class="text-danger"><?php echo $error_top_link; ?></div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <br>
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label required" for="input-right-image"><?php echo $entry_right_image; ?></label>
@@ -109,6 +130,16 @@
                                 <?php } ?>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-right-link"><?php echo $entry_right_link; ?></label>
+                            <div class="col-sm-10">
+                                <input type="text" name="right_link" class="form-control" id="input-right-link" value="<?php echo $right_link; ?>" placeholder="<?php echo $entry_right_link; ?>">
+                                <?php if ($error_right_link) { ?>
+                                    <div class="text-danger"><?php echo $error_right_link; ?></div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <br>
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label required" for="input-bottom-image"><?php echo $entry_bottom_image; ?></label>
@@ -128,6 +159,15 @@
                                 <input type="text" name="bottom_text" id="input-bottom-text" value="<?php echo $bottom_text; ?>" class="form-control" placeholder="<?php echo $entry_bottom_text; ?>">
                                 <?php if ($error_bottom_text) { ?>
                                     <div class="text-danger"><?php echo $error_bottom_text; ?></div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-bottom-link"><?php echo $entry_bottom_link; ?></label>
+                            <div class="col-sm-10">
+                                <input type="text" name="bottom_link" id="input-bottom-link" value="<?php echo $bottom_link; ?>" class="form-control" placeholder="<?php echo $entry_bottom_link; ?>">
+                                <?php if ($error_bottom_link) { ?>
+                                    <div class="text-danger"><?php echo $error_bottom_link; ?></div>
                                 <?php } ?>
                             </div>
                         </div>
