@@ -20,6 +20,13 @@ class ControllerCheckoutCart extends Controller {
 		if ($this->cart->hasProducts() || !empty($this->session->data['vouchers'])) {
 			$data['heading_title'] = $this->language->get('heading_title');
 
+            if (!empty($this->session->data['over_quantity'])) {
+                $data['over_quantity'] = $this->session->data['over_quantity'];
+                unset($this->session->data['over_quantity']);
+            } else {
+                $data['over_quantity'] = '';
+            }
+
 			$data['text_recurring_item'] = $this->language->get('text_recurring_item');
 			$data['text_next'] = $this->language->get('text_next');
 			$data['text_next_choice'] = $this->language->get('text_next_choice');
@@ -322,6 +329,14 @@ class ControllerCheckoutCart extends Controller {
 				$quantity = 1;
 			}
 
+            $quantityDetail = json_decode($product_info['quantity_detail'], true);
+            foreach ($quantityDetail as $product) {
+                if ($product['color'] == $this->request->post['color'] && $product['size']['size'] == $this->request->post['size'] && $quantity > (int)$product['quantity']) {
+                    $json['error']['over_quantity'] = 'Số lượng đặt hàng vượt quá số sản phẩm còn lại!';
+                    break;
+                }
+            }
+
 			if (isset($this->request->post['option'])) {
 				$option = array_filter($this->request->post['option']);
 			} else {
@@ -425,15 +440,40 @@ class ControllerCheckoutCart extends Controller {
 
 		// Update
 		if (!empty($this->request->post['quantity'])) {
-			foreach ($this->request->post['quantity'] as $key => $value) {
-				$this->cart->update($key, $value);
-			}
+            $overQuantity = false;
 
-			unset($this->session->data['shipping_method']);
-			unset($this->session->data['shipping_methods']);
-			unset($this->session->data['payment_method']);
-			unset($this->session->data['payment_methods']);
-			unset($this->session->data['reward']);
+			foreach ($this->request->post['quantity'] as $key => $value) {
+                $productObj = unserialize(base64_decode($key));
+                $this->load->model('catalog/product');
+
+                $product_info = $this->model_catalog_product->getProduct($productObj['product_id']);
+
+                if ($product_info) {
+                    $quantity = $value;
+
+                    $quantityDetail = json_decode($product_info['quantity_detail'], true);
+                    foreach ($quantityDetail as $product) {
+                        if ($product['color'] == $productObj['size_color']['color'] && $product['size']['size'] == $productObj['size_color']['size'] && $quantity > (int)$product['quantity']) {
+                            $overQuantity = true;
+                            $productName = '<a href="'.$product_info['href'].'">'.$product_info['name'].' - Size: '.$product['size_label'].' -  Color: </a>';
+                            $productName .= '<span class="color-preview" style="background-color: '.$product['color'].'"></span>';
+                            $productName = '<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> Sản phẩm <strong>'.$productName.'</strong> số lượng vượt quá số sản phẩm còn lại!<button type="button" class="close" data-dismiss="alert">&times;</button></div>';
+                            $this->session->data['over_quantity'] = $productName;
+                            break;
+                        }
+                    }
+                }
+                if (!$overQuantity) {
+                    $this->cart->update($key, $value);
+                }
+			}
+            if (!$overQuantity) {
+                unset($this->session->data['shipping_method']);
+                unset($this->session->data['shipping_methods']);
+                unset($this->session->data['payment_method']);
+                unset($this->session->data['payment_methods']);
+                unset($this->session->data['reward']);
+            }
 
 			$this->response->redirect($this->url->link('checkout/cart'));
 		}

@@ -31,7 +31,7 @@
         <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
             <h3 style="color: #63c6c1;"><?php echo $heading_title; ?></h3>
             <h4 style="color: #63c6c1;">Cập nhật đơn hàng và chi tiết tất cả các sản phẩm</h4>
-
+            <?php echo $over_quantity; ?>
             <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
                 <div class="table-responsive">
                     <table class="table table-bordered tbl-shopping-cart">
@@ -78,7 +78,7 @@
                                             <button type="button" class="btn btn-maguss btn-quantity-plus">
                                                 <i class="fa fa-caret-up"></i>
                                             </button>
-                                            <button type="button" class="btn btn-maguss btn-quantity-minus">
+                                            <button type="button" class="btn btn-maguss btn-quantity-minus" <?php echo ($product['quantity'] == 1 ? 'disabled="disabled"' : ''); ?>>
                                                 <i class="fa fa-caret-down"></i>
                                             </button>
                                             <button type="button" class="btn btn-maguss btn-delete-product" onclick="cart.remove('<?php echo $product['key']; ?>');">
