@@ -45,22 +45,22 @@ class ControllerCheckoutSuccess extends Controller {
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
+			'text' => "Sản phẩm chi tiết",//$this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_basket'),
+			'text' => "Thông tin đơn hàng",//$this->language->get('text_basket'),
 			'href' => $this->url->link('checkout/cart')
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_checkout'),
+			'text' => "Thanh toán",//$this->language->get('text_checkout'),
 			'href' => $this->url->link('checkout/checkout', '', 'SSL')
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_success'),
+			'text' => "Hoàn tất",//$this->language->get('text_success'),
 			'href' => $this->url->link('checkout/success')
 		);
 
@@ -82,9 +82,9 @@ class ControllerCheckoutSuccess extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
-
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/success.tpl')) {
-			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/common/success.tpl', $data));
+		$data['order'] = $this->url->link('account/order', '', 'SSL');
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/success.tpl')) {
+			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/checkout/success.tpl', $data));
 		} else {
 			$this->response->setOutput($this->load->view('default/template/common/success.tpl', $data));
 		}
