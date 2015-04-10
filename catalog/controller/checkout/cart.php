@@ -9,12 +9,12 @@ class ControllerCheckoutCart extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'href' => $this->url->link('common/home'),
-			'text' => $this->language->get('text_home')
+			'text' => 'Sản phẩm chi tiết'//$this->language->get('text_home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'href' => $this->url->link('checkout/cart'),
-			'text' => $this->language->get('heading_title')
+			'text' => 'Thông tin đơn hàng'//$this->language->get('heading_title')
 		);
 
 		if ($this->cart->hasProducts() || !empty($this->session->data['vouchers'])) {

@@ -115,7 +115,7 @@
                                 <div class="sub-menu-content hidden">
                                     <div class="ui-tooltip-menu-top">
                                         <div class="box-sub-menu row">
-                                            <div class="col-sm-2">
+                                            <div class="col-sm-2 submenu">
                                                 <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
                                                     <?php foreach ($children as $child) { ?>
                                                         <?php if (isset($child['children'])) { ?>
@@ -132,10 +132,20 @@
                                             </div>
                                             <div class="col-sm-10">
                                                 <?php if (!empty($category['products'])): ?>
-                                                    <div class="carousel-menu owl-carousels" style="opacity: 1;">
+                                                    <div class="submenu-product-item">
                                                         <?php foreach ($category['products'] as $categoryProduct): ?>
                                                             <div class="item">
-                                                                <a href="<?php echo $categoryProduct['href']; ?>"><img src="<?php echo $categoryProduct['thumb']; ?>" class="img-responsives" /></a>
+                                                                <div class="sub-image">
+                                                                    <a href="<?php echo $categoryProduct['href']; ?>"><img src="<?php echo $categoryProduct['thumb']; ?>" class="img-responsives" /></a>
+                                                                </div>
+                                                                <div class="sub-label">
+                        <?php if ($categoryProduct['price']) { ?>
+                              <?php if (!$categoryProduct['special']) { ?>
+                                <span class="pro-info-price"><?php echo $categoryProduct['price']; ?></span>
+                              <?php } else { ?>
+                                <div><span class="pro-info-price-new"><?php echo $categoryProduct['special']; ?></span></div>
+                        <?php } } ?>
+                                                                </div>
                                                             </div>
                                                         <?php endforeach; ?>
                                                     </div>

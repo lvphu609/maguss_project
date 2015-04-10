@@ -41,6 +41,7 @@ class ControllerCommonHeader extends Controller {
 	}
 			
 	public function index() {
+		$this->load->model('tool/image');
 		$data['title'] = $this->document->getTitle();
 
 		if ($this->request->server['HTTPS']) {
@@ -179,7 +180,7 @@ class ControllerCommonHeader extends Controller {
                     'sort'  => 'p.date_added',
                     'order' => 'DESC',
                     'start' => 0,
-                    'limit' => 5
+                    'limit' => 3
                 );
 
                 $results = $this->model_catalog_product->getProducts($filter_data);
@@ -207,7 +208,7 @@ class ControllerCommonHeader extends Controller {
                         $qty_detail = !empty($result['quantity_detail']) ? $result['quantity_detail'] : '[]' ;
                         $qtyDetail = json_decode($qty_detail, true);
                         if (count($qtyDetail) > 0 && !empty($qtyDetail[0]['images'])) {
-                            $image = $this->model_tool_image->resize($qtyDetail[0]['images'][0]['name'], 250, 350);
+                            $image = $this->model_tool_image->resize($qtyDetail[0]['images'][0]['name'], 175,250);
                         }
 
                         $categoryProduct[] = array(

@@ -1028,7 +1028,7 @@ h2.price {
 	-webkit-box-shadow: 0 0 5px #aaa;
 	box-shadow: none !important;
 	border-bottom: 1px solid #999;
-	opacity: 0.9;
+	/*opacity: 0.97;*/
 	/*transition: opacity .25s ease,visibility .25s ease;*/
 
 }
@@ -1051,12 +1051,12 @@ h2.price {
 	width: 100% !important; 
 	left: 0px !important;
 	padding: 0px !important;
-	opacity: 0.9;
+	/*opacity: 0.97;*/
 	border-bottom: 1px solid #63C6C1;
 }
 
 .ui-tooltip.ui-tooltip-content-menu-top:hover{
-	opacity: 0.9 !important;
+	opacity: 0.97;
 	background-color: none !important;
 }
 .box-sub-menu{
@@ -1954,6 +1954,31 @@ label.required:after {
 	margin-top: 30px;
 }
 
+.submenu-product-item .item{
+	/*border-right: 1px solid #ddd;*/
+	float: left;
+	width: 175px;
+	height: 300px;
+	overflow: hidden;
+	margin-left: 30px;
+}
+.box-sub-menu .submenu{
+	border-right: 1px solid #ddd;
+	min-height: 300px;
+}
+.submenu-product-item .sub-image, .submenu-product-item .sub-image img{
+	float: left;
+	width: 175px;
+	height: 250px;
+}
+.submenu-product-item .sub-image, .submenu-product-item .sub-label{
+	background-color: #63C6C1;
+	margin-top: 5px;
+	float: left;
+	width: 100%;
+	text-align: center;
+	color: #FFFFFF;
+}
 
 
 

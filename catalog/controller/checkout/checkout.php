@@ -39,17 +39,17 @@ class ControllerCheckoutCheckout extends Controller {
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
+			'text' => 'Sản phẩm chi tiết',//$this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_cart'),
+			'text' =>'Thông tin đơn hàng' ,//$this->language->get('text_cart'),
 			'href' => $this->url->link('checkout/cart')
 		);
 
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
+			'text' => 'Thanh toán',//$this->language->get('heading_title'),
 			'href' => $this->url->link('checkout/checkout', '', 'SSL')
 		);
 

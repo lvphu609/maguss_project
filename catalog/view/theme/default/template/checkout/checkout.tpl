@@ -5,6 +5,16 @@
                 <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
             <?php } ?>
         </ul> */ ?>
+        <div class="breadcrumb-maguss-common">
+        <?php $count_breadcrumbs = count($breadcrumbs) -1; ?>
+        <?php foreach ($breadcrumbs as $key=>$breadcrumb) { ?>
+            <?php $classBr = ($key==0) ? "br-first" : ""; ?>
+            <div class="breadcrumb-item <?php echo $classBr; ?>"><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></div>
+            <?php if(($count_breadcrumbs)!=$key){ ?>
+                <div class="breadcrumb-item">></div>
+            <?php } ?>
+        <?php } ?>
+      </div>
         <?php if ($error_warning) { ?>
             <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
                 <button type="button" class="close" data-dismiss="alert">&times;</button>

@@ -14,7 +14,7 @@
 <script type="text/javascript"><!--
 $('#slideshow<?php echo $module; ?>').owlCarousel({
 	items: 6,
-	autoPlay: 3000,
+	autoPlay: 7000,
 	singleItem: true,
 	navigation: true,
 	navigationText: ['<i class="fa fa-angle-left fa-2x"></i>', '<i class="fa fa-angle-right fa-2x"></i>'],
