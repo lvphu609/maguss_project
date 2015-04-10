@@ -173,12 +173,61 @@ class ControllerCommonHeader extends Controller {
 			
 				}
 
+                // get product for category
+                $filter_data = array(
+                    'filter_category_id' => $category['category_id'],
+                    'sort'  => 'p.date_added',
+                    'order' => 'DESC',
+                    'start' => 0,
+                    'limit' => 5
+                );
+
+                $results = $this->model_catalog_product->getProducts($filter_data);
+                $categoryProduct = array();
+                if ($results) {
+                    foreach ($results as $result) {
+                        if ($result['image']) {
+                            $image = $this->model_tool_image->resize($result['image'], 250, 350);
+                        } else {
+                            $image = $this->model_tool_image->resize('placeholder.png', 250, 350);
+                        }
+
+                        if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
+                            $price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')));
+                        } else {
+                            $price = false;
+                        }
+
+                        if ((float)$result['special']) {
+                            $special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')));
+                        } else {
+                            $special = false;
+                        }
+
+                        $qty_detail = !empty($result['quantity_detail']) ? $result['quantity_detail'] : '[]' ;
+                        $qtyDetail = json_decode($qty_detail, true);
+                        if (count($qtyDetail) > 0 && !empty($qtyDetail[0]['images'])) {
+                            $image = $this->model_tool_image->resize($qtyDetail[0]['images'][0]['name'], 250, 350);
+                        }
+
+                        $categoryProduct[] = array(
+                            'product_id' => $result['product_id'],
+                            'thumb' => $image,
+                            'name' => $result['name'],
+                            'price' => $price,
+                            'special' => $special,
+                            'href' => $this->url->link('product/product', 'product_id=' . $result['product_id']),
+                        );
+                    }
+                }
+
 				// Level 1
 				$data['categories'][] = array(
 					'name'     => $category['name'],
 					'children' => $children_data,
 					'column'   => $category['column'] ? $category['column'] : 1,
-					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
+					'href'     => $this->url->link('product/category', 'path=' . $category['category_id']),
+                    'products' => $categoryProduct
 				);
 			}
 		}
