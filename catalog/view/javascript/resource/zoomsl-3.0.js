@@ -602,7 +602,7 @@
 			$tracker = $("<div />")
 						.attr({	"class": setting.classtracker })
 						.css({	zIndex: basezindex,
-								backgroundImage: self.isie ? "url(cannotbe)" : "none",
+								// backgroundImage: self.isie ? "url(cannotbe)" : "none",
 								position: "absolute",
 								width:  img.w,
 								height: img.h,

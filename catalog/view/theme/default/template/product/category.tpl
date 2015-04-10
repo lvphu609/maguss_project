@@ -8,9 +8,9 @@
   </ul> -->
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
-    <?php $class = 'col-sm-6'; ?>
+    <?php $class = 'col-sm-10'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
-    <?php $class = 'col-sm-9'; ?>
+    <?php $class = 'col-sm-10'; ?>
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
@@ -96,7 +96,7 @@
       <br /> */ ?>
       <div class="row">
         <?php foreach ($products as $product) { ?>
-        <div class="product-layout product-grid product-item col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="product-layout product-grid product-item">
           <div class="product-thumb product-id-<?php echo $product['product_id']; ?>">
             <div class="popper-color-content hide">
               <?php  $product_thumb = ""; ?>
@@ -155,6 +155,7 @@
                   <?php } ?>
                 </div>
                 <?php } */ ?>
+                <div class="box-price">
                 <?php if ($product['price']) { ?>
                 <p class="price">
                   <?php if (!$product['special']) { ?>
@@ -168,6 +169,7 @@
                   <?php } */ ?>
                 </p>
                 <?php } ?>
+                </div>
               </div>
               <div class="button-group-item text-center">
                  <a href="<?php echo $product['href']; ?>" class="btn btn-product-item"><span class=""><?php echo $button_cart; ?></span></a>

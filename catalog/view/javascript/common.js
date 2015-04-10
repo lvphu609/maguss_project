@@ -757,7 +757,7 @@ var Maguss = {
 			zoomrange: [3, 3],
 			magnifierborder: '1px solid #63c6c1',
 			cursorshadeborder: '1px solid #63c6c1',
-			magnifiersize: [800,560]
+			magnifiersize: [600,560]
 		}); 
 	},
 	run: function(){
