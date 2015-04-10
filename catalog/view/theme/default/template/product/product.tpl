@@ -88,12 +88,12 @@
                       <div  class="color-item-product-detail-lg <?php echo ($key == 0 ? 'active' : ''); ?>" style="background-color:<?php echo $groupColor['color']; ?>" data-color="<?php echo $groupColor['color']; ?>">
                         <div class="group-color hide">
                             <?php if(count($groupColor['images']) > 0) : ?>
-                                <?php $imgFirst = ""; $imgFirstLag = ""?>
+                                <?php $imgFirst1 = ""; $imgFirstLag1 = ""?>
                                 <div class="col-xs-12 col-sm-12 col-lg-2 box-item-image">
                                   <?php foreach ($groupColor['images'] as $key => $img) : ?>
                                     <?php  if ($key == 0){ 
-                                        $imgFirst = $img['url']; } 
-                                        $imgFirstLag = $img['url_lag'];
+                                        $imgFirst1 = $img['url']; } 
+                                        $imgFirstLag1 = $img['url_lag'];
                                       ?>
                                         <div class="img-additional" >
                                           <a class="thumbnail img-lg-item" href="javascript:;" title="<?php echo $heading_title; ?>"><img class="mh500" src="<?php echo  $img['url']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" data-large="<?php echo  $img['url_lag']; ?>"></a>
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-xs-10 col-sm-10 col-lg-10 img-first">
                                     <div class="img-additional" >
-                                      <img class="zoom-image-product mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" data-large="<?php echo  $imgFirstLag; ?>">
+                                      <img class="zoom-image-product mh500 img-lg-append" src="<?php echo  $imgFirst1; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" data-large="<?php echo  $imgFirstLag1; ?>">
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -479,7 +479,7 @@
       	<div class="lable-related"><span><?php echo $text_related; ?></span></div>
 	    <div class="row box-related-product">
 	    	
-	    	<div class="product-layout product-grid product-item product-item-current col-lg-4 col-md-4 col-sm-6 col-xs-12">
+	    	<div class="product-layout product-grid product-item product-item-current">
 	          <div class="product-thumb">
 	            <div class="image"><a href="#"><img src="<?php echo $productCurrent['image_url']; ?>" alt="Quan Jean mua dong" class="img-responsive"></a></div>
 	              <div class="line-item text-center"><hr></div>
@@ -496,7 +496,7 @@
 	        </div>
 
 	        <?php foreach ($products as $product) { ?>
-	        <div class="product-layout product-grid product-item col-lg-2 col-md-4 col-sm-6 col-xs-12">
+	        <div class="product-layout product-grid product-item">
 	          <div class="product-thumb product-id-<?php echo $product['product_id']; ?>">
 	            <div class="popper-color-content hide">
 	              <?php  $product_thumb = ""; ?>
@@ -555,16 +555,18 @@
 	                  <?php } ?>
 	                </div>
 	                <?php } */ ?>
-	                <?php if ($product['price']) { ?>
-	                <p class="price">
-	                  <?php if (!$product['special']) { ?>
-	                  <?php echo $product['price']; ?>
-	                  <?php } else { ?>
-	                  <span class="price-old"><?php echo $product['price']; ?></span> </br>
-	                  <span class="price-new"><?php echo $product['special']; ?></span>
-	                  <?php } ?>
-	                </p>
-	                <?php } ?>
+                  <div class="box-price">
+  	                <?php if ($product['price']) { ?>
+  	                <p class="price">
+  	                  <?php if (!$product['special']) { ?>
+  	                  <?php echo $product['price']; ?>
+  	                  <?php } else { ?>
+  	                  <span class="price-old"><?php echo $product['price']; ?></span> </br>
+  	                  <span class="price-new"><?php echo $product['special']; ?></span>
+  	                  <?php } ?>
+  	                </p>
+  	                <?php } ?>
+                  </div>
 	              </div>
 	              <div class="button-group-item text-center">
 	                 <a href="<?php echo $product['href']; ?>" class="btn btn-product-item"><span class=""><?php echo $button_cart; ?></span></a>

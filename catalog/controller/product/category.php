@@ -218,7 +218,7 @@ class ControllerProductCategory extends Controller {
 					foreach ($quantityDetail as $key => $value) {
 						if (count($value['images']) > 0) {
 							foreach ($value['images'] as $imgKey => $img) {
-								$quantityDetail[$key]['images'][$imgKey]['url'] = $this->model_tool_image->resize($img['name'], 300, 450);
+								$quantityDetail[$key]['images'][$imgKey]['url'] = $this->model_tool_image->resize($img['name'], 250, 350);
 							}
 						}
 					}
@@ -239,7 +239,7 @@ class ControllerProductCategory extends Controller {
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
 					'quantity_detail' => $quantityDetail,
 					'is_new' => $result['is_new'],
-					'meta_description' => utf8_substr(strip_tags(html_entity_decode($result['meta_description'], ENT_QUOTES, 'UTF-8')), 0, 80) . '...'
+					'meta_description' => utf8_substr(strip_tags(html_entity_decode($result['meta_description'], ENT_QUOTES, 'UTF-8')), 0, 50) . '...'
 				);
 			}
 
