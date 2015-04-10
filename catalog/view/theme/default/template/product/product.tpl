@@ -869,3 +869,4 @@ $(document).ready(function() {
     });  
 });
 //--></script>
+<?php echo $footer; ?>

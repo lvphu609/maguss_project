@@ -22,7 +22,7 @@
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <div class="row">
         <div class="text-header-contact"><span>Đăng nhập</span></div>        
-        <div class="col-sm-6">
+        <div class="col-sm-6 box-account-login">
           <div class="well">
             <h3><?php echo $text_returning_customer; ?></h3>
             <!-- <p><strong><?php // echo $text_i_am_returning_customer; ?></strong></p> -->
