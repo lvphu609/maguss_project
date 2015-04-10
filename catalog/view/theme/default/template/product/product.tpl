@@ -611,6 +611,7 @@ $('#button-cart').on('click', function() {
 		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
 		dataType: 'json',
 		beforeSend: function() {
+      $('.pro-option-select').find('.alert').remove();
       var size = $('.pro-option-select-size').val();
       var quantity = $('.pro-option-select-quantity').val();
       if(size == ""){
@@ -649,6 +650,10 @@ $('#button-cart').on('click', function() {
 					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
 				}
 				
+        if (json['error']['over_quantity']) {
+            $('select[name=\'quantity\']').after('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + json['error']['over_quantity'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        }
+
 				// Highlight any found errors
 				$('.text-danger').parent().addClass('has-error');
 			}
