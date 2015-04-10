@@ -738,7 +738,9 @@ var Maguss = {
 		$(document).on('click','.img-lg-item',function(e){
 			e.preventDefault();
 			var url = $(this).find('img').attr('src');
+			var urlLag = $(this).find('img').attr('data-large');
 			$('#box-product-image-lg').find('.img-lg-append').attr('src',url);
+			$('#box-product-image-lg').find('.img-lg-append').attr('data-large',urlLag);
 			$('#box-product-image-lg').find('.img-lg-append-a').attr('href',url);
 			/*$('.mfp-figure').zoom({
 	 			touch: true,
@@ -754,7 +756,8 @@ var Maguss = {
 		$('.zoom-image-product').imagezoomsl({
 			zoomrange: [3, 3],
 			magnifierborder: '1px solid #63c6c1',
-			cursorshadeborder: '1px solid #63c6c1'
+			cursorshadeborder: '1px solid #63c6c1',
+			magnifiersize: [800,560]
 		}); 
 	},
 	run: function(){

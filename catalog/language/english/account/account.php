@@ -4,11 +4,11 @@ $_['heading_title']      = 'My Account';
 
 // Text
 $_['text_account']       = 'Account';
-$_['text_my_account']    = 'Tài khoản của tôi';
-$_['text_my_orders']     = 'Đơn Hàng Của Tôi';
-$_['text_my_newsletter'] = 'Tin tức mới nhất';
-$_['text_edit']          = 'Sửa thông tin tài khoản của bạn';
-$_['text_password']      = 'Thay đổi mật khẩu';
+$_['text_my_account']    = 'My Account';
+$_['text_my_orders']     = 'My Orders';
+$_['text_my_newsletter'] = 'Newsletter';
+$_['text_edit']          = 'Edit your account information';
+$_['text_password']      = 'Change your password';
 $_['text_address']       = 'Modify your address book entries';
 $_['text_wishlist']      = 'Modify your wish list';
 $_['text_order']         = 'View your order history';

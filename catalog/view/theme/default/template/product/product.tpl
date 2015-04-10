@@ -31,17 +31,18 @@
                             <?php foreach ($groupColor['images'] as $key => $img) : ?>
                               <?php  if ($key == 0){ 
                               			$imgFirst = $img['url']; 
+                                    $imgFirstLag = $img['url_lag'];
                               			$productCurrent['image_url'] = $img['url'];
                               		} 
                               ?>
                                   <div class="img-additional" >
-                                    <a class="thumbnail img-lg-item" href="javascript:;" title="<?php echo $heading_title; ?>"><img class="mh500" src="<?php echo  $img['url']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a>
+                                    <a class="thumbnail img-lg-item" href="javascript:;" title="<?php echo $heading_title; ?>"><img class="mh500" src="<?php echo  $img['url']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" data-large="<?php echo  $img['url_lag']; ?>"></a>
                                   </div>                              
                             <?php endforeach; ?>
                           </div>
                           <div class="col-xs-10 col-sm-10 col-lg-10 img-first">
                               <div class="img-additional" >
-                                <img class="zoom-image-product mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
+                                <img class="zoom-image-product mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" data-large="<?php echo  $imgFirstLag; ?>">
                               </div>
                           </div>
 
@@ -92,13 +93,13 @@
                                   <?php foreach ($groupColor['images'] as $key => $img) : ?>
                                     <?php  if ($key == 0){ $imgFirst = $img['url']; } ?>
                                         <div class="img-additional" >
-                                          <a class="thumbnail img-lg-item" href="javascript:;" title="<?php echo $heading_title; ?>"><img class="mh500" src="<?php echo  $img['url']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a>
+                                          <a class="thumbnail img-lg-item" href="javascript:;" title="<?php echo $heading_title; ?>"><img class="mh500" src="<?php echo  $img['url']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" data-large="<?php echo  $img['url_lag']; ?>"></a>
                                         </div>                              
                                   <?php endforeach; ?>
                                 </div>
                                 <div class="col-xs-10 col-sm-10 col-lg-10 img-first">
                                     <div class="img-additional" >
-                                      <img class="zoom-image-product mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
+                                      <img class="zoom-image-product mh500 img-lg-append" src="<?php echo  $imgFirst; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" data-large="<?php echo  $imgFirstLag; ?>">
                                     </div>
                                 </div>
                             <?php endif; ?>
