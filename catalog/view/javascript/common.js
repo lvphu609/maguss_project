@@ -491,7 +491,8 @@ var Maguss = {
 		        
 		        var $id = $(ui.tooltip).attr('id');
 		        $('#' + $id).css({
-		        	"with" : "1000px"
+		        	"with" : "1000px",
+		        	"opacity" : ".97"
 		        });
 		        // close any lingering tooltips
 		        $('div.ui-tooltip').not('#' + $id).remove();
