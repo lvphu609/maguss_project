@@ -1850,3 +1850,8 @@ label.required:after {
 	font-size: 15px;
 	text-transform: uppercase;
 }
+
+.box-account-login{
+	padding: 0px;
+	margin: 0px;
+}

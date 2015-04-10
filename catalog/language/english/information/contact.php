@@ -1,11 +1,11 @@
 <?php
 // Heading
-$_['heading_title']  = 'Liên hệ với chúng tôi';
+$_['heading_title']  = 'Contact Us';
 
 // Text
-$_['text_location']  = 'Địa chỉ';
+$_['text_location']  = 'Our Location';
 $_['text_store']     = 'Our Stores';
-$_['text_contact']   = 'Mẫu liên hệ';
+$_['text_contact']   = 'Contact Form';
 $_['text_address']   = 'Address';
 $_['text_telephone'] = 'Telephone';
 $_['text_fax']       = 'Fax';
@@ -14,10 +14,10 @@ $_['text_comment']   = 'Comments';
 $_['text_success']   = '<p>Your enquiry has been successfully sent to the store owner!</p>';
 
 // Entry
-$_['entry_name']     = 'Tên của bạn';
-$_['entry_email']    = 'Địa chỉ E-Mail';
-$_['entry_enquiry']  = 'Nội dung';
-$_['entry_captcha']  = 'Nhập mã kiểm tra';
+$_['entry_name']     = 'Your Name';
+$_['entry_email']    = 'E-Mail Address';
+$_['entry_enquiry']  = 'Enquiry';
+$_['entry_captcha']  = 'Enter the code in the box below';
 
 // Email
 $_['email_subject']  = 'Enquiry %s';
