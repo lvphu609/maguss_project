@@ -1870,3 +1870,90 @@ label.required:after {
 	padding: 0px;
 	margin: 0px;
 }
+
+.breadcrumb-maguss-common{
+	background-color: #63C6C1;
+	float: left;
+	width: 100%;
+	margin-top: 10px;
+}
+.breadcrumb-maguss-common .breadcrumb-item{
+	padding: 3px;
+	float: left;
+	width: auto;
+	color: #FFFFFF;
+	font-size: 14px;
+}
+.breadcrumb-maguss-common .breadcrumb-item a{
+	color: #FFFFFF;
+}
+.breadcrumb-maguss-common .breadcrumb-item.br-first{
+	margin-left: 15px;
+}
+
+.box-checkout-finish{
+	margin-top: 20px;
+	width: 700px;
+	height: 400px;
+	background-color: #63C6C1;
+	border-radius: 20px;
+}
+
+.box-checkout-finish .message-title{
+	margin-top: 30px;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 19px;
+	font-style: italic;
+
+}
+
+.box-checkout-finish .content-item{
+	margin-top: 20px;
+	color: #FFFFFF;
+	font-size: 18px;
+
+}
+
+.box-checkout-finish .content-item.con-first{
+	margin-top: 50px;
+}
+
+.box-checkout-finish .content-item .manage-order{
+	color: #FFFFFF;
+	text-decoration: underline;
+	font-style: italic;
+}
+
+.box-checkout-finish .maguss-logo-bottom{
+	color: #FFFFFF;
+	font-size: 24px;
+	margin-top: 35px;
+	float: right;
+	margin-right: 20px;
+}
+
+.box-checkout-finish .image-letter{
+	color: #FFFFFF;
+	/*background-color: #FFFFFF;*/
+	height: 120px;
+}
+
+.box-checkout-finish .image-letter img{
+	width: 250px;
+}
+
+.box-run-shipping{
+	height: 300px;
+	width: 100%;
+}
+
+.box-run-shipping img{
+	float: right;
+	margin-right: 110px;
+	margin-top: 30px;
+}
+
+
+
+
