@@ -775,6 +775,25 @@ var Maguss = {
                 $(".jscarousal-vertical-forward").hide();
             });
 	},
+	commentFaceBook: function(){
+		$(document).on('click','.lable-link-facebook-comment',function(){
+			var dataOpen = $(this).attr('data-open');
+			if(parseInt(dataOpen) == 0){
+				$('.facebook-comment').show();
+				$(this).attr("data-open","1");
+			}else{
+				$('.facebook-comment').hide();
+				$(this).attr("data-open","0");
+			}
+			(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.3";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+		});
+	},
 	run: function(){
 		this.stickyMenuTop();	
 		this.hoverMenuTopItem();
@@ -783,5 +802,6 @@ var Maguss = {
 		this.doEventProductDetail();
 		this.zoomImage();
 		this.scrollImage();
+		this.commentFaceBook();
 	}
 }
