@@ -15,7 +15,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <div class="text-header"><span><?php echo $heading_title; ?></span></div>
+      <div class="text-header" style="margin-bottom: 5px;"><span><?php echo $heading_title; ?></span></div>
       <?php if ($thumb || $description) { ?>
       <?php /*<div class="row">
         <?php if ($thumb) { ?>

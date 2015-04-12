@@ -2,7 +2,7 @@ body {
 	font-family: 'Myriad Pro', sans-serif;
 	font-weight: 400;
 	color: #666;
-	font-size: 12px;
+	font-size: 13px;
 	line-height: 20px;
 }
 @font-face {
@@ -2033,4 +2033,8 @@ label.required:after {
 
 .row-category-product {
   margin-bottom: 20px !important;
+}
+.pagination>.active>span {
+    background-color: #63c6c1;
+    border-color: #63c6c1;
 }
