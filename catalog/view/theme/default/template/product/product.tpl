@@ -88,7 +88,7 @@
                         <div class="group-color hide">
                             <?php if(count($groupColor['images']) > 0) : ?>
                                 <?php $imgFirst1 = ""; $imgFirstLag1 = ""?>
-                                <div class="col-xs-12 col-sm-12 col-lg-2 box-item-image">
+                                <div class="box-item-image" id="carouselv">
                                   <?php foreach ($groupColor['images'] as $key => $img) : ?>
                                     <?php  if ($key == 0){ 
                                         $imgFirst1 = $img['url']; } 
@@ -577,6 +577,7 @@
 	      </div>
       <?php } ?>
 	    <?php echo $content_bottom; ?>
+      <?php echo $footer; ?>
 <!-- </div> -->
 
 <!-- end content -->
@@ -879,19 +880,3 @@ $(document).ready(function() {
     });  
 });
 </script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#carouselv').jsCarousel({ onthumbnailclick: function(src) { 
-            //alert(src); 
-        }, autoscroll: false, circular: true, masked: false, itemstodisplay: 4, orientation: 'v' });
-        $("#carouselv").hover(function(){
-                $(".jscarousal-vertical-back").show();
-                $(".jscarousal-vertical-forward").show();
-            }, function(){
-                $(".jscarousal-vertical-back").hide();
-                $(".jscarousal-vertical-forward").hide();
-            });
-         });       
-</script>
-<?php echo $footer; ?>
