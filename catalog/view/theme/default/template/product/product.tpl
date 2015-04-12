@@ -471,6 +471,8 @@
           </div>
           <div class="clear"></div>
           <!-- end tab -->
+          <fb:comments href="<?php echo $current_link ?>" width="492" num_posts="2">
+          </fb:comments>
         
       <?php if ($products) { ?>
       	<div class="lable-related"><span><?php echo $text_related; ?></span></div>
