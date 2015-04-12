@@ -679,7 +679,9 @@ var Maguss = {
 		         }
 		        }
 		    });*/
+			that.scrollImage();
 		    that.zoomImage();
+
 		});
 
 		$('.popper_color_detail').click(function() {
@@ -761,6 +763,18 @@ var Maguss = {
 			magnifiersize: [600,560]
 		}); 
 	},
+	scrollImage: function(){
+		$('#carouselv').jsCarousel({ onthumbnailclick: function(src) { 
+            //alert(src); 
+        }, autoscroll: false, circular: true, masked: false, itemstodisplay: 4, orientation: 'v' });
+        $("#carouselv").hover(function(){
+                $(".jscarousal-vertical-back").show();
+                $(".jscarousal-vertical-forward").show();
+            }, function(){
+                $(".jscarousal-vertical-back").hide();
+                $(".jscarousal-vertical-forward").hide();
+            });
+	},
 	run: function(){
 		this.stickyMenuTop();	
 		this.hoverMenuTopItem();
@@ -768,5 +782,6 @@ var Maguss = {
 		this.closePoperEvent();
 		this.doEventProductDetail();
 		this.zoomImage();
+		this.scrollImage();
 	}
 }
