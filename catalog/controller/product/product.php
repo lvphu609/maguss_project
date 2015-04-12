@@ -270,6 +270,8 @@ class ControllerProductProduct extends Controller {
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
 			$data['meta_description'] = $product_info['meta_description'];
+			$data['current_link'] = $this->getCurrentURL();
+			
 
 			//data facebook comment
 			$data['app_id'] = "12";//$setting['app_id'];		
