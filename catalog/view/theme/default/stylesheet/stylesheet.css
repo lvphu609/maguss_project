@@ -2014,6 +2014,6 @@ label.required:after {
 	display: none;
 }
 
-.mn-top-item.active {
+.mn-top-item.active a {
     text-decoration: underline;
 }
