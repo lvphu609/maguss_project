@@ -10,6 +10,10 @@ body {
   font-style: normal;
   src: url("font/MYRIADPRO-REGULAR.OTF");
 }
+@font-face {
+  font-family: 'Myriad Bold';
+  src: url("font/MYRIADPRO-BOLD.OTF");
+}
 
 h1, h2, h3, h4, h5, h6 {
 	color: #444;
@@ -1136,9 +1140,9 @@ h2.price {
 
 .menu-category-left a.list-group-item{
 	border: none;
-	font-family: 'Myriad Pro'
+	font-family: 'Myriad Pro';
+	font-size: 11px;
 }
-
 .menu-category-left a.list-group-item:hover{
 	background: none;
 	color: #63C6C1;
@@ -1146,8 +1150,26 @@ h2.price {
 .menu-category-left a.list-group-item.active{
 	background: none;
 	color: #63C6C1;
-	font-family: 'Myriad Pro'
+	  margin-bottom: -10px;
+	/*font-family: 'Myriad Pro';*/
 	/*font-weight: bold;*/
+}
+.menu-category-left a..list-group-item.list-group-item-child{
+	margin-bottom: -10px;
+}
+
+.menu-category-left a.list-group-item.list-group-item-parent{
+	font-weight: bold;
+	color: #000000;
+	font-family: 'Myriad Bold';
+	margin-bottom: -10px;
+}
+.menu-category-left a.list-group-item.list-group-item-child{
+	margin-bottom: -10px;
+}
+
+.menu-category-left a.list-group-item.list-group-item-parent:active{
+	color: #63C6C1;
 }
 .menu-category-left a.list-group-item.active:hover{
 	background: none;
@@ -1155,7 +1177,8 @@ h2.price {
 
 .menu-category-left a.list-group-item.parent{
 	/*font-weight: bold;*/
-	font-family: 'Myriad Pro'
+	font-family: 'Myriad Bold';
+	margin-bottom: -10px;
 }
 
 footer{
