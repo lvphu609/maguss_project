@@ -1555,8 +1555,9 @@ ul.link-to-social li.item-social img{
 .box-image-product-large .box-item-image{
   padding: 0px;
   margin: 0px;
-  overflow-y: auto;
-  max-height: 500px;
+  overflow: hidden;
+  /*height: 500px;*/
+  height: 450px;
 }
 .box-image-product-large .box-item-image a, 
 .box-image-product-large .box-item-image a img:active,
@@ -1980,5 +1981,8 @@ label.required:after {
 	color: #FFFFFF;
 }
 
+.div-hide{
+	display: none;
+}
 
 

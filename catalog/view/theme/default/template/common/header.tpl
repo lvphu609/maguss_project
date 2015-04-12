@@ -26,6 +26,8 @@
         <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>"/>
     <?php } ?>
     <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="catalog/view/javascript/resource/jcarousel/jsCarousel-2.0.0.js" type="text/javascript"></script>
+    <link href="catalog/view/javascript/resource/jcarousel/jsCarousel-2.0.0.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="catalog/view/javascript/resource/zoomsl-3.0.js"></script>
     <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
