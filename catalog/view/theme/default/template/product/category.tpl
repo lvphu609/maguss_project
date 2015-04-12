@@ -94,9 +94,12 @@
         </div>
       </div>
       <br /> */ ?>
-      <div class="row">
-        <?php foreach ($products as $product) { ?>
-        <div class="product-layout product-grid product-item">
+      <!-- <div class="row"> -->
+        <?php foreach ($products as $key => $product) { ?>
+        <?php if($key%3 == 0) { ?>
+          <div class="row row-category-product col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <?php } ?>
+        <div class="product-layout product-grid product-item col-lg-4 col-md-4 col-sm-4 col-xs-12">
           <div class="product-thumb product-id-<?php echo $product['product_id']; ?>">
             <div class="popper-color-content hide">
               <?php  $product_thumb = ""; ?>
@@ -177,8 +180,12 @@
               </div>
             </div>
           </div>
+        <?php if($key%3 != 0 && $key%3 <= 1) { ?>
+          </div>
         <?php } ?>
-      </div>
+      <?php } ?>
+      <!-- </div> -->
+      <div class="clear"></div>
       <div class="row">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
         <div class="col-sm-6 text-right"><?php echo $results; ?></div>

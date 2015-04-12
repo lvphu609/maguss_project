@@ -239,7 +239,7 @@ class ControllerProductCategory extends Controller {
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
 					'quantity_detail' => $quantityDetail,
 					'is_new' => $result['is_new'],
-					'meta_description' => utf8_substr(strip_tags(html_entity_decode($result['meta_description'], ENT_QUOTES, 'UTF-8')), 0, 50) . '...'
+					'meta_description' => utf8_substr(strip_tags(html_entity_decode($result['meta_description'], ENT_QUOTES, 'UTF-8')), 0, 80) . '...'
 				);
 			}
 
