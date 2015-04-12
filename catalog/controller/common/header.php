@@ -224,6 +224,7 @@ class ControllerCommonHeader extends Controller {
 
 				// Level 1
 				$data['categories'][] = array(
+                    'id' => $category['category_id'],
 					'name'     => $category['name'],
 					'children' => $children_data,
 					'column'   => $category['column'] ? $category['column'] : 1,
@@ -254,6 +255,18 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			$data['class'] = 'common-home';
 		}
+
+        if (isset($this->request->get['path'])) {
+            $parts = explode('_', (string)$this->request->get['path']);
+        } else {
+            $parts = array();
+        }
+
+        if (isset($parts[0])) {
+            $data['category_id'] = $parts[0];
+        } else {
+            $data['category_id'] = 0;
+        }
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/header.tpl')) {
 			return $this->load->view($this->config->get('config_template') . '/template/common/header.tpl', $data);
