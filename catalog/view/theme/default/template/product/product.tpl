@@ -494,7 +494,8 @@
 	          </div>
 	        </div>
 
-	        <?php foreach ($products as $product) { ?>
+	        <?php foreach ($products as $key => $product) { ?>
+            <?php if($key < 3) { ?>
 	        <div class="product-layout product-grid product-item">
 	          <div class="product-thumb product-id-<?php echo $product['product_id']; ?>">
 	            <div class="popper-color-content hide">
@@ -573,6 +574,7 @@
 	              </div>
 	          </div>
 	        </div>
+            <?php } ?>
 	        <?php } ?>
 	      </div>
       <?php } ?>
