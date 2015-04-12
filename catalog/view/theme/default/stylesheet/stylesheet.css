@@ -1360,6 +1360,18 @@ ul.link-to-social li.item-social img{
 	height: auto;
 }
 
+.lable-link-facebook-comment{
+	width: 180px;
+	height: 30px;
+	text-align: center;
+	background-color: #63C6C1;
+	color: #FFFFFF;
+	margin: 5px 0px 5px 10px; 
+	font-weight: bold;
+	line-height: 30px;
+	cursor: pointer;
+}
+
 .lable-related{
 	width: 150px;
 	height: 30px;
@@ -2037,4 +2049,8 @@ label.required:after {
 .pagination>.active>span {
     background-color: #63c6c1;
     border-color: #63c6c1;
+}
+
+.facebook-comment{
+	/*display: none;*/
 }

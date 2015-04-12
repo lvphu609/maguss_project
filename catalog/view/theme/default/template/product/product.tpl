@@ -471,9 +471,21 @@
           </div>
           <div class="clear"></div>
           <!-- end tab -->
-          <fb:comments href="<?php echo $current_link ?>" width="492" num_posts="2">
-          </fb:comments>
-        
+
+        <!-- facebook comment  -->
+        <div class="lable-link-facebook-comment" data-open="1"><span>Liên kết bình luận facebook</span></div>
+        <div class="row facebook-comment">
+            <div class="fb-comments" data-href="<?php echo $current_link ?>" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
+
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.3";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+        </div>
       <?php if ($products) { ?>
       	<div class="lable-related"><span><?php echo $text_related; ?></span></div>
 	    <div class="row box-related-product">
