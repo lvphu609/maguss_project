@@ -112,8 +112,7 @@
                     <?php foreach ($categories as $category) { ?>
                         <?php if ($category['children']) { ?>
                             <span class="mn-top-item <?php echo ($category_id == $category['id'] ? 'active' : ''); ?>">
-                                <a href="<?php echo $category['href']; ?>"
-                                   data-toggle="dropdown"><?php echo $category['name']; ?></a>
+                                <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
                                 <div class="sub-menu-content hidden">
                                     <div class="ui-tooltip-menu-top">
                                         <div class="box-sub-menu row">
