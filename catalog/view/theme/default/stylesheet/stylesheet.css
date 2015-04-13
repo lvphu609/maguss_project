@@ -1610,7 +1610,9 @@ ul.link-to-social li.item-social img{
   margin: 0px;
   overflow: hidden;
   /*height: 500px;*/
-  height: 450px;
+  height: 500px;
+  position: absolute;
+  overflow: hidden !important;
 }
 .box-image-product-large .box-item-image a, 
 .box-image-product-large .box-item-image a img:active,
