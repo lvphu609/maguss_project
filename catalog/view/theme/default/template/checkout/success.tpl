@@ -29,7 +29,9 @@
         <div class="box-checkout-finish text-center col-md-7 col-md-offset-2">
        		<div class="message-title">BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG!</div>
        		<div class="content-success">
-       			<div class="content-item con-first">Mã số đơn hàng của bạn là #543231</div>
+                <?php if (!empty($order_id)) : ?>
+       			    <div class="content-item con-first">Mã số đơn hàng của bạn là <strong>#<?php echo $order_id; ?></strong></div>
+                <?php endif; ?>
        			<div class="content-item">Nhân viên Maguss sẽ liên lạc với bạn trong vòng 24 giờ</div>
 				<div class="content-item">Để theo dõi tình trạng đơn hàng, vui lòng vào 
 					<a href="<?php echo $order; ?>" class="manage-order">Quản lý đơn hàng</a>

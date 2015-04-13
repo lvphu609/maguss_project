@@ -4,6 +4,7 @@ class ControllerCheckoutSuccess extends Controller {
 		$this->load->language('checkout/success');
 
 		if (isset($this->session->data['order_id'])) {
+            $data['order_id'] = $this->session->data['order_id'];
 			$this->cart->clear();
 
 			// Add to activity log
