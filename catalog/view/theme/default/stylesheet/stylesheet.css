@@ -1393,9 +1393,14 @@ ul.link-to-social li.item-social img{
 	float: left;
 	padding: 0px;
 }
+.box-related-product .product-item.item{
+	max-width: 250px;
+	float: left;
+	padding: 0px;
+}
 
 .box-related-product .product-thumb .image {
-	height: auto;
+	/*height: auto;*/
 }
 
 .box-related-product .product-item-current .product-thumb .image {
@@ -1411,6 +1416,10 @@ ul.link-to-social li.item-social img{
 }
 .box-related-product .product-item-current .product-thumb .top-desc-pro-detail{
 	height: 80px;
+}
+.box-related-product .pro-curr-info {
+  height: 55px;
+  overflow: hidden;
 }
 .button-shipping-second{
 	width: 200px !important;

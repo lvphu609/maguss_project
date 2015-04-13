@@ -494,7 +494,7 @@
 	          <div class="product-thumb">
 	            <div class="image"><a href="#"><img src="<?php echo $productCurrent['image_url']; ?>" alt="Quan Jean mua dong" class="img-responsive"></a></div>
 	              <div class="line-item text-center"><hr></div>
-	              <div class="text-center">
+	              <div class="text-center pro-curr-info">
                     <div class="top-desc-pro-detail">
 	                   <span class="title"><a href="#"><?php echo $heading_title; ?></a></span>
                     </div>
@@ -508,7 +508,7 @@
 
 	        <?php foreach ($products as $key => $product) { ?>
             <?php if($key < 3) { ?>
-	        <div class="product-layout product-grid product-item">
+	        <div class="product-layout product-grid product-item item">
 	          <div class="product-thumb product-id-<?php echo $product['product_id']; ?>">
 	            <div class="popper-color-content hide">
 	              <?php  $product_thumb = ""; ?>
