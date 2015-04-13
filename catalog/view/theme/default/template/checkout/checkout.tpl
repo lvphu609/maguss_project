@@ -99,13 +99,13 @@
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="padding: 0px 2px 0px 0px;">
                         <div class="form-group pan-checkout-note">
                             <label for="txt-note"><strong>Ghi chú cho đơn hàng</strong></label>
                             <textarea id="txt-note" name="note" class="form-control"></textarea>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="padding: 0px 0px 0px 2px;">
                         <div class="pan-checkout-price">
                             <div class="row">
                                 <div class="col-xs-6 text-bold">THÀNH TIỀN</div>
