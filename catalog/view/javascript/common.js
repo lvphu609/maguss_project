@@ -768,10 +768,18 @@ var Maguss = {
         });
 	},
 	scrollImage: function(){
+		var that = this;
+		var imgAdditional = $("#carouselv").find('.img-additional');
+		
 		$('#carouselv').jsCarousel({ onthumbnailclick: function(src) { 
             //alert(src); 
         }, autoscroll: false, circular: true, masked: false, itemstodisplay: 4, orientation: 'v' });
-        $("#carouselv").hover(function(){
+        if(imgAdditional.length > 4){
+			that.hoverScrollImage();
+		}
+	},
+	hoverScrollImage: function(){
+		$("#carouselv").hover(function(){
                 $(".jscarousal-vertical-back").show();
                 $(".jscarousal-vertical-forward").show();
             }, function(){
