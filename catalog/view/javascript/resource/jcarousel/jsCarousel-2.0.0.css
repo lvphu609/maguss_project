@@ -71,7 +71,7 @@
 	margin: 0;
 	padding: 0;
 	position: relative;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 .jscarousal-vertical-back, .jscarousal-vertical-forward
 {
@@ -94,6 +94,8 @@
 	text-align: center;
 	/*background-color: #6FE5DF;*/
 	opacity: .9;
+	margin-top: -25px;
+  	position: absolute;
 
 }
 .jscarousal-vertical-forward
@@ -106,6 +108,9 @@
 	text-align: center;
 	/*background-color: #6FE5DF;*/
 	opacity: .9;
+	bottom: 5px;
+	position: absolute;
+  	z-index: 999999;
 }
 
 .jscarousal-vertical-forward a, .jscarousal-vertical-back a
@@ -185,4 +190,14 @@
 	padding: 0px;
 	margin: 0px;
 	height: 520px;
+	/*margin-top: -30px;*/
+}
+.jscarousal-contents-vertical .visible
+{
+	display: block;
+	/*top: 75px !important;*/
+}
+.jscarousal-contents-vertical .hidden
+{
+	/*top: 75px !important;*/
 }
