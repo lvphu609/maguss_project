@@ -31,16 +31,16 @@
             <div id="content" class="<?php echo $class; ?> pan-checkout"><?php echo $content_top; ?>
                 <h3 class="checkout-title">THANH TOÁN</h3>
 
-                <div class="row text-center tbl-title">
+                <div class="row text-center tbl-title text-space-1">
                     <div class="col-md-4">Tóm tắt đơn hàng</div>
                     <div class="col-md-4">Địa chỉ giao hàng</div>
                     <div class="col-md-4">Hình thức thanh toán</div>
                 </div>
-                <div class="row text-center tbl-content">
+                <div class="row text-center tbl-content" style="border: 1px solid #63c6c1">
                     <div class="col-md-4">
                         <?php echo $confirm_product; ?>
                     </div>
-                    <div class="col-md-4 pan-address-shipping">
+                    <div class="col-md-4 pan-address-shipping" style="border-left: 1px solid #63c6c1; border-right: 1px solid #63c6c1;">
                         <div class="panel-body form-horizontal">
                             <?php if ($logged) : ?>
                                 <p><?php echo $address; ?></p>
@@ -61,7 +61,7 @@
                                 <div class="form-group">
                                     <label for="input-address-address-1" class="col-sm-3 control-label required"><strong>Địa chỉ</strong></label>
                                     <div class="col-sm-9">
-                                        <textarea class="form-control" name="address_1" id="input-address-address-1" placeholder="Địa chỉ"></textarea>
+                                        <textarea class="form-control" name="address_1" id="input-address-address-1" placeholder="Địa chỉ" style="resize: none;"></textarea>
                                         <input type="hidden" name="city" value="city">
                                         <input type="hidden" name="postcode" value="84">
                                         <input type="hidden" name="country_id" value="230">

@@ -1828,9 +1828,12 @@ ul.link-to-social li.item-social img{
 .pan-order-preview .text-right{
     margin-bottom: 10px;
 }
-.pan-payment, .pan-order-preview a, .pan-address-shipping, .pan-address-shipping a {
+.pan-payment, .pan-order-preview a, .pan-address-shipping, .pan-address-shipping a, .pan-checkout-note label {
     color: #63c6c1;
-    font-size: 12px;
+    font-size: 14px;
+}
+.text-space-1, .pan-checkout-price .text-bold {
+    letter-spacing: 1px;
 }
 .pan-order-preview p {
     font-size: 15px;
