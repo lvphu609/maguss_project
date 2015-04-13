@@ -40,69 +40,71 @@ class ControllerModuleViewed extends Controller {
 			$setting['limit'] = 4;
 		}
 
-		$products = array_slice($products, 0, (int)$setting['limit']);
+		$products = array_slice($products, 0, (int)$setting['limit'] + 1);
 
-		foreach ($products as $product_id) {
-			$product_info = $this->model_catalog_product->getProduct($product_id);
+		foreach ($products as $key => $product_id) {
+			if($key != 0){
+				$product_info = $this->model_catalog_product->getProduct($product_id);
 
-			if ($product_info) {
-				if ($product_info['image']) {
-					$image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
-				} else {
-					$image = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
-				}
+				if ($product_info) {
+					if ($product_info['image']) {
+						$image = $this->model_tool_image->resize($product_info['image'], $setting['width'], $setting['height']);
+					} else {
+						$image = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
+					}
 
-				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
-					$price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));
-				} else {
-					$price = false;
-				}
+					if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
+						$price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));
+					} else {
+						$price = false;
+					}
 
-				if ((float)$product_info['special']) {
-					$special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')));
-				} else {
-					$special = false;
-				}
+					if ((float)$product_info['special']) {
+						$special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')));
+					} else {
+						$special = false;
+					}
 
-				if ($this->config->get('config_tax')) {
-					$tax = $this->currency->format((float)$product_info['special'] ? $product_info['special'] : $product_info['price']);
-				} else {
-					$tax = false;
-				}
+					if ($this->config->get('config_tax')) {
+						$tax = $this->currency->format((float)$product_info['special'] ? $product_info['special'] : $product_info['price']);
+					} else {
+						$tax = false;
+					}
 
-				if ($this->config->get('config_review_status')) {
-					$rating = $product_info['rating'];
-				} else {
-					$rating = false;
-				}
+					if ($this->config->get('config_review_status')) {
+						$rating = $product_info['rating'];
+					} else {
+						$rating = false;
+					}
 
-				//get quantity detail
-				$quantity_detail = !empty($product_info['quantity_detail']) ? $product_info['quantity_detail'] : '[]' ;
-				$quantityDetail = json_decode($quantity_detail, true);
-				if (count($quantityDetail) > 0) {
-					foreach ($quantityDetail as $key => $value) {
-						if (count($value['images']) > 0) {
-							foreach ($value['images'] as $imgKey => $img) {
-								$quantityDetail[$key]['images'][$imgKey]['url'] = $this->model_tool_image->resize($img['name'], 300, 400);
+					//get quantity detail
+					$quantity_detail = !empty($product_info['quantity_detail']) ? $product_info['quantity_detail'] : '[]' ;
+					$quantityDetail = json_decode($quantity_detail, true);
+					if (count($quantityDetail) > 0) {
+						foreach ($quantityDetail as $key => $value) {
+							if (count($value['images']) > 0) {
+								foreach ($value['images'] as $imgKey => $img) {
+									$quantityDetail[$key]['images'][$imgKey]['url'] = $this->model_tool_image->resize($img['name'], 300, 400);
+								}
 							}
 						}
+						$quantityDetail = $quantityDetail;
+					} else {
+						$quantityDetail = array();
 					}
-					$quantityDetail = $quantityDetail;
-				} else {
-					$quantityDetail = array();
+					$data['products'][] = array(
+						'product_id'  => $product_info['product_id'],
+						'thumb'       => $image,
+						'name'        => $product_info['name'],
+						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
+						'price'       => $price,
+						'special'     => $special,
+						'tax'         => $tax,
+						'rating'      => $rating,
+						'href'        => $this->url->link('product/product', 'product_id=' . $product_info['product_id']),
+						'quantity_detail' => $quantityDetail
+					);
 				}
-				$data['products'][] = array(
-					'product_id'  => $product_info['product_id'],
-					'thumb'       => $image,
-					'name'        => $product_info['name'],
-					'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
-					'price'       => $price,
-					'special'     => $special,
-					'tax'         => $tax,
-					'rating'      => $rating,
-					'href'        => $this->url->link('product/product', 'product_id=' . $product_info['product_id']),
-					'quantity_detail' => $quantityDetail
-				);
 			}
 		}
 

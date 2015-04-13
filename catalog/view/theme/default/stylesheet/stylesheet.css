@@ -767,6 +767,8 @@ h2.price {
 
 .mn-top-item{
 	padding: 15px;
+	cursor: pointer;
+	margin-left: 5px;
 }
 
 .img-responsive{
@@ -1076,7 +1078,7 @@ h2.price {
 }
 
 .ui-tooltip.ui-tooltip-content-menu-top:hover{
-	opacity: 0.97;
+	opacity: 0.96;
 	background-color: none !important;
 }
 .box-sub-menu{
@@ -1164,8 +1166,9 @@ h2.price {
 	/*font-family: 'Myriad Pro';*/
 	/*font-weight: bold;*/
 }
-.menu-category-left a..list-group-item.list-group-item-child{
+.menu-category-left a.list-group-item.list-group-item-child{
 	margin-bottom: -10px;
+	color: #9c9c9c !important;
 }
 
 .menu-category-left a.list-group-item.list-group-item-parent{
@@ -1175,7 +1178,7 @@ h2.price {
 	margin-bottom: -10px;
 }
 .menu-category-left a.list-group-item.list-group-item-child{
-	margin-bottom: -10px;
+	margin-bottom: -15px;
 }
 
 .menu-category-left a.list-group-item.list-group-item-parent:active{
@@ -1762,6 +1765,9 @@ ul.link-to-social li.item-social img{
 	background-color: #6FE5DF;
 }
 
+.pro-block.pro-desc{
+	margin-top: -30px;
+}
 .pro-block.pro-desc .pro-desc-title{
 	font-size: 13px;
 	font-weight: bold;
