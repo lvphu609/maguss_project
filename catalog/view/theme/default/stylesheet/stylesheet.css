@@ -1355,8 +1355,7 @@ ul.link-to-social li.item-social img{
 }
 
 .search-result .product-item{
-	min-width: 250px;
-  	max-width: 300px;
+	width: 250px;
 	float: left;
 }
 

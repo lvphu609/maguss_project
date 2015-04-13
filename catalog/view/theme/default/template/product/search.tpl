@@ -193,10 +193,10 @@
         </div>
         <?php } ?>
       </div>
-      <?php /*<div class="row">
+      <div class="row">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
         <div class="col-sm-6 text-right"><?php echo $results; ?></div>
-      </div> */ ?>
+      </div>
       <?php } else { ?>
       <div class="search-empty"><p><?php echo $text_empty; ?></p></div>
       <?php } ?>
