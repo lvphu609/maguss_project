@@ -33,12 +33,12 @@ $_['text_year']                = 'year';
 
 // Entry
 $_['entry_qty']                = 'Qty';
-$_['entry_name']               = 'Your Name';
-$_['entry_review']             = 'Your Review';
-$_['entry_rating']             = 'Rating';
-$_['entry_good']               = 'Good';
-$_['entry_bad']                = 'Bad';
-$_['entry_captcha']            = 'Enter the code in the box below';
+$_['entry_name']               = 'Tên của bạn';
+$_['entry_review']             = 'Đánh giá của bạn';
+$_['entry_rating']             = 'Đánh giá xếp hạng';
+$_['entry_good']               = 'Tốt';
+$_['entry_bad']                = 'Tệ';
+$_['entry_captcha']            = 'Nhập mã kiểm tra vào ô bên dưới';
 
 // Tabs
 $_['tab_description']          = 'Mô tả sản phẩm';
@@ -46,7 +46,7 @@ $_['tab_attribute']            = 'Specification';
 $_['tab_review']               = 'Bình luận';
 
 // Error
-$_['error_name']               = 'Warning: Review Name must be between 3 and 25 characters!';
-$_['error_text']               = 'Warning: Review Text must be between 25 and 1000 characters!';
-$_['error_rating']             = 'Warning: Please select a review rating!';
-$_['error_captcha']            = 'Warning: Verification code does not match the image!';
+$_['error_name']               = 'Thông báo:Tên đánh giá phải có từ 3 đến 25 kí tự!';
+$_['error_text']               = 'Thông báo: Nội dung đánh giá phải có từ 25 đến 1000 ký tự!';
+$_['error_rating']             = 'Thông báo:Vui lòng đánh giá xếp hạng!';
+$_['error_captcha']            = 'Thông báo: Mã xác nhận không phù hợp với hình ảnh!';

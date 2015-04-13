@@ -1671,6 +1671,9 @@ ul.link-to-social li.item-social img{
 .tab-product-info ul li{
 	font-weight: bold;
 }
+.tab-product-info ul li a{
+	color: #63c6c1;
+}
 .tab-product-info ul li.active a{
 	background-color: #63c6c1;
 	color: #FFFFFF;
@@ -2081,4 +2084,12 @@ label.required:after {
 .facebook-comment{
 	/*display: none;*/
 	margin-left: 15px;
+}
+
+.ico-forward, .ico-back{
+	font-size: 38px;
+}
+
+#tab-review{
+	color: #63c6c1;
 }

@@ -18,8 +18,8 @@
                     oclass = 'vertical';
                 var slidercontents = $(this).addClass('jscarousal-contents-' + oclass + '');
                 var slider = $('<div/>').addClass('jscarousal-' + oclass + ' col-xs-12 col-sm-12 col-lg-2 ').attr('id', slidercontents.attr('id'));
-                var backbutton = $('<div/>').html($('<div/>').addClass('jscarousal-' + oclass + '-back').html('<a class="glyphicon glyphicon-chevron-up"></a>'));
-                var forwardbutton = $('<div/>').addClass('jscarousal-' + oclass + '-forward').html('<a class="glyphicon glyphicon-chevron-down"></a>');
+                var backbutton = $('<div/>').html($('<div/>').addClass('jscarousal-' + oclass + '-back').html('<a><i class="fa fa-angle-up ico-back"></i></a>'));
+                var forwardbutton = $('<div/>').addClass('jscarousal-' + oclass + '-forward').html('<a><i class="fa fa-angle-down ico-forward"></i></a>');
 
                 slidercontents.removeAttr('id');
                 slidercontents.before(slider);
