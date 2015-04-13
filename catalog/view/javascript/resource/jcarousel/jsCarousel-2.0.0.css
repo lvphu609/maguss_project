@@ -82,6 +82,7 @@
 	position: relative;
 	cursor: pointer;
 	z-index:100;
+	display: none;
 }
 .jscarousal-vertical-back
 {
