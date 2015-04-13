@@ -13,4 +13,4 @@ $_['text_download']      = 'Downloads';
 $_['text_logout']        = 'Đăng xuất';
 $_['text_checkout']      = 'THANH TOÁN';
 $_['text_search']        = 'Search';
-$_['text_all']           = 'xem tất cả';
+$_['text_all']           = 'Xem tất cả';
