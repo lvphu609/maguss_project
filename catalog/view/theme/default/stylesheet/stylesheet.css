@@ -1843,11 +1843,13 @@ ul.link-to-social li.item-social img{
 .pan-address-shipping {
     position: relative;
     height: 100%;
+    padding-bottom: 1000px;
+    margin-bottom: -1000px;
+    border-left: 1px solid #63c6c1;
+    border-right: 1px solid #63c6c1;
 }
 .pan-address-shipping #lik-change-address {
-    position: absolute;
-    bottom: 5px;
-    right: 20px;
+    float: right;
 }
 label.required:after {
     content: " *";
