@@ -36,11 +36,11 @@
                     <div class="col-md-4">Địa chỉ giao hàng</div>
                     <div class="col-md-4">Hình thức thanh toán</div>
                 </div>
-                <div class="row text-center tbl-content" style="border: 1px solid #63c6c1">
+                <div class="row text-center tbl-content" style="border: 1px solid #63c6c1; overflow: hidden;">
                     <div class="col-md-4">
                         <?php echo $confirm_product; ?>
                     </div>
-                    <div class="col-md-4 pan-address-shipping" style="border-left: 1px solid #63c6c1; border-right: 1px solid #63c6c1;">
+                    <div class="col-md-4 pan-address-shipping">
                         <div class="panel-body form-horizontal">
                             <?php if ($logged) : ?>
                                 <p><?php echo $address; ?></p>
