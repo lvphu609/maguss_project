@@ -54,11 +54,11 @@
 <header class="box-menu-top">
     <div class="mg-menu-top">
         <div class="mn-top">
-            <div class="pull-left col-xs-5 col-sm-4 col-md-3 col-lg-2 mgtop20">
+            <div class="pull-left col-xs-5 col-sm-4 col-md-3 col-lg-2 mgtop5">
                 <?php echo $search; ?>
             </div>
             <?php echo $language; ?>
-            <div id="top-links" class="nav pull-right mgtop20">
+            <div id="top-links" class="nav pull-right mgtop5">
                 <ul class="list-inline">
                     <li>
                         <a href="<?php echo $contact; ?>">
