@@ -1890,6 +1890,8 @@ label.required:after {
     font-weight: bold;
     padding-left: 40px;
     padding-right: 40px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
 }
 .pan-order-slogan {
     color: #63c6c1;
