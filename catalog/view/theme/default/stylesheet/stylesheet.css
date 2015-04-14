@@ -1818,7 +1818,7 @@ ul.link-to-social li.item-social img{
 	margin-bottom: 30px;
 	margin-top: -20px;
 }
-.box-info-product-detail .pro-button-shipping .button-shipping {
+.box-info-product-detail .pro-button-shipping .button-shipping, #btn-shopping-cart-checkout {
 	max-width: 150px !important;
 	color: #FFFFFF;
 	font-weight: bold;
