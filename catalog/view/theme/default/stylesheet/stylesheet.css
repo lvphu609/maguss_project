@@ -2149,3 +2149,15 @@ label.required:after {
 	background-color: #FFFFFF;
 	margin-top: -35px;
 }
+
+.text-color-common{
+	color: #63c6c1;
+}
+
+a.text-color-common:hover{
+	color: #000000;
+}
+
+.well.box-account-common{
+	background-color:#dff1ef;
+}
