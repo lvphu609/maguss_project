@@ -1755,7 +1755,8 @@ ul.link-to-social li.item-social img{
 .pro-block.pro-option .pro-option-select .pro-option-select-size{
 	border: 1px solid #63c6c1;
 	height: 25px;
-	min-width: 50px;
+	width: 90px;
+  	margin-right: 5px;
 	color:  #109B94;
 	font-size: 12px;
 	background-color: #6FE5DF;
@@ -1763,7 +1764,7 @@ ul.link-to-social li.item-social img{
 .pro-block.pro-option .pro-option-select .pro-option-select-quantity{
 	border: 1px solid #63c6c1;
 	height: 25px;
-	min-width: 80px;
+	width: 90px;
 	color:  #109B94;
 	font-size: 12px;
 	background-color: #6FE5DF;
@@ -2109,4 +2110,25 @@ label.required:after {
 }
 .text-pagination-common{
 	color: #dddddd;
+}
+
+
+.name-holder::-webkit-input-placeholder
+{
+  color:    #109B94;
+}
+
+.name-holder:-moz-placeholder
+{
+  color:    #109B94;
+}
+
+.name-holder::-moz-placeholder
+{
+  color:    #109B94;
+}
+
+.name-holder:-ms-input-placeholder
+{
+  color:    #109B94;
 }

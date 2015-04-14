@@ -133,12 +133,13 @@
                         </option>
                       <?php endforeach; ?>
                     </select>
-                    <select name="quantity" class="pro-option-select-quantity">
+                    <?php /*<select name="quantity" class="pro-option-select-quantity">
                       <option value="">Số lượng</option>
                     <?php for($i=1 ; $i <=100; $i++) { ?>
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php } ?>
-                  </select>
+                  </select> */ ?>
+                  <input placeholder="Số lượng" type="text" name="quantity" class="pro-option-select-quantity name-holder" min="1">
                 <?php endif; ?>
                 <?php // echo $text_stock;  echo $stock; ?>
                 <!-- <span>&nbsp; Vui lòng để lại email/điện thoạiđể liên lạc khi có hàng</span> -->
@@ -172,6 +173,9 @@
                   <!-- AddThis Button BEGIN -->
                     <div class="addthis_toolbox addthis_default_style">
                         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                        <a class="addthis_button_tweet"></a> 
+                        <a class="addthis_button_pinterest_pinit"></a> 
+                        <a class="addthis_counter addthis_pill_style"></a>
                     </div>
                     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script> 
                   <!-- AddThis Button END --> 
@@ -603,6 +607,10 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 });
 </script>
 <script type="text/javascript">
+function isInt(n){
+        return Number(n)===n && n%1===0;
+}
+
 $('#button-cart').on('click', function() {
     var btn = $(this);
 	$.ajax({
@@ -619,7 +627,11 @@ $('#button-cart').on('click', function() {
         return false;
       }else 
       if(quantity == ""){
-          alert('Bạn chưa chọn số lượng!');
+          alert('Bạn chưa nhập số lượng!');
+          return false;
+      }
+      if(!$.isNumeric(quantity) || parseInt(quantity) != quantity){
+          alert('Số lượng sản phẩm nhập vào không hợp lệ!');
           return false;
       }
 			btn.prop('disabled', true);
@@ -651,7 +663,7 @@ $('#button-cart').on('click', function() {
 				}
 				
         if (json['error']['over_quantity']) {
-            $('select[name=\'quantity\']').after('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + json['error']['over_quantity'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+            $('input[name=\'quantity\']').after('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + json['error']['over_quantity'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
         }
 
 				// Highlight any found errors
@@ -687,7 +699,11 @@ $('#button-cart-second').on('click', function() {
         return false;
       }else 
       if(quantity == ""){
-          alert('Bạn chưa chọn số lượng!');
+          alert('Bạn chưa nhập số lượng!');
+          return false;
+      }
+      if(!$.isNumeric(quantity) || parseInt(quantity) != quantity){
+          alert('Số lượng sản phẩm nhập vào không hợp lệ!');
           return false;
       }
             btn.prop('disabled', true);
@@ -702,35 +718,39 @@ $('#button-cart-second').on('click', function() {
             $('.form-group').removeClass('has-error');
 
             if (json['error']) {
-                if (json['error']['option']) {
-                    for (i in json['error']['option']) {
-                        var element = $('#input-option' + i.replace('_', '-'));
-                        
-                        if (element.parent().hasClass('input-group')) {
-                            element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-                        } else {
-                            element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-                        }
-                    }
+              if (json['error']['option']) {
+                for (i in json['error']['option']) {
+                  var element = $('#input-option' + i.replace('_', '-'));
+                  
+                  if (element.parent().hasClass('input-group')) {
+                    element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+                  } else {
+                    element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+                  }
                 }
-                
-                if (json['error']['recurring']) {
-                    $('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
-                }
-                
-                // Highlight any found errors
-                $('.text-danger').parent().addClass('has-error');
+              }
+              
+              if (json['error']['recurring']) {
+                $('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+              }
+              
+              if (json['error']['over_quantity']) {
+                  $('input[name=\'quantity\']').after('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + json['error']['over_quantity'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+              }
+
+              // Highlight any found errors
+              $('.text-danger').parent().addClass('has-error');
             }
             
             if (json['success']) {
-                /*$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-                
-                $('#cart-total').html(json['total']);
-                
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
-                
-                $('#cart > ul').load('index.php?route=common/cart/info ul li');*/
-                window.location = json['shopping_cart_url'];
+              /*$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+              
+              $('#cart-total').html(json['total']);
+              
+              $('html, body').animate({ scrollTop: 0 }, 'slow');
+              
+              $('#cart > ul').load('index.php?route=common/cart/info ul li');*/
+                      window.location = json['shopping_cart_url'];
             }
         }
     });
