@@ -45,7 +45,7 @@
                             <?php if ($logged) : ?>
                                 <p><?php echo $address; ?></p>
                             <?php else : ?>
-                                <a href="<?php echo $register_url; ?>">Đăng ký</a>/<a href="<?php echo $login_url; ?>">Đăng nhập</a>
+                                <a href="<?php echo $register_url; ?>" style="font-style: italic; font-weight: bold;">Đăng ký</a>/<a href="<?php echo $login_url; ?>" style="font-style: italic; font-weight: bold;">Đăng nhập</a>
                                 <br><br>
                                 <p class="text-left"><strong>Nếu bạn không muốn đăng ký, vui lòng điền thông tin giao hàng:</strong></p>
                                 <input type="hidden" id="guest-checkout">
@@ -121,7 +121,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-center">
                         <?php if (!empty($totals['shipping'])) : ?>
                             <button type="button" class="btn btn-lg btn-maguss btn-finish-order" id="btn-finish-order"> HOÀN TẤT </button>
                         <?php else : ?>
@@ -130,11 +130,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-5 col-md-offset-3">
+                    <div class="col-md-5 col-md-offset-3" style="padding: 0px 2px 0px 0px;">
                         <p class="text-right pan-order-slogan">
                             Đơn hàng sẽ được giao từ 3 đến 5 ngày làm việc (thứ 2 - thứ 7)
                             <br>
-                            Để yêu cầu giao hàng nhanh, vui lòng liên hệ <strong>1900 1800</strong>
+                            Để yêu cầu giao hàng nhanh, vui lòng liên hệ <strong>093 266 7429</strong>
                         </p>
                     </div>
                 </div>
