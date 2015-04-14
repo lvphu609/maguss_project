@@ -475,6 +475,7 @@
               js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.3";
               fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));</script>
+            <div class="hide-link-face"></div>
         </div>
       <?php if ($products) { ?>
       	<div class="lable-related"><span><?php echo $text_related; ?></span></div>
