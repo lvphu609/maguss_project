@@ -20,7 +20,7 @@
         <?php } ?>
         <div class="pro-box-image <?php echo $class; ?>">
             <!-- box large -->
-            <div class="box-image-product-large col-xs-12 col-sm-12 col-lg-12" id="box-product-image-lg">
+            <div class="box-image-product-large col-xs-12 col-sm-12 col-lg-12 div-hidden" id="box-product-image-lg">
                 <?php if(count($group_product_color)>0 && !empty($group_product_color[0]) ) : ?>
                   <?php $groupColor = $group_product_color[0]; ?>
                       <?php if(count($groupColor['images']) > 0) : ?>
@@ -379,94 +379,80 @@
             <div class="tab-content">
               <div class="tab-pane active" id="tab-description"><?php echo $description; ?></div>
               <?php if ($attribute_groups) { ?>
-              <div class="tab-pane" id="tab-specification">
-                <table class="table table-bordered">
-                  <?php foreach ($attribute_groups as $attribute_group) { ?>
-                  <thead>
-                    <tr>
-                      <td colspan="2"><strong><?php echo $attribute_group['name']; ?></strong></td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
-                    <tr>
-                      <td><?php echo $attribute['name']; ?></td>
-                      <td><?php echo $attribute['text']; ?></td>
-                    </tr>
-                    <?php } ?>
-                  </tbody>
+            <div class="tab-pane" id="tab-specification">
+              <table class="table table-bordered">
+                <?php foreach ($attribute_groups as $attribute_group) { ?>
+                <thead>
+                  <tr>
+                    <td colspan="2"><strong><?php echo $attribute_group['name']; ?></strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
+                  <tr>
+                    <td><?php echo $attribute['name']; ?></td>
+                    <td><?php echo $attribute['text']; ?></td>
+                  </tr>
                   <?php } ?>
-                </table>
-              </div>
-              <?php } ?>
-              <?php if ($review_status) { ?>
-              <div class="tab-pane" id="tab-review">
-                <?php /*<div class="row">
+                </tbody>
+                <?php } ?>
+              </table>
+            </div>
+            <?php } ?>
+            <?php if ($review_status) { ?>
+            <div class="tab-pane" id="tab-review">
+              <form class="form-horizontal">
+                <div id="review"></div>
+                <div class="text-header" style="margin-bottom: 5px;"><span><?php echo $text_write; ?></span></div>
+                <?php if ($review_guest) { ?>
+                <div class="form-group required">
                   <div class="col-sm-12">
-                  <div class="fb-comments" data-href="<?php echo $url; ?>" data-colorscheme="<?php echo $color_scheme; ?>" data-numposts="<?php echo $num_posts; ?>" data-order-by="<?php echo $order_by; ?>" data-width="100%"></div>
+                    <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
+                    <input type="text" name="name" value="" id="input-name" class="form-control" />
                   </div>
                 </div>
-
-                <div id="fb-root"></div>
-                <script>(function(d, s, id) {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (d.getElementById(id)) return;
-                  js = d.createElement(s); js.id = id;
-                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo $app_id; ?>&version=v2.0";
-                  fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script> */ ?>
-                <?php /*<form class="form-horizontal">
-                  <div id="review"></div>
-                  <h2><?php echo $text_write; ?></h2>
-                  <?php if ($review_guest) { ?>
-                  <div class="form-group required">
-                    <div class="col-sm-12">
-                      <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
-                      <input type="text" name="name" value="" id="input-name" class="form-control" />
-                    </div>
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label" for="input-review"><?php echo $entry_review; ?></label>
+                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+                    <!-- <div class="help-block"><?php // echo $text_note; ?></div> -->
                   </div>
-                  <div class="form-group required">
-                    <div class="col-sm-12">
-                      <label class="control-label" for="input-review"><?php echo $entry_review; ?></label>
-                      <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-                      <div class="help-block"><?php echo $text_note; ?></div>
-                    </div>
+                </div>
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label"><?php echo $entry_rating; ?></label>
+                    &nbsp;&nbsp;&nbsp; <?php echo $entry_bad; ?>&nbsp;
+                    <input type="radio" name="rating" value="1" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="2" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="3" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="4" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="5" />
+                    &nbsp;<?php echo $entry_good; ?></div>
+                </div>
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label" for="input-captcha"><?php echo $entry_captcha; ?></label>
+                    <input type="text" name="captcha" value="" id="input-captcha" class="form-control" />
                   </div>
-                  <div class="form-group required">
-                    <div class="col-sm-12">
-                      <label class="control-label"><?php echo $entry_rating; ?></label>
-                      &nbsp;&nbsp;&nbsp; <?php echo $entry_bad; ?>&nbsp;
-                      <input type="radio" name="rating" value="1" />
-                      &nbsp;
-                      <input type="radio" name="rating" value="2" />
-                      &nbsp;
-                      <input type="radio" name="rating" value="3" />
-                      &nbsp;
-                      <input type="radio" name="rating" value="4" />
-                      &nbsp;
-                      <input type="radio" name="rating" value="5" />
-                      &nbsp;<?php echo $entry_good; ?></div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12"> <img src="index.php?route=tool/captcha" alt="" id="captcha" /> </div>
+                </div>
+                <div class="buttons">
+                  <div class="pull-right">
+                    <a href="javascript:;" class="btn btn-maguss-common" id="button-review" data-loading-text="<?php echo $text_loading; ?>" >GỬI</a>
                   </div>
-                  <div class="form-group required">
-                    <div class="col-sm-12">
-                      <label class="control-label" for="input-captcha"><?php echo $entry_captcha; ?></label>
-                      <input type="text" name="captcha" value="" id="input-captcha" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-12"> <img src="index.php?route=tool/captcha" alt="" id="captcha" /> </div>
-                  </div>
-                  <div class="buttons">
-                    <div class="pull-right">
-                      <button type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary"><?php echo $button_continue; ?></button>
-                    </div>
-                  </div>
-                  <?php } else { ?>
-                  <?php echo $text_login; ?>
-                  <?php } ?>
-                </form> */ ?>
-              </div>
-              <?php } ?>
+                </div>
+                <?php } else { ?>
+                <?php echo $text_login; ?>
+                <?php } ?>
+              </form>
+            </div>
+            <?php } ?>
             </div>
           </div>
           <div class="clear"></div>
@@ -492,9 +478,9 @@
 	    	
 	    	<div class="product-layout product-grid product-item product-item-current">
 	          <div class="product-thumb">
-	            <div class="image"><a href="#"><img src="<?php echo $productCurrent['image_url']; ?>" alt="Quan Jean mua dong" class="img-responsive"></a></div>
+	            <div class="image"><a href="javascript:;"><img src="<?php echo $productCurrent['image_url']; ?>" alt="Quan Jean mua dong" class="img-responsive"></a></div>
 	              <div class="line-item text-center"><hr></div>
-	              <div class="text-center">
+	              <div class="text-center pro-curr-info">
                     <div class="top-desc-pro-detail">
 	                   <span class="title"><a href="#"><?php echo $heading_title; ?></a></span>
                     </div>
@@ -508,7 +494,7 @@
 
 	        <?php foreach ($products as $key => $product) { ?>
             <?php if($key < 3) { ?>
-	        <div class="product-layout product-grid product-item">
+	        <div class="product-layout product-grid product-item item">
 	          <div class="product-thumb product-id-<?php echo $product['product_id']; ?>">
 	            <div class="popper-color-content hide">
 	              <?php  $product_thumb = ""; ?>
@@ -749,7 +735,39 @@ $('#button-cart-second').on('click', function() {
         }
     });
 });
-
+$('#button-review').on('click', function() {
+    // alert('ok');
+    $.ajax({
+        url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
+        type: 'post',
+        dataType: 'json',
+        data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : '') + '&captcha=' + encodeURIComponent($('input[name=\'captcha\']').val()),
+        beforeSend: function() {
+            // $('#button-review').button('loading');
+        },
+        complete: function() {
+            // $('#button-review').button('reset');
+            $('#captcha').attr('src', 'index.php?route=tool/captcha#'+new Date().getTime());
+            $('input[name=\'captcha\']').val('');
+        },
+        success: function(json) {
+            $('.alert-success, .alert-danger').remove();
+            
+            if (json['error']) {
+                $('#review').after('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+            }
+            
+            if (json['success']) {
+                $('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+                
+                $('input[name=\'name\']').val('');
+                $('textarea[name=\'text\']').val('');
+                $('input[name=\'rating\']:checked').prop('checked', false);
+                $('input[name=\'captcha\']').val('');
+            }
+        }
+    });
+});
 </script>
 <script type="text/javascript">
 $('.date').datetimepicker({
@@ -826,41 +844,10 @@ $('#review').delegate('.pagination a', 'click', function(e) {
 
 $('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
-$('#button-review').on('click', function() {
-	$.ajax({
-		url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
-		type: 'post',
-		dataType: 'json',
-		data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : '') + '&captcha=' + encodeURIComponent($('input[name=\'captcha\']').val()),
-		beforeSend: function() {
-			$('#button-review').button('loading');
-		},
-		complete: function() {
-			$('#button-review').button('reset');
-			$('#captcha').attr('src', 'index.php?route=tool/captcha#'+new Date().getTime());
-			$('input[name=\'captcha\']').val('');
-		},
-		success: function(json) {
-			$('.alert-success, .alert-danger').remove();
-			
-			if (json['error']) {
-				$('#review').after('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
-			}
-			
-			if (json['success']) {
-				$('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
-				
-				$('input[name=\'name\']').val('');
-				$('textarea[name=\'text\']').val('');
-				$('input[name=\'rating\']:checked').prop('checked', false);
-				$('input[name=\'captcha\']').val('');
-			}
-		}
-	});
-});
+
 
 $(document).ready(function() {
-	$('.thumbnails').magnificPopup({
+	/*$('.thumbnails').magnificPopup({
       type:'image',
       delegate: 'a',
       gallery: {
@@ -891,6 +878,6 @@ $(document).ready(function() {
             });
          }
         }
-    });  
+    });  */
 });
 </script>
