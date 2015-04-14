@@ -760,8 +760,8 @@ var Maguss = {
 			zoomrange: [3, 3],
 			magnifierborder: '1px solid #63c6c1',
 			cursorshadeborder: '1px solid #63c6c1',
-			magnifiersize: [600,560],
-            magnifycursor: 'zoom-in'
+            magnifycursor: 'zoom-in',
+            descarea: ".box-info-product-detail"
 		});
         $('.pro-box-image').mouseenter(function() {
             $(document).find('select').blur();
