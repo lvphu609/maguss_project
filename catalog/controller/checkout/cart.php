@@ -455,7 +455,7 @@ class ControllerCheckoutCart extends Controller {
                     foreach ($quantityDetail as $product) {
                         if ($product['color'] == $productObj['size_color']['color'] && $product['size']['size'] == $productObj['size_color']['size'] && $quantity > (int)$product['quantity']) {
                             $overQuantity = true;
-                            $productName = '<a href="'.$product_info['href'].'">'.$product_info['name'].' - Size: '.$product['size_label'].' -  Color: </a>';
+                            $productName = '<a href="'.$product_info['href'].'">'.$product_info['name'].' - Size: '.$product['size']['label'].' -  Màu: </a>';
                             $productName .= '<span class="color-preview" style="background-color: '.$product['color'].'"></span>';
                             $productName = '<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> Sản phẩm <strong>'.$productName.'</strong> số lượng vượt quá số sản phẩm còn lại!<button type="button" class="close" data-dismiss="alert">&times;</button></div>';
                             $this->session->data['over_quantity'] = $productName;
