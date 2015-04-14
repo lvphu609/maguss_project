@@ -979,6 +979,12 @@ h2.price {
 .w160 {
     width: 150px !important;
 }
+.w200 {
+    width: 200px !important;
+}
+.w600 {
+    width: 600px !important;
+}
 
 /* screen with <= 768px */
 @media (max-width: 768px) {

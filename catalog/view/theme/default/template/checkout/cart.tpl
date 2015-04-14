@@ -48,9 +48,9 @@
                         <thead>
                         <tr>
                             <td class="text-center"><strong><?php echo $column_name; ?></strong></td>
-                            <td class="text-center"><strong><?php echo $column_quantity; ?></strong></td>
-                            <td class="text-center"><strong><?php echo $column_price; ?></strong></td>
-                            <td class="text-center"><strong><?php echo $column_total; ?></strong></td>
+                            <td class="text-center w200"><strong><?php echo $column_quantity; ?></strong></td>
+                            <td class="text-center w200"><strong><?php echo $column_price; ?></strong></td>
+                            <td class="text-center w200"><strong><?php echo $column_total; ?></strong></td>
                         </tr>
                         </thead>
                         <tbody>
@@ -82,7 +82,7 @@
                                     <?php } ?>
                                 </td>
                                 <td class="text-left text-middle" style="width: 200px;">
-                                    <div class="input-group input-group-sm">
+                                    <div class="input-group input-group-sm w200">
                                         <input type="text" class="form-control txt-product-quantity" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" readonly/>
                                         <div class="input-group-btn">
                                             <button type="button" class="btn btn-maguss btn-quantity-plus">
@@ -97,8 +97,8 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-right text-middle"><?php echo $product['price']; ?></td>
-                                <td class="text-right text-middle"><strong><?php echo $product['total']; ?></strong></td>
+                                <td class="text-right text-middle w200"><?php echo $product['price']; ?></td>
+                                <td class="text-right text-middle w200"><strong><?php echo $product['total']; ?></strong></td>
                             </tr>
                         <?php } ?>
                         <?php foreach ($vouchers as $vouchers) { ?>
@@ -124,8 +124,8 @@
                     </table>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-6 pan-cart-shipping-info">
-                        <table class="table table-bordered tbl-cart-total">
+                    <div class="col-md-7 col-md-offset-5 pan-cart-shipping-info">
+                        <table class="table table-bordered tbl-cart-total" style="float: right; width: 620px;">
                             <tr>
                                 <td class="w160 hl h45 text-middle">THÀNH TIỀN</td>
                                 <td class="txt-bold h45 text-middle"><?php echo $totals['sub_total']['text']; ?></td>
@@ -228,7 +228,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-6 pan-cart-shipping-info">
-                        <table class="table table-bordered tbl-cart-total">
+                        <table class="table table-bordered tbl-cart-total" style="float: right; width: 620px;">
                             <tr>
                                 <td class="w160 hl h45 text-middle"><strong>TỔNG CỘNG</strong></td>
                                 <td class="txt-bold h45 text-middle" style="font-size: 17px;"><?php echo $totals['total']['text']; ?></td>
