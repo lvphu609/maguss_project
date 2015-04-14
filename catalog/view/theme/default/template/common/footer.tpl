@@ -63,18 +63,19 @@
       </div>
       <?php } ?>
       <div class="footer-block footer-block-item col-sm-4">
-         <div class="col-md-offset-1">
+         <div style="padding-left:10px;">
             <ul class="list-unstyled">
-              <li><span class="ft-span-lable"><h>Hot line: </span>093 266 7429</li>
-              <li><span class="ft-span-lable">Show room: </span>9 Hoa Cúc, P.7, Q. Phú Nhuận, Tp. Hồ Chí Minh
-Thời gian làm việc: 9:00 - 21:30 (thứ 2 - thứ 7)
-9:00 - 19:30 (Chủ nhật)</li>
+              <li><span class="ft-span-lable"><h>Hotline: </span>093 266 7429</li>
+              <li><span class="ft-span-lable">Showroom: </span>Lầu 2, 9 Hoa Cúc, P.7, Q. Phú Nhuận, TP.HCM </li>
+              <li>
+                <span class="text-bold">Thời gian làm việc</span>: &nbsp; 9:00 - 21:30 (thứ 2 - thứ 7)</li>
+              <li style="padding-left:110px;">  &nbsp; 9:30 - 19:30 (Chủ nhật)</li>
             </ul>
           </div>
       </div>
       <div class="footer-block-item col-sm-4">
-        <div class="col-md-offset-4">
-          <h5>Liên kết với chúng tôi</h5>
+        <div class="col-md-offset-3">
+          <h5 style="letter-spacing: 2px;">Liên kết với chúng tôi</h5>
             <ul class="list-unstyled link-to-social">
 
               <!-- <li class="item-social"></li> -->
