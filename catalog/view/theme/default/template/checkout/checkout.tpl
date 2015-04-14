@@ -121,7 +121,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-center">
                         <?php if (!empty($totals['shipping'])) : ?>
                             <button type="button" class="btn btn-lg btn-maguss btn-finish-order" id="btn-finish-order"> HOÀN TẤT </button>
                         <?php else : ?>
