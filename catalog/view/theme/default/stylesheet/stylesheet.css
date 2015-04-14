@@ -977,7 +977,13 @@ h2.price {
 /* end fashion */
 
 .w160 {
-    width: 160px !important;
+    width: 150px !important;
+}
+.w200 {
+    width: 200px !important;
+}
+.w600 {
+    width: 600px !important;
 }
 
 /* screen with <= 768px */
@@ -2149,7 +2155,6 @@ label.required:after {
 	background-color: #FFFFFF;
 	margin-top: -35px;
 }
-
 .text-color-common{
 	color: #63c6c1;
 }
@@ -2160,4 +2165,16 @@ a.text-color-common:hover{
 
 .well.box-account-common{
 	background-color:#dff1ef;
+}
+.pan-cart-shipping-info {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 15px;
+}
+
+.title-account-login{
+	font-size: 21px;
+	color: #63c6c1;
+	padding-top: 15px;
+	padding-bottom: 10px;
 }

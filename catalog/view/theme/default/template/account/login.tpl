@@ -21,8 +21,9 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <div class="row">
-        <div class="text-header-contact"><span>Đăng nhập</span></div>        
+        <!-- <div class="text-header-contact"></div>         -->
         <div class="col-sm-6 box-account-login">
+          <div class="title-account-login"><span>ĐĂNG NHẬP</span></div>
           <div class="well box-account-common">
             <h3 class="text-color-common"><?php echo $text_returning_customer; ?></h3>
             <!-- <p><strong><?php // echo $text_i_am_returning_customer; ?></strong></p> -->
@@ -44,6 +45,7 @@
           </div>
         </div>
         <div class="col-sm-6">
+          <div class="title-account-login"><span>ĐĂNG KÝ</span></div>
           <div class="well box-account-common">
             <h3 class="text-color-common"><?php echo $text_new_customer; ?></h3>
             <!-- <p><strong><?php // echo $text_register; ?></strong></p> -->
