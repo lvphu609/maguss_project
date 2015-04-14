@@ -64,7 +64,7 @@
               <div><span class="pro-info-model"><?php echo $model; ?></span></div>
               <div class="pro-info-manufacturer">
                 <?php echo $text_manufacturer; ?> 
-                <?php echo $manufacturer; ?>
+                <span><?php echo $manufacturer; ?></span>
               </div>
               <?php if ($price) { ?>
                   <?php if (!$special) { ?>
