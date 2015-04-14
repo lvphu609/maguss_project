@@ -778,7 +778,7 @@ var Maguss = {
 			that.hoverScrollImage();
 		}
 		$("#box-product-image-lg").css({"display":"block"});
-		$('.jscarousal-contents-vertical .visible .img-additional .img-lg-item').first().get(0).click();
+		$('.jscarousal-contents-vertical .visible .img-additional .img-lg-item').trigger('click');
 	},
 	hoverScrollImage: function(){
 		$("#carouselv").hover(function(){
