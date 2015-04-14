@@ -29,15 +29,15 @@
             <!-- <p><strong><?php // echo $text_i_am_returning_customer; ?></strong></p> -->
             <form autocomplete="off" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
               <div class="form-group">
-                <label class="control-label" for="input-email"><?php echo $entry_email; ?></label>
+                <?php echo $entry_email; ?>
                 <input value="" autocomplete="off" type="text" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
               </div>
               <div class="form-group">
-                <label class="control-label" for="input-password"><?php echo $entry_password; ?></label>
+                <?php echo $entry_password; ?>
                 <input  value="" autocomplete="off" type="password" name="password" value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>" id="input-password" class="form-control" />
                 <a href="<?php echo $forgotten; ?>" class="text-color-common"><?php echo $text_forgotten; ?></a></div>
               <!-- <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" /> -->
-              <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common"><span class="">ĐĂNG NHẬP</span></a>
+              <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common" style="letter-spacing: 2px; font-size: 14px;"><span class="">ĐĂNG NHẬP</span></a>
               <?php if ($redirect) { ?>
               <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
               <?php } ?>
@@ -51,7 +51,7 @@
             <!-- <p><strong><?php // echo $text_register; ?></strong></p> -->
             <p><?php echo $text_register_account; ?></p>
             <!-- <a href="<?php echo $register; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a> -->
-            <a href="<?php echo $register; ?>" class="btn btn-maguss-common">ĐĂNG KÝ</a>
+            <a href="<?php echo $register; ?>" class="btn btn-maguss-common text-place" style="letter-spacing: 2px; font-size: 14px;">ĐĂNG KÝ</a>
             </div>
         </div>
       </div>

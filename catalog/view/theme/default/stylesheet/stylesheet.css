@@ -2188,3 +2188,6 @@ a.text-color-common:hover{
 .alert-danger a {
     color: #63c6c1;
 }
+.text-size-14{
+	font-size: 14px;
+}
