@@ -1098,23 +1098,20 @@ h2.price {
 
 
 .box-sub-menu ul.list-unstyled li.title{
-	  font-family: 'Myriad Pro'
-	  font-size: 11px;
-	  line-height: 21px;
-	  letter-spacing: 1px;
-	  text-transform: uppercase;
-	  margin-right: 100px;
+	  font-family: 'Myriad Pro';
+	  margin-bottom: -10px;
+	  /*text-transform: uppercase;*/
+	  /*margin-right: 100px;*/
 }
-
-.box-sub-menu ul.list-unstyled li a{
+/*.box-sub-menu ul.list-unstyled li a{
 	 color: #63C6C1;
-	 font-size: 11px;
+	 font-size: 14px;
   	text-decoration: none;
-}
+}*/
 
 .box-sub-menu ul.list-unstyled li.title a{
 	color: #63C6C1;
-	font-size: 12px;
+	font-size: 13px;
   	text-decoration: none;
 }
 
