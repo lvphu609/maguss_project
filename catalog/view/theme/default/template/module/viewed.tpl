@@ -1,4 +1,5 @@
-<div class="lable-viewed"><span><?php echo $heading_title; ?></span></div>
+<div class="clear"></div>
+<div class="lable-viewed"><?php echo $heading_title; ?></div>
 <!-- <div class="row box-related-product"> -->
   <?php /* foreach ($products as $product) { ?>
           <div class="product-layout product-grid product-item col-lg-2 col-md-4 col-sm-6 col-xs-12">
