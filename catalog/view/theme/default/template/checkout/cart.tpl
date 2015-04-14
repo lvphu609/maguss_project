@@ -58,7 +58,7 @@
                             <tr>
                                 <td class="text-left text-middle">
                                     <a href="<?php echo $product['href']; ?>">
-                                        <?php echo $product['name']; ?> - Size: <?php echo $product['size_label']; ?> -  Color:
+                                        <?php echo $product['name']; ?> - Size: <?php echo $product['size_label']; ?> -  Màu:
                                     </a>
                                     <span class="color-preview" style="background-color: <?php echo $product['color']; ?>;"></span>
                                     <?php if (!$product['stock']) { ?>
