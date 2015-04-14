@@ -91,7 +91,7 @@
                 </a>
               </li>
               <li class="item-social">
-                <a href="#">
+                <a href="https://www.facebook.com/maguss.vn" target="_blank">
                   <img src="image/catalog/icon/social-face.png">
                 </a>
               </li>
