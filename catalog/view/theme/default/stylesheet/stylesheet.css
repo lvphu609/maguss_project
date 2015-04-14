@@ -1698,6 +1698,7 @@ ul.link-to-social li.item-social img{
 .box-info-product-detail .pro-block{
 	border-bottom: 1px solid #63C6C1;
 	margin-bottom: 50px;
+    padding-bottom: 5px;
 }
 .pan-checkout .tbl-title {
     color: #ffffff;
@@ -1727,7 +1728,10 @@ ul.link-to-social li.item-social img{
 .pro-block.pro-info .pro-info-manufacturer{
 	font-weight: bold;
 	font-size: 14px;
-	margin: 15px 0px 15px 0px;
+	margin: 10px 0px 15px 0px;
+}
+.pro-info-manufacturer span {
+    font-size: 16px;
 }
 
 .pro-block.pro-info .pro-info-price{
