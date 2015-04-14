@@ -20,7 +20,7 @@
         <?php } ?>
         <div class="pro-box-image <?php echo $class; ?>">
             <!-- box large -->
-            <div class="box-image-product-large col-xs-12 col-sm-12 col-lg-12" id="box-product-image-lg">
+            <div class="box-image-product-large col-xs-12 col-sm-12 col-lg-12 div-hidden" id="box-product-image-lg">
                 <?php if(count($group_product_color)>0 && !empty($group_product_color[0]) ) : ?>
                   <?php $groupColor = $group_product_color[0]; ?>
                       <?php if(count($groupColor['images']) > 0) : ?>
@@ -847,7 +847,7 @@ $('#review').load('index.php?route=product/product/review&product_id=<?php echo 
 
 
 $(document).ready(function() {
-	$('.thumbnails').magnificPopup({
+	/*$('.thumbnails').magnificPopup({
       type:'image',
       delegate: 'a',
       gallery: {
@@ -878,6 +878,6 @@ $(document).ready(function() {
             });
          }
         }
-    });  
+    });  */
 });
 </script>

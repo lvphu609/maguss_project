@@ -2093,3 +2093,11 @@ label.required:after {
 #tab-review{
 	color: #63c6c1;
 }
+
+.img-additional{
+	text-align: center;
+}
+
+.div-hidden{
+	display: none;
+}
