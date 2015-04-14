@@ -2160,3 +2160,12 @@ label.required:after {
     padding-right: 0px;
     margin-right: 15px;
 }
+
+.alert-danger {
+    background-color: #b3e0dd;
+    border-color: #63c6c1;
+    color: red;
+}
+.alert-danger a {
+    color: #63c6c1;
+}
