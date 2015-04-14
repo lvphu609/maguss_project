@@ -240,7 +240,7 @@
 
 
             <div class="buttons">
-                <div class="pull-right">
+                <div class="pull-right" style="margin-bottom: 30px;">
                     <a href="<?php echo $continue; ?>" class="btn-continue-shopping">Tiếp tục mua hàng</a>
                     <a href="<?php echo $checkout; ?>" id="btn-shopping-cart-checkout" class="btn btn-maguss btn-checkout" style="max-width: 200px !important;">Thanh Toán</a>
                 </div>
