@@ -2162,7 +2162,7 @@ label.required:after {
 }
 
 .alert-danger {
-    background-color: #b3e0dd;
+    background-color: #dff1ef;
     border-color: #63c6c1;
     color: red;
 }
