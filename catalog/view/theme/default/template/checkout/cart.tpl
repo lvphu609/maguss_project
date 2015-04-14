@@ -124,8 +124,8 @@
                     </table>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-6">
-                        <table class="table table-bordered tbl-cart-total" style="margin-left: 15px;">
+                    <div class="col-md-6 col-md-offset-6 pan-cart-shipping-info">
+                        <table class="table table-bordered tbl-cart-total">
                             <tr>
                                 <td class="w160 hl h45 text-middle">THÀNH TIỀN</td>
                                 <td class="txt-bold h45 text-middle"><?php echo $totals['sub_total']['text']; ?></td>
@@ -160,7 +160,7 @@
                                     $shipping_location = '';
                                     $shipping_text = '';
                                     ?>
-                                    <select class="form-control" name="shipping_province" id="cbo-provinces" style="width: 49%;">
+                                    <select class="form-control" name="shipping_province" id="cbo-provinces" style="width: 33%; padding: 6px 6px;">
                                         <option value="0">Tỉnh/Thành Phố</option>
                                         <?php if (!empty($method_data['locations']) && !empty($method_data['locations']['province_name'])) : ?>
                                             <?php foreach ($method_data['locations']['province_name'] as $province) : ?>
@@ -197,14 +197,14 @@
                                         }
                                         ?>
                                         <?php if (count($provinces) > 0 && !empty($shipping_method) && !empty($provinces[$shipping_method['province']])) : ?>
-                                            <select class="form-control" id="cbo-province-location" style="width: 49%;">
+                                            <select class="form-control" id="cbo-province-location" style="width: 66%; padding: 6px 5px;">
                                             <?php foreach ($provinces[$shipping_method['province']] as $location) : ?>
                                                 <option value="<?php echo $location['id']; ?>" data-cost="<?php echo $location['cost']; ?>" <?php echo ($location['text'] == trim($shipping_method['location']) ? 'selected' : ''); ?>>
                                                     <?php echo $location['text']; ?>
                                                 </option>
                                             <?php endforeach; ?>
                                         <?php else : ?>
-                                            <select class="form-control" id="cbo-province-location" disabled style="width: 49%;">
+                                            <select class="form-control" id="cbo-province-location" disabled style="width: 66%; padding: 6px 5px;">
                                                 <option>Quận/Huyện</option>
                                         <?php endif; ?>
                                     </select>
@@ -227,8 +227,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-6">
-                        <table class="table table-bordered tbl-cart-total" style="margin-left: 15px;">
+                    <div class="col-md-6 col-md-offset-6 pan-cart-shipping-info">
+                        <table class="table table-bordered tbl-cart-total">
                             <tr>
                                 <td class="w160 hl h45 text-middle"><strong>TỔNG CỘNG</strong></td>
                                 <td class="txt-bold h45 text-middle" style="font-size: 17px;"><?php echo $totals['total']['text']; ?></td>

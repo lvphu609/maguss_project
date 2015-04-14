@@ -977,7 +977,7 @@ h2.price {
 /* end fashion */
 
 .w160 {
-    width: 160px !important;
+    width: 150px !important;
 }
 
 /* screen with <= 768px */
@@ -2137,4 +2137,9 @@ label.required:after {
 .name-holder:-ms-input-placeholder
 {
   color:    #109B94;
+}
+.pan-cart-shipping-info {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 15px;
 }
