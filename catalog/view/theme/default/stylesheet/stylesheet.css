@@ -1315,7 +1315,7 @@ ul.link-to-social li.item-social img{
 .line-item hr{
 	width: 70%;
 	background-color:#63C6C1;
-	height: 2px; 
+	height: 1px; 
 }
 
 .product-layout.product-grid.product-item .caption span.title a{
@@ -2106,4 +2106,7 @@ label.required:after {
 
 .div-hidden{
 	display: none;
+}
+.text-pagination-common{
+	color: #dddddd;
 }
