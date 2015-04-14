@@ -134,7 +134,7 @@
                         <p class="text-right pan-order-slogan">
                             Đơn hàng sẽ được giao từ 3 đến 5 ngày làm việc (thứ 2 - thứ 7)
                             <br>
-                            Để yêu cầu giao hàng nhanh, vui lòng liên hệ <strong>1900 1800</strong>
+                            Để yêu cầu giao hàng nhanh, vui lòng liên hệ <strong>093 266 7429</strong>
                         </p>
                     </div>
                 </div>
