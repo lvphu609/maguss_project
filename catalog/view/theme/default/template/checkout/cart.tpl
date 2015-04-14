@@ -242,7 +242,7 @@
             <div class="buttons">
                 <div class="pull-right">
                     <a href="<?php echo $continue; ?>" class="btn-continue-shopping">Tiếp tục mua hàng</a>
-                    <a href="<?php echo $checkout; ?>" id="btn-shopping-cart-checkout" class="btn btn-maguss btn-checkout">Thanh Toán</a>
+                    <a href="<?php echo $checkout; ?>" id="btn-shopping-cart-checkout" class="btn btn-maguss btn-checkout" style="max-width: 200px !important;">Thanh Toán</a>
                 </div>
             </div>
             <?php echo $content_bottom; ?></div>
