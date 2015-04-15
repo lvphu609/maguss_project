@@ -37,7 +37,7 @@
                 <input  value="" autocomplete="off" type="password" name="password" value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>" id="input-password" class="form-control" />
                 <a href="<?php echo $forgotten; ?>" class="text-color-common"><?php echo $text_forgotten; ?></a></div>
               <!-- <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" /> -->
-              <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common" style="letter-spacing: 2px; font-size: 14px;"><span class="">ĐĂNG NHẬP</span></a>
+              <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common btn-letter-space"><span class="">ĐĂNG NHẬP</span></a>
               <?php if ($redirect) { ?>
               <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
               <?php } ?>
@@ -51,7 +51,7 @@
             <!-- <p><strong><?php // echo $text_register; ?></strong></p> -->
             <p><?php echo $text_register_account; ?></p>
             <!-- <a href="<?php echo $register; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a> -->
-            <a href="<?php echo $register; ?>" class="btn btn-maguss-common text-place" style="letter-spacing: 2px; font-size: 14px;">ĐĂNG KÝ</a>
+            <a href="<?php echo $register; ?>" class="btn btn-maguss-common text-place btn-letter-space">ĐĂNG KÝ</a>
             </div>
         </div>
       </div>
