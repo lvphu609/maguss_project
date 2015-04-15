@@ -28,7 +28,7 @@ $_['entry_newsletter']     = 'Nhận tin tức';
 $_['entry_password']       = 'Mật khẩu';
 $_['entry_confirm']        = 'Xác nhận mật khẩu';
 // Error
-$_['error_exists']         = 'Thông báo: Địa chỉ E-Mail đã được đăng ký!';
+$_['error_exists']         = 'Thông báo: Địa chỉ email đã được đăng ký!';
 $_['error_firstname']      = 'Tên của bạn phải có từ 1 đến 32 ký tự!';
 $_['error_lastname']       = 'Họ của bạn phải có từ 1 đến 32 ký tự!';
 $_['error_email']          = 'Địa chỉ E-Mail của bạn chưa đúng định dạng!';
