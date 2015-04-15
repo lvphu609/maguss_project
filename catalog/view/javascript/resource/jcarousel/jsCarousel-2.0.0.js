@@ -112,20 +112,20 @@
                     if (settings.autoscroll)
                         animate();
                     forwardbutton.click(function() {
-                        if (!scrolling) {
+                        // if (!scrolling) {
                             direction = "forward";
                             if (settings.circular)
                                 if (index <= 0) index = noOfBlocks;
                             showThumbs();
-                        }
+                        // }
                     });
                     backbutton.click(function() {
-                        if (!scrolling) {
+                        // if (!scrolling) {
                             direction = "backward";
                             if (settings.circular)
                                 if (index >= noOfBlocks - 1) index = -1;
                             showThumbs();
-                        }
+                        // }
                     });
                 }
                 initialize();
