@@ -202,13 +202,17 @@
       <div class="search-empty"><p><?php echo $text_empty; ?></p></div>
       <?php } ?>
       <div class="clear"></div>
-      <div class="row">
-        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right text-pagination-common"><?php echo $results; ?></div>
-      </div>
+      <?php if(!empty($pagination)){ ?>
+        <div class="row">
+          <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
+          <div class="col-sm-6 text-right text-pagination-common"><?php echo $results; ?></div>
+        </div>
+      <?php } ?>
       <?php // echo $content_bottom; ?>
     <?php // echo $column_right; ?>
+      </div>
     </div>
+  </div>
 </div>
 <script type="text/javascript"><!--
 $('#button-search').bind('click', function() {
