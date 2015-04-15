@@ -465,7 +465,16 @@ var Maguss = {
 	stickyMenuTop: function(){
 		$(window).load(function(){
       		$(".mn-bottom").sticky({ topSpacing: 0 });
-      		$("#custom-search-input").sticky({ topSpacing: 0 });      		
+      		// $("#custom-search-input").sticky({ topSpacing: 0 });
+      		$('.mn-bottom').on('sticky-start', function() { 
+      			$('#input_search_sticky').show();
+      			$('#logo_sticky_maguss').show();
+      		});    
+
+      		$('.mn-bottom').on('sticky-end', function() { 
+      			$('#input_search_sticky').hide();
+      			$('#logo_sticky_maguss').hide();
+      		});      		
     	});
 	},
 	hoverMenuTopItem: function(){

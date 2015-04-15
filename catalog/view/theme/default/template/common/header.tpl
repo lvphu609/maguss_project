@@ -107,6 +107,9 @@
             </div>
         </div>
         <div class="mn-bottom">
+            <div id="logo_sticky_maguss" class="pull-left col-lg-2 div-hide">
+                <img src="image/icon/logo_maguss.png" height="40">
+            </div>
             <div class="text-center col-lg-12 mn-top-logo">
                 <?php if ($categories) { ?>
                     <?php foreach ($categories as $category) { ?>
@@ -166,7 +169,11 @@
                             </span>
                         <?php } ?>
                     <?php } ?>
-                <?php } ?>
+                <?php } ?>                
+                <div class="clear"></div>
+            </div>
+            <div id="input_search_sticky" class="pull-right col-lg-2 div-hide">
+                <?php echo $search; ?>
             </div>
         </div>
         <div class="clear"></div>

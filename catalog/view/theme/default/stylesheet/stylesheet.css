@@ -2211,3 +2211,21 @@ a.text-color-common:hover{
 .has-error .control-label{
 	color: #666666;
 }
+
+#input_search_sticky #custom-search-input{
+	margin-top: -40px;
+	width: 180px;
+	position: absolute;
+	z-index: 99999;
+}
+#input_search_sticky{
+	margin-right: -25px;
+}
+
+#logo_sticky_maguss{
+	/*background-color: #ddd;*/
+	height: 40px;
+	width: 180px;
+	position: absolute;
+	margin-top: 4px;
+}
