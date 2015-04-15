@@ -23,7 +23,7 @@
         <fieldset>
           <!-- <legend><?php echo $text_your_email; ?></legend> -->
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
+            <label class="col-sm-2 control-label text-size-14"><?php echo $entry_email; ?></label>
             <div class="col-sm-10">
               <input type="email" name="email" value="" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
             </div>
@@ -31,11 +31,11 @@
         </fieldset>
         <div class="buttons clearfix">
           <div class="pull-left">
-            <a href="<?php echo $back; ?>" class="btn btn-maguss-common">TRANG TRƯỚC<?php // echo $button_back; ?></a>
+            <a href="<?php echo $back; ?>" class="btn btn-maguss-common" style="letter-spacing: 2px; font-size: 14px;">TRANG TRƯỚC<?php // echo $button_back; ?></a>
           </div>
           <div class="pull-right">
             <!-- <input type="submit" value="<?php // echo $button_continue; ?>" class="btn btn-primary" /> -->
-            <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common"><span class="">Gửi</span></a>
+            <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common" style="letter-spacing: 2px; font-size: 14px;"><span class="">Gửi</span></a>
           </div>
         </div>
       </form>
