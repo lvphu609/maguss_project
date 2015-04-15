@@ -251,7 +251,7 @@ class ControllerProductSearch extends Controller {
 					foreach ($quantityDetail as $key => $value) {
 						if (count($value['images']) > 0) {
 							foreach ($value['images'] as $imgKey => $img) {
-								$quantityDetail[$key]['images'][$imgKey]['url'] = $this->model_tool_image->resize($img['name'], 250, 350);
+								$quantityDetail[$key]['images'][$imgKey]['url'] = $this->model_tool_image->resize($img['name'], 500, 700);
 							}
 						}
 					}

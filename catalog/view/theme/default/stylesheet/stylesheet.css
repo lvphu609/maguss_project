@@ -2229,3 +2229,7 @@ a.text-color-common:hover{
 	position: absolute;
 	margin-top: 4px;
 }
+
+#carousel_viewed .owl-item{
+	margin-left: 10px;
+}
