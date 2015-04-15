@@ -6,10 +6,10 @@
     <?php } ?>
   </ul> */ ?>
   <?php if ($success) { ?>
-  <br><div class="alert alert-success" style="margin-right: 19px;"><i class="fa fa-check-circle"></i> <?php echo $success; ?></div>
+  <div class="alert alert-success" style="margin-right: 19px;"><i class="fa fa-check-circle"></i> <?php echo $success; ?></div>
   <?php } ?>
   <?php if ($error_warning) { ?>
-  <br><div class="alert alert-danger" style="margin-right: 19px;"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
+  <div class="alert alert-danger" style="margin-right: 19px;"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
   <?php } ?>
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>

@@ -344,6 +344,8 @@ footer h5 {
 /* alert */
 .alert {
 	padding: 8px 14px 8px 14px;
+	border: none;
+	margin-top: 5px;
 }
 /* breadcrumb */
 .breadcrumb {
@@ -2200,4 +2202,12 @@ a.text-color-common:hover{
 
 .form-control{
 	border: 1px solid #63c6c1 !important;
+}
+
+.text-danger {
+  color: #FF0000;
+}
+
+.has-error .control-label{
+	color: #666666;
 }
