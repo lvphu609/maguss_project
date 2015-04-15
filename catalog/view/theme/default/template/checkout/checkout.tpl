@@ -132,9 +132,7 @@
                 <div class="row">
                     <div class="col-md-5 col-md-offset-3" style="padding: 0px 2px 0px 0px;">
                         <p class="text-right pan-order-slogan">
-                            Đơn hàng sẽ được giao từ 3 đến 5 ngày làm việc (thứ 2 - thứ 7)
-                            <br>
-                            Để yêu cầu giao hàng nhanh, vui lòng liên hệ <strong>093 266 7429</strong>
+                            <?php echo nl2br($store_comment); ?>
                         </p>
                     </div>
                 </div>

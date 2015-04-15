@@ -1,4 +1,3 @@
-
 <?php /*
 <footer>
   <div class="container">
@@ -41,76 +40,80 @@
       </div>
     </div>
     <hr>
-    <p><?php echo $powered; ?></p> 
+    <p><?php echo $powered; ?></p>
   </div>
 </footer>
 
-*/ ?>
+*/
+?>
 <div class="clear"></div>
 <footer>
-  <div>
-    <div class="row">
-      <?php if ($informations) { ?>
-      <div class="footer-block footer-block-item col-sm-4">
-        <div class="col-md-offset-2">
-          <ul class="list-unstyled">
-            <?php foreach ($informations as $information) { ?>
-            <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
+    <div>
+        <div class="row">
+            <?php if ($informations) { ?>
+                <div class="footer-block footer-block-item col-sm-4">
+                    <div class="col-md-offset-2">
+                        <ul class="list-unstyled">
+                            <?php foreach ($informations as $information) { ?>
+                                <li>
+                                    <a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a>
+                                </li>
+                            <?php } ?>
+                            <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
+                        </ul>
+                    </div>
+                </div>
             <?php } ?>
-            <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
-          </ul>
-        </div>
-      </div>
-      <?php } ?>
-      <div class="footer-block footer-block-item col-sm-4">
-         <div style="padding-left:10px;">
-            <ul class="list-unstyled">
-              <li><span class="ft-span-lable"><h>Hotline: </span>093 266 7429</li>
-              <li><span class="ft-span-lable">Showroom: </span>Lầu 2, 9 Hoa Cúc, P.7, Q. Phú Nhuận, TP.HCM </li>
-              <li>
-                <span class="text-bold">Thời gian làm việc</span>: &nbsp; 9:00 - 21:30 (thứ 2 - thứ 7)</li>
-              <li style="padding-left:110px;">  &nbsp; 9:30 - 19:30 (Chủ nhật)</li>
-            </ul>
-          </div>
-      </div>
-      <div class="footer-block-item col-sm-4">
-        <div class="col-md-offset-3">
-          <h5 style="letter-spacing: 2px;">Liên kết với chúng tôi</h5>
-            <ul class="list-unstyled link-to-social">
+            <div class="footer-block footer-block-item col-sm-4">
+                <div style="padding-left:10px;">
+                    <ul class="list-unstyled">
+                        <li><span class="ft-span-lable"><h>Hotline: </span><?php echo $telephone; ?></li>
+                        <li><span class="ft-span-lable">Showroom: </span><?php echo $address; ?></li>
+                        <li>
+                            <div class="text-bold" style="width: 30%; float: left;">Thời gian làm việc:</div>
+                            <div style="width: 63%; float: left;"><?php echo nl2br($open_time); ?></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-block-item col-sm-4">
+                <div class="col-md-offset-3">
+                    <h5 style="letter-spacing: 2px;">Liên kết với chúng tôi</h5>
+                    <ul class="list-unstyled link-to-social">
 
-              <!-- <li class="item-social"></li> -->
-              <!-- <li class="item-social">
-                <a href="#">
-                  <img src="image/catalog/icon/social-face.png">
-                </a>
-              </li> -->
-              <!-- <li class="item-social"></li> -->
-              <li class="item-social">
-                <a href="#">
-                  <img src="image/catalog/icon/social-twitter.png">
-                </a>
-              </li>
-              <li class="item-social">
-                <a href="https://www.facebook.com/maguss.vn" target="_blank">
-                  <img src="image/catalog/icon/social-face.png">
-                </a>
-              </li>
-              <li class="item-social">
-                <a href="#">
-                  <img src="image/catalog/icon/google_plus.png">
-                </a>
-              </li>
-            </ul>
+                        <!-- <li class="item-social"></li> -->
+                        <!-- <li class="item-social">
+                          <a href="#">
+                            <img src="image/catalog/icon/social-face.png">
+                          </a>
+                        </li> -->
+                        <!-- <li class="item-social"></li> -->
+                        <li class="item-social">
+                            <a href="#">
+                                <img src="image/catalog/icon/social-twitter.png">
+                            </a>
+                        </li>
+                        <li class="item-social">
+                            <a href="https://www.facebook.com/maguss.vn" target="_blank">
+                                <img src="image/catalog/icon/social-face.png">
+                            </a>
+                        </li>
+                        <li class="item-social">
+                            <a href="#">
+                                <img src="image/catalog/icon/google_plus.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </footer>
 
 <!--
 OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
 Please donate via PayPal to donate@opencart.com
-//--> 
+//-->
 
 <!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
 

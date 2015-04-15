@@ -141,6 +141,8 @@ class ControllerCheckoutCheckout extends Controller {
             $data['address'] = $this->load->controller('checkout/address');
         }
 
+        $data['store_comment'] = $this->config->get('config_comment');
+
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
 			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/checkout/checkout.tpl', $data));
 		} else {

@@ -70,6 +70,11 @@ class ControllerCommonFooter extends Controller {
 			$this->model_tool_online->whosonline($ip, $this->customer->getId(), $url, $referer);
 		}
 
+        $data['telephone'] = $this->config->get('config_telephone');
+        $data['address'] = $this->config->get('config_address');
+        $data['open_time'] = $this->config->get('config_open');
+
+
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/footer.tpl')) {
 			return $this->load->view($this->config->get('config_template') . '/template/common/footer.tpl', $data);
 		} else {
