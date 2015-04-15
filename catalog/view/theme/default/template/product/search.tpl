@@ -13,8 +13,7 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <div class="text-header"><span><?php echo $heading_title; ?></span></div>
+    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>      
      <?php /* <label class="control-label" for="input-search"><?php echo $entry_search; ?></label>
       <div class="row">
         <div class="col-sm-4">
@@ -108,9 +107,13 @@
         </div>
       </div> 
       <br /> */ ?>
-      <div class="row search-result">
-        <?php foreach ($products as $product) { ?>
-        <div class="product-layout product-grid product-item">
+      <div class="container">
+        <div class="text-header" style="margin-bottom: 10px; margin-top:-5px;"><span><?php echo $heading_title; ?></span></div>
+        <?php foreach ($products as $key => $product) { ?>
+        <?php  if($key%3 == 0) { ?>
+          <div class="row row-category-product col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <?php  } ?>
+        <div class="product-layout product-grid product-item col-lg-4 col-md-4 col-sm-4 col-xs-12">
           <div class="product-thumb product-id-<?php echo $product['product_id']; ?>">
             <div class="popper-color-content hide">
               <?php  $product_thumb = ""; ?>
@@ -137,7 +140,7 @@
               <?php endif;  ?>
             </div>
 
-            <div class="image text-center">
+            <div class="image">
               <a href="<?php echo $product['href']; ?>">
                 <?php if ($product['special']) { ?>
                   <div class="box-label-status">
@@ -156,9 +159,9 @@
               <div class="caption text-center">
                 <div class="top-desc">
                   <span class="title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></span>
-                  <p><?php echo $product['meta_description']; ?></p>
+                  <p><?php  echo $product['meta_description']; ?></p>
                 </div>
-                <?php /* if ($product['rating']) { ?>
+                <?php /*  if ($product['rating']) { ?>
                 <div class="rating">
                   <?php for ($i = 1; $i <= 5; $i++) { ?>
                   <?php if ($product['rating'] < $i) { ?>
@@ -170,39 +173,43 @@
                 </div>
                 <?php } */ ?>
                 <div class="box-price">
-                  <?php if ($product['price']) { ?>
-                  <p class="price">
-                    <?php if (!$product['special']) { ?>
-                    <?php echo $product['price']; ?>
-                    <?php } else { ?>
-                    <span class="price-old" style="color: red;"><span style="color: #63c6c1;"><?php echo $product['price']; ?></span></span> </br>
-                    <span class="price-new"><?php echo $product['special']; ?></span>
-                    <?php } ?>
-                    <?php /* if ($product['tax']) { ?>
-                    <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-                    <?php } */ ?>
-                  </p>
+                <?php if ($product['price']) { ?>
+                <p class="price">
+                  <?php if (!$product['special']) { ?>
+                  <?php echo $product['price']; ?>
+                  <?php } else { ?>
+                  <span class="price-old" style="color: red;"><span style="color: #63c6c1;"><?php echo $product['price']; ?></span></span> </br>
+                  <span class="price-new"><?php echo $product['special']; ?></span>
                   <?php } ?>
+                  <?php /* if ($product['tax']) { ?>
+                  <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
+                  <?php } */ ?>
+                </p>
+                <?php } ?>
                 </div>
               </div>
               <div class="button-group-item text-center">
                  <a href="<?php echo $product['href']; ?>" class="btn btn-product-item"><span class=""><?php echo $button_cart; ?></span></a>
-                <a href="javascript:;" class="btn btn-product-item popper_color product-id-<?php echo $product['product_id']; ?>" type="button" data-toggle="popover" ><span class="">XEM MÀU</span></a>            
+                <a href="javascript:;" class="btn btn-product-item popper_color product-id-<?php echo $product['product_id']; ?>" type="button" data-toggle="popover" ><span class="">XEM MÀU</span></a>
+              </div>
             </div>
           </div>
-        </div>
-        <?php } ?>
-      </div>
+        <?php  if($key/3 === 2) { ?>
+          </div>
+        <?php  } ?>
+      <?php } ?>
+      <?php } else { ?>
+      <div class="search-empty"><p><?php echo $text_empty; ?></p></div>
+      <?php } ?>
+      <div class="clear"></div>
       <div class="row">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
         <div class="col-sm-6 text-right text-pagination-common"><?php echo $results; ?></div>
       </div>
-      <?php } else { ?>
-      <div class="search-empty"><p><?php echo $text_empty; ?></p></div>
-      <?php } ?>
-      <?php // echo $content_bottom; ?></div>
-    <?php // echo $column_right; ?></div>
-<!-- </div> -->
+      <?php // echo $content_bottom; ?>
+    <?php // echo $column_right; ?>
+    </div>
+</div>
 <script type="text/javascript"><!--
 $('#button-search').bind('click', function() {
 	url = 'index.php?route=product/search';
