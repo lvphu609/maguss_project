@@ -321,6 +321,13 @@ class ControllerCheckoutCart extends Controller {
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
+        $cart = $this->cart->getProducts();
+        $cartQuantity = 0;
+        foreach ($cart as $cartProduct) {
+            if ($cartProduct['product_id'] == $product_id && $cartProduct['color'] == $this->request->post['color'] && $cartProduct['size'] == $this->request->post['size']) {
+                $cartQuantity += $cartProduct['quantity'];
+            }
+        }
 
 		if ($product_info) {
 			if (isset($this->request->post['quantity'])) {
@@ -328,6 +335,7 @@ class ControllerCheckoutCart extends Controller {
 			} else {
 				$quantity = 1;
 			}
+            $quantity += $cartQuantity;
 
             $quantityDetail = json_decode($product_info['quantity_detail'], true);
             foreach ($quantityDetail as $product) {
