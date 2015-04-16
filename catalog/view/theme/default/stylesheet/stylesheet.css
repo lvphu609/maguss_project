@@ -2160,11 +2160,11 @@ label.required:after {
 	background-color: #FFFFFF;
 	margin-top: -35px;
 }
-.text-color-common{
+.text-color-common, .text-color-common a{
 	color: #63c6c1;
 }
 
-a.text-color-common:hover{
+a.text-color-common:hover, .text-color-common a:hover{
 	color: #000000;
 }
 
