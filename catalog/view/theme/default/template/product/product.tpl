@@ -612,13 +612,18 @@ function isInt(n){
         return Number(n)===n && n%1===0;
 }
 function showError($message){
-  $('input[name=\'quantity\']').after('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + 
+    var r = confirm($message);
+    if (r == true) {
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
+    }
+    //alert($message);
+  /*$('input[name=\'quantity\']').after('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + 
       $message
-   + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+   + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');*/
 }
 function removeMessage(){
   $('.pro-option-select').find('.alert').remove();
-  $('html, body').animate({ scrollTop: 0 }, 'slow');
+  //$('html, body').animate({ scrollTop: 0 }, 'slow');
 }
 
 function checkShip(btn){
