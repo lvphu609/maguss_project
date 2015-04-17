@@ -1451,7 +1451,7 @@ ul.link-to-social li.item-social img{
 	margin: 5px 0px 5px 10px; 
 	font-weight: bold;
 	line-height: 30px;
-	margin-top: -30px;
+	/*margin-top: -30px;*/
 }
 
 .box-product-viewed{
@@ -2160,11 +2160,11 @@ label.required:after {
 	background-color: #FFFFFF;
 	margin-top: -35px;
 }
-.text-color-common{
+.text-color-common, .text-color-common a{
 	color: #63c6c1;
 }
 
-a.text-color-common:hover{
+a.text-color-common:hover, .text-color-common a:hover{
 	color: #000000;
 }
 
@@ -2228,4 +2228,8 @@ a.text-color-common:hover{
 	width: 180px;
 	position: absolute;
 	margin-top: 4px;
+}
+
+#carousel_viewed .owl-item{
+	margin-left: 10px;
 }

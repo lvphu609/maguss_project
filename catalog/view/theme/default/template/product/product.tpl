@@ -611,150 +611,122 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 function isInt(n){
         return Number(n)===n && n%1===0;
 }
+function showError($message){
+    var r = confirm($message);
+    if (r == true) {
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
+    }
+    //alert($message);
+  /*$('input[name=\'quantity\']').after('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + 
+      $message
+   + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');*/
+}
+function removeMessage(){
+  $('.pro-option-select').find('.alert').remove();
+  //$('html, body').animate({ scrollTop: 0 }, 'slow');
+}
 
-$('#button-cart').on('click', function() {
-    var btn = $(this);
-	$.ajax({
-		url: 'index.php?route=checkout/cart/add',
-		type: 'post',
-		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
-		dataType: 'json',
-		beforeSend: function() {
-      $('.pro-option-select').find('.alert').remove();
-      var size = $('.pro-option-select-size').val();
-      var quantity = $('.pro-option-select-quantity').val();
-      if(size == ""){
-        alert('Bạn chưa chọn size!');
-        return false;
-      }else 
-      if(quantity == ""){
-          alert('Bạn chưa nhập số lượng!');
-          return false;
-      }
-      if(!$.isNumeric(quantity) || parseInt(quantity) != quantity){
-          alert('Số lượng sản phẩm nhập vào không hợp lệ!');
-          return false;
-      }
-			btn.prop('disabled', true);
+function checkShip(btn){
+  $.ajax({
+    url: 'index.php?route=checkout/cart/add',
+    type: 'post',
+    data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+    dataType: 'json',
+    beforeSend: function() {
+      btn.prop('disabled', true);
             btn.addClass('loading');
-		},
-		complete: function() {
+    },
+    complete: function() {
             btn.prop('disabled', false);
             btn.removeClass('loading');
-		},
-		success: function(json) {
-			$('.alert, .text-danger').remove();
-			$('.form-group').removeClass('has-error');
+    },
+    success: function(json) {
+      $('.alert, .text-danger').remove();
+      $('.form-group').removeClass('has-error');
 
-			if (json['error']) {
-				if (json['error']['option']) {
-					for (i in json['error']['option']) {
-						var element = $('#input-option' + i.replace('_', '-'));
-						
-						if (element.parent().hasClass('input-group')) {
-							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						} else {
-							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						}
-					}
-				}
-				
-				if (json['error']['recurring']) {
-					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
-				}
-				
+      if (json['error']) {
+        if (json['error']['option']) {
+          for (i in json['error']['option']) {
+            var element = $('#input-option' + i.replace('_', '-'));
+            
+            if (element.parent().hasClass('input-group')) {
+              element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+            } else {
+              element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+            }
+          }
+        }
+        
+        if (json['error']['recurring']) {
+          $('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+        }
+        
         if (json['error']['over_quantity']) {
             $('input[name=\'quantity\']').after('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + json['error']['over_quantity'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
         }
 
-				// Highlight any found errors
-				$('.text-danger').parent().addClass('has-error');
-			}
-			
-			if (json['success']) {
-				/*$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-				
-				$('#cart-total').html(json['total']);
-				
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
-				
-				$('#cart > ul').load('index.php?route=common/cart/info ul li');*/
-                window.location = json['shopping_cart_url'];
-			}
-		}
-	});
+        // Highlight any found errors
+        $('.text-danger').parent().addClass('has-error');
+      }
+      
+      if (json['success']) {
+        /*$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        
+        $('#cart-total').html(json['total']);
+        
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        
+        $('#cart > ul').load('index.php?route=common/cart/info ul li');*/
+        window.location = json['shopping_cart_url'];
+      }
+    }
+  });
+}
+
+$('#button-cart').on('click', function() {
+    var btn = $(this);
+    var size = $('.pro-option-select-size').val();
+    var quantity = $('.pro-option-select-quantity').val();
+    if(size == ""){
+      removeMessage();
+      showError('Bạn chưa chọn size!');
+      return false;
+    }else if(quantity == ""){
+        removeMessage();
+        showError('Bạn chưa nhập số lượng!');
+        return false;
+    } else if(!$.isNumeric(quantity) || parseInt(quantity) != quantity || parseInt(quantity) <= 0 ){
+        removeMessage();
+        showError('Số lượng sản phẩm nhập vào không hợp lệ!');
+        return false;
+        
+    } else{
+        removeMessage();
+        checkShip(btn);
+    }	
 });
 
 $('#button-cart-second').on('click', function() {
     var btn = $(this);
-    $.ajax({
-        url: 'index.php?route=checkout/cart/add',
-        type: 'post',
-        data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
-        dataType: 'json',
-        beforeSend: function() {
-      var size = $('.pro-option-select-size').val();
-      var quantity = $('.pro-option-select-quantity').val();
-      if(size == ""){
-        alert('Bạn chưa chọn size!');
+    var size = $('.pro-option-select-size').val();
+    var quantity = $('.pro-option-select-quantity').val();
+    if(size == ""){
+      removeMessage();
+      showError('Bạn chưa chọn size!');
+      return false;
+    }else if(quantity == ""){
+        removeMessage();
+        showError('Bạn chưa nhập số lượng!');
         return false;
-      }else 
-      if(quantity == ""){
-          alert('Bạn chưa nhập số lượng!');
-          return false;
-      }
-      if(!$.isNumeric(quantity) || parseInt(quantity) != quantity){
-          alert('Số lượng sản phẩm nhập vào không hợp lệ!');
-          return false;
-      }
-            btn.prop('disabled', true);
-            btn.addClass('loading');
-        },
-        complete: function() {
-            btn.prop('disabled', false);
-            btn.removeClass('loading');
-        },
-        success: function(json) {
-            $('.alert, .text-danger').remove();
-            $('.form-group').removeClass('has-error');
-
-            if (json['error']) {
-              if (json['error']['option']) {
-                for (i in json['error']['option']) {
-                  var element = $('#input-option' + i.replace('_', '-'));
-                  
-                  if (element.parent().hasClass('input-group')) {
-                    element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-                  } else {
-                    element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-                  }
-                }
-              }
-              
-              if (json['error']['recurring']) {
-                $('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
-              }
-              
-              if (json['error']['over_quantity']) {
-                  $('input[name=\'quantity\']').after('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + json['error']['over_quantity'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-              }
-
-              // Highlight any found errors
-              $('.text-danger').parent().addClass('has-error');
-            }
-            
-            if (json['success']) {
-              /*$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-              
-              $('#cart-total').html(json['total']);
-              
-              $('html, body').animate({ scrollTop: 0 }, 'slow');
-              
-              $('#cart > ul').load('index.php?route=common/cart/info ul li');*/
-                      window.location = json['shopping_cart_url'];
-            }
-        }
-    });
+    } else if(!$.isNumeric(quantity) || parseInt(quantity) != quantity || parseInt(quantity) <= 0 ){
+        removeMessage();
+        showError('Số lượng sản phẩm nhập vào không hợp lệ!');
+        return false;
+        
+    } else{
+        removeMessage();
+        checkShip(btn);
+    }
 });
 $('#button-review').on('click', function() {
     // alert('ok');
