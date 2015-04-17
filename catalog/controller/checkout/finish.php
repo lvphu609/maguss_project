@@ -158,9 +158,19 @@ class ControllerCheckoutFinish extends Controller {
                 );
             }
 
+            // get size label
+            $quantityDetail = json_decode($product['quantity_detail'], true);
+            $sizeLabel = $product['size'];
+            foreach ($quantityDetail as $sizeColor) {
+                if ($sizeColor['color'] == $product['color'] && $sizeColor['size']['size'] == $product['size']) {
+                    $sizeLabel = $sizeColor['size']['label'];
+                    break;
+                }
+            }
+
             $order_data['products'][] = array(
                 'product_id' => $product['product_id'],
-                'name'       => $product['name'],
+                'name'       => $product['name'].' - Size: <strong style="text-transform: uppercase;">'.$sizeLabel.'</strong> - Màu: <span class="color-preview" style="background-color: '.$product['color'].'"></span>',
                 'model'      => $product['model'],
                 'option'     => $option_data,
                 'download'   => $product['download'],
