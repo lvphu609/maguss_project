@@ -677,3 +677,13 @@ label.required:after {
     content: " *";
     color: red;
 }
+
+.color-preview {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px #000000;
+    margin-bottom: -5px;
+    margin-left: 5px;
+}
