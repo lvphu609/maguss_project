@@ -72,9 +72,9 @@
                             <td class="text-right"><?php echo $column_quantity; ?></td>
                             <td class="text-right"><?php echo $column_price; ?></td>
                             <td class="text-right"><?php echo $column_total; ?></td>
-                            <?php if ($products) { ?>
+                            <?php /* if ($products) { ?>
                                 <td style="width: 20px;"></td>
-                            <?php } ?>
+                            <?php } */ ?>
                         </tr>
                         </thead>
                         <tbody>
@@ -91,14 +91,14 @@
                                 <td class="text-right"><?php echo $product['quantity']; ?></td>
                                 <td class="text-right"><?php echo $product['price']; ?></td>
                                 <td class="text-right"><?php echo $product['total']; ?></td>
-                                <td class="text-right" style="white-space: nowrap;"><?php if ($product['reorder']) { ?>
+                               <?php /* <td class="text-right" style="white-space: nowrap;"><?php if ($product['reorder']) { ?>
                                         <a href="<?php echo $product['reorder']; ?>" data-toggle="tooltip"
                                            title="<?php echo $button_reorder; ?>" class="btn btn-primary"><i
                                                 class="fa fa-shopping-cart"></i></a>
                                     <?php } ?>
                                     <a href="<?php echo $product['return']; ?>" data-toggle="tooltip"
                                        title="<?php echo $button_return; ?>" class="btn btn-danger"><i
-                                            class="fa fa-reply"></i></a></td>
+                                            class="fa fa-reply"></i></a></td> */ ?>
                             </tr>
                         <?php } ?>
                         <?php foreach ($vouchers as $voucher) { ?>
@@ -108,9 +108,9 @@
                                 <td class="text-right">1</td>
                                 <td class="text-right"><?php echo $voucher['amount']; ?></td>
                                 <td class="text-right"><?php echo $voucher['amount']; ?></td>
-                                <?php if ($products) { ?>
+                                <?php /* if ($products) { ?>
                                     <td></td>
-                                <?php } ?>
+                                <?php } */ ?>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -120,9 +120,9 @@
                                 <td colspan="3"></td>
                                 <td class="text-right"><b><?php echo $total['title']; ?></b></td>
                                 <td class="text-right"><?php echo $total['text']; ?></td>
-                                <?php if ($products) { ?>
+                                <?php /* if ($products) { ?>
                                     <td></td>
-                                <?php } ?>
+                                <?php }  */ ?>
                             </tr>
                         <?php } ?>
                         </tfoot>
@@ -165,7 +165,7 @@
                 <?php } ?>
                 <div class="buttons clearfix">
                     <div class="pull-right"><a href="<?php echo $continue; ?>"
-                                               class="btn btn-primary"><?php echo $button_continue; ?></a></div>
+                                               class="btn btn-maguss-common btn-letter-space"><?php //echo $button_continue; ?>QUAY LẠI LỊCH SỬ ĐƠN HÀNG</a></div>
                 </div>
                 <?php echo $content_bottom; ?></div>
             <?php echo $column_right; ?></div>
