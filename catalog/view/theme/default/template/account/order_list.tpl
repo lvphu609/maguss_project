@@ -17,7 +17,7 @@
       <div class="text-header-contact"><span><?php echo $heading_title; ?></span></div>
       <?php if ($orders) { ?>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover text-color-common">
           <thead>
             <tr>
               <td class="text-right"><?php echo $column_order_id; ?></td>
@@ -38,7 +38,7 @@
               <td class="text-right"><?php echo $order['products']; ?></td>
               <td class="text-left"><?php echo $order['name']; ?></td>
               <td class="text-right"><?php echo $order['total']; ?></td>
-              <td class="text-right"><a href="<?php echo $order['href']; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
+              <td class="text-center"><a href="<?php echo $order['href']; ?>" title="<?php // echo $button_view; ?> xem chi tiết" class="btn btn-default"><i class="fa fa-eye"></i></a></td>
             </tr>
             <?php } ?>
           </tbody>
