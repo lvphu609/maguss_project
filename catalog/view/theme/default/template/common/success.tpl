@@ -18,7 +18,7 @@
       <?php echo $text_message; ?>
       <div class="buttons">
         <div class="pull-right">
-          <a href="<?php echo $continue; ?>" class="btn btn-maguss-common">TIẾP TỤC MUA HÀNG<?php // echo $button_continue; ?></a></div>
+          <a href="<?php echo $continue; ?>" class="btn btn-maguss-common  btn-letter-space">TIẾP TỤC MUA HÀNG<?php // echo $button_continue; ?></a></div>
       </div>
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
