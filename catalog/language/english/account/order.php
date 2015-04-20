@@ -20,17 +20,17 @@ $_['text_empty']            = 'You have not made any previous orders!';
 $_['text_error']            = 'The order you requested could not be found!';
 
 // Column
-$_['column_order_id']       = 'Order ID';
-$_['column_product']        = 'No. of Products';
-$_['column_customer']       = 'Customer';
+$_['column_order_id']       = 'Mã đơn hàng';
+$_['column_product']        = 'Số lượng';
+$_['column_customer']       = 'Khách hàng';
 $_['column_name']           = 'Product Name';
 $_['column_model']          = 'Model';
 $_['column_quantity']       = 'Quantity';
 $_['column_price']          = 'Price';
-$_['column_total']          = 'Total';
+$_['column_total']          = 'Thành tiền';
 $_['column_action']         = 'Action';
-$_['column_date_added']     = 'Date Added';
-$_['column_status']         = 'Order Status';
+$_['column_date_added']     = 'Ngày đặt hàng';
+$_['column_status']         = 'Trạng thái đơn hàng';
 $_['column_comment']        = 'Comment';
 
 // Error
