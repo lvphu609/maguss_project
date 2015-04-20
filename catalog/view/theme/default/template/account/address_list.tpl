@@ -27,8 +27,8 @@
         <tr>
           <td class="text-left"><?php echo $result['address']; ?></td>
           <td class="text-right">
-            <a href="<?php echo $result['update']; ?>" class="btn btn-maguss-common"><?php echo $button_edit; ?></a> &nbsp; 
-            <a href="<?php echo $result['delete']; ?>" class="btn btn-maguss-common"><?php echo $button_delete; ?></a></td>
+            <a href="<?php echo $result['update']; ?>" class="btn btn-maguss-common"><?php // echo $button_edit; ?>SỬA</a> &nbsp; 
+           <?php /* <a href="<?php echo $result['delete']; ?>" class="btn btn-maguss-common"><?php // echo $button_delete; ?>XÓA</a></td> */ ?>
         </tr>
         <?php } ?>
       </table>
@@ -37,8 +37,8 @@
       <?php } ?>
       <div class="buttons clearfix">
         <div class="pull-left">
-          <a href="<?php echo $back; ?>" class="btn btn-maguss-common"><?php echo $button_back; ?></a></div>
-        <div class="pull-right"><a href="<?php echo $add; ?>" class="btn btn-maguss-common"><?php echo $button_new_address; ?></a></div>
+          <a href="<?php echo $back; ?>" class="btn btn-maguss-common btn-letter-space"><?php // echo $button_back; ?>TRANG TRƯỚC</a></div>
+        <?php /* <div class="pull-right"><a href="<?php echo $add; ?>" class="btn btn-maguss-common btn-letter-space"><?php // echo $button_new_address; ?> THÊM ĐỊA CHỈ MỚI</a></div> */ ?>
       </div>
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
