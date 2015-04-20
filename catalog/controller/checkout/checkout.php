@@ -138,6 +138,11 @@ class ControllerCheckoutCheckout extends Controller {
         $data['checkout_success_url'] = $this->url->link('checkout/success');
         $data['shopping_cart_url'] = $this->url->link('checkout/cart');
         if ($this->customer->isLogged()) {
+            if (isset($this->session->data['shipping_address']['address_id'])) {
+                $data['address_id'] = $this->session->data['shipping_address']['address_id'];
+            } else {
+                $data['address_id'] = $this->customer->getAddressId();
+            }
             $data['address'] = $this->load->controller('checkout/address');
         }
 

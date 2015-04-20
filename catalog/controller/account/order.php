@@ -246,7 +246,7 @@ class ControllerAccountOrder extends Controller {
 			if ($order_info['shipping_address_format']) {
 				$format = $order_info['shipping_address_format'];
 			} else {
-				$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
+				$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{zone}' . "\n" . '{country}';
 			}
 
 			$find = array(
@@ -255,8 +255,6 @@ class ControllerAccountOrder extends Controller {
 				'{company}',
 				'{address_1}',
 				'{address_2}',
-				'{city}',
-				'{postcode}',
 				'{zone}',
 				'{zone_code}',
 				'{country}'
@@ -268,8 +266,6 @@ class ControllerAccountOrder extends Controller {
 				'company'   => $order_info['shipping_company'],
 				'address_1' => $order_info['shipping_address_1'],
 				'address_2' => $order_info['shipping_address_2'],
-				'city'      => $order_info['shipping_city'],
-				'postcode'  => $order_info['shipping_postcode'],
 				'zone'      => $order_info['shipping_zone'],
 				'zone_code' => $order_info['shipping_zone_code'],
 				'country'   => $order_info['shipping_country']
@@ -277,7 +273,7 @@ class ControllerAccountOrder extends Controller {
 
 			$data['shipping_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
 
-			$data['shipping_method'] = $order_info['shipping_method'];
+			$data['shipping_method'] = 'Maguss shipping'; //$order_info['shipping_method'];
 
 			$this->load->model('catalog/product');
 			$this->load->model('tool/upload');

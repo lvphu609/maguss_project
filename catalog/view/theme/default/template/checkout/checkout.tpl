@@ -44,6 +44,8 @@
                         <div class="panel-body form-horizontal">
                             <?php if ($logged) : ?>
                                 <p><?php echo $address; ?></p>
+                                <input type="hidden" name="address_id" class="existing-address" value="<?php echo $address_id; ?>">
+                                <input type="hidden" name="shipping_address" class="existing-address" id="shipping_address" value="existing">
                             <?php else : ?>
                                 <a href="<?php echo $register_url; ?>" style="font-style: italic; font-weight: bold;">Đăng ký</a>/<a href="<?php echo $login_url; ?>" style="font-style: italic; font-weight: bold;">Đăng nhập</a>
                                 <br><br>
@@ -66,7 +68,6 @@
                                         <input type="hidden" name="postcode" value="84">
                                         <input type="hidden" name="country_id" value="230">
                                         <input type="hidden" name="zone_id" value="3780">
-                                        <input type="hidden" name="shipping_address" value="1">
                                         <input type="hidden" name="fax" value="">
                                         <input type="hidden" name="address_2" value="">
                                     </div>
@@ -179,7 +180,6 @@
             url: 'index.php?route=checkout/payment_address',
             dataType: 'html',
             success: function (html) {
-                console.log(html);
                 $('#collapse-payment-address .panel-body').html(html);
 
                 $('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle"><?php echo $text_checkout_payment_address; ?> <i class="fa fa-caret-down"></i></a>');
@@ -887,30 +887,18 @@
                     alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
                 }
             });
-        } else if ($('#pan-checkout-address').hasClass('hide')) {
-            $.ajax({
-                type: 'get',
-                url: 'index.php?route=checkout/finish&note=' + $('#txt-note').val(),
-                cache: false,
-                beforeSend: function () {
-                    btn.prop('disabled', true);
-                    btn.addClass('loading');
-                },
-                success: function() {
-                    window.location = '<?php echo $checkout_success_url; ?>';
-                }
-            });
         } else {
             $.ajax({
                 url: 'index.php?route=checkout/shipping_address/save',
                 type: 'post',
-                data: $('#pan-checkout-address input[type=\'text\'], #pan-checkout-address input[type=\'email\'], #pan-checkout-address input[type=\'date\'], #pan-checkout-address input[type=\'datetime-local\'], #pan-checkout-address input[type=\'time\'], #pan-checkout-address input[type=\'checkbox\']:checked, #pan-checkout-address input[type=\'radio\']:checked, #pan-checkout-address input[type=\'hidden\'], #pan-checkout-address textarea, #pan-checkout-address select'),
+                data: $('.pan-address-shipping input[type=\'hidden\'], #pan-checkout-address input[type=\'text\'], #pan-checkout-address input[type=\'email\'], #pan-checkout-address input[type=\'date\'], #pan-checkout-address input[type=\'datetime-local\'], #pan-checkout-address input[type=\'time\'], #pan-checkout-address input[type=\'checkbox\']:checked, #pan-checkout-address input[type=\'radio\']:checked, #pan-checkout-address input[type=\'hidden\'], #pan-checkout-address textarea, #pan-checkout-address select'),
                 dataType: 'json',
                 beforeSend: function () {
                     btn.prop('disabled', true);
                     btn.addClass('loading');
                 },
                 success: function (json) {
+                    console.log(json);
                     $('.alert, .text-danger').remove();
 
                     if (json['redirect']) {
@@ -958,11 +946,14 @@
     $(document).delegate('#lik-change-address', 'click', function(e) {
         e.preventDefault();
         var panAddress = $('#pan-checkout-address'),
-            txtChange = $(this);
+            txtChange = $(this),
+            shippingAddress = $('#shipping_address');
         if (panAddress.hasClass('hide')) {
+            shippingAddress.val('new');
             panAddress.removeClass('hide');
             txtChange.find('strong').text('Sử dụng địa chỉ đã đăng ký');
         } else {
+            shippingAddress.val('existing');
             panAddress.addClass('hide');
             txtChange.find('strong').text('Địa chỉ khác');
         }
