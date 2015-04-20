@@ -82,7 +82,7 @@ class ControllerInformationContact extends Controller {
 		$this->load->model('tool/image');
 
 		if ($this->config->get('config_image')) {
-			$data['image'] = $this->model_tool_image->resize($this->config->get('config_image'), $this->config->get('config_image_location_width'), $this->config->get('config_image_location_height'));
+			$data['image'] = $this->model_tool_image->resize($this->config->get('config_image'),128,128); //$this->config->get('config_image_location_width'), $this->config->get('config_image_location_height'));
 		} else {
 			$data['image'] = false;
 		}

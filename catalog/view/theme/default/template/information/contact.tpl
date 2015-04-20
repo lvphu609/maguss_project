@@ -27,7 +27,7 @@
               <?php echo $address; ?>
               </address>
               <?php if ($geocode) { ?>
-              <a href="https://maps.google.com/maps?q=<?php echo urlencode($geocode); ?>&hl=en&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> <?php echo $button_map; ?></a>
+              <a class="btn btn-maguss-common btn-letter-space" href="https://maps.google.com/maps?q=<?php echo urlencode($geocode); ?>&hl=en&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> <?php //echo $button_map; ?> XEM BẢN ĐỒ</a>
               <?php } ?>
             </div>
             <div class="col-sm-3"><strong><?php echo $text_telephone; ?></strong><br>
@@ -101,7 +101,7 @@
       </div>
       <?php } ?>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
-        <fieldset>
+        <fieldset class="text-color-common">
           <h4><?php echo $text_contact; ?></h4>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_name; ?></label>
@@ -147,7 +147,7 @@
         </fieldset>
         <div class="buttons">
           <div class="pull-right">
-            <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common"><span class="">GỬI</span></a>
+            <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common btn-letter-space"><span class="">GỬI</span></a>
           </div>
         </div>
       </form>
