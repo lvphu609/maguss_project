@@ -314,44 +314,42 @@ class ControllerCheckoutGuest extends Controller {
 				$this->session->data['guest']['shipping_address'] = false;
 			}
 
-			// Default Payment Address
-			if ($this->session->data['guest']['shipping_address']) {
-				$this->session->data['shipping_address']['firstname'] = $this->request->post['firstname'];
-				$this->session->data['shipping_address']['lastname'] = $this->request->post['lastname'];
-				$this->session->data['shipping_address']['company'] = $this->request->post['company'];
-				$this->session->data['shipping_address']['address_1'] = $this->request->post['address_1'];
-				$this->session->data['shipping_address']['address_2'] = $this->request->post['address_2'];
-				$this->session->data['shipping_address']['postcode'] = $this->request->post['postcode'];
-				$this->session->data['shipping_address']['city'] = $this->request->post['city'];
-				$this->session->data['shipping_address']['country_id'] = $this->request->post['country_id'];
-				$this->session->data['shipping_address']['zone_id'] = $this->request->post['zone_id'];
+			// shipping address
+            $this->session->data['shipping_address']['firstname'] = $this->request->post['firstname'];
+            $this->session->data['shipping_address']['lastname'] = $this->request->post['lastname'];
+            $this->session->data['shipping_address']['company'] = $this->request->post['company'];
+            $this->session->data['shipping_address']['address_1'] = $this->request->post['address_1'];
+            $this->session->data['shipping_address']['address_2'] = $this->request->post['address_2'];
+            $this->session->data['shipping_address']['postcode'] = $this->request->post['postcode'];
+            $this->session->data['shipping_address']['city'] = $this->request->post['city'];
+            $this->session->data['shipping_address']['country_id'] = $this->request->post['country_id'];
+            $this->session->data['shipping_address']['zone_id'] = $this->request->post['zone_id'];
 
-				if ($country_info) {
-					$this->session->data['shipping_address']['country'] = $country_info['name'];
-					$this->session->data['shipping_address']['iso_code_2'] = $country_info['iso_code_2'];
-					$this->session->data['shipping_address']['iso_code_3'] = $country_info['iso_code_3'];
-					$this->session->data['shipping_address']['address_format'] = $country_info['address_format'];
-				} else {
-					$this->session->data['shipping_address']['country'] = '';
-					$this->session->data['shipping_address']['iso_code_2'] = '';
-					$this->session->data['shipping_address']['iso_code_3'] = '';
-					$this->session->data['shipping_address']['address_format'] = '';
-				}
+            if ($country_info) {
+                $this->session->data['shipping_address']['country'] = $country_info['name'];
+                $this->session->data['shipping_address']['iso_code_2'] = $country_info['iso_code_2'];
+                $this->session->data['shipping_address']['iso_code_3'] = $country_info['iso_code_3'];
+                $this->session->data['shipping_address']['address_format'] = $country_info['address_format'];
+            } else {
+                $this->session->data['shipping_address']['country'] = '';
+                $this->session->data['shipping_address']['iso_code_2'] = '';
+                $this->session->data['shipping_address']['iso_code_3'] = '';
+                $this->session->data['shipping_address']['address_format'] = '';
+            }
 
-				if ($zone_info) {
-					$this->session->data['shipping_address']['zone'] = $zone_info['name'];
-					$this->session->data['shipping_address']['zone_code'] = $zone_info['code'];
-				} else {
-					$this->session->data['shipping_address']['zone'] = '';
-					$this->session->data['shipping_address']['zone_code'] = '';
-				}
+            if ($zone_info) {
+                $this->session->data['shipping_address']['zone'] = $zone_info['name'];
+                $this->session->data['shipping_address']['zone_code'] = $zone_info['code'];
+            } else {
+                $this->session->data['shipping_address']['zone'] = '';
+                $this->session->data['shipping_address']['zone_code'] = '';
+            }
 
-				if (isset($this->request->post['custom_field']['address'])) {
-					$this->session->data['shipping_address']['custom_field'] = $this->request->post['custom_field']['address'];
-				} else {
-					$this->session->data['shipping_address']['custom_field'] = array();
-				}
-			}
+            if (isset($this->request->post['custom_field']['address'])) {
+                $this->session->data['shipping_address']['custom_field'] = $this->request->post['custom_field']['address'];
+            } else {
+                $this->session->data['shipping_address']['custom_field'] = array();
+            }
 
 			//unset($this->session->data['shipping_method']);
 			//unset($this->session->data['shipping_methods']);

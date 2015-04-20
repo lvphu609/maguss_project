@@ -19,7 +19,6 @@
       <div class="panel-body">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab-order" data-toggle="tab"><?php echo $tab_order; ?></a></li>
-          <li><a href="#tab-payment" data-toggle="tab"><?php echo $tab_payment; ?></a></li>
           <?php if ($shipping_method) { ?>
           <li><a href="#tab-shipping" data-toggle="tab"><?php echo $tab_shipping; ?></a></li>
           <?php } ?>
@@ -168,68 +167,7 @@
               </tr>
             </table>
           </div>
-          <div class="tab-pane" id="tab-payment">
-            <table class="table table-bordered">
-              <tr>
-                <td><?php echo $text_firstname; ?></td>
-                <td><?php echo $payment_firstname; ?></td>
-              </tr>
-              <tr>
-                <td><?php echo $text_lastname; ?></td>
-                <td><?php echo $payment_lastname; ?></td>
-              </tr>
-              <?php if ($payment_company) { ?>
-              <tr>
-                <td><?php echo $text_company; ?></td>
-                <td><?php echo $payment_company; ?></td>
-              </tr>
-              <?php } ?>
-              <tr>
-                <td><?php echo $text_address_1; ?></td>
-                <td><?php echo $payment_address_1; ?></td>
-              </tr>
-              <?php if ($payment_address_2) { ?>
-              <tr>
-                <td><?php echo $text_address_2; ?></td>
-                <td><?php echo $payment_address_2; ?></td>
-              </tr>
-              <?php } ?>
-              <tr>
-                <td><?php echo $text_city; ?></td>
-                <td><?php echo $payment_city; ?></td>
-              </tr>
-              <?php if ($payment_postcode) { ?>
-              <tr>
-                <td><?php echo $text_postcode; ?></td>
-                <td><?php echo $payment_postcode; ?></td>
-              </tr>
-              <?php } ?>
-              <tr>
-                <td><?php echo $text_zone; ?></td>
-                <td><?php echo $payment_zone; ?></td>
-              </tr>
-              <?php if ($payment_zone_code) { ?>
-              <tr>
-                <td><?php echo $text_zone_code; ?></td>
-                <td><?php echo $payment_zone_code; ?></td>
-              </tr>
-              <?php } ?>
-              <tr>
-                <td><?php echo $text_country; ?></td>
-                <td><?php echo $payment_country; ?></td>
-              </tr>
-              <?php foreach ($payment_custom_fields as $custom_field) { ?>
-              <tr>
-                <td><?php echo $custom_field['name']; ?>:</td>
-                <td><?php echo $custom_field['value']; ?></td>
-              </tr>
-              <?php } ?>
-              <tr>
-                <td><?php echo $text_payment_method; ?></td>
-                <td><?php echo $payment_method; ?></td>
-              </tr>
-            </table>
-          </div>
+
           <?php if ($shipping_method) { ?>
           <div class="tab-pane" id="tab-shipping">
             <table class="table table-bordered">
@@ -290,7 +228,7 @@
               <?php if ($shipping_method) { ?>
               <tr>
                 <td><?php echo $text_shipping_method; ?></td>
-                <td><?php echo $shipping_method; ?></td>
+                <td>Maguss Shipping</td>
               </tr>
               <?php } ?>
             </table>
