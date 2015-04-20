@@ -1,18 +1,18 @@
 <?php
 // Heading
-$_['heading_title']      = 'My Account Information';
+$_['heading_title']      = 'Thông tin tài khoản';
 
 // Text
 $_['text_account']       = 'Account';
 $_['text_edit']          = 'Edit Information';
-$_['text_your_details']  = 'Your Personal Details';
+$_['text_your_details']  = 'Thông tin cá nhân của bạn';
 $_['text_success']       = 'Success: Your account has been successfully updated.';
 
 // Entry
-$_['entry_firstname']    = 'First Name';
-$_['entry_lastname']     = 'Last Name';
-$_['entry_email']        = 'E-Mail';
-$_['entry_telephone']    = 'Telephone';
+$_['entry_firstname']    = 'Họ';
+$_['entry_lastname']     = 'Tên';
+$_['entry_email']        = 'Email';
+$_['entry_telephone']    = 'Số điện thoại di động';
 $_['entry_fax']          = 'Fax';
 
 // Error
