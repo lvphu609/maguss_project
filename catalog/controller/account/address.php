@@ -225,14 +225,14 @@ class ControllerAccountAddress extends Controller {
 			$replace = array(
 				'firstname' => $result['firstname'],
 				'lastname'  => $result['lastname'],
-				'company'   => $result['company'],
+				//'company'   => $result['company'],
 				'address_1' => $result['address_1'],
-				'address_2' => $result['address_2'],
-				'city'      => $result['city'],
-				'postcode'  => $result['postcode'],
+				//'address_2' => $result['address_2'],
+				//'city'      => $result['city'],
+				//'postcode'  => $result['postcode'],
 				'zone'      => $result['zone'],
-				'zone_code' => $result['zone_code'],
-				'country'   => $result['country']
+				//'zone_code' => $result['zone_code'],
+				//'country'   => $result['country']
 			);
 
 			$data['addresses'][] = array(
