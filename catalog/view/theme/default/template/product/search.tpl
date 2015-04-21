@@ -109,8 +109,10 @@
       <br /> */ ?>
       <div class="container">
         <div class="text-header" style="margin-bottom: 10px; margin-top:-5px;"><span><?php echo $heading_title; ?></span></div>
-        <?php foreach ($products as $key => $product) { ?>
-        <?php  if($key%3 == 0) { ?>
+        <?php 
+        $countRow = 0;
+        foreach ($products as $key => $product) { ?>
+        <?php  if($countRow%3 === 0) { ?>
           <div class="row row-category-product col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <?php  } ?>
         <div class="product-layout product-grid product-item col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -194,10 +196,10 @@
               </div>
             </div>
           </div>
-        <?php  if($key/3 === 2) { ?>
+         <?php if($countRow%3 != 0 && $countRow%3 == 2) { ?>
           </div>
-        <?php  } ?>
-      <?php } ?>
+        <?php } ?>
+      <?php $countRow++ ; } ?>
       <?php } else { ?>
       <div class="search-empty"><p><?php echo $text_empty; ?></p></div>
       <?php } ?>
