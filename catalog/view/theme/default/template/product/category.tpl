@@ -15,7 +15,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <div class="text-header" style="margin-bottom: 5px;"><span><?php echo $heading_title; ?></span></div>
+      <h1 class="text-header-category"><?php echo $heading_title; ?></h1>
       <?php if ($thumb || $description) { ?>
       <?php /*<div class="row">
         <?php if ($thumb) { ?>
@@ -146,7 +146,7 @@
             <div class="line-item text-center"><hr></div>
               <div class="caption text-center">
                 <div class="top-desc">
-                  <span class="title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></span>
+                  <span class="title"><a href="<?php echo $product['href']; ?>"><h3 class="text-name-h3"><?php echo $product['name']; ?></h3></a></span>
                   <p><?php  echo $product['meta_description']; ?></p>
                 </div>
                 <?php /*  if ($product['rating']) { ?>
