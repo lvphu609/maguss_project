@@ -2243,4 +2243,67 @@ a.text-color-common:hover, .text-color-common a:hover{
 .table-bordered>tfoot>tr>td{
 	border: 1px solid #63c6c1 !important;
 }
+
+h1.text-header-category{
+	color: #63C6C1;
+	font-weight: bold;
+	font-family: 'Myriad Pro' !important;
+	font-size: 15px;
+	padding-left: 15px;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+
+h3.text-name-h3{
+	color: #63C6C1;
+	font-weight: bold;
+	font-size: 14px;
+	margin-top: 5px;
+}
+
+h2.text-desc-product-h2{
+	/*color: #63C6C1;*/
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	margin-top: 3px;
+ 	margin-bottom: 3px;
+}
+
+.tab-product-info ul li a:hover{
+	background-color: #63C6C1;
+	color: #FFFFFF !important;
+}
+
+.tab-product-info ul li.active a{
+	background-color: #63C6C1;
+	color: #FFFFFF !important;
+}
+
+.tab-product-info ul li.active a:hover{
+	background-color: #63C6C1;
+	color: #FFFFFF !important;
+}
+.tab-product-info ul li.active a:focus{
+	background-color: #63C6C1;
+	color: #FFFFFF !important;
+}
+.tab-product-info ul li.active h2.text-desc-product-h2{
+	color: #FFFFFF;
+}
+.tab-product-info ul li h2.text-desc-product-h2{
+	color: #63C6C1;
+}
+.tab-product-info ul li:hover h2.text-desc-product-h2{
+	color: #FFFFFF;
+}
+
+.pro-block.pro-info h1.pro-info-title{
+	font-weight: bold;
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #63C6C1;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }

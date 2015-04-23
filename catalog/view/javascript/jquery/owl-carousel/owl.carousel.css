@@ -29,6 +29,13 @@
 	position: relative;
 	width: 100%;
 	max-height: 564px;
+	/*margin-top: -100px;*/
+}
+.owl-carousel.home-slideshow .owl-wrapper-outer{
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	max-height: 564px;
 	margin-top: -100px;
 }
 .owl-carousel .owl-wrapper-outer.autoHeight{

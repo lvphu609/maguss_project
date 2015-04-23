@@ -60,7 +60,7 @@
           <div class="box-info-product-detail <?php echo $class; ?>">
             
             <div class="pro-block pro-info">
-              <span class="pro-info-title"><?php echo $heading_title; ?></span>
+              <h1 class="pro-info-title"><?php echo $heading_title; ?></h1>
               <div><span class="pro-info-model"><?php echo $model; ?></span></div>
               <div class="pro-info-manufacturer">
                 <?php echo $text_manufacturer; ?> 
@@ -372,7 +372,7 @@
         <!-- end info -->
         <div class="tab-product-info col-xs-12 col-sm-12 col-lg-12">
           <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
+              <li class="active"><a href="#tab-description" data-toggle="tab"><h2 class="text-desc-product-h2"><?php echo $tab_description; ?></h2></a></li>
               <?php if ($attribute_groups) { ?>
               <li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
               <?php } ?>
@@ -487,7 +487,7 @@
 	              <div class="line-item text-center"><hr></div>
 	              <div class="text-center pro-curr-info">
                     <div class="top-desc-pro-detail">
-	                   <span class="title"><a href="#"><?php echo $heading_title; ?></a></span>
+	                   <span class="title"><a href="#"><h3 class="text-name-h3"><?php echo $heading_title; ?></h3></a></span>
                     </div>
 	              </div>
                   <div class="button-group-item text-center">
@@ -544,7 +544,7 @@
 	              <div class="line-item text-center"><hr></div>
 	              <div class="caption text-center">
                     <div class="top-desc">
-    	                <span class="title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></span>
+    	                <span class="title"><a href="<?php echo $product['href']; ?>"><h3 class="text-name-h3"><?php echo $product['name']; ?></h3></a></span>
     	                <p><?php echo $product['meta_description']; ?></p>
                     </div>
 	                <?php /* if ($product['rating']) { ?>
