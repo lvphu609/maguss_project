@@ -1726,6 +1726,7 @@ ul.link-to-social li.item-social img{
 	border-bottom: 1px solid #63C6C1;
 	margin-bottom: 50px;
     padding-bottom: 5px;
+    margin-top: 2px;
 }
 .pan-checkout .tbl-title {
     color: #ffffff;
@@ -2325,4 +2326,17 @@ h2.text-desc-product-h2{
 .font-size-common input,
 .font-size-common select{
 	font-size: 14px !important;
+}
+
+.owl-carousel.home-slideshow{
+	border: none !important;
+}
+
+.owl-carousel.home-slideshow .owl-item .item img{
+	margin-top: -11px;
+}
+
+.magnifier{
+	margin-left: 15px;
+	width: 900px;
 }
