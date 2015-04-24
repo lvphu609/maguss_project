@@ -2320,3 +2320,9 @@ h2.text-desc-product-h2{
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
+
+.font-size-common, 
+.font-size-common input,
+.font-size-common select{
+	font-size: 14px !important;
+}

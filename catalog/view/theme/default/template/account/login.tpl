@@ -30,11 +30,11 @@
             <form autocomplete="off" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <?php echo $entry_email; ?>
-                <input value="" autocomplete="off" type="text" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
+                <input value="" autocomplete="off" type="text" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control font-size-common" />
               </div>
               <div class="form-group">
                 <?php echo $entry_password; ?>
-                <input  value="" autocomplete="off" type="password" name="password" value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>" id="input-password" class="form-control" />
+                <input  value="" autocomplete="off" type="password" name="password" value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>" id="input-password" class="form-control font-size-common" />
                 <a href="<?php echo $forgotten; ?>" class="text-color-common"><?php echo $text_forgotten; ?></a></div>
               <!-- <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" /> -->
               <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common btn-letter-space"><span class="">ĐĂNG NHẬP</span></a>
