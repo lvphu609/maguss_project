@@ -223,7 +223,7 @@
           </div>
           <div class="pull-right">
             <!-- <input type="submit" value="<?php // echo $button_continue; ?>" class="btn btn-primary" /> -->
-            <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common"><span class="">CHỈNH SỬA</span></a>
+            <a href="javascript:;" onclick="$(this).closest('form').submit(); return false;" class="btn btn-maguss-common"><span class="">HOÀN TẤT</span></a>
           </div>
         </div>
       </form>
