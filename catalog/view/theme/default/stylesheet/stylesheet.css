@@ -2326,3 +2326,11 @@ h2.text-desc-product-h2{
 .font-size-common select{
 	font-size: 14px !important;
 }
+
+.owl-carousel.home-slideshow{
+	border: none !important;
+}
+
+.owl-carousel.home-slideshow .owl-item .item img{
+	margin-top: -11px;
+}
