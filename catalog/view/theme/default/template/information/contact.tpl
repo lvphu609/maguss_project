@@ -22,7 +22,7 @@
             <?php if ($image) { ?>
             <div class="col-sm-3"><img src="<?php echo $image; ?>" alt="<?php echo $store; ?>" title="<?php echo $store; ?>" class="img-thumbnail" /></div>
             <?php } ?>
-            <div class="col-sm-3 text-color-common"><strong><?php echo $store; ?></strong><br />
+            <div class="col-sm-3"><strong class="text-color-common"><?php echo $store; ?></strong><br />
               <address class="text-color-common">
               <?php echo $address; ?>
               </address>
@@ -66,7 +66,7 @@
                 <?php if ($location['image']) { ?>
                 <div class="col-sm-3"><img src="<?php echo $location['image']; ?>" alt="<?php echo $location['name']; ?>" title="<?php echo $location['name']; ?>" class="img-thumbnail" /></div>
                 <?php } ?>
-                <div class="col-sm-3"><strong><?php echo $location['name']; ?></strong><br />
+                <div class="col-sm-3"><strong class="text-color-common"><?php echo $location['name']; ?></strong><br />
                   <address class="text-color-common">
                   <?php echo $location['address']; ?>
                   </address>
