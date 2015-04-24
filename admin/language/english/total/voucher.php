@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']    = 'Gift Voucher';
+$_['heading_title']    = 'Phiếu quà tặng';
 
 // Text
 $_['text_total']       = 'Order Totals';

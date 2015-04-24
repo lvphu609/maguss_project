@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']     = 'Maguss shipping';
+$_['heading_title']     = 'Thanh toán khi nhận hàng';
 
 // Text
 $_['text_shipping']    = 'Shipping';

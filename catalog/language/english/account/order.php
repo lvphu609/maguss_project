@@ -31,7 +31,7 @@ $_['column_total']          = 'Thành tiền';
 $_['column_action']         = 'Action';
 $_['column_date_added']     = 'Ngày đặt hàng';
 $_['column_status']         = 'Trạng thái đơn hàng';
-$_['column_comment']        = 'Comment';
+$_['column_comment']        = 'Ghi chú';
 
 // Error
 $_['error_reorder']         = '%s is not currently available to be reordered.';

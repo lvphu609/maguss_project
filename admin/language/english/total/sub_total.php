@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']    = 'Sub-Total';
+$_['heading_title']    = 'Tổng cộng';
 
 // Text
 $_['text_total']       = 'Order Totals';

@@ -27,7 +27,7 @@
             <?php } ?>
             <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
                 <div class="text-header-contact"><span><?php echo $heading_title; ?></span></div>
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover text-color-common">
                     <thead>
                     <tr>
                         <td class="text-left" colspan="2"><?php echo $text_order_detail; ?></td>
@@ -49,7 +49,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover text-color-common">
                     <thead>
                     <tr>
                         <td class="text-left"><?php echo $text_shipping_address; ?></td>
@@ -64,7 +64,7 @@
                     </tbody>
                 </table>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover text-color-common">
                         <thead>
                         <tr>
                             <td class="text-left"><?php echo $column_name; ?></td>
@@ -129,7 +129,7 @@
                     </table>
                 </div>
                 <?php if ($comment) { ?>
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover text-color-common">
                         <thead>
                         <tr>
                             <td class="text-left"><?php echo $text_comment; ?></td>
@@ -143,8 +143,8 @@
                     </table>
                 <?php } ?>
                 <?php if ($histories) { ?>
-                    <h3><?php echo $text_history; ?></h3>
-                    <table class="table table-bordered table-hover">
+                <div class="text-header-contact"><span><?php echo $text_history; ?></span></div>
+                    <table class="table table-bordered table-hover text-color-common">
                         <thead>
                         <tr>
                             <td class="text-left"><?php echo $column_date_added; ?></td>

@@ -15,22 +15,22 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <div class="text-header-contact"><span><?php echo $heading_title; ?></span></div>
-      <h4><?php echo $text_location; ?></h4>
+      <h4 class="text-color-common"><?php echo $text_location; ?></h4>
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="row">
             <?php if ($image) { ?>
             <div class="col-sm-3"><img src="<?php echo $image; ?>" alt="<?php echo $store; ?>" title="<?php echo $store; ?>" class="img-thumbnail" /></div>
             <?php } ?>
-            <div class="col-sm-3"><strong><?php echo $store; ?></strong><br />
-              <address>
+            <div class="col-sm-3 text-color-common"><strong><?php echo $store; ?></strong><br />
+              <address class="text-color-common">
               <?php echo $address; ?>
               </address>
               <?php if ($geocode) { ?>
               <a class="btn btn-maguss-common btn-letter-space" href="https://maps.google.com/maps?q=<?php echo urlencode($geocode); ?>&hl=en&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> <?php //echo $button_map; ?> XEM BẢN ĐỒ</a>
               <?php } ?>
             </div>
-            <div class="col-sm-3"><strong><?php echo $text_telephone; ?></strong><br>
+            <div class="col-sm-3 text-color-common"><strong><?php echo $text_telephone; ?></strong><br>
               <?php echo $telephone; ?><br />
               <br />
               <?php if ($fax) { ?>
@@ -38,7 +38,7 @@
               <?php echo $fax; ?>
               <?php } ?>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 text-color-common">
               <?php if ($open) { ?>
               <strong><?php echo $text_open; ?></strong><br />
               <?php echo $open; ?><br />
@@ -58,7 +58,7 @@
         <?php foreach ($locations as $location) { ?>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 class="panel-title"><a href="#collapse-location<?php echo $location['location_id']; ?>" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"><?php echo $location['name']; ?> <i class="fa fa-caret-down"></i></a></h4>
+            <h4 class="panel-title text-color-common"><a href="#collapse-location<?php echo $location['location_id']; ?>" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"><?php echo $location['name']; ?> <i class="fa fa-caret-down"></i></a></h4>
           </div>
           <div class="panel-collapse collapse" id="collapse-location<?php echo $location['location_id']; ?>">
             <div class="panel-body">
@@ -67,14 +67,14 @@
                 <div class="col-sm-3"><img src="<?php echo $location['image']; ?>" alt="<?php echo $location['name']; ?>" title="<?php echo $location['name']; ?>" class="img-thumbnail" /></div>
                 <?php } ?>
                 <div class="col-sm-3"><strong><?php echo $location['name']; ?></strong><br />
-                  <address>
+                  <address class="text-color-common">
                   <?php echo $location['address']; ?>
                   </address>
                   <?php if ($location['geocode']) { ?>
                   <a href="https://maps.google.com/maps?q=<?php echo urlencode($location['geocode']); ?>&hl=en&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> <?php echo $button_map; ?></a>
                   <?php } ?>
                 </div>
-                <div class="col-sm-3"> <strong><?php echo $text_telephone; ?></strong><br>
+                <div class="col-sm-3 text-color-common"> <strong><?php echo $text_telephone; ?></strong><br>
                   <?php echo $location['telephone']; ?><br />
                   <br />
                   <?php if ($location['fax']) { ?>
@@ -82,7 +82,7 @@
                   <?php echo $location['fax']; ?>
                   <?php } ?>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 text-color-common">
                   <?php if ($location['open']) { ?>
                   <strong><?php echo $text_open; ?></strong><br />
                   <?php echo $location['open']; ?><br />
@@ -102,7 +102,7 @@
       <?php } ?>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset class="text-color-common">
-          <h4><?php echo $text_contact; ?></h4>
+          <h4 class="text-color-common"><?php echo $text_contact; ?></h4>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_name; ?></label>
             <div class="col-sm-10">
