@@ -5,7 +5,7 @@
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
   </ul> */ ?>
-  <div class="row text-color-common"><?php echo $column_left; ?>
+  <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
@@ -14,8 +14,10 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-       <div class="text-header-common"><span><?php echo $heading_title; ?></span></div>
-      <?php echo $text_message; ?>
+       <div class="text-header-common text-color-common"><span><?php echo $heading_title; ?></span></div>
+       <div class="text-color-common">
+        <?php echo $text_message; ?>
+        </div>
       <div class="buttons">
         <div class="pull-right">
           <a href="<?php echo $continue; ?>" class="btn btn-maguss-common  btn-letter-space">TIẾP TỤC MUA HÀNG<?php // echo $button_continue; ?></a></div>
