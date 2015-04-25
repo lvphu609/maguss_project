@@ -3,7 +3,7 @@
 $_['heading_title']  = 'Liên hệ';
 
 // Text
-$_['text_location']  = 'Vị trí của chúng tôi';
+$_['text_location']  = 'Thông tin liên hệ';
 $_['text_store']     = 'Our Stores';
 $_['text_contact']   = 'Mẫu liên hệ';
 $_['text_address']   = 'Address';

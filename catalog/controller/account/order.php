@@ -273,7 +273,7 @@ class ControllerAccountOrder extends Controller {
 
 			$data['shipping_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
 
-			$data['shipping_method'] = 'Maguss shipping'; //$order_info['shipping_method'];
+			$data['shipping_method'] = 'Thanh toán khi nhận hàng'; //$order_info['shipping_method'];
 
 			$this->load->model('catalog/product');
 			$this->load->model('tool/upload');
