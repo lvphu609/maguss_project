@@ -797,6 +797,30 @@ var Maguss = {
 		}
 		$("#box-product-image-lg").css({"display":"block"});
 		$('.jscarousal-contents-vertical .visible .img-additional .img-lg-item').first().trigger('click');
+		
+		//delete image the same
+		var divItem = $('.box-item-image.jscarousal-contents-vertical').children();
+		if(divItem.length >= 2){
+			var lastArr = [];
+			$.each($(divItem[divItem.length-1]).find('img'), function(index,img){
+				lastArr.push($(img).attr('src'));
+			});
+
+			//check image exist
+			for(var i=0; i<divItem.length-1;i++){
+				$.each($(divItem[i]).find('img'), function(index,img){
+					if(jQuery.inArray($(img).attr('src'), lastArr)!==-1){
+						$(img).closest('div').remove();
+					}
+				});
+			}
+			var reDivItem = $('.box-item-image.jscarousal-contents-vertical').children();
+			for(var i=0; i<reDivItem.length-1;i++){
+				var strTemp = $(reDivItem[i]).html();
+				reDivItem[i].remove();
+				$('.box-item-image.jscarousal-contents-vertical').prepend('<div class="img-additional" style="cursor: pointer;">' +strTemp+'</div>');
+			}
+		}
 	},
 	hoverScrollImage: function(){
 		$("#carouselv").hover(function(){
