@@ -831,7 +831,7 @@ h2.price {
     /*border: none !important;*/
     border: 1px solid #5fc5c2;
     color: #63C6C1;
-
+    letter-spacing: 1px;
 }
 
 #custom-search-input button {
