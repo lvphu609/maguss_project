@@ -315,7 +315,24 @@ class ModelCheckoutOrder extends Model {
 				$order_product_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
 
 				foreach ($order_product_query->rows as $order_product) {
-					$this->db->query("UPDATE " . DB_PREFIX . "product SET quantity = (quantity - " . (int)$order_product['quantity'] . ") WHERE product_id = '" . (int)$order_product['product_id'] . "' AND subtract = '1'");
+                    $beginStr = '<strong style="text-transform: uppercase;">';
+                    $begin = strpos($order_product['name'], $beginStr) + strlen($beginStr);
+                    $end = strpos($order_product['name'], '</strong>');
+                    $size = substr($order_product['name'], $begin, $end - $begin);
+                    $strBegin = 'style="background-color: ';
+                    $begin = strpos($order_product['name'], $strBegin) + strlen($strBegin);
+                    $color = substr($order_product['name'], $begin, 7);
+                    $quantity_query = $this->db->query("SELECT quantity_detail FROM " . DB_PREFIX . "product WHERE product_id = '" . (int)$order_product['product_id'] . "'");
+                    $quantity_detail = $quantity_query->row['quantity_detail'];
+                    $quantity_detail = json_decode($quantity_detail, true);
+                    foreach ($quantity_detail as $key => $row) {
+                        if ($row['color'] == $color && $row['size']['label'] == $size) {
+                            $quantity_detail[$key]['quantity'] = $row['quantity'] - (int)$order_product['quantity'];
+                            break;
+                        }
+                    }
+                    $quantity_detail = json_encode($quantity_detail);
+					$this->db->query("UPDATE " . DB_PREFIX . "product SET quantity = (quantity - " . (int)$order_product['quantity'] . "), quantity_detail = '".$quantity_detail."' WHERE product_id = '" . (int)$order_product['product_id'] . "' AND subtract = '1'");
 
 					$order_option_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_option WHERE order_id = '" . (int)$order_id . "' AND order_product_id = '" . (int)$order_product['order_product_id'] . "'");
 
@@ -349,7 +366,24 @@ class ModelCheckoutOrder extends Model {
 				$product_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
 
 				foreach($product_query->rows as $product) {
-					$this->db->query("UPDATE `" . DB_PREFIX . "product` SET quantity = (quantity + " . (int)$product['quantity'] . ") WHERE product_id = '" . (int)$product['product_id'] . "' AND subtract = '1'");
+                    $beginStr = '<strong style="text-transform: uppercase;">';
+                    $begin = strpos($product['name'], $beginStr) + strlen($beginStr);
+                    $end = strpos($product['name'], '</strong>');
+                    $size = substr($product['name'], $begin, $end - $begin);
+                    $strBegin = 'style="background-color: ';
+                    $begin = strpos($product['name'], $strBegin) + strlen($strBegin);
+                    $color = substr($product['name'], $begin, 7);
+                    $quantity_query = $this->db->query("SELECT quantity_detail FROM " . DB_PREFIX . "product WHERE product_id = '" . (int)$product['product_id'] . "'");
+                    $quantity_detail = $quantity_query->row['quantity_detail'];
+                    $quantity_detail = json_decode($quantity_detail, true);
+                    foreach ($quantity_detail as $key => $row) {
+                        if ($row['color'] == $color && $row['size']['label'] == $size) {
+                            $quantity_detail[$key]['quantity'] = $row['quantity'] + (int)$product['quantity'];
+                            break;
+                        }
+                    }
+                    $quantity_detail = json_encode($quantity_detail);
+                    $this->db->query("UPDATE " . DB_PREFIX . "product SET quantity = (quantity + " . (int)$product['quantity'] . "), quantity_detail = '".$quantity_detail."' WHERE product_id = '" . (int)$product['product_id'] . "' AND subtract = '1'");
 
 					$option_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_option WHERE order_id = '" . (int)$order_id . "' AND order_product_id = '" . (int)$product['order_product_id'] . "'");
 
