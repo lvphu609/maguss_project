@@ -96,6 +96,7 @@
 	opacity: .9;
 	margin-top: -28px;
   	position: absolute;
+  	margin-left: 15px;
 
 }
 .jscarousal-vertical-forward
@@ -111,6 +112,7 @@
 	bottom: 5px;
 	position: absolute;
   	z-index: 999999;
+  	margin-left: 15px;
 }
 
 .jscarousal-vertical-forward a, .jscarousal-vertical-back a
@@ -125,7 +127,7 @@
 {
 	overflow: hidden;
 	width: 140px;
-	height: 500px;
+	height: 600px;
 }
 .jscarousal-contents-vertical > div
 {
@@ -139,7 +141,8 @@
 .jscarousal-contents-vertical > div > div
 {
 	width: 140px;
-	height: 125px;
+	height: 145px;
+	/*height: 175px;*/
 	/*margin: 8px;
 	margin-left: 14px;*/
 }
@@ -189,7 +192,7 @@
 #carouselv{
 	padding: 0px;
 	margin: 0px;
-	height: 520px;
+	height: 610px;
 	/*margin-top: -30px;*/
 }
 .jscarousal-contents-vertical .visible

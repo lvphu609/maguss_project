@@ -1406,7 +1406,7 @@ ul.link-to-social li.item-social img{
 	text-align: center;
 	background-color: #63C6C1;
 	color: #FFFFFF;
-	margin: 5px 0px 5px 10px; 
+	margin: 5px 0px 15px 10px;
 	font-weight: bold;
 	line-height: 30px;
 	margin-top: -10px;
@@ -1462,7 +1462,7 @@ ul.link-to-social li.item-social img{
 	text-align: center;
 	background-color: #63C6C1;
 	color: #FFFFFF;
-	margin: 5px 0px 5px 10px; 
+	margin: 5px 0px 15px 10px; 
 	font-weight: bold;
 	line-height: 30px;
 	/*margin-top: -30px;*/
@@ -1649,7 +1649,7 @@ ul.link-to-social li.item-social img{
   margin: 0px;
   overflow: hidden;
   /*height: 500px;*/
-  height: 500px;
+  height: 600px;
   position: absolute;
   overflow: hidden !important;
 }
@@ -1662,7 +1662,7 @@ ul.link-to-social li.item-social img{
 
 .box-image-product-large .box-item-image .img-additional{
 	/*width: 50px;*/
-	width: 90px;
+	/*width: 90px;*/
 }
 
 .box-image-product-large .box-item-image .img-additional .img-lg-item{
