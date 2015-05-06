@@ -12,11 +12,11 @@
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <div class="row" id="product">
         <?php if ($column_left && $column_right) { ?>
-        <?php $class = 'col-sm-6'; ?>
+        <?php $class = 'col-sm-7'; ?>
         <?php } elseif ($column_left || $column_right) { ?>
-        <?php $class = 'col-sm-6'; ?>
+        <?php $class = 'col-sm-7'; ?>
         <?php } else { ?>
-        <?php $class = 'col-sm-6'; ?>
+        <?php $class = 'col-sm-7'; ?>
         <?php } ?>
         <div class="pro-box-image <?php echo $class; ?>">
             <!-- box large -->
@@ -51,11 +51,11 @@
         </div>
         <!-- info -->
           <?php if ($column_left && $column_right) { ?>
-          <?php $class = 'col-sm-6'; ?>
+          <?php $class = 'col-sm-5'; ?>
           <?php } elseif ($column_left || $column_right) { ?>
-          <?php $class = 'col-sm-6'; ?>
+          <?php $class = 'col-sm-5'; ?>
           <?php } else { ?>
-          <?php $class = 'col-sm-6'; ?>
+          <?php $class = 'col-sm-5'; ?>
           <?php } ?>
           <div class="box-info-product-detail <?php echo $class; ?>">
             
