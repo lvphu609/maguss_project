@@ -148,9 +148,10 @@
               </div>
             </div>
 
-            <div class="pro-block pro-desc">
+            <div class="pro-block pro-desc" data-toggle="collapse" href="#collapseDesc" aria-expanded="false" aria-controls="collapseDesc">
               <span class="pro-desc-title">MÔ TẢ SẢN PHẨM</span>
-              <div class="pro-desc-content">
+              <i id="icon_collapse_desc" class="pull-right fa fa-caret-down"></i>
+              <div class="pro-desc-content collapse in" id="collapseDesc">
                 <?php echo $meta_description; ?>
               </div>
             </div>
@@ -873,4 +874,13 @@ $(document).ready(function() {
         }
     });  */
 });
+
+$('#collapseDesc').on('show.bs.collapse', function () {
+    $("#icon_collapse_desc").attr('class','pull-right fa fa-caret-down');
+});
+
+$('#collapseDesc').on('hide.bs.collapse', function () {
+   $("#icon_collapse_desc").attr('class','pull-right fa fa-caret-right');
+});
+
 </script>

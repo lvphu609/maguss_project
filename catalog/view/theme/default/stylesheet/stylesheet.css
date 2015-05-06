@@ -1804,6 +1804,7 @@ ul.link-to-social li.item-social img{
 
 .pro-block.pro-desc{
 	margin-top: -30px;
+	cursor: pointer;
 }
 .pro-block.pro-desc .pro-desc-title{
 	font-size: 13px;
@@ -2339,4 +2340,8 @@ h2.text-desc-product-h2{
 .magnifier{
 	margin-left: 15px;
 	width: 900px;
+}
+
+#icon_collapse_desc{
+	margin-right: 10px;
 }
