@@ -17,7 +17,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <div class="text-header-contact"><span><?php echo $heading_title; ?></span></div>
+      <div class="text-header-contact"><span style="font-size:18px;"><?php echo $heading_title; ?></span></div>
       <p><?php echo $text_account_already; ?></p>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset id="account">
@@ -491,21 +491,24 @@
           <div class="form-group">
             <label class="col-sm-2 control-label"><?php echo $entry_newsletter; ?></label>
             <div class="col-sm-10">
-              <?php if ($newsletter) { ?>
-              <label class="radio-inline">
-                <input type="radio" name="newsletter" value="1" checked="checked" />
-                Đồng ý <?php  // echo $text_yes; ?></label>
-              <label class="radio-inline">
-                <input type="radio" name="newsletter" value="0" />
-                Không đồng ý <?php // echo $text_no; ?></label>
-              <?php } else { ?>
-              <label class="radio-inline">
-                <input type="radio" name="newsletter" value="1" />
-                Đồng ý <?php // echo $text_yes; ?></label>
-              <label class="radio-inline">
-                <input type="radio" name="newsletter" value="0" checked="checked" />
-                Không đồng ý <?php // echo $text_no; ?></label>
-              <?php } ?>
+                <div class="box-rado-newsletter">
+                  <?php if ($newsletter) { ?>
+                  <label class="radio-inline">
+                    <input type="radio" name="newsletter" value="1" checked="checked" />
+                    Đồng ý <?php  // echo $text_yes; ?></label>
+                  <label class="radio-inline">
+                    <input type="radio" name="newsletter" value="0" />
+                    Không đồng ý <?php // echo $text_no; ?></label>
+                  <?php } else { ?>
+                  <label class="radio-inline">
+                    <input type="radio" name="newsletter" value="1" />
+                    Đồng ý <?php // echo $text_yes; ?></label>
+                  <label class="radio-inline">
+                    <input type="radio" name="newsletter" value="0" checked="checked" />
+                    Không đồng ý <?php // echo $text_no; ?></label>
+                  <?php } ?>
+                </div>
+
             </div>
           </div>
         </fieldset>
