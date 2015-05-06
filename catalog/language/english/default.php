@@ -14,7 +14,7 @@ $_['text_home']             = '<i class="fa fa-home"></i>';
 $_['text_yes']              = 'Yes';
 $_['text_no']               = 'No';
 $_['text_none']             = ' --- None --- ';
-$_['text_select']           = ' --- Please Select --- ';
+$_['text_select']           = ' --- Vui lòng chọn --- ';
 $_['text_all_zones']        = 'All Zones';
 $_['text_pagination']       = 'Showing %d to %d of %d (%d Pages)';
 $_['text_loading']          = 'Loading...';

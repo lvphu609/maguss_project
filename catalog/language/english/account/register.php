@@ -9,7 +9,7 @@ $_['text_your_details']    = 'Thông Tin Cá Nhân Của Bạn';
 $_['text_your_address']    = 'Địa Chỉ Của Bạn';
 $_['text_newsletter']      = 'Nhận tin tức mới từ chúng tôi';
 $_['text_your_password']   = 'Mật khẩu của bạn';
-$_['text_agree']           = 'Tôi đồng ý với các điều khoản của Maguss';//'I have read and agree to the <a href="%s" class="agree"><b>%s</b></a>';
+$_['text_agree']           = 'Tôi đồng ý với các <a href="%s" class="agree text-color-common"><b>điều khoản</b></a> của Maguss';//'I have read and agree to the <a href="%s" class="agree"><b>%s</b></a>';
 // Entry
 $_['entry_customer_group'] = 'Customer Group';
 $_['entry_firstname']      = 'Tên';

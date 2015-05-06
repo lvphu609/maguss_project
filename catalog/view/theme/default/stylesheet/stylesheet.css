@@ -57,7 +57,7 @@ a:hover {
 	text-decoration: none;
 }
 legend {
-	font-size: 18px;
+	font-size: 15px;
 	padding: 7px 0px
 }
 label {
@@ -2344,4 +2344,17 @@ h2.text-desc-product-h2{
 
 #icon_collapse_desc{
 	margin-right: 10px;
+}
+
+#modal-agree{
+	z-index: 999999999;
+}
+
+.box-rado-newsletter{
+	border: 1px solid #63C6C1;
+	height: 35px;
+	border-radius: 4px;
+	width: 250px;
+	text-align: center;
+	color: #9c9c9c;
 }
