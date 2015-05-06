@@ -9,7 +9,7 @@ $_['text_contact']   = 'Mẫu liên hệ';
 $_['text_address']   = 'Address';
 $_['text_telephone'] = 'Số điện thoại';
 $_['text_fax']       = 'Fax';
-$_['text_open']      = 'Giờ mở cửa';
+$_['text_open']      = 'Thời gian làm việc';
 $_['text_comment']   = 'Thông tin giao hàng';
 $_['text_success']   = '<p>Your enquiry has been successfully sent to the store owner!</p>';
 
