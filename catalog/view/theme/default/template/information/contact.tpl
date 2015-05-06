@@ -30,20 +30,21 @@
               <a class="btn btn-maguss-common btn-letter-space" href="https://maps.google.com/maps?q=<?php echo urlencode($geocode); ?>&hl=en&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> <?php //echo $button_map; ?> XEM BẢN ĐỒ</a>
               <?php } ?>
             </div>
-            <div class="col-sm-3 text-color-common"><strong><?php echo $text_telephone; ?></strong><br>
+            <div class="col-sm-2 text-color-common"><strong><?php echo $text_telephone; ?></strong><br>
               <?php echo $telephone; ?><br />
               <br />
+                <?php if ($open) { ?>
+                    <strong><?php echo $text_open; ?></strong><br />
+                    <?php echo $open; ?><br />
+                    <br />
+                <?php } ?>
+                <br />
               <?php if ($fax) { ?>
               <strong><?php echo $text_fax; ?></strong><br>
               <?php echo $fax; ?>
               <?php } ?>
             </div>
-            <div class="col-sm-3 text-color-common">
-              <?php if ($open) { ?>
-              <strong><?php echo $text_open; ?></strong><br />
-              <?php echo $open; ?><br />
-              <br />
-              <?php } ?>
+            <div class="col-sm-4 text-color-common">
               <?php if ($comment) { ?>
               <strong><?php echo $text_comment; ?></strong><br />
               <?php echo $comment; ?>
