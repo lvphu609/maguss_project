@@ -376,7 +376,7 @@
         <!-- end info -->
         <div class="tab-product-info col-xs-12 col-sm-12 col-lg-12">
           <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab-description" data-toggle="tab"><h2 class="text-desc-product-h2"><?php echo $tab_description; ?></h2></a></li>
+              <li class="active"><a href="#tab-description" data-toggle="tab"><h2 class="text-desc-product-h2"><?php echo $tab_description; ?> <span style="text-transform: lowercase;"><?php echo $heading_title; ?></span></h2></a></li>
               <?php if ($attribute_groups) { ?>
               <li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
               <?php } ?>
