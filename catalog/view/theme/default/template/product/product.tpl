@@ -139,7 +139,10 @@
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                     <?php } ?>
                   </select> */ ?>
-                  <input placeholder="Số lượng" type="text" name="quantity" class="pro-option-select-quantity name-holder" min="1">
+                    <div class="input-group spinner quantity-spinner" data-trigger="spinner">
+                      <input placeholder="Số lượng" type="text" name="quantity" class="pro-option-select-quantity name-holder" min="1">
+                    </div>  
+                    <div class="clear"></div>                
                 <?php endif; ?>
                 <?php // echo $text_stock;  echo $stock; ?>
                 <!-- <span>&nbsp; Vui lòng để lại email/điện thoạiđể liên lạc khi có hàng</span> -->
@@ -884,3 +887,4 @@ $('#collapseDesc').on('hide.bs.collapse', function () {
 });
 
 </script>
+<script src="catalog/view/javascript/resource/jquery.spinner.js" type="text/javascript"></script>
