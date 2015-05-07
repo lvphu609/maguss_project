@@ -344,6 +344,12 @@ class ControllerCheckoutCart extends Controller {
                     break;
                 }
             }
+            foreach ($quantityDetail as $product) {
+                if ($product['color'] == $this->request->post['color'] && $product['size']['size'] == $this->request->post['size'] && (int)$product['quantity'] <= 0) {
+                    $json['error']['over_quantity'] = 'Vui lòng để lại email/số điện thoại để liên lạc khi có hàng!';
+                    break;
+                }
+            }
 
 			if (isset($this->request->post['option'])) {
 				$option = array_filter($this->request->post['option']);
