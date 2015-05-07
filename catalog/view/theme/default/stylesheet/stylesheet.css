@@ -904,6 +904,10 @@ h2.price {
 .pan-collection .left-text, .pan-collection .right-text {
     font-size: 14px;
 }
+.pan-collection .right-text {
+    width: 130%;
+    margin-left: -30%;
+}
 .pan-collection .bottom-image {
     width: 100%;
     height: 500px;
@@ -914,17 +918,23 @@ h2.price {
 }
 .pan-collection .center-text {
     border: 2px solid #333333;
-    width: 180%;
-    margin-top: 200px;
-    margin-left: -40%;
+    width: 140%;
+    margin-top: 160px;
+    margin-left: -20%;
     z-index: 99;
     position: relative;
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     font-size: 25px;
     font-weight: bold;
     line-height: 30px;
     color: #63c6c1;
+}
+.pr-0 {
+    padding-right: 0px;
+}
+.pl-0 {
+    padding-left: 0px;
 }
 .pan-collection .bottom-text {
     color: #63c6c1;
@@ -932,6 +942,9 @@ h2.price {
     font-weight: bold;
     margin-top: 90px;
     margin-bottom: 25px;
+}
+.pan-collection .small-right-image {
+    margin-top: -100%;
 }
 /* end collection */
 
