@@ -17,6 +17,8 @@ $_['entry_right_text']  = 'Right Text';
 $_['entry_bottom_text']      = 'Bottom Text';
 $_['entry_bottom_image']      = 'Bottom Image';
 $_['entry_status']     = 'Status';
+$_['entry_small_left_image']     = 'Small Left Image';
+$_['entry_small_right_image']     = 'Small Right Image';
 
 // Help
 $_['help_product']     = '(Autocomplete)';
@@ -34,3 +36,7 @@ $_['error_right_text']     = 'Right text required!';
 $_['error_bottom_image']     = 'Bottom image required!';
 $_['error_bottom_image_link']      = 'Bottom image link required!';
 $_['error_bottom_text']     = 'Bottom text required!';
+$_['error_small_left_image']     = 'Small left image required!';
+$_['error_small_left_image_link']     = 'Small left image link required!';
+$_['error_small_right_image']     = 'Small right image required!';
+$_['error_small_right_image_link']     = 'Small right image link required!';

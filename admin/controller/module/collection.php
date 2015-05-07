@@ -35,6 +35,8 @@ class ControllerModuleCollection extends Controller {
         $data['entry_right_text'] = $this->language->get('entry_right_text');
         $data['entry_bottom_text'] = $this->language->get('entry_bottom_text');
         $data['entry_bottom_image'] = $this->language->get('entry_bottom_image');
+        $data['entry_small_left_image'] = $this->language->get('entry_small_left_image');
+        $data['entry_small_right_image'] = $this->language->get('entry_small_right_image');
         $data['entry_status'] = $this->language->get('entry_status');
 
         $data['help_product'] = $this->language->get('help_product');
@@ -103,6 +105,28 @@ class ControllerModuleCollection extends Controller {
             $data['error_bottom_text'] = $this->error['bottom_text'];
         } else {
             $data['error_bottom_text'] = '';
+        }
+
+        if (isset($this->error['small_left_image'])) {
+            $data['error_small_left_image'] = $this->error['small_left_image'];
+        } else {
+            $data['error_small_left_image'] = '';
+        }
+        if (isset($this->error['small_left_image_link'])) {
+            $data['error_small_left_image_link'] = $this->error['small_left_image_link'];
+        } else {
+            $data['error_small_left_image_link'] = '';
+        }
+
+        if (isset($this->error['small_right_image'])) {
+            $data['error_small_right_image'] = $this->error['small_right_image'];
+        } else {
+            $data['error_small_right_image'] = '';
+        }
+        if (isset($this->error['small_right_image_link'])) {
+            $data['error_small_right_image_link'] = $this->error['small_right_image_link'];
+        } else {
+            $data['error_small_right_image_link'] = '';
         }
 
         $data['breadcrumbs'] = array();
@@ -271,6 +295,58 @@ class ControllerModuleCollection extends Controller {
         }
         // end bottom text
 
+        // small left image
+        if (isset($this->request->post['small_left_image'])) {
+            $data['small_left_image'] = $this->request->post['small_left_image'];
+        } elseif (!empty($module_info['small_left_image'])) {
+            $data['small_left_image'] = $module_info['small_left_image'];
+        } else {
+            $data['small_left_image'] = '';
+        }
+
+        if (isset($this->request->post['small_left_image_link'])) {
+            $data['small_left_image_link'] = $this->request->post['small_left_image_link'];
+        } elseif (!empty($module_info['small_left_image_link'])) {
+            $data['small_left_image_link'] = $module_info['small_left_image_link'];
+        } else {
+            $data['small_left_image_link'] = '';
+        }
+
+        if (isset($this->request->post['small_left_image']) && is_file(DIR_IMAGE . $this->request->post['small_left_image'])) {
+            $data['small_left_image_thumb'] = $this->model_tool_image->resize($this->request->post['small_left_image'], 100, 100);
+        } elseif (!empty($module_info['small_left_image']) && is_file(DIR_IMAGE . $module_info['small_left_image'])) {
+            $data['small_left_image_thumb'] = $this->model_tool_image->resize($module_info['small_left_image'], 100, 100);
+        } else {
+            $data['small_left_image_thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
+        // end small left image
+
+        // small right image
+        if (isset($this->request->post['small_right_image'])) {
+            $data['small_right_image'] = $this->request->post['small_right_image'];
+        } elseif (!empty($module_info['small_right_image'])) {
+            $data['small_right_image'] = $module_info['small_right_image'];
+        } else {
+            $data['small_right_image'] = '';
+        }
+
+        if (isset($this->request->post['small_right_image_link'])) {
+            $data['small_right_image_link'] = $this->request->post['small_right_image_link'];
+        } elseif (!empty($module_info['small_right_image_link'])) {
+            $data['small_right_image_link'] = $module_info['small_right_image_link'];
+        } else {
+            $data['small_right_image_link'] = '';
+        }
+
+        if (isset($this->request->post['small_right_image']) && is_file(DIR_IMAGE . $this->request->post['small_right_image'])) {
+            $data['small_right_image_thumb'] = $this->model_tool_image->resize($this->request->post['small_right_image'], 100, 100);
+        } elseif (!empty($module_info['small_right_image']) && is_file(DIR_IMAGE . $module_info['small_right_image'])) {
+            $data['small_right_image_thumb'] = $this->model_tool_image->resize($module_info['small_right_image'], 100, 100);
+        } else {
+            $data['small_right_image_thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
+        // end small right image
+
         if (isset($this->request->post['status'])) {
             $data['status'] = $this->request->post['status'];
         } elseif (!empty($module_info)) {
@@ -333,6 +409,20 @@ class ControllerModuleCollection extends Controller {
 
         if (!$this->request->post['bottom_text']) {
             $this->error['bottom_text'] = $this->language->get('error_bottom_text');
+        }
+
+        if (!$this->request->post['small_left_image']) {
+            $this->error['small_left_image'] = $this->language->get('error_small_left_image');
+        }
+        if (!$this->request->post['small_left_image_link']) {
+            $this->error['small_left_image_link'] = $this->language->get('error_small_left_image_link');
+        }
+
+        if (!$this->request->post['small_right_image']) {
+            $this->error['small_right_image'] = $this->language->get('error_small_right_image');
+        }
+        if (!$this->request->post['small_right_image_link']) {
+            $this->error['small_right_image_link'] = $this->language->get('error_small_right_image_link');
         }
 
         return !$this->error;

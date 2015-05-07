@@ -147,6 +147,50 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-small-left-image"><?php echo $entry_small_left_image; ?></label>
+                            <div class="col-sm-10">
+                                <a href="" id="small-left-image" data-toggle="image" class="img-thumbnail">
+                                    <img src="<?php echo $small_left_image_thumb; ?>" />
+                                </a>
+                                <?php if ($error_small_left_image) { ?>
+                                    <div class="text-danger"><?php echo $error_small_left_image; ?></div>
+                                <?php } ?>
+                                <input type="hidden" name="small_left_image" value="<?php echo $small_left_image; ?>" id="input-small-left-image" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-small-left-image-link">Small Left Image Link</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="small_left_image_link" value="<?php echo $small_left_image_link; ?>" placeholder="Small left image link" id="input-small-left-image-link" class="form-control" />
+                                <?php if ($error_small_left_image_link) { ?>
+                                    <div class="text-danger"><?php echo $error_small_left_image_link; ?></div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-small-right-image"><?php echo $entry_small_right_image; ?></label>
+                            <div class="col-sm-10">
+                                <a href="" id="small-right-image" data-toggle="image" class="img-thumbnail">
+                                    <img src="<?php echo $small_right_image_thumb; ?>" />
+                                </a>
+                                <?php if ($error_small_right_image) { ?>
+                                    <div class="text-danger"><?php echo $error_small_right_image; ?></div>
+                                <?php } ?>
+                                <input type="hidden" name="small_right_image" value="<?php echo $small_right_image; ?>" id="input-small-right-image" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required" for="input-small-right-image-link">Small Right Image Link</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="small_right_image_link" value="<?php echo $small_right_image_link; ?>" placeholder="Small right image link" id="input-small-right-image-link" class="form-control" />
+                                <?php if ($error_small_right_image_link) { ?>
+                                    <div class="text-danger"><?php echo $error_small_right_image_link; ?></div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
                             <div class="col-sm-10">
                                 <select name="status" id="input-status" class="form-control">
