@@ -666,7 +666,7 @@ function checkShip(btn){
         }
         
         if (json['error']['over_quantity']) {
-            $('input[name=\'quantity\']').after('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + json['error']['over_quantity'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+            $('input[name=\'quantity\']').closest('.pro-option-select').append('<div class="alert alert-danger" style="margin-top: 15px;"><span class="glyphicon glyphicon-warning-sign"></span> <strong>Thông báo:</strong> ' + json['error']['over_quantity'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
         }
 
         // Highlight any found errors
