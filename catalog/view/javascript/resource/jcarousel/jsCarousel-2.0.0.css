@@ -109,7 +109,7 @@
 	text-align: center;
 	/*background-color: #6FE5DF;*/
 	opacity: .9;
-	bottom: 5px;
+	bottom: -10px;
 	position: absolute;
   	z-index: 999999;
   	margin-left: 15px;
@@ -141,7 +141,7 @@
 .jscarousal-contents-vertical > div > div
 {
 	width: 140px;
-	height: 145px;
+	height: 156px;
 	/*height: 175px;*/
 	/*margin: 8px;
 	margin-left: 14px;*/
