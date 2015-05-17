@@ -905,8 +905,7 @@ h2.price {
     font-size: 14px;
 }
 .pan-collection .right-text {
-    width: 130%;
-    margin-left: -30%;
+    width: 100%;
 }
 .pan-collection .bottom-image {
     width: 100%;
@@ -929,6 +928,21 @@ h2.price {
     font-weight: bold;
     line-height: 30px;
     color: #63c6c1;
+}
+.pan-collection .left-image {
+    width: 105%;
+    margin-left: -5%;
+}
+.pan-collection .right-image {
+    width: 105%;
+}
+.pan-collection .small-left-image {
+    width: 105%;
+    margin-left: -10%;
+}
+.pan-collection .small-right-image {
+    width: 105%;
+    margin-left: 5%;
 }
 .pr-0 {
     padding-right: 0px;
