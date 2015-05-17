@@ -93,7 +93,7 @@ class ControllerInformationContact extends Controller {
 		$data['telephone'] = $this->config->get('config_telephone');
 		$data['fax'] = $this->config->get('config_fax');
 		$data['open'] = nl2br($this->config->get('config_open'));
-		$data['comment'] = $this->config->get('config_comment');
+		$data['comment'] = nl2br($this->config->get('config_comment'));
 
 		$data['locations'] = array();
 
