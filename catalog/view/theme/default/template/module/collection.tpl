@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-4 pr-0">
+                <div class="col-sm-8 col-sm-offset-4 pr-0 pl-0">
                     <div class="left-text" style="margin-top: 7px;"><?php echo $left_text; ?></div>
                 </div>
             </div>

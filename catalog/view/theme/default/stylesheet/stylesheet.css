@@ -904,8 +904,12 @@ h2.price {
 .pan-collection .left-text, .pan-collection .right-text {
     font-size: 14px;
 }
+.pan-collection .left-text {
+    letter-spacing: .5px;
+}
 .pan-collection .right-text {
     width: 100%;
+    letter-spacing: .5px;
 }
 .pan-collection .bottom-image {
     width: 100%;
