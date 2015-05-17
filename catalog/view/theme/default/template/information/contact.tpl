@@ -20,7 +20,7 @@
         <div class="panel-body">
           <div class="row">
             <?php if ($image) { ?>
-            <div class="col-sm-3"><img src="<?php echo $image; ?>" alt="<?php echo $store; ?>" title="<?php echo $store; ?>" class="img-thumbnail" /></div>
+            <div class="col-sm-3"><img src="<?php echo $image; ?>" alt="<?php echo $store; ?>" title="<?php echo $store; ?>" style="width: 70%; margin-top: -10px;" /></div>
             <?php } ?>
             <div class="col-sm-3"><strong class="text-color-common"><?php echo $store; ?></strong><br />
               <address class="text-color-common">
@@ -30,7 +30,7 @@
               <a class="btn btn-maguss-common btn-letter-space" href="https://maps.google.com/maps?q=<?php echo urlencode($geocode); ?>&hl=en&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> <?php //echo $button_map; ?> XEM BẢN ĐỒ</a>
               <?php } ?>
             </div>
-            <div class="col-sm-2 text-color-common"><strong><?php echo $text_telephone; ?></strong><br>
+            <div class="col-sm-3 text-color-common" style="padding-left: 40px;"><strong><?php echo $text_telephone; ?></strong><br>
               <?php echo $telephone; ?><br />
               <br />
                 <?php if ($open) { ?>
@@ -44,7 +44,7 @@
               <?php echo $fax; ?>
               <?php } ?>
             </div>
-            <div class="col-sm-4 text-color-common">
+            <div class="col-sm-3 text-color-common pl-0">
               <?php if ($comment) { ?>
               <strong><?php echo $text_comment; ?></strong><br />
               <?php echo $comment; ?>
