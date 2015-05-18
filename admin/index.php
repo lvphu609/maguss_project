@@ -37,7 +37,9 @@ $query = $db->query("SELECT * FROM " . DB_PREFIX . "setting WHERE store_id = '0'
 foreach ($query->rows as $setting) {
 	if (!$setting['serialized']) {
 		$config->set($setting['key'], $setting['value']);
-	} else {
+	} elseif ($setting['key'] == 'maguss_zone') {
+        $config->set($setting['key'], json_decode($setting['value'], true));
+    } else {
 		$config->set($setting['key'], unserialize($setting['value']));
 	}
 }

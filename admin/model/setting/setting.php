@@ -8,7 +8,9 @@ class ModelSettingSetting extends Model {
 		foreach ($query->rows as $result) {
 			if (!$result['serialized']) {
 				$setting_data[$result['key']] = $result['value'];
-			} else {
+			} elseif ($result['key'] == 'maguss_zone') {
+                $setting_data[$result['key']] = json_decode($result['value'], true);
+            } else {
 				$setting_data[$result['key']] = unserialize($result['value']);
 			}
 		}
@@ -23,7 +25,9 @@ class ModelSettingSetting extends Model {
 			if (substr($key, 0, strlen($code)) == $code) {
 				if (!is_array($value)) {
 					$this->db->query("INSERT INTO " . DB_PREFIX . "setting SET store_id = '" . (int)$store_id . "', `code` = '" . $this->db->escape($code) . "', `key` = '" . $this->db->escape($key) . "', `value` = '" . $this->db->escape($value) . "'");
-				} else {
+				} elseif ($key == 'maguss_zone') {
+                    $this->db->query("INSERT INTO " . DB_PREFIX . "setting SET store_id = '" . (int)$store_id . "', `code` = '" . $this->db->escape($code) . "', `key` = '" . $this->db->escape($key) . "', `value` = '" . $this->db->escape(json_encode($value)) . "', serialized = '1'");
+                } else {
 					$this->db->query("INSERT INTO " . DB_PREFIX . "setting SET store_id = '" . (int)$store_id . "', `code` = '" . $this->db->escape($code) . "', `key` = '" . $this->db->escape($key) . "', `value` = '" . $this->db->escape(serialize($value)) . "', serialized = '1'");
 				}
 			}
