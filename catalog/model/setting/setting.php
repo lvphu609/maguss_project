@@ -8,7 +8,9 @@ class ModelSettingSetting extends Model {
 		foreach ($query->rows as $result) {
 			if (!$result['serialized']) {
 				$data[$result['key']] = $result['value'];
-			} else {
+			} elseif ($result['key'] == 'maguss_zone') {
+                $data[$result['key']] = json_decode($result['value'], true);
+            } else {
 				$data[$result['key']] = unserialize($result['value']);
 			}
 		}
