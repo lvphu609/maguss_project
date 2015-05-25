@@ -22,6 +22,6 @@ define('DIR_LOGS', 'C:\wamp\www\maguss_project/system/logs/');
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', '@vp123456789');
 define('DB_DATABASE', 'maguss');
 define('DB_PREFIX', 'inno_');
