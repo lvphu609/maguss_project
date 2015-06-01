@@ -2372,6 +2372,7 @@ h2.text-desc-product-h2{
 .magnifier{
 	margin-left: 15px;
 	width: 900px;
+	height: 650px !important;
 }
 
 #icon_collapse_desc{
