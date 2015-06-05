@@ -65,7 +65,7 @@
                     <li>
                         <a href="<?php echo $contact; ?>">
                             <i class="fa fa-phone"></i>
-                            <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span>
+                            <span class="hidden-xs hidden-sm hidden-md"> LIÊN HỆ<?php // echo $telephone; ?></span>
                         </a>
                     </li>
                     <li>
